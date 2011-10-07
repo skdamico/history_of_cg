@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History of CG - Insert project</title>
+    
+    <link type="text/css" rel="stylesheet" href="css/input.css" />
+    <link type="text/css" rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css" />
+    <style>
+        .ui-autocomplete-loading { background: white url('../lib/images/loading.gif') right center no-repeat; }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+</head>
+<body>
+    <div id="target"></div>
+    <form id="inputform" method="post" action="insert.php">
+        <div id="loader" style="display: none;"></div>
+        <fieldset>
+            <legend>Fill in all information as accurately as possible</legend>
+            <p>
+               <label for="person_name">Collaborator(s)</label>
+               <em>*</em><input id="person_name" class="required" type="text" size="25" name="person_name" />
+            </p>
+            <p>
+               <label for="project_name">Name of Project</label>
+               <em>*</em><input id="project_name" class="required" type="text" size="25"  name="project_name" />
+            </p>
+            <p>
+               <label for="date_created">Date Created</label>
+               <em>*</em><input id="date_created" class="required date" type="text" size="25" name="date_created" />
+               <input id="date_alternative" type="hidden" name="date_alternative" />
+            </p>
+            <p>
+               <label for="location">Location</label>
+               <em>*</em><input id="location" class="required" type="text" size="25" name="location" />
+            </p>
+            <p>
+               <label for="organization">Organization</label>
+               <em class="whitespace"></em><input id="organization" type="text" size="25" name="organization" />
+            </p>
+            <p>
+               <label for="description">Description</label>
+               <em class="whitespace"></em><textarea id="description" rows="10" cols="25" name="description"></textarea>
+            </p>
+            <p>
+               <input class="submit" type="submit" value="Submit" />
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

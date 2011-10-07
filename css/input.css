@@ -1,0 +1,39 @@
+* { font-family: Verdana; font-size: 96%; }
+#inputform {
+    position: relative;
+}
+label { 
+    width: 10em; 
+    float: left; 
+}
+label.error { 
+    float: none; 
+    color: red; 
+    padding-left: .5em; 
+    vertical-align: top;
+}
+p { 
+    clear: both;
+}
+.submit { 
+    margin-left: 12em; 
+}
+input[type=text] {
+    border: 1px solid #555555;
+}
+em { 
+    font-weight: bold; 
+    padding-right: 1em;
+    vertical-align: top; 
+}
+.whitespace {
+    width: 0.5em;
+}
+#loader {
+    background: transparent url("/lib/images/ajax-loader.gif") no-repeat left top;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+}
