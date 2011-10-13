@@ -27,11 +27,11 @@ if($table == "project" || $table == "person" || $table == "organization") {
        if($count != 0) {
          echo (", ");
        }
-       echo ("\"" . $row["name"] . "\"");
+       echo ("\"" . $row["$col"] . "\"");
 
        $count++;
     }
     echo ("]");
-    }
+}
 
 ?>

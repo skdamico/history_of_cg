@@ -18,22 +18,43 @@ p {
 .submit { 
     margin-left: 12em; 
 }
-input[type=text] {
+input[type=text], textarea, select {
     border: 1px solid #555555;
 }
-em { 
-    font-weight: bold; 
-    padding-right: 1em;
-    vertical-align: top; 
-}
-.whitespace {
-    width: 0.5em;
-}
 #loader {
-    background: transparent url("/lib/images/ajax-loader.gif") no-repeat left top;
+    background: transparent url("../images/ajax-loader.gif") no-repeat left top;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 32px;
     height: 32px;
+}
+#mapblock
+{
+    position: relative;
+}
+#mapframe
+{
+    background-color: #e7e7e7;
+    left: 360px;
+    padding: 5px;
+    position: absolute;
+    visibility: hidden;
+    top: 50px;
+	width: 200px;
+	z-index: 99999999;
+}
+#mapframe #mapwindow
+{  
+	width: 200px;
+	height: 200px;
+}
+.ui-autocomplete
+{
+    border: #000000 solid 1px;
+    width: 450px;
+    height: 250px;
+}
+.ui-autocomplete-loading { 
+    background: white url('../lib/images/loading.gif') right center no-repeat;
 }
