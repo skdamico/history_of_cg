@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timeline</title>
+        <script src="js/raphael-min.js"></script>
+    </head>
+
+    <body>
+
+        <script>
+            var timelineX = 100; 
+            var timelineY = 100;
+            var timelineWidth = 800;
+            var timelineHeight = 1;
+            
+            var entryNum = 50;
+            var entries = new Array();
+            
+            window.onload = function() {
+                // Creates canvas 1000x200 at (0, 0)
+                var canvas = Raphael(0, 0, 1000, 200);
+                
+                // Creates line at (100, 100) with h
+                var timeline = canvas.rect(timelineX, timelineY, timelineWidth, timelineHeight);
+                
+                for(var i=0; i<entryNum; i++)
+                {
+                    entries[i] = canvas.circle(i*10 + timelineX, 100, 5);
+                }
+            }
+        </script>
+
+    </body>
+</html>
+
