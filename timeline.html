@@ -8,27 +8,92 @@
     <body>
 
         <script>
+        // Raphael timeline
             var timelineX = 100; 
             var timelineY = 100;
             var timelineWidth = 800;
-            var timelineHeight = 1;
             
             var entryNum = 50;
             var entries = new Array();
             
+            var canvas;
+            var context;
+            
             window.onload = function() {
-                // Creates canvas 1000x200 at (0, 0)
-                var canvas = Raphael(0, 0, 1000, 200);
+                // Get the canvas context
+                canvas = document.getElementById("timeline");
+                context = canvas.getContext("2d");
                 
-                // Creates line at (100, 100) with h
-                var timeline = canvas.rect(timelineX, timelineY, timelineWidth, timelineHeight);
+                drawLine();
                 
-                for(var i=0; i<entryNum; i++)
-                {
-                    entries[i] = canvas.circle(i*10 + timelineX, 100, 5);
+                // Initialize the drawing information for every entry
+                for(var i=0; i<entryNum; i++) {
+                    entries[i] = {
+                        x: i * 10 + timelineX, 
+                        y: timelineY, 
+                        radius: 5, 
+                        color: "#000000"
+                    };
+                }
+                
+                drawEntries();
+                    
+            }
+            
+            // Clears the canvas and redraws the timeline
+            function clearCanvas() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                drawLine();
+            }
+            
+            // Draws the timeline
+            function drawLine() {
+                context.moveTo(timelineX, timelineY);
+                context.lineTo(timelineX + timelineWidth, timelineY);
+                context.stroke();
+            }   
+            
+            // Draws every entry based on pre-determined position, radius and color
+            function drawEntries() {
+                for(var i=0; i<entryNum; i++) {                    
+                    context.beginPath();
+                    context.arc(entries[i].x, entries[i].y, entries[i].radius, 0, 2 * Math.PI, false);
+                    context.fillStyle = entries[i].color;
+                    context.fill();
+                    context.stroke();
                 }
             }
+            
+            // Moves every entry left
+            function moveLeft() {
+                clearCanvas();
+                
+                for(var i=0; i<entryNum; i++) {
+                    entries[i].x -= 50;
+                }
+                
+                drawEntries();
+            }
+            
+            // Moves every entry right
+            function moveRight() {
+                clearCanvas();
+                
+                for(var i=0; i<entryNum; i++) {
+                    entries[i].x += 50;
+                }
+                
+                drawEntries();
+            }
+            
+            
         </script>
+        
+        
+        <canvas id="timeline" width="1000" height="200"></canvas>
+        <button type="button" id="moveLeft" onclick="moveLeft()"> &#60 </button>
+        <button type="button" id="moreRight" onclick="moveRight()"> &#62 </button>
+
 
     </body>
 </html>
