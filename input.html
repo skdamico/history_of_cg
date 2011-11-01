@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History of CG - Entry</title>
+    
+    <link type="text/css" rel="stylesheet" href="css/input.css" />
+    <link type="text/css" rel="stylesheet" href="css/token-input.css" />
+    <link type="text/css" rel="stylesheet" href="css/token-input-hcg.css" />
+    <link type="text/css" rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css" />
+
+    <script type="text/javascript" src="js/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="js/countries.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
+</head>
+<body>
+    <div id="target"></div>
+    <form id="inputform" method="post" action="insert.php">
+        <div id="step-1">
+            <p> 
+               <label for="name">Name</label>
+               <input id="name" class="required" type="text"  name="name" />
+            </p>
+            <p>
+               <label for="categories">What is this?</label>
+               <select id="categories" name="categories">
+                   <option value=""></option>
+                   <option value="person">Person</option>
+                   <option value="project">Project</option>
+                   <option value="organization">Organization</option>
+                   <option value="event">Event</option>
+               </select>
+           </p>
+           <p>
+               <label for="tags" class="tags">Tags</label>
+               <input id="tags" type="text" name="tags" />
+           </p>
+           <p>
+               <label for="suggested-tags">Suggested Tags</label>
+               <ul id="suggested-tags"></ul>
+               <div style="clear: both"></div>
+           </p>
+        </div>
+        <div id="step-2">
+            <div id="loader" style="display: none;"></div>
+            <div id="form-data">
+            </div>
+            <div id="narrative-form">
+            </div>
+            <p>
+                <input type="submit" name="submit" value="Save" />
+            </p>
+        </div>
+    </form>
+
+    <div id="location-date-module" class="location-date-module" style="display: none;">
+        <p>
+           <label for="location">Location</label>
+           <div style="float:left">
+               <select class="country" name="country">
+                  <option value='' class="message">Country</option>
+               </select>
+               <select class="state" name="state">
+                  <option value='' class="message">State</option>
+               </select><br/>
+               <input class="city message" type="text" name="city" value="City" />
+           </div>
+           <div style="clear: both"></div>
+        </p>
+        <p class="date">
+           <label for="year_created">Date Started</label>
+           <select class="year_created" class="required" name="year_created" style="float: left"></select>
+           <select class="month_created" name="month_created" style="float: left;"></select>
+           <select class="day_created" name="day_created" style="float:left;"></select>
+           <div style="clear:both;"></div>
+        </p>
+        <p class="end-date" style="display: none;">
+           <label for="year_end">Date Ended</label>
+           <select class="year_end" class="required" name="year_end" style="float: left"></select>
+           <select class="month_end" name="month_end" style="float: left"></select>
+           <select class="day_end" name="day_end" style="float: left"></select>
+           <div style="clear:both;"></div>
+        </p>
+        <p>
+            <span class="add-location-date" style="display:none;">+ Multiple locations</span>
+        </p>
+    </div> 
+    <div id="narrative-module" class="narrative-module" style="display: none;">
+        <p>
+            <label for="narrative">Tell A Story</label>
+            <textarea rows="15" cols="40" name="narrative"></textarea>
+        </p>
+        <p>
+            <label for="author">Author</label>
+            <input name="author" type="text" />
+        </p>
+        <p>
+            <label for="citations">Citations</label>
+            <input name="citations" type="text" />
+        </p>
+        <p>
+            <span class="add-narrative">+ Add another story</span>
+        </p>
+    </div>
+</body>
+</html>

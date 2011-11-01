@@ -1,7 +1,4 @@
-* { font-family: Verdana; font-size: 96%; }
-#inputform {
-    position: relative;
-}
+* { font-family: Verdana; font-size: 1.0em; }
 label { 
     width: 10em; 
     float: left; 
@@ -19,7 +16,28 @@ p {
     margin-left: 12em; 
 }
 input[type=text], textarea, select {
+    background-color: #FFFFFF;
     border: 1px solid #555555;
+}
+#step-1 {
+    border-bottom: 1px solid #333333;
+}
+#step-2 {
+    display: none;
+    position: relative;
+}
+.narrative-module {
+    border-bottom: 1px solid #333333;
+}
+.add-narrative {
+    cursor: pointer;
+    font-weight: bold;
+}
+.add-location-date {
+    cursor: pointer;
+    font-weight: bold;
+}
+input.message, select option.message {
 }
 #loader {
     background: transparent url("../images/ajax-loader.gif") no-repeat left top;
@@ -29,32 +47,6 @@ input[type=text], textarea, select {
     width: 32px;
     height: 32px;
 }
-#mapblock
-{
-    position: relative;
-}
-#mapframe
-{
-    background-color: #e7e7e7;
-    left: 360px;
-    padding: 5px;
-    position: absolute;
-    visibility: hidden;
-    top: 50px;
-	width: 200px;
-	z-index: 99999999;
-}
-#mapframe #mapwindow
-{  
-	width: 200px;
-	height: 200px;
-}
-.ui-autocomplete
-{
-    border: #000000 solid 1px;
-    width: 450px;
-    height: 250px;
-}
-.ui-autocomplete-loading { 
-    background: white url('../lib/images/loading.gif') right center no-repeat;
+#categories {
+    width: 190px;
 }

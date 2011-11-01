@@ -6,32 +6,30 @@ $dbhost = "localhost";
 $dbname = "historyofcg";
 
 $table = $_GET["t"];
-$col   = $_GET["c"];
-$term  = $_GET["term"];
+$query = $_GET["q"];
 
 mysql_connect($dbhost, $dbuser, $dbpass) or die (mysql_error());
 mysql_select_db($dbname);
+if($table != '') {
+    $arr = array();
+    $result = '';
 
-if($table == "project" || $table == "person" || $table == "organization") {
-    $query = sprintf("SELECT %s FROM $table WHERE %s ",
-                   mysql_real_escape_string($col),
-                   mysql_real_escape_string($col));
-    $query .= sprintf("LIKE '%s%%'",
-                  mysql_real_escape_string($term));
-    $result = mysql_query($query) or die(mysql_error());
-
-    echo ("[");
+    if($table == "project" || $table == "person" || $table == "organization") {
+        $query = sprintf("SELECT id, name FROM $table WHERE name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+        $result = mysql_query($query) or die(mysql_error());
+    }
+    else if($table == "tags") {
+        $query = sprintf("SELECT id, name FROM tags WHERE approved = 1 and name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+        $result = mysql_query($query) or die(mysql_error()); 
+    }
 
     $count = 0;
-    while($row = mysql_fetch_array($result)) {
-       if($count != 0) {
-         echo (", ");
-       }
-       echo ("\"" . $row["$col"] . "\"");
-
-       $count++;
+    while($obj = mysql_fetch_object($result)) {
+        $arr[] = $obj;
     }
-    echo ("]");
-}
 
+    $json_response = json_encode($arr);
+
+    echo $json_response;
+}
 ?>

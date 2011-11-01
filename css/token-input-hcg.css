@@ -1,0 +1,162 @@
+ul.token-input-list-hcg {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 400px;
+    border: 1px solid #555;
+    cursor: text;
+    font-size: 0.98em;
+    font-family: Verdana;
+    min-height: 1px;
+    line-height: 0.98em;
+    z-index: 999;
+    margin: 0;
+    padding: 1px 0;
+    background-color: #fff;
+    list-style-type: none;
+}
+
+ul.token-input-list-hcg li input {
+    border: 0;
+    width: 100px;
+    padding: 1px 3px;
+    background-color: white;
+    margin: 1px 0;
+    font: inherit;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token-hcg {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 15px;
+    margin: 1px 0 1px 2px;
+    padding: 1px 1px 1px 3px;
+    background-color: #ddd;
+    color: #000;
+    cursor: default;
+    border: 1px solid #888;
+    font-size: 0.98em;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    float: left;
+    white-space: nowrap;
+}
+
+li.token-input-token-hcg p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token-hcg span {
+    color: #888;
+    margin: 1px 0 0 2px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px;
+    width: 11px;
+    height: 11px;
+    line-height: 9px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+li.token-input-token-hcg span:hover {
+    color: #fff;
+    background: #555;
+}
+
+li.token-input-selected-token-hcg {
+    background-color: #555;
+    border: 1px solid #aaa;
+    color: #fff;
+}
+
+li.token-input-input-token-hcg {
+    float: left;
+    margin: 0;
+    padding: 1px;
+    list-style-type: none;
+}
+li.token-input-dragged-token-hcg {
+    opacity: 0;
+}
+li.token-input-dragged-clone-hcg {
+    position: absolute;
+    margin: 5px 0 0 5px;
+    padding: 2px 6px;
+    list-style: none;
+    font-size: 0.96em;
+    font-family: Verdana;
+    cursor: move;
+}
+li.token-input-dragged-clone-hcg span {
+    display: none;
+}
+
+li.token-input-insert-before-hcg {
+    border-left: 1px solid red;
+}
+
+li.token-input-insert-after-hcg {
+    border-right: 1px solid red;
+}
+
+div.token-input-dropdown-hcg {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 0.96em;
+    font-family: Verdana;
+    z-index: 1;
+}
+
+div.token-input-dropdown-hcg p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown-hcg ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown-hcg ul li {
+    background-color: #fff;
+    padding: 3px;
+    margin: 0;
+    font-size: 0.98em;
+    list-style-type: none;
+}
+
+div.token-input-dropdown-hcg ul li.token-input-dropdown-item-hcg {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-hcg ul li.token-input-dropdown-item2-hcg {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-hcg ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown-hcg ul li.token-input-selected-dropdown-item-hcg {
+    background-color: #777;
+    color: #fff;
+}
+
