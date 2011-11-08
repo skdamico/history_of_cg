@@ -2,11 +2,9 @@
 <html>
 <head>
     <title>History of CG - Entry</title>
-    
     <link type="text/css" rel="stylesheet" href="css/input.css" />
     <link type="text/css" rel="stylesheet" href="css/token-input.css" />
     <link type="text/css" rel="stylesheet" href="css/token-input-hcg.css" />
-    <link type="text/css" rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css" />
 
     <script type="text/javascript" src="js/jquery-latest.js"></script>
     <script type="text/javascript" src="js/jquery-ui-latest.js"></script>
@@ -24,6 +22,7 @@
             <p> 
                <label for="name">Name</label>
                <input id="name" class="required" type="text"  name="name" />
+               <input id="name-id" type="hidden" name="name-id" value="" />
             </p>
             <p>
                <label for="categories">What is this?</label>
@@ -59,29 +58,29 @@
         <p>
            <label for="location">Location</label>
            <div style="float:left">
-               <select class="country" name="country">
+               <select class="country" name="country[]">
                   <option value='' class="message">Country</option>
                </select>
-               <select class="state" name="state">
+               <select class="state" name="state[]">
                   <option value='' class="message">State</option>
                </select><br/>
-               <input class="city message" type="text" name="city" value="City" />
+               <input class="city message" type="text" name="city[]" value="City" />
            </div>
            <div style="clear: both"></div>
         </p>
         <p class="date">
            <label for="start-year">Date Started</label>
-           <select class="start-year" class="required" name="start-year" style="float: left"></select>
-           <select class="start-month" name="start-month" style="float: left;"></select>
-           <select class="start-day" name="start-day" style="float:left;"></select>
+           <select class="start-year" class="required" name="start-year[]" style="float: left"></select>
+           <select class="start-month" name="start-month[]" style="float: left;"></select>
+           <select class="start-day" name="start-day[]" style="float:left;"></select>
            <span class="end-date-option" style="float:left; display:none;"><input type="checkbox" /><span></span></span>
            <div style="clear:both;"></div>
         </p>
         <p class="end-date" style="display: none;">
            <label for="end-year">Date Ended</label>
-           <select class="end-year" class="required" name="end-year" style="float: left"></select>
-           <select class="end-month" name="end-month" style="float: left"></select>
-           <select class="end-day" name="end-day" style="float: left"></select>
+           <select class="end-year" class="required" name="end-year[]" style="float: left"></select>
+           <select class="end-month" name="end-month[]" style="float: left"></select>
+           <select class="end-day" name="end-day[]" style="float: left"></select>
            <div style="clear:both;"></div>
         </p>
         <p>
@@ -91,15 +90,15 @@
     <div id="narrative-module" class="narrative-module" style="display: none;">
         <p>
             <label for="narrative">Tell A Story</label>
-            <textarea rows="15" cols="40" name="narrative"></textarea>
+            <textarea rows="15" cols="40" name="narrative[]"></textarea>
         </p>
         <p>
             <label for="author">Author</label>
-            <input name="author" type="text" />
+            <input name="author[]" type="text" />
         </p>
         <p>
             <label for="citations">Citations</label>
-            <input name="citations" type="text" />
+            <input name="citations[]" type="text" />
         </p>
         <p>
             <span class="add-narrative">+ Add another story</span>

@@ -22,7 +22,11 @@ if($table != '') {
         else {
             $col = "org.name";
         }
-        $query = sprintf("SELECT loc.* FROM organization as org, location as loc WHERE $col = '%s' AND (org.location_id = loc.id)", mysql_real_escape_string($q));
+        $query = sprintf("SELECT location.*, date.* FROM organization, location_date, location, date" . 
+                            "WHERE $col = '%s' AND " .
+                            "(organization.location_date_id = location_date.id) AND " .
+                            "(location_date.location_id = location.id) AND " .
+                            "(location_date.date_id = date.id)", mysql_real_escape_string($q));
         $result = mysql_query($query) or die(mysql_error());
     }
 

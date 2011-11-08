@@ -50,3 +50,60 @@ input.message, select option.message {
 #categories {
     width: 190px;
 }
+
+/* AUTOCOMPLETE */
+#name {
+    width: 400px;
+    border: 1px solid #555;
+}
+
+.ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
+
+.ui-autocomplete.ui-menu {
+    font: 0.96em Verdana;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    cursor: default;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+.ui-autocomplete li.ui-menu-item {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.98em;
+    list-style-type: none;
+    height:1.5em;
+    clear: both;
+}
+
+.ui-autocomplete li.ui-menu-item a {
+    display: block;
+    text-decoration: none;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 3px;
+}
+
+.ui-autocomplete li.ui-menu-item a.ui-state-hover, 
+.ui-autocomplete li a#ui-active-menuitem,
+.ui-autocomplete li a#ui-active-menuitem span {
+    background-color: #777;
+    color: #fff;
+}
+
+.autocomplete-name {
+    color: #333;
+    float: left;
+}
+.autocomplete-name-category {
+    color: #777;
+    float: right;
+}
+.autocomplete-name-term-highlight {
+    font-weight: bold;
+    color: #000;
+}

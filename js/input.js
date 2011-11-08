@@ -11,7 +11,7 @@ $(function() {
     
     function validateStep1() {
         var nameValid = ($("#name").val().trim() != '');
-        var tagsValid = ($("#tags").val().split(",").length > 0);
+        var tagsValid = ($("#tags").val().split(",").length > 1);
         var categoriesValid = ($("#categories option:selected").val().trim() != '');
 
         if(nameValid && tagsValid && categoriesValid) {
@@ -63,7 +63,7 @@ $(function() {
         var a = "<option";
         if(selectedDay == "")
             a += " selected='selected'";
-        a += "value=''></option>";
+        a += " value=''></option>";
         $(day_id).append(a);
 
         // append rest
@@ -72,44 +72,18 @@ $(function() {
             if(selectedDay != "" && parseInt(selectedDay) == (i+1)) {
                 a += " selected='selected'";
             }
-            a += "value='"+(i+1)+"'>"+(i+1)+"</option>";
+            a += " value='"+(i+1)+"'>"+(i+1)+"</option>";
             $(day_id).append(a);
         }
     }
     
-
-    // Clones and prepares a location/date pair. 
-    // makeLocationDateModule : String, String or false, String or false, Boolean, String
-    function makeLocationDateModule(dateName, endDateName, endDateOption, allowMultiple, where) {
-        if(!where) {
-            where = "#location-form";
-        }
-        
-        // clone and append template to form
-        var locationModule = $("#location-date-module").clone();
-        locationModule.removeAttr("id");
-        if(dateName) {
-            locationModule.children(".date").children("label").html(dateName);
-        }
-        if(endDateOption) {
-            locationModule.children(".end-date-option").children("span").html(endDateOption);
-        }
-        if(endDateName && !endDateOption) {
-            locationModule.children(".end-date").show();
-            locationModule.children(".end-date").children("label").html(endDateName);
-        }
-        locationModule.fadeIn();
-        $(where).append(locationModule);
-        if(allowMultiple) {
-            $(where+" .add-location-date:last").show().click(function() { makeLocationDateModule(dateName, endDateName, allowMultiple, where); });
-        }
-
+    function initLocationDateModule(where, endDate, endDateOption) {
         // init dates
         var yearCreated = $(where+" .start-year:last");
         var monthCreated = $(where+" .start-month:last");
         var dayCreated = $(where+" .start-day:last");
         
-        if(endDateName) {
+        if(endDate) {
             var yearEnd = $(where+" .end-year:last");
             var monthEnd = $(where+" .end-month:last");
             var dayEnd = $(where+" .end-day:last");
@@ -118,7 +92,7 @@ $(function() {
         populateYears(yearCreated);
         populateMonths(monthCreated);
 
-        if(endDateName) {
+        if(endDate) {
             populateYears(yearEnd);
             populateMonths(monthEnd);
         }
@@ -128,7 +102,7 @@ $(function() {
             populateDays(yearCreated, monthCreated, dayCreated);
             
             // if there is a date range, auto populate the end date
-            if(endDateName && $(monthEnd).val() == '') {
+            if(endDate && $(monthEnd).val() == '') {
                 $(monthEnd).val($(this).val());
                 populateDays(yearEnd, monthEnd, dayEnd);
             }
@@ -138,19 +112,24 @@ $(function() {
         });
         // auto populate the end date
         $(dayCreated).change(function() {
-            if(endDateName && $(dayEnd).val() == '') {
+            if(endDate && $(dayEnd).val() == '') {
                 $(dayEnd).val($(this).val());
             }
         });
 
+        if(endDate && !endDateOption) {
+            $(where+" .location-date-module:last").children(".end-date").show();
+        }
         if(endDateOption) { 
             var currentLocModule = $(where+" .location-date-module:last");
-            currentLocModule.children(".end-date-option input[type=checkbox]").click(function() {
+            $(".end-date-option span", currentLocModule).html(endDateOption);
+            $(".end-date-option", currentLocModule).show();
+            $(".end-date-option input[type=checkbox]", currentLocModule).click(function() {
                 if($(this).is(":checked")) {
-                    currentLocModule.children(".end-date").fadeIn();
+                    $(currentLocModule).children(".end-date").fadeIn();
                 }
                 else {
-                    currentLocModule.children(".end-date").fadeOut();   
+                    $(currentLocModule).children(".end-date").fadeOut();   
                 }
             });
         }
@@ -174,6 +153,34 @@ $(function() {
                 $(this).val("City");
             }
         });
+    }
+
+    // Clones and prepares a location/date pair. 
+    // makeLocationDateModule : String, String or false, String or false, Boolean, String
+    function makeLocationDateModule(dateName, endDateName, endDateOption, allowMultiple, where) {
+        if(!where) {
+            where = "#location-form";
+        }
+        
+        // clone and append template to form
+        var locationModule = $("#location-date-module").clone();
+        locationModule.removeAttr("id");
+        if(dateName) {
+            $(locationModule).children(".date").children("label").html(dateName);
+        }
+        if(endDateName) {
+            $(locationModule).children(".end-date").children("label").html(endDateName);
+        }
+        if(endDateOption) {
+            $(locationModule).children(".end-date-option").children("span").html(endDateOption);
+        }
+        locationModule.fadeIn();
+        $(where).append(locationModule);
+        if(allowMultiple) {
+            $(where+" .add-location-date:last").show().click(function() { makeLocationDateModule(dateName, endDateName, endDateOption, allowMultiple, where); });
+        }
+
+        initLocationDateModule(where, endDateName, endDateOption);
     }
 
     // Clones and prepares a narrative module
@@ -285,8 +292,8 @@ $(function() {
             makeLocationDateModule("Date", false, false,  true);
         }
         else if(category == "person") {
-            makeLocationDateModule("Date", false, false, false, "#birth");
-            makeLocationDateModule("Date", false, false, false, "#death");
+            initLocationDateModule("#birth");
+            initLocationDateModule("#death");
             $(".isdead").click(function() {
                 if($(this).is(":checked")) {
                     $("#death").fadeIn();
@@ -314,6 +321,44 @@ $(function() {
     $("#name").change(function() {
         validateStep1();
     });
+    $("#name").bind("keydown", function(event) {
+        if(event.keyCode === $.ui.keyCode.TAB &&
+            $(this).data("autocomplete").menu.active) {
+            event.preventDefault();
+        }
+    })
+    .autocomplete({
+        source: function(request, callback) {
+            $.getJSON("autocomplete.php", { t: "all", q: request.term }, callback);
+        },
+        focus: function( event, ui ) {
+            $( "#name" ).val( ui.item.name );
+            return false;
+        },
+        select: function( event, ui ) {
+            $("#name").val( ui.item.name );
+            $("#name-id").val( ui.item.id );
+            $("#categories").val( ui.item.category );
+            $("#categories").trigger("change");
+            
+            // fill in form from db
+
+            return false;
+        },
+        minLength: 1
+    })
+    .data( "autocomplete" )._renderItem = function( ul, item ) {
+        var re = new RegExp(this.term, "i");
+        var match = item.name.match(re);
+        var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" + 
+                    match + 
+                    "</span>");
+        return $( "<li></li>" )
+            .data( "item.autocomplete", item )
+            .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-name-category'>" + upperCaseWord(item.category) + "</span></a>" )
+            .appendTo( ul );
+    };
+
     $("#tags").tokenInput("autocomplete.php?t=tags", {
         theme: "hcg",
         allowCustomEntry: true,
@@ -350,14 +395,19 @@ $(function() {
         }
     });
 
-
-
     // submit form on validation
     var options = {
         beforeSubmit: function() {
             if($("#inputform").validate().form()) {
                 $("#inputform").animate({opacity: 0.3}, 300);
                 $("#loader").fadeIn(200);
+                
+                $(".city").each(function() {
+                    if($(this).val() == 'City') {
+                        $(this).val('');
+                        alert("City");
+                    }
+                });
                 return true;
             }
             else {
