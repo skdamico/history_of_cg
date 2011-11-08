@@ -7,21 +7,19 @@
     </head>
 
     <body>
-    
-        <!-- <canvas id="timeline" width="800" height="200"></canvas> -->
-        <button type="button" id="moveLeft"> &#60 </button>
-        <button type="button" id="moveRight"> &#62 </button>
-        <br />
-        <button type="button" id="zoomIn"> &#43 </button>
-        <button type="button" id="zoomOut"> &#45 </button>
 
         <script>
-            var timelineX = 0; 
+            var timelineX = 10; 
             var timelineY = 100;
             var timelineWidth = 800;
             var zoomLevel = 0;
             
-            var entryNum = 41;
+            var canvasX = 0;
+            var canvasY = 50;
+            var canvasWidth = timelineWidth + timelineX*2;
+            var canvasHeight= 200;
+            
+            var entryNum = 40;
             var entries = new Array();
             
             var baseYear = 1960;
@@ -31,15 +29,13 @@
             var context;
             
             window.onload = function() {
-                // Get the canvas context
-                /*canvas = document.getElementById("timeline");
-                context = canvas.getContext("2d");*/
-                canvas = Raphael(timelineX, timelineY, timelineWidth, 200)
+                // Set up the canvas
+                canvas = Raphael(canvasX, canvasY, canvasWidth, canvasHeight)
                 
                 drawLine();
                 
-                var c;
                 // Initialize the drawing information for every entry
+                var c;
                 for(var i=0; i<entryNum; i++) {
                     entries[i] = {
                         name: "Circle " + i, 
@@ -48,26 +44,15 @@
                         day: Math.floor(Math.random() * 31),
                         x: 0,
                         y: timelineY, 
-                        origX: i * 10 + timelineX, 
+                        origX: 0, 
                         radius: 5, 
                         color: "#000000"
                     };
                     setXPos(entries[i]);
-                    console.log('Entry ' + i + ' x-position is ' + entries[i].x + ' with year ' + entries[i].year + ' and month ' + entries[i].month); 
-                    c = canvas.circle(entries[i].x, entries[i].y, entries[i].radius);
-                    c.attr("fill", entries[i].color);
-                    c.id = i;
-                    
-                    c.hover(function() {
-                            this.attr({"fill": "#654"});
-                            console.log("Hovering " + this.id);
-                        },
-                        function () {
-                            this.attr({"fill": "#000"});
-                            console.log("Unhovering");
-                        }
-                    );
+                    //console.log('Entry ' + i + ' x-position is ' + entries[i].x + ' with year ' + entries[i].year + ' and month ' + entries[i].month); 
                 }
+                
+                drawEntries();
                     
             }
             
@@ -88,18 +73,34 @@
                 for(var i=0; i<entryNum; i++) {
                     c = canvas.circle(entries[i].x, entries[i].y, entries[i].radius);
                     c.attr("fill", entries[i].color);
+                    c.id = i;
+                    
+                    c.hover(function() {
+                            this.attr({"fill": "#654", "r": entries[this.id].radius + 5});
+                            console.log(entries[this.id].name + ", " + (entries[this.id].month + 1) + "/" + (entries[this.id].day + 1) + "/" + entries[this.id].year);
+                        },
+                        function () {
+                            this.attr({"fill": "#000", "r": entries[this.id].radius});
+
+                        }
+                    );
                 }
             }
             
             // Sets the initial x position of the given entry
             function setXPos(entry) {
-                var yearRange = timelineWidth/(endYear - baseYear);
-                var monthRange = yearRange/12;
-                entry.x = timelineX + yearRange * (entry.year - baseYear) + monthRange * entry.month;
+                var yearRange = timelineWidth/(endYear - baseYear) * (1+zoomLevel);
+                var monthRange = yearRange/12 * (1+zoomLevel);
+                var basePos = timelineX + yearRange * (entry.year - baseYear) + monthRange * entry.month;
+                entry.x = basePos - (timelineWidth * zoomLevel);
+                entry.origX = entry.x;
             }
             
             // Moves every entry left
-            $('#moveLeft').click(function() {
+            function moveLeft() {
+                if(entries[entryNum-1].x <= canvasWidth) 
+                    return;
+                
                 clearCanvas();
                 
                 for(var i=0; i<entryNum; i++) {
@@ -107,10 +108,13 @@
                 }
                 
                 drawEntries();
-            });
+            }
             
             // Moves every entry right
-            $('#moveRight').click(function() {
+            function moveRight() {
+                if(entries[0].x >= 0)
+                    return;
+                
                 clearCanvas();
                 
                 for(var i=0; i<entryNum; i++) {
@@ -118,48 +122,42 @@
                 }
                 
                 drawEntries();
-            });
+            }
             
             // Zooms in on the entries
-            $('#zoomIn').click(function() {
-                if(zoomLevel  == 100) 
+            function zoomIn() {
+                if(zoomLevel  == 1) 
                     return;
+                zoomLevel += .25;
                 clearCanvas();
-                
                 for(var i=0; i<entryNum; i++) {
-                    if(entries[i].x < timelineWidth/2 + timelineX) {
-                        entries[i].x -= ((timelineWidth/2) - (entries[i].origX * .8)); 
-                    }
-                    else {
-                        entries[i].x += ((entries[i].origX *.8) - (timelineWidth/2));
-                    }
+                    setXPos(entries[i])
                 }
                 
                 drawEntries();
-                zoomLevel += 25;
-            });
+            }
             
             // Zooms out on the entries
-            $('#zoomOut').click(function() {
+            function zoomOut() {
                 if(zoomLevel == 0)
                     return;
+                zoomLevel -= .25;
                 clearCanvas();
                 
                 for(var i=0; i<entryNum; i++) {
-                    if(entries[i].x < timelineWidth/2 + timelineX) {
-                        entries[i].x += ((timelineWidth/2) - (entries[i].origX * .8));
-                    }
-                    else {
-                        entries[i].x -= ((entries[i].origX * .8) - (timelineWidth/2));
-                    }
+                    setXPos(entries[i])
                 }
                 
                 drawEntries();
-                zoomLevel -= 25;
-            });
-            
+            }
             
         </script>
+        
+        <button type="button" id="moveLeft" onclick = "moveLeft()"> &#60 </button>
+        <button type="button" id="moveRight" onclick = "moveRight()"> &#62 </button>
+        <br />
+        <button type="button" id="zoomIn" onclick = "zoomIn()"> &#43 </button>
+        <button type="button" id="zoomOut" onclick = "zoomOut()"> &#45 </button>
 
 
     </body>
