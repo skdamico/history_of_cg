@@ -1,20 +1,27 @@
-<p>
-   <label for="description">Short Bio</label>
-   <textarea id="description" rows="5" cols="40" name="description"></textarea>
-</p>
-<span style="float:left; margin-right: 25em">Birth</span><span><input type='checkbox' class='isdead' style='float: left' />Deceased?</span>
-<p id="birth">
-</p>
-<p id="death" style="display: none">
-   <span>Death</span> 
-</p>
-<p id="location-form">
-</p>
-<p>
-   <label for="organization">Organizations Involved</label>
-   <input id="organization" type="text" size="25" name="organization" style="display: none" />
-</p>
-<p>
-   <label for="project">Credited Projects</label>
-   <input id="project" type="text" name="project" style="display: none" />
-</p>
+<div id="required-fields">
+    <p>
+       <label for="description">Short Bio</label>
+       <textarea id="description" class="required" rows="5" cols="40" name="description"></textarea>
+    </p>
+    <span style="float:left; margin-right: 25em">Birth</span><span><input type='checkbox' class='isdead' style='float: left' />Deceased?</span>
+    <p id="birth">
+    </p>
+    <span>Death</span>
+    <p id="death" style="display: none">
+    </p>
+    <p>Places lived</p>
+    <p id="location-form">
+    </p>
+</div>
+<div id="optional-fields">
+    <p>
+       <label for="organization">Organizations Involved</label>
+       <input id="organization" type="text" name="organization" style="display: none" />
+    </p>
+    <p>
+       <label for="project">Credited Projects</label>
+       <input id="project" type="text" name="project" style="display: none" />
+    </p>
+    <p id="narrative-form">
+    </p>
+</div>

@@ -14,6 +14,7 @@
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
     <script type="text/javascript" src="js/countries.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/input.js"></script>
 </head>
 <body>
@@ -46,10 +47,8 @@
         </div>
         <div id="step-2">
             <div id="loader" style="display: none;"></div>
-            <div id="form-data">
-            </div>
-            <div id="narrative-form">
-            </div>
+            <div id="required-fields"></div>
+            <div id="optional-fields"></div>
             <p>
                 <input type="submit" name="submit" value="Save" />
             </p>
@@ -71,17 +70,18 @@
            <div style="clear: both"></div>
         </p>
         <p class="date">
-           <label for="year_created">Date Started</label>
-           <select class="year_created" class="required" name="year_created" style="float: left"></select>
-           <select class="month_created" name="month_created" style="float: left;"></select>
-           <select class="day_created" name="day_created" style="float:left;"></select>
+           <label for="start-year">Date Started</label>
+           <select class="start-year" class="required" name="start-year" style="float: left"></select>
+           <select class="start-month" name="start-month" style="float: left;"></select>
+           <select class="start-day" name="start-day" style="float:left;"></select>
+           <span class="end-date-option" style="float:left; display:none;"><input type="checkbox" /><span></span></span>
            <div style="clear:both;"></div>
         </p>
         <p class="end-date" style="display: none;">
-           <label for="year_end">Date Ended</label>
-           <select class="year_end" class="required" name="year_end" style="float: left"></select>
-           <select class="month_end" name="month_end" style="float: left"></select>
-           <select class="day_end" name="day_end" style="float: left"></select>
+           <label for="end-year">Date Ended</label>
+           <select class="end-year" class="required" name="end-year" style="float: left"></select>
+           <select class="end-month" name="end-month" style="float: left"></select>
+           <select class="end-day" name="end-day" style="float: left"></select>
            <div style="clear:both;"></div>
         </p>
         <p>
@@ -105,5 +105,6 @@
             <span class="add-narrative">+ Add another story</span>
         </p>
     </div>
+    <div id="placeholder" style="display:none;"></div>
 </body>
 </html>

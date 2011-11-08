@@ -11,7 +11,7 @@ $(function() {
     
     function validateStep1() {
         var nameValid = ($("#name").val().trim() != '');
-        var tagsValid = ($("#tags").val().split(",").length > 1);
+        var tagsValid = ($("#tags").val().split(",").length > 0);
         var categoriesValid = ($("#categories option:selected").val().trim() != '');
 
         if(nameValid && tagsValid && categoriesValid) {
@@ -24,6 +24,7 @@ $(function() {
             
         }
     }
+
 
     function populateYears(id) {
         var date = new Date();
@@ -62,7 +63,7 @@ $(function() {
         var a = "<option";
         if(selectedDay == "")
             a += " selected='selected'";
-        a += "></option>";
+        a += "value=''></option>";
         $(day_id).append(a);
 
         // append rest
@@ -71,12 +72,15 @@ $(function() {
             if(selectedDay != "" && parseInt(selectedDay) == (i+1)) {
                 a += " selected='selected'";
             }
-            a += ">"+(i+1)+"</option>";
+            a += "value='"+(i+1)+"'>"+(i+1)+"</option>";
             $(day_id).append(a);
         }
     }
+    
 
-    function makeLocationDateModule(dateName, endDateName, allowMultiple, where) {
+    // Clones and prepares a location/date pair. 
+    // makeLocationDateModule : String, String or false, String or false, Boolean, String
+    function makeLocationDateModule(dateName, endDateName, endDateOption, allowMultiple, where) {
         if(!where) {
             where = "#location-form";
         }
@@ -87,7 +91,10 @@ $(function() {
         if(dateName) {
             locationModule.children(".date").children("label").html(dateName);
         }
-        if(endDateName) {
+        if(endDateOption) {
+            locationModule.children(".end-date-option").children("span").html(endDateOption);
+        }
+        if(endDateName && !endDateOption) {
             locationModule.children(".end-date").show();
             locationModule.children(".end-date").children("label").html(endDateName);
         }
@@ -98,14 +105,14 @@ $(function() {
         }
 
         // init dates
-        var yearCreated = $(where+" .year_created:last");
-        var monthCreated = $(where+" .month_created:last");
-        var dayCreated = $(where+" .day_created:last");
+        var yearCreated = $(where+" .start-year:last");
+        var monthCreated = $(where+" .start-month:last");
+        var dayCreated = $(where+" .start-day:last");
         
         if(endDateName) {
-            var yearEnd = $(where+" .year_end:last");
-            var monthEnd = $(where+" .month_end:last");
-            var dayEnd = $(where+" .day_end:last");
+            var yearEnd = $(where+" .end-year:last");
+            var monthEnd = $(where+" .end-month:last");
+            var dayEnd = $(where+" .end-day:last");
         }
 
         populateYears(yearCreated);
@@ -136,6 +143,17 @@ $(function() {
             }
         });
 
+        if(endDateOption) { 
+            var currentLocModule = $(where+" .location-date-module:last");
+            currentLocModule.children(".end-date-option input[type=checkbox]").click(function() {
+                if($(this).is(":checked")) {
+                    currentLocModule.children(".end-date").fadeIn();
+                }
+                else {
+                    currentLocModule.children(".end-date").fadeOut();   
+                }
+            });
+        }
         // init locations
         var country = $(where+" .country:last");
         var state = $(where+" .state:last");
@@ -158,6 +176,7 @@ $(function() {
         });
     }
 
+    // Clones and prepares a narrative module
     function makeNarrativeModule() {
         var narrativeModule = $("#narrative-module").clone();
         narrativeModule.removeAttr("id");
@@ -166,6 +185,60 @@ $(function() {
         $("#narrative-form .add-narrative:last").click(function() { makeNarrativeModule() });
     }
 
+    // Will try to auto fill the location of an organization
+    function autoFillLocation() {
+        // grab first org
+        var name = $("#organization").val().split(",")[0];
+        name = name.replace("\'", "");
+        
+        var locModule = $("#location-form .location-date-module:first");
+        
+        if(name != '' || name != null) {
+            getLocation("organization", name, function(data) {
+                if(data != "[]") {
+                    var loc = $.parseJSON(data);
+                    loc = loc[0];
+                    // Fill in form
+                    $(".country", locModule).val(loc.country);
+                    $(".country", locModule).trigger("change");
+                    
+                    if(loc.state != null) {
+                        $(".state", locModule).val(loc.state);
+                    }
+                    if(loc.city != null) {
+                        $(".city", locModule).trigger("focus").val(loc.city);
+                    }
+                    if(loc.start_year != null) {
+                        $(".start-year", locModule).val(loc.start_year);
+                        $(".start-year", locModule).trigger("change");
+                    }
+                    if(loc.start_month != null) {
+                        $(".start-month", locModule).val(loc.start_month);
+                        $(".start-month", locModule).trigger("change");
+                    }
+                    if(loc.start_day != null) {
+                        $(".start-day", locModule).val(loc.start_day);
+                    }
+
+                }
+                else {
+                    // reset
+                    $(".country", locModule).val('');
+                    $(".country", locModule).trigger("change");
+                    $(".state", locModule).val('');
+                    $(".city", locModule).val('').trigger("blur");
+                    $(".start-year option:eq(0)", locModule).attr("selected", "selected");
+                    $(".start-year", locModule).trigger("change");
+                    $(".start-month", locModule).val('');
+                    $(".start-month", locModule).trigger("change");
+                    $(".start-day", locModule).val('');
+                }
+            });
+        }
+        
+    }
+
+    // Creates an initialized form
     function formInit(category) {
         if($("#person")) {
             $("#person").tokenInput("autocomplete.php?t=person", {
@@ -175,11 +248,22 @@ $(function() {
             });
         }
         if($("#organization")) {
-            $("#organization").tokenInput("autocomplete.php?t=organization", {
-                theme: "hcg",
-                allowCustomEntry: true,
-                preventDuplicates: true
-            });
+            if(category == "project") {
+                $("#organization").tokenInput("autocomplete.php?t=organization", {
+                    theme: "hcg",
+                    allowCustomEntry: true,
+                    preventDuplicates: true,
+                    onAdd: autoFillLocation,
+                    onDelete: autoFillLocation
+                });
+            }
+            else {
+                $("#organization").tokenInput("autocomplete.php?t=organization", {
+                    theme: "hcg",
+                    allowCustomEntry: true,
+                    preventDuplicates: true
+                });
+            }
         }
         if($("#event")) {
             $("#event").tokenInput("autocomplete.php?t=event", {
@@ -196,34 +280,37 @@ $(function() {
             });
         }
 
+        // location/date
         if(category == "project") {
-            makeLocationDateModule("Date", false, false);
+            makeLocationDateModule("Date", false, false,  true);
         }
         else if(category == "person") {
-            makeLocationDateModule("Date", false, false, "#birth");
+            makeLocationDateModule("Date", false, false, false, "#birth");
+            makeLocationDateModule("Date", false, false, false, "#death");
             $(".isdead").click(function() {
                 if($(this).is(":checked")) {
-                    makeLocationDateModule("Date", false, false, "#death");
                     $("#death").fadeIn();
                 }
                 else {
-                    $("#death").fadeOut(function() { $(this).html("<span>Death</span>"); });   
+                    $("#death").fadeOut();   
                 }
             });
 
-            makeLocationDateModule("From", "To", true);
+            makeLocationDateModule("From", "To", "Moved?", true);
         }
         else if(category == "event") {
-            makeLocationDateModule("Start Date", "End Date", false);
+            makeLocationDateModule("Start Date", "End Date", false, false);
         }
         else if(category == "organization") {
-            makeLocationDateModule("From", "To", true);
+            makeLocationDateModule("Date Founded", "End Date", "Shut down?", false);
         }
+
+        // narrative
+        makeNarrativeModule();
     }
 
 
-    validateStep1();
-
+    // step 1 initialization
     $("#name").change(function() {
         validateStep1();
     });
@@ -244,13 +331,18 @@ $(function() {
             if(step1Complete) {
                 // play loading animation
                 $("#loader").fadeIn(200);
-                $("#step-2 #form-data").animate({opacity: 0.5},300);
+                $("#step-2").animate({opacity: 0.5},300);
             }
             // replace step 2 with form
-            $("#step-2 #form-data").load("forms/form-"+category+".html", function() {
+            $.get("forms/form-"+category+".html", function(data) {
+                $("#placeholder").html(data);
+                // load the data
+                $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
+                $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
+
                 if(step1Complete) {
                     $("#loader").fadeOut(200);
-                    $(this).animate({opacity: 1.0},300);
+                    $("#step-2").animate({opacity: 1.0},300);
                 }
 
                 formInit(category);
@@ -258,7 +350,6 @@ $(function() {
         }
     });
 
-    makeNarrativeModule();
 
 
     // submit form on validation
@@ -282,4 +373,5 @@ $(function() {
 
     $("#inputform").ajaxForm(options);
     
+    validateStep1();
 });

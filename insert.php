@@ -77,6 +77,7 @@
 
                 // if everything was added, mark complete in project
                 $narrative_arr = explode(",", $_POST["narrative"]);
+                
                 if($narrative_arr != '') {
                     foreach($narrative_arr as $narrative) {
                         $query = sprintf("INSERT INTO narrative (narrative) VALUES ('%s')", mysql_real_escape_string($narrative));
