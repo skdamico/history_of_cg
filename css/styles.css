@@ -53,7 +53,7 @@ h1.entryTitle {
         width:325px;
     }
     #homeSearch .search button.searchBtn {
-        background-images:url('../images/homeSearchBtn.png');
+        background-image:url('../images/homeSearchBtn.png');
         height:35px;
         width:35px;
     }
@@ -79,11 +79,11 @@ h1.entryTitle {
 .search input.searchBox {
         background-color:#141414;
         
-        background-images: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
-        background-images: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
-        background-images: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
-        background-images: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
-        background-images: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+        background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+        background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+        background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+        background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+        background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
         
         border:1px #2e4363 solid;
         color:#b9b9b9;
@@ -100,15 +100,15 @@ h1.entryTitle {
         .search input.searchBox:focus {
             background-color:#141414;
             
-            background-images: linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
-            background-images: -o-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
-            background-images: -moz-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
-            background-images: -webkit-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
-            background-images: -ms-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
+            background-image: linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
         }
     .search button.searchBtn {
         background-color:#000;
-        background-images:url('../images/searchBtn.png');
+        background-image:url('../images/searchBtn.png');
         border:1px #161b21 solid;
         float:left;
         font-size:0;
@@ -165,7 +165,7 @@ ul.catBar {
     ul.catBar .editEntry a:hover {color:#9dd4fe;}
 /* ----- mosaic content ----- */
 .mosaicBody {
-    background-images:url("../images/shadesBg.png");
+    background-image:url("../images/shadesBg.png");
     margin:0;
     min-height:500px;
     padding:14px;
