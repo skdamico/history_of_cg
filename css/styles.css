@@ -1,6 +1,6 @@
 .wrapper {
     background-color:#292f33;
-    background-images:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
+    background-image:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
     background-position:center center, center 0;
     background-repeat:repeat, no-repeat;
     color:#fff;
