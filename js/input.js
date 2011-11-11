@@ -79,16 +79,16 @@ $(function() {
     
     function initLocationDateModule(where, endDate, endDateOption) {
         // init dates
-        var yearCreated = $(where+" .start-year:last");
-        var monthCreated = $(where+" .start-month:last");
-        var dayCreated = $(where+" .start-day:last");
+        var yearCreated = $(where).find(".start-year").last();
+        var monthCreated = $(where).find(".start-month").last();
+        var dayCreated = $(where).find(".start-day").last();
         
         if(endDate) {
-            var yearEnd = $(where+" .end-year:last");
-            var monthEnd = $(where+" .end-month:last");
-            var dayEnd = $(where+" .end-day:last");
+            var yearEnd = $(where).find(".end-year").last();
+            var monthEnd = $(where).find(".end-month").last();
+            var dayEnd = $(where).find(".end-day").last();
         }
-
+        
         populateYears(yearCreated);
         populateMonths(monthCreated);
 
@@ -96,7 +96,13 @@ $(function() {
             populateYears(yearEnd);
             populateMonths(monthEnd);
         }
-        
+       
+        $(yearCreated).change(function() {
+            if(endDate) {
+                $(yearEnd).val($(this).val());
+            }
+        });
+
         // create correct number of days if month has changed
         $(monthCreated).change(function() {
             populateDays(yearCreated, monthCreated, dayCreated);
@@ -118,40 +124,29 @@ $(function() {
         });
 
         if(endDate && !endDateOption) {
-            $(where+" .location-date-module:last").children(".end-date").show();
+            $(where).find(".location-date-module").last().children(".end-date").show();
         }
         if(endDateOption) { 
-            var currentLocModule = $(where+" .location-date-module:last");
+            var currentLocModule = $(where).find(".location-date-module").last();
             $(".end-date-option span", currentLocModule).html(endDateOption);
             $(".end-date-option", currentLocModule).show();
             $(".end-date-option input[type=checkbox]", currentLocModule).click(function() {
                 if($(this).is(":checked")) {
                     $(currentLocModule).children(".end-date").fadeIn();
+                    $(currentLocModule).children(".end-date").children().removeClass("nosubmit");
                 }
                 else {
-                    $(currentLocModule).children(".end-date").fadeOut();   
+                    $(currentLocModule).children(".end-date").fadeOut();
+                    $(currentLocModule).children(".end-date").children().addClass("nosubmit");
                 }
             });
         }
         // init locations
-        var country = $(where+" .country:last");
-        var state = $(where+" .state:last");
-        var city = $(where+" .city:last");
+        var country = $(where).find(".country").last();
+        var state = $(where).find(".state").last();
         print_country(country);
         $(country).change(function() {
             print_state(state, $(this).children("option").index($(country).children("option:selected")));
-        });
-        $(city).focus(function() {
-            if($(this).hasClass("message")) {
-                $(this).val("");
-                $(this).removeClass("message");
-            }
-        })
-        .blur(function() {
-            if($(this).val() == '') {
-                $(this).addClass("message");
-                $(this).val("City");
-            }
         });
     }
 
@@ -190,6 +185,76 @@ $(function() {
         narrativeModule.fadeIn();
         $("#narrative-form").append(narrativeModule);
         $("#narrative-form .add-narrative:last").click(function() { makeNarrativeModule() });
+
+        $("#narrative-form .author:last").bind("keydown", function(event) {
+            if(event.keyCode === $.ui.keyCode.TAB &&
+                $(this).data("autocomplete").menu.active) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            source: function(request, callback) {
+                $.getJSON("autocomplete.php", { t: "person", q: request.term }, callback);
+            },
+            focus: function( event, ui ) {
+                $( this ).val( ui.item.name );
+                return false;
+            },
+            select: function( event, ui ) {
+                $(this).val( ui.item.name );
+                $("#narrative-form .author-id:last").val( ui.item.id );
+                
+                return false;
+            },
+            minLength: 1
+        })
+        .data( "autocomplete" )._renderItem = function( ul, item ) {
+            var re = new RegExp(this.term, "i");
+            var match = item.name.match(re);
+            var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" + 
+                        match + 
+                        "</span>");
+            return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append( "<a><span class='autocomplete-name'>" + t + "</span></span></a>" )
+                .appendTo( ul );
+        };
+    }
+    function resetLocation(where) {
+        // reset
+        $(".country", where).val('');
+        $(".country", where).trigger("change");
+        $(".state", where).val('');
+        $(".city", where).val('');
+        $(".start-year option:eq(0)", where).attr("selected", "selected");
+        $(".start-year", where).trigger("change");
+        $(".start-month", where).val('');
+        $(".start-month", where).trigger("change");
+        $(".start-day", where).val('');
+    }
+
+    function fillLocation(data, where) {
+        // Fill in form
+        $(".country", where).val(data.country);
+        $(".country", where).trigger("change");
+            
+        if(data.state != null) {
+            $(".state", where).val(data.state);
+        }
+        if(data.city != null) {
+            $(".city", where).val(data.city);
+        }
+        if(data.start_year != null) {
+            $(".start-year", where).val(data.start_year);
+            $(".start-year", where).trigger("change");
+        }
+        if(data.start_month != null) {
+            $(".start-month", where).val(data.start_month);
+            $(".start-month", where).trigger("change");
+        }
+        if(data.start_day != null) {
+            $(".start-day", where).val(data.start_day);
+        }
     }
 
     // Will try to auto fill the location of an organization
@@ -202,43 +267,14 @@ $(function() {
         
         if(name != '' || name != null) {
             getLocation("organization", name, function(data) {
-                if(data != "[]") {
+                if(data != "[]" && data != '') {
                     var loc = $.parseJSON(data);
                     loc = loc[0];
-                    // Fill in form
-                    $(".country", locModule).val(loc.country);
-                    $(".country", locModule).trigger("change");
-                    
-                    if(loc.state != null) {
-                        $(".state", locModule).val(loc.state);
-                    }
-                    if(loc.city != null) {
-                        $(".city", locModule).trigger("focus").val(loc.city);
-                    }
-                    if(loc.start_year != null) {
-                        $(".start-year", locModule).val(loc.start_year);
-                        $(".start-year", locModule).trigger("change");
-                    }
-                    if(loc.start_month != null) {
-                        $(".start-month", locModule).val(loc.start_month);
-                        $(".start-month", locModule).trigger("change");
-                    }
-                    if(loc.start_day != null) {
-                        $(".start-day", locModule).val(loc.start_day);
-                    }
 
+                    fillLocation(loc, locModule);
                 }
                 else {
-                    // reset
-                    $(".country", locModule).val('');
-                    $(".country", locModule).trigger("change");
-                    $(".state", locModule).val('');
-                    $(".city", locModule).val('').trigger("blur");
-                    $(".start-year option:eq(0)", locModule).attr("selected", "selected");
-                    $(".start-year", locModule).trigger("change");
-                    $(".start-month", locModule).val('');
-                    $(".start-month", locModule).trigger("change");
-                    $(".start-day", locModule).val('');
+                    resetLocation();
                 }
             });
         }
@@ -299,7 +335,7 @@ $(function() {
                     $("#death").fadeIn();
                 }
                 else {
-                    $("#death").fadeOut();   
+                    $("#death").fadeOut();  
                 }
             });
 
@@ -385,6 +421,9 @@ $(function() {
                 $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
                 $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
 
+                $("#step-2 input").not("input[type=submit]").val('');
+                $("#step-2 textarea").val('');
+
                 if(step1Complete) {
                     $("#loader").fadeOut(200);
                     $("#step-2").animate({opacity: 1.0},300);
@@ -402,12 +441,8 @@ $(function() {
                 $("#inputform").animate({opacity: 0.3}, 300);
                 $("#loader").fadeIn(200);
                 
-                $(".city").each(function() {
-                    if($(this).val() == 'City') {
-                        $(this).val('');
-                        alert("City");
-                    }
-                });
+                $(".nosubmit").attr("name", "STUPID");
+                
                 return true;
             }
             else {

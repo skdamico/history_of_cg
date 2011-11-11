@@ -64,7 +64,7 @@
                <select class="state" name="state[]">
                   <option value='' class="message">State</option>
                </select><br/>
-               <input class="city message" type="text" name="city[]" value="City" />
+               <input class="city" type="text" name="city[]" placeholder="City" />
            </div>
            <div style="clear: both"></div>
         </p>
@@ -90,15 +90,16 @@
     <div id="narrative-module" class="narrative-module" style="display: none;">
         <p>
             <label for="narrative">Tell A Story</label>
-            <textarea rows="15" cols="40" name="narrative[]"></textarea>
+            <textarea rows="15" cols="40" class="narrative" name="narrative[]"></textarea>
         </p>
         <p>
             <label for="author">Author</label>
-            <input name="author[]" type="text" />
+            <input name="author[]" class="author" type="text" />
+            <input name="author-id[]" class="author-id" type="hidden" />
         </p>
         <p>
             <label for="citations">Citations</label>
-            <input name="citations[]" type="text" />
+            <input name="citations[]" class="citation" type="text" />
         </p>
         <p>
             <span class="add-narrative">+ Add another story</span>

@@ -4,7 +4,7 @@
        <textarea id="description" class="required" rows="5" cols="40" name="description"></textarea>
     </p>
     <span style="float:left; margin-right: 25em">Birth</span><span><input type='checkbox' class='isdead' style='float: left' />Deceased?</span>
-    <p id="birth">
+    <div id="birth" class="birth">
         <p>
            <label for="location">Location</label>
            <div style="float:left">
@@ -14,7 +14,7 @@
                <select class="state" name="birth-state">
                   <option value='' class="message">State</option>
                </select><br/>
-               <input class="city message" type="text" name="birth-city" value="City" />
+               <input class="city" type="text" name="birth-city" placeholder="City" />
            </div>
            <div style="clear: both"></div>
         </p>
@@ -25,9 +25,9 @@
            <select class="start-day" name="birth-day" style="float:left;"></select>
            <div style="clear:both;"></div>
         </p>
-    </p>
-    <span>Death</span>
-    <p id="death" style="display: none">
+    </div>
+    <div id="death" class="death" style="display: none">
+        <span>Death</span>
         <p>
            <label for="location">Location</label>
            <div style="float:left">
@@ -37,7 +37,7 @@
                <select class="state" name="death-state">
                   <option value='' class="message">State</option>
                </select><br/>
-               <input class="city message" type="text" name="death-city" value="City" />
+               <input class="city" type="text" name="death-city" placeholder="City" />
            </div>
            <div style="clear: both"></div>
         </p>
@@ -48,7 +48,7 @@
            <select class="start-day" name="death-day" style="float:left;"></select>
            <div style="clear:both;"></div>
         </p>
-    </p>
+    </div>
     <p>Places lived</p>
     <p id="location-form">
     </p>

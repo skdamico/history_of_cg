@@ -1,15 +1,13 @@
 <?php 
 
-$dbuser = "root";
-$dbpass = "historyofcg";
-$dbhost = "localhost";
-$dbname = "historyofcg";
+include_once("setup/conf.php");
 
 $table = $_GET["t"];
 $query = $_GET["q"];
 
-mysql_connect($dbhost, $dbuser, $dbpass) or die (mysql_error());
-mysql_select_db($dbname);
+mysql_connect($db["host"], $db["user"], $db["pass"]) or die (mysql_error());
+mysql_select_db($db["db"]);
+
 if($table != '') {
     $arr = array();
     $result = '';
@@ -43,7 +41,7 @@ if($table != '') {
             $arr[] = array('id' => $row["id"], 'name' => $row["name"], 'category' => $row["person"]);
         }
         else {
-            $arr[] = $row;
+            $arr[] = array('id' => $row["id"], 'name' => $row["name"]);
         }
     }
 
@@ -51,4 +49,3 @@ if($table != '') {
 
     echo $json_response;
 }
-?>
