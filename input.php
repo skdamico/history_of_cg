@@ -73,7 +73,7 @@
            <select class="start-year" class="required" name="start-year[]" style="float: left"></select>
            <select class="start-month" name="start-month[]" style="float: left;"></select>
            <select class="start-day" name="start-day[]" style="float:left;"></select>
-           <span class="end-date-option" style="float:left; display:none;"><input type="checkbox" /><span></span></span>
+           <span class="end-date-option" style="float:left; display:none;"><input type="checkbox" name="end-date-option[]" value="end-date" /><span></span></span>
            <div style="clear:both;"></div>
         </p>
         <p class="end-date" style="display: none;">

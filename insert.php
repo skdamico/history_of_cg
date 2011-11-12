@@ -76,7 +76,7 @@
     }
 
     function insert_location_date($i, $prefix) {
-        if($prefix == null) {
+        if(!$prefix) {
             $prefix = '';
         }
 
@@ -84,7 +84,7 @@
         $state = null;
         $country = null;
 
-        if($i === null) {
+        if(!is_numeric($i)) {
             $city = $_POST[$prefix."city"];
             $state = $_POST[$prefix."state"];
             $country = $_POST[$prefix."country"];
@@ -95,105 +95,116 @@
             $country = $_POST[$prefix."country"][$i];
         }
 
+        if($country != '' && $country != null) {
 
-        // check for location in the db
-        $loc_id = select_location($city, $state, $country);
+            // check for location in the db
+            $loc_id = select_location($city, $state, $country);
 
-        if($loc_id == 0) {
-            //geocode location
-            $loc_str = '';
-            if($city != null && $city != '') {
-                $loc_str .= $city . ', ';
+            if($loc_id == 0) {
+                //geocode location
+                $loc_str = '';
+                if($city != null && $city != '') {
+                    $loc_str .= $city . ', ';
+                }
+                if($state != null && $state != '') {
+                    $loc_str .= $state . ', ';
+                }
+                $loc_str .= $country;
+
+                $result = file_get_contents("http://tinygeocoder.com/create-api.php?q=$loc_str") or error("file_get_contents");
+
+                $result_arr = explode(",", $result);
+                $lat = $result_arr[0];
+                $lon = $result_arr[1];
+
+                // insert location
+                $query = sprintf("INSERT INTO location (city, state, country, latitude, longitude) ".
+                                 "VALUES ('%s', '%s', '%s', %.6f, %.6f)",
+                                 mysql_real_escape_string($city),
+                                 $state,
+                                 $country,
+                                 $lat,
+                                 $lon);
+                mysql_query($query) or error (mysql_error());
+                $loc_id = mysql_insert_id();
             }
-            if($state != null && $state != '') {
-                $loc_str .= $state . ', ';
-            }
-            $loc_str .= $country;
+            // insert date
+            // test for date range
+            $query = "";
 
-            $result = file_get_contents("http://tinygeocoder.com/create-api.php?q=$loc_str") or error("file_get_contents");
+            if(!$prefix)
+                $prefix = 'start-';
 
-            $result_arr = explode(",", $result);
-            $lat = $result_arr[0];
-            $lon = $result_arr[1];
+            $year = null;
+            $month = null;
+            $day = null;
+            $end_date_option = null;
 
-            // insert location
-            $query = sprintf("INSERT INTO location (city, state, country, latitude, longitude) ".
-                             "VALUES ('%s', '%s', '%s', %.6f, %.6f)",
-                             mysql_real_escape_string($city),
-                             $state,
-                             $country,
-                             $lat,
-                             $lon);
-            mysql_query($query) or error (mysql_error());
-            $loc_id = mysql_insert_id();
-        }
-        // insert date
-        // test for date range
-        $query = "";
-
-        if($prefix == null)
-            $prefix = 'start-';
-
-        $year = null;
-        $month = null;
-        $day = null;
-        if($i === null) {
-            $year = $_POST[$prefix."year"];
-            $month = $_POST[$prefix."month"];
-            $day = $_POST[$prefix."day"];
-        }
-        else {
-            $year = $_POST[$prefix."year"][$i];
-            $month = $_POST[$prefix."month"][$i];
-            $day = $_POST[$prefix."day"][$i];
-        }
-
-        if($_POST["end-year"] != null && $_POST["end-year"] != '') {
-            if($prefix == null)
-                $prefix = 'end-';
-
-            $end_year = null;
-            $end_month = null;
-            $end_day = null;
-
-            if($i === null) {
-                $end_year = $_POST[$prefix."year"];
-                $end_month = $_POST[$prefix."month"];
-                $end_day = $_POST[$prefix."day"];
+            if(!is_numeric($i)) {
+                $year = $_POST[$prefix."year"];
+                $month = $_POST[$prefix."month"];
+                $day = $_POST[$prefix."day"];
+                $end_date_option = $_POST["end-date-option"];
             }
             else {
-                $end_year = $_POST[$prefix."year"][$i];
-                $end_month = $_POST[$prefix."month"][$i];
-                $end_day = $_POST[$prefix."day"][$i];
+                $year = $_POST[$prefix."year"][$i];
+                $month = $_POST[$prefix."month"][$i];
+                $day = $_POST[$prefix."day"][$i];
+                $end_date_option = $_POST["end-date-option"][$i];
             }
 
-            $query = sprintf("INSERT INTO date (start_year, start_month, start_day, end_year, end_month, end_day, is_end_date) ".
-                             "VALUES (%d,%d,%d,%d,%d,%d,%d)",
-                             $year,
-                             $month,
-                             $day,
-                             $end_year,
-                             $end_month,
-                             $end_day,
-                             1);
+
+            # bad fix for event end date problem.
+            if(($end_date_option != null && $end_date_option == "end-date") || $_POST["categories"] == "event") {
+                if(!$prefix)
+                    $prefix = 'end-';
+
+                $end_year = null;
+                $end_month = null;
+                $end_day = null;
+
+                if(!is_numeric($i)) {
+                    $end_year = $_POST[$prefix."year"];
+                    $end_month = $_POST[$prefix."month"];
+                    $end_day = $_POST[$prefix."day"];
+                }
+                else {
+                    $end_year = $_POST[$prefix."year"][$i];
+                    $end_month = $_POST[$prefix."month"][$i];
+                    $end_day = $_POST[$prefix."day"][$i];
+                }
+
+                $query = sprintf("INSERT INTO date (start_year, start_month, start_day, end_year, end_month, end_day, is_end_date) ".
+                                 "VALUES (%d,%d,%d,%d,%d,%d,%d)",
+                                 $year,
+                                 $month,
+                                 $day,
+                                 $end_year,
+                                 $end_month,
+                                 $end_day,
+                                 1);
+            }
+            else {
+                $query = sprintf("INSERT INTO date (start_year, start_month, start_day) ".
+                                 "VALUES (%d,%d,%d)",
+                                 $year,
+                                 $month,
+                                 $day);
+            }
+
+            mysql_query($query) or error(mysql_error());
+            $date_id = mysql_insert_id();
+
+            // insert location/date pair
+            $query = sprintf("INSERT INTO location_date (location_id, date_id) VALUES ($loc_id, $date_id)");
+            mysql_query($query) or error(mysql_error());
+            
+            $loc_date_id = mysql_insert_id();
+            return $loc_date_id;
         }
         else {
-            $query = sprintf("INSERT INTO date (start_year, start_month, start_day) ".
-                             "VALUES (%d,%d,%d)",
-                             $year,
-                             $month,
-                             $day);
+            return null;
         }
-
-        mysql_query($query) or error(mysql_error());
-        $date_id = mysql_insert_id();
-
-        // insert location/date pair
-        $query = sprintf("INSERT INTO location_date (location_id, date_id) VALUES ($loc_id, $date_id)");
-        mysql_query($query) or error(mysql_error());
-        
-        $loc_date_id = mysql_insert_id();
-        return $loc_date_id;
     }
 
     function insert_narratives($table, $table_id) {
@@ -282,9 +293,11 @@
                 // insert locations
                 $loc_date_ids = insert_location_dates();
                 foreach ($loc_date_ids as $i) {
-                    $query = sprintf("INSERT INTO location_date_project (location_date_id, project_id) " .
-                                     "VALUES ($i, $category_id)");
-                    mysql_query($query) or error(mysql_error());
+                    if($i != null) {
+                        $query = sprintf("INSERT INTO location_date_project (location_date_id, project_id) " .
+                                         "VALUES ($i, $category_id)");
+                        mysql_query($query) or error(mysql_error());
+                    }
                 }
                 
                 // insert any people
@@ -309,9 +322,11 @@
                 // insert locations
                 $loc_date_ids = insert_location_dates();
                 foreach ($loc_date_ids as $i) {
-                    $query = sprintf("INSERT INTO location_date_person (location_date_id, person_id) " .
-                                     "VALUES ($i, $category_id)");
-                    mysql_query($query) or error(mysql_error());
+                    if($i != null) {
+                        $query = sprintf("INSERT INTO location_date_person (location_date_id, person_id) " .
+                                         "VALUES ($i, $category_id)");
+                        mysql_query($query) or error(mysql_error());
+                    }
                 }
 
 
@@ -319,19 +334,20 @@
                 $birth_loc_date_id = insert_location_date(null, "birth-");
 
                 $death_loc_date_id = null;
-                if($_POST["death-country"] != null and $_POST["death-country"] != '' and $_POST["death-year"] != null and $_POST["death-year"] != '') {
+                if($_POST["deceased"] != null && $_POST["deceased"] == "deceased") {
                     $death_loc_date_id = insert_location_date(null, "death-");
                 }
                 
+                if($birth_loc_date_id) {
+                    $query = "UPDATE person SET birth_location_date_id = $birth_loc_date_id";
+                    
+                    if($death_loc_date_id) {
+                        $query .= ", death_location_date_id = $death_loc_date_id, deceased = 1";
+                    }
+                    $query .= " WHERE id = $category_id";
 
-                $query = "UPDATE person SET birth_location_date_id = $birth_loc_date_id";
-                if($death_loc_date_id) {
-                    $query .= ", death_location_date_id = $death_loc_date_id, deceased = 1";
+                    mysql_query($query) or error(mysql_error());
                 }
-                $query .= " WHERE id = $category_id";
-
-                mysql_query($query) or error(mysql_error());
-
 
                 // insert any organizations
                 secondary_entry_insert("organization", "person", $category_id, "organization_person");
@@ -341,7 +357,7 @@
             }
             else if($category == "event") {
                 // insert locations
-                $loc_date_id = insert_location_date(null, null);
+                $loc_date_id = insert_location_date(0, null);
 
                 $query = sprintf("INSERT INTO event (name, description, location_date_id) " .
                                  "VALUES ('%s', '%s', %d)",
@@ -364,7 +380,7 @@
             }
             else if($category == "organization") {
                 // insert locations
-                $loc_date_id = insert_location_date(null, null);
+                $loc_date_id = insert_location_date(0, null);
 
                 $query = sprintf("INSERT INTO organization (name, description, location_date_id) " .
                                  "VALUES ('%s', '%s', %d)",
