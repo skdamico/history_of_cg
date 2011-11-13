@@ -24,33 +24,44 @@
             foreach($arr_insert as $p) {
                 $p = preg_replace("/(^\'|\'\z)/", "", $p);
                 $p = trim($p);
+                
                 //test if in db
-                $result = mysql_query(sprintf("SELECT id FROM $secondary WHERE name = '%s'",mysql_real_escape_string($p)));
-
-                $i = "";
-                if(mysql_num_rows($result) == 0) {
+                if($p != "") { 
+                    
+                    $result = null;
                     if($secondary != "tags") {
-                        $query = sprintf("INSERT INTO $secondary (name) VALUES ('%s')", mysql_real_escape_string($p));
+                        $result = mysql_query(sprintf("SELECT id FROM $secondary WHERE name = '%s'",mysql_real_escape_string($p)));
                     }
                     else {
-                        $query = sprintf("INSERT INTO $secondary (name, approved, category) VALUES ('%s', 0, '%s')", mysql_real_escape_string($p), $primary);
+                        $result = mysql_query(sprintf("SELECT id FROM $secondary WHERE name = '%s' AND category = '%s'",mysql_real_escape_string($p), $primary));
+                    }
+                    
+                    // if not in db add
+                    $i = "";
+                    if(mysql_num_rows($result) == 0) {
+                        if($secondary != "tags") {
+                            $query = sprintf("INSERT INTO $secondary (name) VALUES ('%s')", mysql_real_escape_string($p));
+                        }
+                        else {
+                            $query = sprintf("INSERT INTO $secondary (name, approved, category) VALUES ('%s', 0, '%s')", mysql_real_escape_string($p), $primary);
+                        }
+                        mysql_query($query) or error(mysql_error());
+                        $i = mysql_insert_id();
+                    }
+                    else {
+                        $i = mysql_result($result, 0, "id");
+                    }
+                    
+                    // add to relational table
+                    $query = "INSERT INTO $table_name (". $tables[0] ."_id, ". $tables[1] ."_id) VALUES (";
+                    if($secondary == $tables[0]) {
+                        $query .= "$i, $primary_id)";
+                    }
+                    else {
+                        $query .= "$primary_id, $i)";
                     }
                     mysql_query($query) or error(mysql_error());
-                    $i = mysql_insert_id();
                 }
-                else {
-                    $i = mysql_result($result, 0, "id");
-                }
-                
-                // add to relational table
-                $query = "INSERT INTO $table_name (". $tables[0] ."_id, ". $tables[1] ."_id) VALUES (";
-                if($secondary == $tables[0]) {
-                    $query .= "$i, $primary_id)";
-                }
-                else {
-                    $query .= "$primary_id, $i)";
-                }
-                mysql_query($query) or error(mysql_error());
             }
         }
         // add existing to relational table
@@ -132,7 +143,7 @@
             // test for date range
             $query = "";
 
-            if(!$prefix)
+            if($prefix == '')
                 $prefix = 'start-';
 
             $year = null;
@@ -156,7 +167,7 @@
 
             # bad fix for event end date problem.
             if(($end_date_option != null && $end_date_option == "end-date") || $_POST["categories"] == "event") {
-                if(!$prefix)
+                if($prefix == "start-")
                     $prefix = 'end-';
 
                 $end_year = null;

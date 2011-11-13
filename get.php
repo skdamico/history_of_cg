@@ -27,6 +27,41 @@ function select_location($city, $state, $country) {
         return mysql_result($r, 0, 'id');
 }
 
+function get_association($assoc, $to, $what, $table_name) {
+    $query = "SELECT $assoc.id, $assoc.name FROM $table_name ".
+             "LEFT JOIN $assoc ON $assoc.id = $table_name.". $assoc ."_id ".
+             "WHERE $table_name.".$to."_id = $what";
+
+    $result = mysql_query($query) or die(mysql_error());
+
+    if(mysql_num_rows($result) != 0) {
+        $tmp = array();
+        
+        while($r = mysql_fetch_assoc($result)) {
+            $tmp[] = $r;
+        }
+
+        return $tmp;
+    }
+    else {
+        return null;
+    }
+}
+
+function get_tags($id, $category) {
+    $query = "SELECT tags.id, tags.name FROM tags ".
+             "LEFT JOIN ".$category."_tags ON ".$category."_tags.tags_id = tags.id ".
+             "WHERE ".$category."_tags.".$category."_id = $id";
+    $result = mysql_query($query) or die(mysql_error());
+
+    $tmp = array();
+    while($r = mysql_fetch_assoc($result)) {
+        $tmp[] = $r;
+    }
+
+    return $tmp;
+}
+
 mysql_connect($db["host"], $db["user"], $db["pass"]) or die ("Error: " . mysql_error());
 mysql_select_db($db["db"]);
 
@@ -77,7 +112,7 @@ if($t != null and $t != '' and $q != null and $q != '') {
         }
 
         // get narratives
-        $query = "SELECT narrative.id, narrative.narrative, person.name FROM narrative ".
+        $query = "SELECT narrative.id, narrative.narrative, narrative.person_id as author_id, person.name as author FROM narrative ".
                  "LEFT JOIN person ON person.id = narrative.person_id ".
                  "LEFT JOIN narrative_$t as n ON narrative.id = n.narrative_id ".
                  "WHERE n.". $t ."_id = ". $main_row['id'];
@@ -104,8 +139,32 @@ if($t != null and $t != '' and $q != null and $q != '') {
         }
 
         // get associations
-        
+        $tmp = array("person" => null, "project" => null, "organization" => null, "event" => null);
+
+        if($t == "person") {
+            $tmp["organization"] = get_association("organization", $t, $q, "organization_person");
+            $tmp["project"] = get_association("project", $t, $q, "person_project");
+        }
+        else if($t == "project") {
+            $tmp["person"] = get_association("person", $t, $q, "person_project");
+            $tmp["organization"] = get_association("organization", $t, $q, "organization_project");
+            $tmp["event"] = get_association("event", $t, $q, "event_project");
+        }
+        else if($t == "organization") {
+            $tmp["person"] = get_association("person", $t, $q, "organization_person");
+            $tmp["project"] = get_association("project", $t, $q, "organization_project");
+            $tmp["event"] = get_association("event", $t, $q, "event_organization");
+        }
+        else if($t == "event") {
+            $tmp["person"] = get_association("person", $t, $q, "event_person");
+            $tmp["project"] = get_association("project", $t, $q, "event_project");
+            $tmp["organization"] = get_association("organization", $t, $q, "event_organization");
+        }
+
+        $arr["associations"] = $tmp;
+
         // get tags
+        $arr["tags"] = get_tags($q, $t);
     }
 
     $json_response = json_encode($arr);
