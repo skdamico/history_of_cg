@@ -122,12 +122,15 @@
                 }
                 $loc_str .= $country;
 
-                $result = file_get_contents("http://tinygeocoder.com/create-api.php?q=$loc_str") or error("file_get_contents");
+                $result = file_get_contents("http://tinygeocoder.com/create-api.php?q=$loc_str");
 
-                $result_arr = explode(",", $result);
-                $lat = $result_arr[0];
-                $lon = $result_arr[1];
-
+                $lat = "0.000000";
+                $lon = "0.000000";
+                if($result != null) {
+                    $result_arr = explode(",", $result);
+                    $lat = $result_arr[0];
+                    $lon = $result_arr[1];
+                }
                 // insert location
                 $query = sprintf("INSERT INTO location (city, state, country, latitude, longitude) ".
                                  "VALUES ('%s', '%s', '%s', %.6f, %.6f)",

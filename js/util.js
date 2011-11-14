@@ -1,6 +1,6 @@
 // Gets locations from the table matching name
 function getLocation(table, name, callback) {
-    $.get("getlocations.php?t="+table+"&q="+name, function(data) {
+    $.getJSON("get.php?action=location&t="+table+"&q="+name, function(data) {
         callback(data);
     });
 }

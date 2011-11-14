@@ -1,5 +1,10 @@
 $(function() {
-    var step1Complete = false;
+    var loc_module_config = $.parseJSON('{'+
+                                        '"person":{"date_name":"From", "end_date_name":"To", "end_date_option":"Moved?", "multiple":true, "where":"#location-form"},'+
+                                        '"project":{"date_name":"Date", "end_date_name":false, "end_date_option":false, "multiple":true, "where":"#location-form"},'+
+                                        '"organization":{"date_name":"Date Founded", "end_date_name":"End Date", "end_date_option":"Shut down?", "multiple":false, "where":"#location-form"},'+
+                                        '"event":{"date_name":"Start Date", "end_date_name":"End Date", "end_date_option":false, "multiple":false, "where":"#location-form"}'+
+                                        '}');
 
     function split(val) {
         return val.split(/,\s*/);
@@ -15,13 +20,12 @@ $(function() {
         var categoriesValid = ($("#categories option:selected").val().trim() != '');
 
         if(nameValid && tagsValid && categoriesValid) {
-            step1Complete = true;
-            $("#step-2").fadeIn(500);
+            $("#step-2").fadeIn(200);
+            return true;
         }
         else {
-            step1Complete = false;
-            $("#step-2").fadeOut(500);
-            
+            $("#step-2").fadeOut(200);
+            return false;
         }
     }
 
@@ -133,11 +137,9 @@ $(function() {
             $(".end-date-option input[type=checkbox]", currentLocModule).click(function() {
                 if($(this).is(":checked")) {
                     $(currentLocModule).children(".end-date").fadeIn();
-                    $(currentLocModule).children(".end-date").children().removeClass("nosubmit");
                 }
                 else {
                     $(currentLocModule).children(".end-date").fadeOut();
-                    $(currentLocModule).children(".end-date").children().addClass("nosubmit");
                 }
             });
         }
@@ -177,6 +179,13 @@ $(function() {
 
         initLocationDateModule(where, endDateName, endDateOption);
     }
+
+    // Allows a JSON object to be inputted
+    // form: date_name, end_date_name, end_date_option, multiple, where
+    function makeLocationDateModuleJSON(obj) {
+        makeLocationDateModule(obj.date_name, obj.end_date_name, obj.end_date_option, obj.multiple, obj.where);
+    }
+
 
     // Clones and prepares a narrative module
     function makeNarrativeModule() {
@@ -220,6 +229,10 @@ $(function() {
                 .appendTo( ul );
         };
     }
+
+
+    // Reset the values in a location-date module
+    // Input: DOM Object
     function resetLocation(where) {
         // reset
         $(".country", where).val('');
@@ -231,9 +244,21 @@ $(function() {
         $(".start-month", where).val('');
         $(".start-month", where).trigger("change");
         $(".start-day", where).val('');
+        if(!$(".end-date-option", where).is(":hidden")) {
+            $(".end-date-option input[type=checkbox", where).removeAttr("checked");
+            $(".end-date", where).hide();
+            $(".end-year option:eq(0)", where).attr("selected", "selected");
+            $(".end-year", where).trigger("change");
+            $(".end-month", where).val('');
+            $(".end-month", where).trigger("change");
+            $(".end-day", where).val('');
+        }
     }
 
+    // Fill in values given a JSON containing location-date data
+    // Input: JSON, DOM Object
     function fillLocation(data, where) {
+
         // Fill in form
         $(".country", where).val(data.country);
         $(".country", where).trigger("change");
@@ -255,30 +280,211 @@ $(function() {
         if(data.start_day != null) {
             $(".start-day", where).val(data.start_day);
         }
+        if(data.is_end_date != null && data.is_end_date != 0 && $(".end-date-option", where) && !$(".end-date-option", where).is(":hidden")) {
+            if(data.end_year != null) {
+                $(".end-year", where).val(data.end_year);
+                $(".end-year", where).trigger("change");
+
+                //Show checkbox as checked and display end date
+                $(".end-date-option input[type=checkbox]", where).attr("checked", "checked");
+                $(".end-date", where).fadeIn();
+            }
+            if(data.end_month != null) {
+                $(".end-month", where).val(data.end_month);
+                $(".end-month", where).trigger("change");
+            }
+            if(data.end_day != null) {
+                $(".end-day", where).val(data.end_day);
+            }
+        }
     }
 
     // Will try to auto fill the location of an organization
+    // ** Specific to organization 
+    // Note: generalize this eventually
     function autoFillLocation() {
         // grab first org
-        var name = $("#organization").val().split(",")[0];
+        var name = $("#organization").val();
+        name = name.split(",")[0];
         name = name.replace("\'", "");
         
         var locModule = $("#location-form .location-date-module:first");
         
-        if(name != '' || name != null) {
+        if(name != '' && name != null) {
             getLocation("organization", name, function(data) {
-                if(data != "[]" && data != '') {
-                    var loc = $.parseJSON(data);
-                    loc = loc[0];
+                if(data != null && data.location != null) {
+                    loc = data.location[0];
+                    
+                    // if locModule is filled make new loc-date module
+                    if($(".country", locModule).val() != '' || $(".state", locModule).val() != '' || $(".city", locModule).val() != '') {
+                        makeLocationDateModuleJSON(loc_module_config.project);
+                        locModule = $("#location-form .location-date-module:last");
+                        locModule.insertBefore($("#location-form .location-date-module:eq(0)"));
+                    }
 
                     fillLocation(loc, locModule);
                 }
-                else {
-                    resetLocation();
-                }
+            })
+        }
+    }
+
+
+    // Create and populate location-date modules on the form
+    // Input: JSON
+    function fillLocations(data) {
+        var category = $("#categories").val();
+
+        var loc_module_obj = null;
+
+        if(category == "person") loc_module_obj = loc_module_config.person;
+        else if(category == "project") loc_module_obj = loc_module_config.project;
+        else if(category == "organization") loc_module_obj = loc_module_config.organization;
+        else if(category == "event") loc_module_obj = loc_module_config.event;
+
+        $.each(data, function(i,loc) {
+            //if not first make a loc/date module
+            var currentLocModule;
+            if(i > 0) {
+                makeLocationDateModuleJSON(loc_module_obj);
+                currentLocModule = $(".location-date-module:last", $(loc_module_obj.where));
+            }
+            else {
+                currentLocModule = $(".location-date-module:first", $(loc_module_obj.where));
+            }
+
+            fillLocation(loc, currentLocModule);
+        });
+    }
+
+    // Fill out the main form 
+    // Input: JSON
+    function fillMainForm(data) {
+        var category = $("#categories").val();
+
+        if(category == "person") {
+            if(data.birth_location_date) {
+                fillLocation(data.birth_location_date, $("#birth"));
+            }
+            if(data.death_location_date) {
+                fillLocation(data.death_location_date, $("#death"));
+            }
+        }
+        else if(category == "project") {
+        }
+        else if(category == "organization") {
+
+        }
+        else if(category == "event") {
+        
+        }
+
+        // all have description
+        $("#description").val(data.description);
+    }
+
+    // Fill all association inputs with tokens
+    // Input: JSON
+    function fillAssociations(data) {
+        if(data.organization && $("#organization")) {
+            $.each(data.organization, function(i, org) {
+                $("#organization").tokenInput("add", org);
             });
         }
-        
+        if(data.person && $("#person")) {
+            $.each(data.person, function(i, person) {
+                $("#person").tokenInput("add", person);
+            });
+        }
+        if(data.project && $("#project")) {
+            $.each(data.project, function(i, project) {
+                $("#project").tokenInput("add", project);
+            });
+        }
+        if(data.event && $("#event")) {
+            $.each(data.event, function(i, e) {
+                $("#event").tokenInput("add", e);
+            });
+        }
+    }
+
+    function fillNarrative(narrative, module) {
+        if(narrative.narrative != null && narrative.narrative != "") {
+            $(".narrative", module).val(narrative.narrative);
+        }
+        if(narrative.author != null) {
+            $(".author", module).val(narrative.author);
+            $(".author-id", module).val(narrative.author_id);
+        }
+        if(narrative.citations != null) {
+            var f = "";
+            $.each(narrative.citations, function(i, c) {
+                f += c.citation + ", ";
+            });
+
+            $(".citation", module).val(f.substring(0,f.length-2));
+        }
+    }
+
+    // Create and fill narrative modules with data
+    // Input: JSON
+    function fillNarratives(data) {
+        $.each(data, function(i,narrative) {
+            //if not first make a narrative module
+            var currentNarrativeModule;
+            if(i > 0) {
+                makeNarrativeModule();
+                currentNarrativeModule = $(".narrative-module:last", $("#narrative-form"));
+            }
+            else {
+                currentNarrativeModule = $(".narrative-module:first", $("#narrative-form"));
+            }
+            
+            fillNarrative(narrative, currentNarrativeModule);
+        });
+    }
+
+    function edit(id, name, category) {
+        $("#name").val( name );
+        $("#categories").val( category );
+
+        loadForm(false, function() {
+            // fill in form from db
+            $.getJSON("get.php?t="+category+"&q="+id, function(data) {
+                if(data != null) {
+
+                    // populate tags first to fire validation and form init
+                    if(data.tags) {
+                        // clear tags
+                        $("#tags").tokenInput("clear");
+                        // add all tags
+                        $.each(data.tags, function(i, tag) {
+                            $("#tags").tokenInput("add", tag);
+                        });
+                    }
+                        
+                    // main
+                    if(data.main) {
+                        fillMainForm(data.main);
+                    }
+
+                    // locations
+                    if(data.location) {
+                        fillLocations(data.location);
+
+                    }
+
+                    // associations
+                    if(data.associations) {
+                        fillAssociations(data.associations); 
+                    }
+
+                    // narratives
+                    if(data.narratives) {
+                        fillNarratives(data.narratives);
+                    }
+                }
+            });
+        });
     }
 
     // Creates an initialized form
@@ -325,7 +531,7 @@ $(function() {
 
         // location/date
         if(category == "project") {
-            makeLocationDateModule("Date", false, false,  true);
+            makeLocationDateModuleJSON(loc_module_config.project);
         }
         else if(category == "person") {
             initLocationDateModule("#birth");
@@ -339,23 +545,68 @@ $(function() {
                 }
             });
 
-            makeLocationDateModule("From", "To", "Moved?", true);
+            makeLocationDateModuleJSON(loc_module_config.person);
         }
         else if(category == "event") {
-            makeLocationDateModule("Start Date", "End Date", false, false);
+            makeLocationDateModuleJSON(loc_module_config.event);
         }
         else if(category == "organization") {
-            makeLocationDateModule("Date Founded", "End Date", "Shut down?", false);
+            makeLocationDateModuleJSON(loc_module_config.organization);
         }
 
         // narrative
         makeNarrativeModule();
     }
 
+    function formReset(callback) {
+        var category = $("#categories").val();
+        // replace step 2 with form
+        $.get("forms/form-"+category+".html", function(data) {
+            $("#placeholder").html(data);
+            // load the data
+            $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
+            $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
+
+            $("#step-2 input").not("input[type=submit]").val('');
+            $("#step-2 textarea").val('');
+
+            $("#placeholder").html("");
+
+            formInit(category);
+            
+            if(callback) {
+                callback();
+            }
+        });
+    }
+
+
+    // Load the correct form for category selected
+    // Input: boolean - choose to validate or override, function
+    function loadForm(validate, callback) {
+        var validation = false;
+        if(validate) validation = validateStep1();
+        else validation = true;
+
+        if(validation) {
+            // play loading animation
+            $("#loader").fadeIn(200);
+            $("#step-2").animate({opacity: 0.5},300);
+            
+            formReset(function() {
+                if(callback) {
+                    callback();
+                }
+
+                $("#loader").fadeOut(200);
+                $("#step-2").animate({opacity: 1.0},300);
+            });
+        }
+    }
 
     // step 1 initialization
     $("#name").change(function() {
-        validateStep1();
+        loadForm(true);
     });
     $("#name").bind("keydown", function(event) {
         if(event.keyCode === $.ui.keyCode.TAB &&
@@ -372,12 +623,8 @@ $(function() {
             return false;
         },
         select: function( event, ui ) {
-            $("#name").val( ui.item.name );
-            $("#name-id").val( ui.item.id );
-            $("#categories").val( ui.item.category );
-            $("#categories").trigger("change");
-            
-            // fill in form from db
+            //populate form with data
+            edit(ui.item.id, ui.item.name, ui.item.category);
 
             return false;
         },
@@ -405,32 +652,9 @@ $(function() {
     });
 
     $("#categories").change(function() {
-        validateStep1();
-        
         var category = $("#categories option:selected").val();
         if(category != '') {
-            if(step1Complete) {
-                // play loading animation
-                $("#loader").fadeIn(200);
-                $("#step-2").animate({opacity: 0.5},300);
-            }
-            // replace step 2 with form
-            $.get("forms/form-"+category+".html", function(data) {
-                $("#placeholder").html(data);
-                // load the data
-                $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
-                $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
-
-                $("#step-2 input").not("input[type=submit]").val('');
-                $("#step-2 textarea").val('');
-
-                if(step1Complete) {
-                    $("#loader").fadeOut(200);
-                    $("#step-2").animate({opacity: 1.0},300);
-                }
-
-                formInit(category);
-            });
+            loadForm(true);
         }
     });
 
@@ -440,8 +664,6 @@ $(function() {
             if($("#inputform").validate().form()) {
                 $("#inputform").animate({opacity: 0.3}, 300);
                 $("#loader").fadeIn(200);
-                
-                $(".nosubmit").attr("name", "STUPID");
                 
                 return true;
             }
@@ -457,6 +679,4 @@ $(function() {
     };
 
     $("#inputform").ajaxForm(options);
-    
-    validateStep1();
 });
