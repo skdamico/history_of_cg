@@ -642,6 +642,19 @@ $(function() {
         hintText: "Search for predefined tags or suggest new ones",
         onAdd: validateStep1,
         onDelete: validateStep1,
+        onResult: function(results) {
+            /*var category = $("#categories").val();
+
+            if(category != "" && category != null) {
+                $.each(results, function(i, value) {
+                    if(category == value.category) {
+                        results.splice(i, 1);
+                    }
+                });
+            }
+            */
+            return results;
+        }
     });
 
     $("#categories").change(function() {

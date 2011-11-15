@@ -18,11 +18,7 @@ if($table != '') {
         $result = mysql_query($query) or die(mysql_error());
     }
     else if($table == "tags") {
-        $query = "SELECT id, name FROM tags WHERE approved = 1 and ";
-        if($extra != null) 
-            $query .= "category = $extra";
-
-        $query .= sprintf("name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+        $query = sprintf("SELECT id, name, category FROM tags WHERE approved = 1 and name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
 
         $result = mysql_query($query) or die(mysql_error()); 
     }
@@ -47,7 +43,7 @@ if($table != '') {
             $arr[] = array('id' => $row["id"], 'name' => $row["name"], 'category' => $row["person"]);
         }
         else {
-            $arr[] = array('id' => $row["id"], 'name' => $row["name"]);
+            $arr[] = $row;
         }
     }
 
