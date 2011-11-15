@@ -170,3 +170,36 @@ ul.catBar {
     min-height:500px;
     padding:14px;
 }
+
+/* ========== INPUT PAGES ========== */
+.inputWrapper h1 {color:#d0e1db;}
+.inputWrapper .inputFormSections {
+	border-top:1px #e4e7fa solid;
+	background-image: -moz-linear-gradient(
+	  rgba(204,206,207,0.45) 0%, rgba(204,206,207,0.45) 95%
+	);
+	background-image: -webkit-gradient(
+	  linear, left top, left bottom, from(rgba(204,206,207,0.45)),
+	  to(rgba(129,138,138,0.45))
+	);
+	margin:0 auto;
+	padding:27px;
+	width:800px;
+}
+.inputWrapper .inputFormSections form label {
+	color:#e7e7e4;
+	float:left;
+	font-size:.85em;
+	font-weight:normal;
+	height:20px;
+	margin:3px 0;
+	padding: 0 10px 0 0;
+	text-align:right;
+	text-transform:lowercase;
+	width:220px!important;
+}
+#step-1 {border:none;}
+.inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select, .inputFormSections li {
+	border:none!important;
+	margin:3px 0;
+}

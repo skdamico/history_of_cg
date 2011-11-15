@@ -67,7 +67,7 @@ input.message, select option.message {
 
 /* AUTOCOMPLETE */
 #name {
-    width: 400px;
+    width: 300px;
     border: 1px solid #555;
 }
 
@@ -75,7 +75,7 @@ input.message, select option.message {
 
 .ui-autocomplete.ui-menu {
     font: 0.96em Verdana;
-    width: 400px;
+    width: 300px;
     border: 1px solid #ccc;
     border-top: none;
     background-color: #fff;

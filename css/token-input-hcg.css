@@ -2,7 +2,7 @@ ul.token-input-list-hcg {
     overflow: hidden; 
     height: auto !important; 
     height: 1%;
-    width: 400px;
+    width: 300px;
     border: 1px solid #555;
     cursor: text;
     font-size: 0.98em;
@@ -11,7 +11,7 @@ ul.token-input-list-hcg {
     line-height: 0.98em;
     z-index: 999;
     margin: 0;
-    padding: 1px 0;
+    padding: 0;
     background-color: #fff;
     list-style-type: none;
 }
@@ -110,7 +110,7 @@ li.token-input-insert-after-hcg {
 
 div.token-input-dropdown-hcg {
     position: absolute;
-    width: 400px;
+    width: 300px;
     background-color: #fff;
     overflow: hidden;
     border-left: 1px solid #ccc;
