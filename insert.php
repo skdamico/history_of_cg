@@ -300,61 +300,63 @@
 
                 // if author is not in db, insert new person
                 $person_id = $_POST["author-id"][$i];
-                if($person_id == null || $person_id == '') {
-                    $query = "SELECT id FROM person WHERE BINARY name = '$author'";
-                    $result = mysql_query($query) or die(mysql_error());
-                    
-                    if(mysql_num_rows($result) == 0) {
-                        $query = sprintf("INSERT INTO person (name) VALUES ('%s')",
-                                         mysql_real_escape_string($author));
-                        mysql_query($query) or error(mysql_error());
-                        $person_id = mysql_insert_id();
-                    }
-                    else {
-                        $person_id = mysql_result($result, 0, "id");
-                    }
-                }
-
-                $narrative_id = $_POST["narrative-id"][$i];
-                if($narrative_id == null || $narrative_id == '') {
-                    // test if narrative in db
-                    $query = sprintf("SELECT id FROM narrative WHERE BINARY narrative = '%s'",
-                                     mysql_real_escape_string($narrative));
-                    $result = mysql_query($query) or error(mysql_error());
-
-                    if(mysql_num_rows($result) != 0) {
-                        $narrative_id = mysql_result($result, 0, "id");
+                if($author != null && $author != '') {
+                    if($person_id == null || $person_id == '') {
+                        $query = "SELECT id FROM person WHERE BINARY name = '$author'";
+                        $result = mysql_query($query) or die(mysql_error());
                         
-                        $query = sprintf("UPDATE narrative SET narrative = '%s', person_id = %d WHERE id = $narrative_id",
-                               mysql_real_escape_string($narrative),
-                               $person_id);
-                        mysql_query($query) or error(mysql_error());
-                    }
-                    else {
-                        // insert new narrative
-                        if($narrative != null && $narrative != '' && $author != null && $author != '') {
-                            // insert narrative
-                            $query = sprintf("INSERT INTO narrative (narrative, person_id) ".
-                                             "VALUES ('%s', %d)",
-                                             mysql_real_escape_string($narrative),
-                                             $person_id); 
+                        if(mysql_num_rows($result) == 0) {
+                            $query = sprintf("INSERT INTO person (name) VALUES ('%s')",
+                                             mysql_real_escape_string($author));
                             mysql_query($query) or error(mysql_error());
-                            $narrative_id = mysql_insert_id();
-
-                            $query = "INSERT INTO narrative_$table (narrative_id, ". $table ."_id) VALUES (". $narrative_id .", $table_id)";
-                            mysql_query($query) or error(mysql_error());
+                            $person_id = mysql_insert_id();
+                        }
+                        else {
+                            $person_id = mysql_result($result, 0, "id");
                         }
                     }
+
+                    $narrative_id = $_POST["narrative-id"][$i];
+                    if($narrative_id == null || $narrative_id == '') {
+                        // test if narrative in db
+                        $query = sprintf("SELECT id FROM narrative WHERE BINARY narrative = '%s'",
+                                         mysql_real_escape_string($narrative));
+                        $result = mysql_query($query) or error(mysql_error());
+
+                        if(mysql_num_rows($result) != 0) {
+                            $narrative_id = mysql_result($result, 0, "id");
+                            
+                            $query = sprintf("UPDATE narrative SET narrative = '%s', person_id = %d WHERE id = $narrative_id",
+                                   mysql_real_escape_string($narrative),
+                                   $person_id);
+                            mysql_query($query) or error(mysql_error());
+                        }
+                        else {
+                            // insert new narrative
+                            if($narrative != null && $narrative != '' && $author != null && $author != '') {
+                                // insert narrative
+                                $query = sprintf("INSERT INTO narrative (narrative, person_id) ".
+                                                 "VALUES ('%s', %d)",
+                                                 mysql_real_escape_string($narrative),
+                                                 $person_id); 
+                                mysql_query($query) or error(mysql_error());
+                                $narrative_id = mysql_insert_id();
+
+                                $query = "INSERT INTO narrative_$table (narrative_id, ". $table ."_id) VALUES (". $narrative_id .", $table_id)";
+                                mysql_query($query) or error(mysql_error());
+                            }
+                        }
+                    }
+                    else {
+                        //update  
+                        $query = sprintf("UPDATE narrative SET narrative = '%s', person_id = %d WHERE id = $narrative_id",
+                                         mysql_real_escape_string($narrative),
+                                         $person_id);
+                        mysql_query($query) or error(mysql_error());
+                    }
+                       
+                    insert_citations($narrative_id, $i);
                 }
-                else {
-                    //update  
-                    $query = sprintf("UPDATE narrative SET narrative = '%s', person_id = %d WHERE id = $narrative_id",
-                                     mysql_real_escape_string($narrative),
-                                     $person_id);
-                    mysql_query($query) or error(mysql_error());
-                }
-                   
-                insert_citations($narrative_id, $i);
             }
         }
     }

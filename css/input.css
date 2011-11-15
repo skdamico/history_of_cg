@@ -39,6 +39,9 @@ input[type=text], textarea, select {
 }
 input.message, select option.message {
 }
+#inputform.spacer {
+    margin-top: 60px;
+}
 #loader {
     background: transparent url("../images/ajax-loader.gif") no-repeat left top;
     position: fixed;

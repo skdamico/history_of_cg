@@ -674,8 +674,8 @@ $(function() {
         target: "#target",
         success: function(response) {
             $("#loader").fadeOut(200);
-            $("#inputform").animate({opacity: 1.0},300);
-            $("#target").fadeIn(400).delay(5000).fadeOut(400);
+            $("#inputform").animate({opacity: 1.0},300).addClass("spacer");
+            $("#target").fadeIn(400).delay(5000).fadeOut(400, function() { $("#inputform").removeClass("spacer"); });
         },
     };
 
