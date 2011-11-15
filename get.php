@@ -27,7 +27,76 @@ function select_location($city, $state, $country) {
         return mysql_result($r, 0, 'id');
 }
 
-function get_location_by_id($table, $id) {
+function select_date($year, $month, $day, $end_year, $end_month, $end_day) {
+    $query = "SELECT id FROM date WHERE ";
+
+    if(is_numeric($year)) {
+        $query .= "start_year = $year AND ";
+    }
+    else {
+        $query .= "start_year IS NULL AND ";
+    }
+    if(is_numeric($month)) {
+        $query .= "start_month = $month AND ";
+    }
+    else {
+        $query .= "start_month IS NULL AND ";
+    }
+    if(is_numeric($day)) {
+        $query .= "start_day = $day AND ";
+    }
+    else {
+        $query .= "start_day IS NULL AND ";
+    }
+    if(is_numeric($end_year)) {
+        $query .= "end_year = $end_year AND ";
+    }
+    else {
+        $query .= "end_year IS NULL AND ";
+    }
+    if(is_numeric($end_month)) {
+        $query .= "end_month = $end_month AND ";
+    }
+    else {
+        $query .= "end_month IS NULL AND ";
+    }
+    if(is_numeric($end_day)) {
+        $query .= "end_day = $end_day AND ";
+    }
+    else {
+        $query .= "end_day IS NULL AND ";
+    }
+    $query = rtrim($query, " AND ");
+
+    $r = mysql_query($query) or error(mysql_error());
+
+    if(mysql_num_rows($r) == 0)
+        return 0;
+    else
+        return mysql_result($r, 0, 'id');
+}
+
+function select_loc_date($loc_id, $date_id) {
+    $query = "SELECT id FROM location_date WHERE ";
+
+    if($loc_id != null && $loc_id != '') {
+        $query .= "location_id = $loc_id AND ";
+    }
+    if($date_id != null && $date_id != '') {
+        $query .= "date_id = $date_id AND "; 
+    }
+
+    $query = rtrim($query, " AND ");
+
+    $r = mysql_query($query) or error(mysql_error());
+
+    if(mysql_num_rows($r) == 0)
+        return 0;
+    else 
+        return mysql_result($r, 0, 'id');
+}
+
+function get_location_by_relation_id($table, $id) {
     $return = null;
    
     if($id != null && is_numeric($id)) {
@@ -65,7 +134,7 @@ function get_location_by_id($table, $id) {
     return $return;
 }
 
-function get_location_by_name($table, $name) {
+function get_location_by_relation_name($table, $name) {
     $return = null;
 
     if($name != null) {
@@ -89,7 +158,7 @@ function get_location_by_name($table, $name) {
                      "LEFT JOIN date ON location_date.date_id = date.id ".
                      "LEFT JOIN location_date_$table ON location_date_$table.location_date_id = location_date.id ".
                      "LEFT JOIN $table ON $table.id = location_date_$table.".$table."_id ".
-                     "WHERE $table.name = '$name'";
+                     "WHERE BINARY $table.name = '$name'";
             $result = mysql_query($query) or die(mysql_error());
 
             if(mysql_num_rows($result) != 0) {
@@ -192,7 +261,7 @@ if($t != null and $t != '' and $q != null and $q != '') {
             $arr["main"] = $main_row;
             
             // get location
-            $arr["location"] = get_location_by_id($t, $q);
+            $arr["location"] = get_location_by_relation_id($t, $q);
 
             // get narratives
             $query = "SELECT narrative.id, narrative.narrative, narrative.person_id as author_id, person.name as author FROM narrative ".
@@ -252,10 +321,10 @@ if($t != null and $t != '' and $q != null and $q != '') {
     }
     else if($action != null && $action == "location") {
         if(is_numeric($q)) {
-            $arr["location"] = get_location_by_id($t, $q);
+            $arr["location"] = get_location_by_relation_id($t, $q);
         }
         else {
-            $arr["location"] = get_location_by_name($t, $q);
+            $arr["location"] = get_location_by_relation_name($t, $q);
         }
     }
 

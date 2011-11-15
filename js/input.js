@@ -46,7 +46,7 @@ $(function() {
         var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         
         // append blank for validation
-        $(id).append("<option value=''></option>");
+        $(id).append("<option value='0'></option>");
         for(var i=0; i<months.length; i++) {
             $(id).append("<option value='"+(i+1)+"'>"+months[i]+"</option>");
         }
@@ -67,7 +67,7 @@ $(function() {
         var a = "<option";
         if(selectedDay == "")
             a += " selected='selected'";
-        a += " value=''></option>";
+        a += " value='0'></option>";
         $(day_id).append(a);
 
         // append rest
@@ -280,14 +280,16 @@ $(function() {
         if(data.start_day != null) {
             $(".start-day", where).val(data.start_day);
         }
-        if(data.is_end_date != null && data.is_end_date != 0 && $(".end-date-option", where) && !$(".end-date-option", where).is(":hidden")) {
+        if(data.is_end_date != null && parseInt(data.is_end_date) != 0) {
             if(data.end_year != null) {
                 $(".end-year", where).val(data.end_year);
                 $(".end-year", where).trigger("change");
 
-                //Show checkbox as checked and display end date
-                $(".end-date-option input[type=checkbox]", where).attr("checked", "checked");
-                $(".end-date", where).fadeIn();
+                if($(".end-date-option", where) && !$(".end-date-option", where).is(":hidden")) {
+                    //Show checkbox as checked and display end date
+                    $(".end-date-option input[type=checkbox]", where).attr("checked", "checked");
+                    $(".end-date", where).fadeIn();
+                }
             }
             if(data.end_month != null) {
                 $(".end-month", where).val(data.end_month);
@@ -367,6 +369,9 @@ $(function() {
             }
             if(data.death_location_date) {
                 fillLocation(data.death_location_date, $("#death"));
+
+                $(".isdead").attr("checked", "checked");
+                $("#death").show();
             }
         }
         else if(category == "project") {
@@ -408,6 +413,9 @@ $(function() {
     }
 
     function fillNarrative(narrative, module) {
+        if(narrative.id != null && narrative.id != "") {
+            $(".narrative-id", module).val(narrative.id);
+        }
         if(narrative.narrative != null && narrative.narrative != "") {
             $(".narrative", module).val(narrative.narrative);
         }
@@ -445,9 +453,13 @@ $(function() {
 
     function edit(id, name, category) {
         $("#name").val( name );
+        $("#name-id").val( id );
         $("#categories").val( category );
 
-        loadForm(false, function() {
+        $("#input-form").animate({opacity: 0.5}, 200);
+        $("#loader").fadeIn(200);
+
+        formReset(function() {
             // fill in form from db
             $.getJSON("get.php?t="+category+"&q="+id, function(data) {
                 if(data != null) {
@@ -483,6 +495,10 @@ $(function() {
                         fillNarratives(data.narratives);
                     }
                 }
+
+                $("#loader").fadeOut(200);
+                $("#input-form").animate({opacity: 1.0}, 200);
+                validateStep1();
             });
         });
     }
@@ -567,7 +583,7 @@ $(function() {
             $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
             $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
 
-            $("#step-2 input").not("input[type=submit]").val('');
+            $("#step-2 input").not("input[type=submit]").not("input[type=checkbox]").val('');
             $("#step-2 textarea").val('');
 
             $("#placeholder").html("");
@@ -581,32 +597,9 @@ $(function() {
     }
 
 
-    // Load the correct form for category selected
-    // Input: boolean - choose to validate or override, function
-    function loadForm(validate, callback) {
-        var validation = false;
-        if(validate) validation = validateStep1();
-        else validation = true;
-
-        if(validation) {
-            // play loading animation
-            $("#loader").fadeIn(200);
-            $("#step-2").animate({opacity: 0.5},300);
-            
-            formReset(function() {
-                if(callback) {
-                    callback();
-                }
-
-                $("#loader").fadeOut(200);
-                $("#step-2").animate({opacity: 1.0},300);
-            });
-        }
-    }
-
     // step 1 initialization
     $("#name").change(function() {
-        loadForm(true);
+        validateStep1();
     });
     $("#name").bind("keydown", function(event) {
         if(event.keyCode === $.ui.keyCode.TAB &&
@@ -648,13 +641,20 @@ $(function() {
         preventDuplicates: true,
         hintText: "Search for predefined tags or suggest new ones",
         onAdd: validateStep1,
-        onDelete: validateStep1
+        onDelete: validateStep1,
     });
 
     $("#categories").change(function() {
         var category = $("#categories option:selected").val();
         if(category != '') {
-            loadForm(true);
+            // play loading animation
+            $("#loader").fadeIn(200);
+            $("#step-2").animate({opacity: 0.5},300);
+            
+            formReset(function() {
+                $("#loader").fadeOut(200);
+                $("#step-2").animate({opacity: 1.0},300);
+            });
         }
     });
 
@@ -675,7 +675,8 @@ $(function() {
         success: function(response) {
             $("#loader").fadeOut(200);
             $("#inputform").animate({opacity: 1.0},300);
-        }
+            $("#target").fadeIn(400).delay(5000).fadeOut(400);
+        },
     };
 
     $("#inputform").ajaxForm(options);

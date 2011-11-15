@@ -16,7 +16,7 @@
     <script type="text/javascript" src="js/input.js"></script>
 </head>
 <body>
-    <div id="target"></div>
+    <div id="target" style="display: none"></div>
     <form id="inputform" method="post" action="insert.php">
         <div id="step-1">
             <p> 
@@ -45,7 +45,6 @@
            </p>
         </div>
         <div id="step-2">
-            <div id="loader" style="display: none;"></div>
             <div id="required-fields"></div>
             <div id="optional-fields"></div>
             <p>
@@ -54,6 +53,7 @@
         </div>
     </form>
 
+    <div id="loader" style="display: none;"></div>
     <div id="location-date-module" class="location-date-module" style="display: none;">
         <p>
            <label for="location">Location</label>
@@ -91,6 +91,7 @@
         <p>
             <label for="narrative">Tell A Story</label>
             <textarea rows="15" cols="40" class="narrative" name="narrative[]"></textarea>
+            <input type="hidden" class="narrative-id" name="narrative-id[]" value="" />
         </p>
         <p>
             <label for="author">Author</label>

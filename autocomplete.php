@@ -4,6 +4,7 @@ include_once("setup/conf.php");
 
 $table = $_GET["t"];
 $query = $_GET["q"];
+$extra = $_GET["e"];
 
 mysql_connect($db["host"], $db["user"], $db["pass"]) or die (mysql_error());
 mysql_select_db($db["db"]);
@@ -17,7 +18,12 @@ if($table != '') {
         $result = mysql_query($query) or die(mysql_error());
     }
     else if($table == "tags") {
-        $query = sprintf("SELECT id, name FROM tags WHERE approved = 1 and name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+        $query = "SELECT id, name FROM tags WHERE approved = 1 and ";
+        if($extra != null) 
+            $query .= "category = $extra";
+
+        $query .= sprintf("name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+
         $result = mysql_query($query) or die(mysql_error()); 
     }
     else if($table == "all") {

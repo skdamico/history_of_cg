@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2011 at 02:34 AM
+-- Generation Time: Nov 14, 2011 at 10:14 PM
 -- Server version: 5.1.54
 -- PHP Version: 5.3.5-1ubuntu7.3
 
@@ -26,9 +26,9 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `citations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `narrative_id` int(11) NOT NULL,
-  `citation` varchar(180) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `narrative_id` int(11) unsigned NOT NULL,
+  `citation` varchar(180) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `citations` (
 --
 
 CREATE TABLE IF NOT EXISTS `date` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `start_year` year(4) DEFAULT NULL,
   `start_month` smallint(2) DEFAULT NULL,
   `start_day` smallint(2) DEFAULT NULL,
@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `date` (
 --
 
 CREATE TABLE IF NOT EXISTS `event` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(800) DEFAULT NULL,
-  `location_date_id` int(11) NOT NULL,
+  `location_date_id` int(11) unsigned NOT NULL,
   `complete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
@@ -88,8 +88,8 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 CREATE TABLE IF NOT EXISTS `event_organization` (
-  `event_id` int(11) NOT NULL,
-  `organization_id` int(11) NOT NULL,
+  `event_id` int(11) unsigned NOT NULL,
+  `organization_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`event_id`,`organization_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -105,8 +105,8 @@ CREATE TABLE IF NOT EXISTS `event_organization` (
 --
 
 CREATE TABLE IF NOT EXISTS `event_person` (
-  `event_id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
+  `event_id` int(11) unsigned NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`event_id`,`person_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -122,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `event_person` (
 --
 
 CREATE TABLE IF NOT EXISTS `event_project` (
-  `event_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `event_id` int(11) unsigned NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`event_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -139,8 +139,8 @@ CREATE TABLE IF NOT EXISTS `event_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `event_tags` (
-  `event_id` int(11) NOT NULL,
-  `tags_id` int(11) NOT NULL,
+  `event_id` int(11) unsigned NOT NULL,
+  `tags_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`event_id`,`tags_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -156,12 +156,12 @@ CREATE TABLE IF NOT EXISTS `event_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `location` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `city` varchar(30) DEFAULT NULL,
   `state` varchar(20) DEFAULT NULL,
   `country` varchar(30) NOT NULL,
-  `latitude` float(9,6) DEFAULT NULL,
-  `longitude` float(9,6) DEFAULT NULL,
+  `latitude` float(10,6) DEFAULT NULL,
+  `longitude` float(10,6) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -177,9 +177,9 @@ CREATE TABLE IF NOT EXISTS `location` (
 --
 
 CREATE TABLE IF NOT EXISTS `location_date` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `location_id` int(11) NOT NULL,
-  `date_id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `location_id` int(11) unsigned NOT NULL,
+  `date_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -195,8 +195,8 @@ CREATE TABLE IF NOT EXISTS `location_date` (
 --
 
 CREATE TABLE IF NOT EXISTS `location_date_person` (
-  `location_date_id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
+  `location_date_id` int(11) unsigned NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`location_date_id`,`person_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -212,8 +212,8 @@ CREATE TABLE IF NOT EXISTS `location_date_person` (
 --
 
 CREATE TABLE IF NOT EXISTS `location_date_project` (
-  `location_date_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `location_date_id` int(11) unsigned NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`location_date_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -229,9 +229,9 @@ CREATE TABLE IF NOT EXISTS `location_date_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `narrative` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `narrative` varchar(2000) NOT NULL,
-  `person_id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `narrative` varchar(4000) NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -247,8 +247,8 @@ CREATE TABLE IF NOT EXISTS `narrative` (
 --
 
 CREATE TABLE IF NOT EXISTS `narrative_event` (
-  `narrative_id` int(11) NOT NULL,
-  `event_id` int(11) NOT NULL,
+  `narrative_id` int(11) unsigned NOT NULL,
+  `event_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`narrative_id`,`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -264,8 +264,8 @@ CREATE TABLE IF NOT EXISTS `narrative_event` (
 --
 
 CREATE TABLE IF NOT EXISTS `narrative_organization` (
-  `narrative_id` int(11) NOT NULL,
-  `organization_id` int(11) NOT NULL,
+  `narrative_id` int(11) unsigned NOT NULL,
+  `organization_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`narrative_id`,`organization_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -281,8 +281,8 @@ CREATE TABLE IF NOT EXISTS `narrative_organization` (
 --
 
 CREATE TABLE IF NOT EXISTS `narrative_person` (
-  `narrative_id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
+  `narrative_id` int(11) unsigned NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`narrative_id`,`person_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -298,8 +298,8 @@ CREATE TABLE IF NOT EXISTS `narrative_person` (
 --
 
 CREATE TABLE IF NOT EXISTS `narrative_project` (
-  `narrative_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `narrative_id` int(11) unsigned NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`narrative_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -315,10 +315,10 @@ CREATE TABLE IF NOT EXISTS `narrative_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `organization` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `description` varchar(800) DEFAULT NULL,
-  `location_date_id` int(11) NOT NULL,
+  `location_date_id` int(11) unsigned NOT NULL,
   `complete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
@@ -336,8 +336,8 @@ CREATE TABLE IF NOT EXISTS `organization` (
 --
 
 CREATE TABLE IF NOT EXISTS `organization_person` (
-  `organization_id` int(11) NOT NULL,
-  `person_id` int(11) NOT NULL,
+  `organization_id` int(11) unsigned NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`organization_id`,`person_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -353,8 +353,8 @@ CREATE TABLE IF NOT EXISTS `organization_person` (
 --
 
 CREATE TABLE IF NOT EXISTS `organization_project` (
-  `organization_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `organization_id` int(11) unsigned NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`organization_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -370,8 +370,8 @@ CREATE TABLE IF NOT EXISTS `organization_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `organization_tags` (
-  `organization_id` int(11) NOT NULL,
-  `tags_id` int(11) NOT NULL,
+  `organization_id` int(11) unsigned NOT NULL,
+  `tags_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`organization_id`,`tags_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -387,14 +387,14 @@ CREATE TABLE IF NOT EXISTS `organization_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `person` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `alias` varchar(20) DEFAULT NULL,
   `gender` char(1) DEFAULT NULL,
-  `birth_location_date_id` int(11) DEFAULT NULL,
-  `death_location_date_id` int(11) DEFAULT NULL,
+  `birth_location_date_id` int(11) unsigned DEFAULT NULL,
+  `death_location_date_id` int(11) unsigned DEFAULT NULL,
   `deceased` tinyint(1) NOT NULL DEFAULT '0',
-  `description` varchar(500) NOT NULL,
+  `description` varchar(800) NOT NULL,
   `complete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -411,8 +411,8 @@ CREATE TABLE IF NOT EXISTS `person` (
 --
 
 CREATE TABLE IF NOT EXISTS `person_project` (
-  `person_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`person_id`,`project_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -428,8 +428,8 @@ CREATE TABLE IF NOT EXISTS `person_project` (
 --
 
 CREATE TABLE IF NOT EXISTS `person_tags` (
-  `person_id` int(11) NOT NULL,
-  `tags_id` int(11) NOT NULL,
+  `person_id` int(11) unsigned NOT NULL,
+  `tags_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`person_id`,`tags_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -445,8 +445,8 @@ CREATE TABLE IF NOT EXISTS `person_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(120) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(120) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
   `description` varchar(800) DEFAULT NULL,
   `complete` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -465,8 +465,8 @@ CREATE TABLE IF NOT EXISTS `project` (
 --
 
 CREATE TABLE IF NOT EXISTS `project_tags` (
-  `project_id` int(11) NOT NULL,
-  `tags_id` int(11) NOT NULL,
+  `project_id` int(11) unsigned NOT NULL,
+  `tags_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`project_id`,`tags_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -482,10 +482,10 @@ CREATE TABLE IF NOT EXISTS `project_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `search` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `table_id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) unsigned NOT NULL,
   `table_name` varchar(15) NOT NULL,
-  `count` int(11) NOT NULL,
+  `count` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -501,12 +501,11 @@ CREATE TABLE IF NOT EXISTS `search` (
 --
 
 CREATE TABLE IF NOT EXISTS `tags` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `approved` tinyint(1) NOT NULL DEFAULT '0',
   `category` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -521,10 +520,10 @@ CREATE TABLE IF NOT EXISTS `tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `views` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `table_id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) unsigned NOT NULL,
   `table_name` varchar(15) NOT NULL,
-  `count` int(11) NOT NULL,
+  `count` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
