@@ -1,7 +1,9 @@
 <?php
+    include_once("stripmagicquotes.php");
+    
     include_once("setup/conf.php");
     include_once("get.php");
-    
+
     /*
      *  Globals
      */
@@ -27,6 +29,7 @@
         global $updating;
 
         $arr = explode(",", $_POST[$secondary]);
+
         $arr_in_db = array_filter($arr, "is_numeric");
         $arr_insert = array_diff($arr, $arr_in_db);
 
@@ -46,7 +49,6 @@
                 
                 //test if in db
                 if($p != "") { 
-                    
                     $result = null;
                     if($secondary != "tags") {
                         $result = mysql_query(sprintf("SELECT id FROM $secondary WHERE BINARY name = '%s'",mysql_real_escape_string($p)));
@@ -524,7 +526,7 @@
         
         mysql_query("COMMIT");
         
-        if(!updating)
+        if(!$updating)
             echo "Successfully added new entry";
         else
             echo "Successfully updated entry";
