@@ -56,6 +56,7 @@ input.message, select option.message {
 #target {
     position: fixed;
     top: 0;
+    display: none;
     margin: 0;
     background-color: #888;
     color: #FFF;

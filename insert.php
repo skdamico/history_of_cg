@@ -2,7 +2,7 @@
     include_once("stripmagicquotes.php");
     
     include_once("setup/conf.php");
-    include_once("get.php");
+    include_once("includes/get_functions.php");
 
     /*
      *  Globals

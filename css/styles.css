@@ -24,6 +24,11 @@ h1.entryTitle {
 }
 .cf {clear:both;}
 
+h1.entryTitle.project {color:#fc6500 !important;}
+h1.entryTitle.people {color:#00b8d9 !important;}
+h1.entryTitle.organization {color:#7bd900 !important;}
+h1.entryTitle.event {color:#d200ff !important;}
+
 /* ========== HOMEPAGE ========== */
 #homeWrapper .aboutProj {
     float:right;
@@ -172,8 +177,8 @@ ul.catBar {
 }
 
 /* ========== INPUT PAGES ========== */
-.inputWrapper h1 {color:#d0e1db;}
-.inputWrapper .inputFormSections {
+.wrapper h1 {color:#d0e1db;}
+.wrapper .inputFormSections {
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
 	  rgba(204,206,207,0.45) 0%, rgba(204,206,207,0.45) 95%
@@ -186,7 +191,7 @@ ul.catBar {
 	padding:27px;
 	width:800px;
 }
-.inputWrapper .inputFormSections form label {
+.wrapper .inputFormSections form label {
 	color:#e7e7e4;
 	float:left;
 	font-size:.85em;

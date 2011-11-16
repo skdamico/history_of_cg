@@ -456,7 +456,7 @@ $(function() {
         $("#name-id").val( id );
         $("#categories").val( category );
 
-        $("#input-form").animate({opacity: 0.5}, 200);
+        $("#inputform").animate({opacity: 0.5}, 200);
         $("#loader").fadeIn(200);
 
         formReset(function() {
@@ -497,7 +497,7 @@ $(function() {
                 }
 
                 $("#loader").fadeOut(200);
-                $("#input-form").animate({opacity: 1.0}, 200);
+                $("#inputform").animate({opacity: 1.0}, 200);
                 validateStep1();
             });
         });
@@ -600,6 +600,7 @@ $(function() {
     // step 1 initialization
     $("#name").change(function() {
         validateStep1();
+        $("#name-id").val("");
     });
     $("#name").bind("keydown", function(event) {
         if(event.keyCode === $.ui.keyCode.TAB &&
