@@ -12,7 +12,14 @@ $(function() {
             tiles += createTiles("association", "organization", data.associations.organization);
             tiles += createTiles("association", "event", data.associations.event);
 
-            $("#mosaic-container").append(tiles);
+            tiles += createTiles("narrative", "", data.narratives);
+
+            $(".mosaic-container").append(tiles);
+
+            var factor = 1/5;  // approximate width-to-height ratio
+            $(".mosaic-container li.narrative").each(function() {
+                $(this).children("p").css('font-size', $(this).width() / ($(this).children("p").text().length * factor) + 'px');
+            });
         });
     }
 
@@ -28,8 +35,17 @@ $(function() {
 
     function createTile(type, category, tile) {
         var t = "<li class='tile "+type+" "+category+"' data-id='"+category+"'>";
-        t += "<a href='content.php?c="+category+"&q="+tile.id+"'>"+tile.name+"</a>";
+        
+        if(type == "narrative") {
+            t += "<p>"+tile.narrative+"</p>";
+            t += "<a href='content.php?c=person&q="+tile.author_id+"'><span>"+tile.author+"</span></a>";
+
+        }
+        else {
+            t += "<a href='content.php?c="+category+"&q="+tile.id+"'><span>"+tile.name+"</span></a>";
+        }
         t += "</li>";
+
         return t; 
     }
 

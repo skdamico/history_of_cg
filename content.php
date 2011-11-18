@@ -42,7 +42,7 @@ include_once("includes/timeline.php");
 		</ul>
 	</section>
 	<section class="mosaicBody">
-        <ul id="mosaic-container">
+        <ul class="mosaic-container">
             <li class="tile dynamic"><?php $data['main']['description']; ?></li>
         </ul>
 	</section>
