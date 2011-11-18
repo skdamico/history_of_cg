@@ -7,13 +7,11 @@
     <title><?php echo $site["title"]; ?></title>
 
     <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.reset.css" />
-    <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.type.css" />
-    <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.grid.css" />
-    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css" />
     
     <?php include_custom_page_styles(); ?>
 </head>
-<body class="wrapper">
+<body class="<?php echo $page_name."Wrapper"; ?> wrapper">
     <div id="page">
         
         <header id="masthead">
@@ -22,7 +20,7 @@
             </div>
             <div class="topRight unitx2">
                 <a href="<?php echo $site["about_page_url"]; ?>" target="_new"><?php echo $site["about_page_name"]; ?></a>
-                <form id="searchBoxUniversal">
+                <form>
                     <fieldset class="search unitx2">
                         <input type="text" class="searchBox" placeholder="Start searching!" />
                         <button class="searchBtn" title="Search">Search</button>

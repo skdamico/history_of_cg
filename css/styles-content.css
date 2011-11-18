@@ -1,0 +1,55 @@
+.contentWrapper {
+    background-color:#292f33;
+    background-image:url('../images/barBg.png'), url("../images/shadesBg.png"), url('../images/dotsBg.png'), url('../images/radialBg.jpg');
+    background-position:left 327px, left 360px, center center, center 0;
+    background-repeat:repeat-x, repeat-x, repeat, no-repeat;
+    color:#fff;
+	font-family:Helvetica, sans-serif;
+	font-size:75%;
+}
+
+
+.entryMast {
+    margin:20px 0 0 0;
+    padding:0;
+}
+ul.catBar {
+    background-color:#0f0f0f;
+	font-family:Gotham, Helvetica, sans-serif;
+    margin-bottom:0;
+    text-transform:uppercase;
+}
+    ul.catBar li {
+        display:inline;
+        padding:8px 0px;
+    }
+    ul.catBar li a {
+        float:left;
+        font-size:16px;
+        padding:6px 14px 7px 14px;
+    }
+    ul.catBar li a:hover {
+        color:white;
+        text-decoration:none;
+    }
+    ul.catBar .catProject a {color:#fc6500;}
+        ul.catBar .catProject a:hover {background-color:#fc6500;}
+    ul.catBar .catPeople a {color:#00b8d9;}
+        ul.catBar .catPeople a:hover {background-color:#00b8d9;}
+    ul.catBar .catOrg a {color:#7bd900;}
+        ul.catBar .catOrg a:hover {background-color:#7bd900;}
+    ul.catBar .catEvent a {color:#d200ff;}
+        ul.catBar .catEvent a:hover {background-color:#d200ff;}
+    ul.catBar .editEntry a {
+        color:#393a3a;
+        float:right;
+        font-size:12px;
+        text-transform:none;
+    }
+    ul.catBar .editEntry a:hover {color:#9dd4fe;}
+/* ----- mosaic content ----- */
+.mosaicBody {
+    margin:0;
+    min-height:500px;
+    padding:14px;
+}

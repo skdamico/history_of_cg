@@ -1,0 +1,31 @@
+.wrapper h1 {color:#d0e1db;}
+.wrapper #step-1, .wrapper #required-fields, .wrapper #optional-fields { /*.inputFormSections*/
+	border-top:1px #e4e7fa solid;
+	background-image: -moz-linear-gradient(
+	  rgba(0,0,0,0.45) 0%, rgba(23,23,23,0.45) 95%
+	);
+	background-image: -webkit-gradient(
+	  linear, left top, left bottom, from(rgba(0,0,0,0.45)),
+	  to(rgba(23,23,23,0.45))
+	);
+	margin:0 auto 18px auto;
+	padding:27px;
+	width:800px;
+}
+.wrapper .inputFormSections form label {
+	color:#e7e7e4;
+	float:left;
+	font-size:.85em;
+	font-weight:normal;
+	height:20px;
+	margin:3px 0;
+	padding: 0 10px 0 0;
+	text-align:right;
+	text-transform:lowercase;
+	width:220px!important;
+}
+#step-1 {border:none;}
+.inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select, .inputFormSections li {
+	border:none!important;
+	margin:3px 0;
+}

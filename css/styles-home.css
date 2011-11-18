@@ -1,0 +1,36 @@
+#homeWrapper .aboutProj {
+    float:right;
+    margin:35px 0 10px 0;
+    text-align:right;
+	width: 108px;
+}
+    #homeWrapper .aboutProj a {
+        background-image:url('../images/about.png');
+        display:block;
+        float:right;
+        font-size:0;
+        height:69px;
+        text-indent:99999px;
+        width:61px;
+    }
+#homeWrapper #homeBranding {
+    clear:both;
+    text-align:center;
+}
+
+#homeSearch {
+    margin: 40px auto 0 auto;
+    width:375px;
+}
+    #homeSearch .search input.searchBox {
+        height:25px;
+        width:325px;
+    }
+    #homeSearch .search button.searchBtn {
+        background-image:url('../images/homeSearchBtn.png');
+        height:35px;
+        width:35px;
+    }
+        #homeSearch .search button.searchBtn:active {
+            background-position:0 -32px;
+        }
