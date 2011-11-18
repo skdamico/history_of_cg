@@ -7,7 +7,7 @@ $site = array(
     "about_page_url" => "about.php"
 );
 
-$page_name = basename($_SERVER["SCRIPT_FILENAME"]);
+$page_name = basename($_SERVER["SCRIPT_NAME"]);
 $page_name = preg_replace('/.php/', "", $page_name);
 
 function include_custom_page_styles() {

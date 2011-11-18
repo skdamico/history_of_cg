@@ -1,7 +1,8 @@
-<?php include_once("setup/conf.php"); ?>
-<?php include_once("includes/get_functions.php"); ?>
 <?php
+include_once("setup/conf.php"); 
+include_once("includes/get_functions.php");
 
+// vars
 $color_class = array(
     "person" => "person",
     "project" => "project",
@@ -9,13 +10,13 @@ $color_class = array(
     "event" => "event"
 );
 
-$q = $_GET["q"];
-$category = $_GET["c"];
+$category = isset($_GET["c"]) ? $_GET["c"] : null;
+$q = isset($_GET["q"]) ? $_GET["q"] : null;
 
 $data = array();
 
-if($q != null && $category != null) {
-
+// data
+if($category && $q) {
     mysql_connect($db["host"], $db["user"], $db["pass"]) or die ("Error: " . mysql_error());
     mysql_select_db($db["db"]);
 
@@ -24,30 +25,33 @@ if($q != null && $category != null) {
 
     mysql_close();
 }
-else {
-    // redirect to error page
-}
+
+include_once("includes/header.php");
+include_once("includes/timeline.php");
 ?>
-
-
 <!-- start of page content -->
-<?php include_once("includes/header.php"); ?>
-<?php include_once("includes/timeline.php"); ?>
-
     <section class="entryMast">
-		<h1 class="entryTitle <?php echo $color_class[$category]; ?>"><?php echo $data['main']['name']; ?></h1>
-		<ul class="catBar">
+		<h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?></h1>
+        <ul class="catBar">
 			<li class="catProject"><a href="#">Project</a></li>
 			<li class="catPeople"><a href="#">People</a></li>
 			<li class="catOrg"><a href="#">Organization</a></li>
 			<li class="catEvent"><a href="#">Event</a></li>
-			<li class="editEntry"><a href="#">Edit Entry</a></li>
+			<li class="editEntry"><a href="<?php echo "entry.php?id={$data['main']['id']}&n={$data['main']['name']}&c={$category}"; ?>">Edit Entry</a></li>
 			<div class="cf"></div>
 		</ul>
 	</section>
 	<section class="mosaicBody">
-		<p>i still have to extend category bar bg and this mosaic shade bg across page width</p>
-		<p>also gotta make Gotham web-friendly</p>
+        <ul id="mosaic-container">
+            <li class="tile dynamic"><?php $data['main']['description']; ?></li>
+        </ul>
 	</section>
 
-<?php include_once("includes/footer.php"); ?>
+    <section class="entryInfo" style="display: none;">
+        <input type="hidden" class="entryName" value="<?php echo $data['main']['name'];?>" />
+        <input type="hidden" class="entryId" value="<?php echo $data['main']['id']; ?>" />
+        <input type="hidden" class="entryCategory" value="<?php echo $category; ?>" />
+    </section>
+<?php 
+    include_once("includes/footer.php");
+?>

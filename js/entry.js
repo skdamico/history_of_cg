@@ -1,4 +1,11 @@
 $(function() {
+    // initialize data population first
+    // load edit data if values are prepopulated
+    if($("#name").val() != "" && $("#name-id").val() != "" && $("#categories").val() != "") {
+        edit($("#name-id").val(), $("#name").val(), $("#categories").val());    
+    }
+    
+
     var loc_module_config = $.parseJSON('{'+
                                         '"person":{"date_name":"From", "end_date_name":"To", "end_date_option":"Moved?", "multiple":true, "where":"#location-form"},'+
                                         '"project":{"date_name":"Date", "end_date_name":false, "end_date_option":false, "multiple":true, "where":"#location-form"},'+
@@ -6,14 +13,6 @@ $(function() {
                                         '"event":{"date_name":"Start Date", "end_date_name":"End Date", "end_date_option":false, "multiple":false, "where":"#location-form"}'+
                                         '}');
 
-    function split(val) {
-        return val.split(/,\s*/);
-    }
-
-    function extractLast(term) {
-        return split(term).pop();
-    }
-    
     function validateStep1() {
         var nameValid = ($("#name").val().trim() != '');
         var tagsValid = ($("#tags").val().split(",").length > 1);
@@ -461,7 +460,7 @@ $(function() {
 
         formReset(function() {
             // fill in form from db
-            $.getJSON("get.php?t="+category+"&q="+id, function(data) {
+            $.getJSON("get.php?action=all&t="+category+"&q="+id, function(data) {
                 if(data != null) {
 
                     // populate tags first to fire validation and form init

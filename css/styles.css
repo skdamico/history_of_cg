@@ -25,7 +25,7 @@ h1.entryTitle {
 .cf {clear:both;}
 
 h1.entryTitle.project {color:#fc6500 !important;}
-h1.entryTitle.people {color:#00b8d9 !important;}
+h1.entryTitle.person {color:#00b8d9 !important;}
 h1.entryTitle.organization {color:#7bd900 !important;}
 h1.entryTitle.event {color:#d200ff !important;}
 

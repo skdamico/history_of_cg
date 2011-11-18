@@ -1,4 +1,19 @@
-<?php include_once("includes/header.php"); ?>
+<?php 
+$category = isset($_GET["c"]) ? $_GET["c"] : null;
+$name = isset($_GET["n"]) ? $_GET["n"] : null;
+$id = isset($_GET["id"]) ? $_GET["id"] : null;
+
+$categories = array(
+    array('value' => '', 'name' => ''),
+    array('value' => 'person', 'name' => 'Person'),
+    array('value' => 'project', 'name' => 'Project'),
+    array('value' => 'organization', 'name' => 'Organization'),
+    array('value' => 'event', 'name' => 'Event'),
+);
+
+include_once("includes/header.php");
+?>
+
     <h1 class="entryTitle">Create an entry</h1>
 
     <section class="inputFormSections">
@@ -8,17 +23,19 @@
             <div id="step-1">
                 <p> 
                     <label for="name">Name</label>
-                    <input id="name" class="required" type="text"  name="name" />
-                    <input id="name-id" type="hidden" name="name-id" value="" />
+                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" />
+                    <input id="name-id" type="hidden" name="name-id" value="<?php echo $id; ?>" />
                 </p>
                 <p>
                     <label for="categories">What is this?</label>
                     <select id="categories" name="categories">
-                        <option value=""></option>
-                        <option value="person">Person</option>
-                        <option value="project">Project</option>
-                        <option value="organization">Organization</option>
-                        <option value="event">Event</option>
+                    <?php
+                    foreach($categories as $c) {
+                        echo "<option value='{$c['value']}'";
+                        if($c['value'] == $category)
+                            echo " selected='selected'";
+                        echo ">{$c['name']}</option>";
+                    } ?>
                     </select>
                 </p>
                 <p>
@@ -95,6 +112,4 @@
         <div id="placeholder" style="display:none;"></div>
         <!--end of Stefano's pretties-->
     </section>
-
-
 <?php include_once("includes/footer.php"); ?>

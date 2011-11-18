@@ -46,6 +46,8 @@ if($table != '') {
             $arr[] = $row;
         }
     }
+    
+    mysql_close();
 
     $json_response = json_encode($arr);
 
