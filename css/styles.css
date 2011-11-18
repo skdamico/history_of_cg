@@ -29,10 +29,11 @@ h1 {
 }
 
 /* ~~~~ Overall styles ~~~~ */
-header#masthead {padding-bottom:18px;}
+header#masthead {padding-bottom:25px;}
 h1.entryTitle {
     color:#fff;
     font-weight:bold;
+	padding-bottom:10px;
     text-transform:uppercase;
 }
 .cf {clear:both;}
@@ -42,6 +43,15 @@ h1.entryTitle.organization {color:#7bd900 !important;}
 h1.entryTitle.event {color:#d200ff !important;}
 
 /* ========== HOMEPAGE ========== */
+.templateWrapper {
+    background-color:#292f33;
+    background-image:url('../images/barBg.png'), url("../images/shadesBg.png"), url('../images/dotsBg.png'), url('../images/radialBg.jpg');
+    background-position:left 327px, left 360px, center center, center 0;
+    background-repeat:repeat-x, repeat-x, repeat, no-repeat;
+    color:#fff;
+	font-family:Helvetica, sans-serif;
+	font-size:75%;
+}
 #homeWrapper .aboutProj {
     float:right;
     margin:35px 0 10px 0;
@@ -171,7 +181,6 @@ ul.catBar {
     ul.catBar .editEntry a:hover {color:#9dd4fe;}
 /* ----- mosaic content ----- */
 .mosaicBody {
-    background-image:url("../images/shadesBg.png");
     margin:0;
     min-height:500px;
     padding:14px;
@@ -179,16 +188,16 @@ ul.catBar {
 
 /* ========== INPUT PAGES ========== */
 .wrapper h1 {color:#d0e1db;}
-.wrapper .inputFormSections {
+.wrapper #step-1, .wrapper #required-fields, .wrapper #optional-fields { /*.inputFormSections*/
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
-	  rgba(204,206,207,0.45) 0%, rgba(204,206,207,0.45) 95%
+	  rgba(0,0,0,0.45) 0%, rgba(23,23,23,0.45) 95%
 	);
 	background-image: -webkit-gradient(
-	  linear, left top, left bottom, from(rgba(204,206,207,0.45)),
-	  to(rgba(129,138,138,0.45))
+	  linear, left top, left bottom, from(rgba(0,0,0,0.45)),
+	  to(rgba(23,23,23,0.45))
 	);
-	margin:0 auto;
+	margin:0 auto 18px auto;
 	padding:27px;
 	width:800px;
 }
