@@ -5,7 +5,6 @@ $(function() {
         edit($("#name-id").val(), $("#name").val(), $("#categories").val());    
     }
     
-
     var loc_module_config = $.parseJSON('{'+
                                         '"person":{"date_name":"From", "end_date_name":"To", "end_date_option":"Moved?", "multiple":true, "where":"#location-form"},'+
                                         '"project":{"date_name":"Date", "end_date_name":false, "end_date_option":false, "multiple":true, "where":"#location-form"},'+
@@ -454,7 +453,7 @@ $(function() {
         $("#name").val( name );
         $("#name-id").val( id );
         $("#categories").val( category );
-
+        changeEntryHairline(category);
         $("#inputform").animate({opacity: 0.5}, 200);
         $("#loader").fadeIn(200);
 
@@ -659,6 +658,10 @@ $(function() {
 
     $("#categories").change(function() {
         var category = $("#categories option:selected").val();
+
+        changeEntryHairline(category);
+        validateStep1();
+
         if(category != '') {
             // play loading animation
             $("#loader").fadeIn(200);

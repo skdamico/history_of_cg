@@ -4,7 +4,6 @@ include_once("setup/conf.php");
 
 $table = $_GET["t"];
 $query = $_GET["q"];
-$extra = $_GET["e"];
 
 mysql_connect($db["host"], $db["user"], $db["pass"]) or die (mysql_error());
 mysql_select_db($db["db"]);

@@ -18,9 +18,8 @@ include_once("includes/header.php");
 
     <section class="inputFormSections">
         <!-- Stefano's pretties -->
-        <div id="target"></div>
         <form id="inputform" method="post" action="insert.php">
-            <div id="step-1">
+            <div id="step-1" class="inputSection">
                 <p> 
                     <label for="name">Name</label>
                     <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" />
@@ -49,15 +48,16 @@ include_once("includes/header.php");
                 </p>
             </div>
             <div id="step-2">
-                <div id="loader" style="display: none;"></div>
-                <div id="required-fields"></div>
-                <div id="optional-fields"></div>
+                <div id="required-fields" class="inputSection"></div>
+                <div id="optional-fields" class="inputSection"></div>
                 <p>
                     <input type="submit" name="submit" value="Save" />
                 </p>
             </div>
         </form>
 
+        <div id="target"></div>
+        <div id="loader" style="display: none;"></div>
         <div id="location-date-module" class="location-date-module" style="display: none;">
             <p>
                 <label for="location">Location</label>

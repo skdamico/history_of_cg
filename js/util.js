@@ -11,3 +11,10 @@ function upperCaseWord(str) {
         return $1.toUpperCase();
     });
 }
+
+function changeEntryHairline(category) {
+    var categories = "person project organization event";
+    $("#step-1").removeClass(categories).addClass(category);
+    $("#required-fields").removeClass(categories).addClass(category);
+    $("#optional-fields").removeClass(categories).addClass(category);
+}

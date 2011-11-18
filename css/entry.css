@@ -19,9 +19,6 @@ input[type=text], textarea, select {
     background-color: #FFFFFF;
     border: 1px solid #555555;
 }
-#step-1 {
-    border-bottom: 1px solid #333333;
-}
 #step-2 {
     display: none;
     position: relative;
@@ -56,6 +53,7 @@ input.message, select option.message {
 #target {
     position: fixed;
     top: 0;
+    left: 0;
     display: none;
     margin: 0;
     background-color: #888;

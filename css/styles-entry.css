@@ -1,5 +1,5 @@
 .wrapper h1 {color:#d0e1db;}
-.wrapper #step-1, .wrapper #required-fields, .wrapper #optional-fields { /*.inputFormSections*/
+.wrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
 	  rgba(0,0,0,0.45) 0%, rgba(23,23,23,0.45) 95%
@@ -12,6 +12,12 @@
 	padding:27px;
 	width:800px;
 }
+
+.wrapper .inputSection.project {border-top: 1px solid #fc6500 !important;}
+.wrapper .inputSection.person {border-top: 1px solid #00b8d9 !important;}
+.wrapper .inputSection.organization {border-top: 1px solid #7bd900 !important;}
+.wrapper .inputSection.event {border-top: 1px solid #d200ff !important;}
+
 .wrapper .inputFormSections form label {
 	color:#e7e7e4;
 	float:left;
@@ -24,7 +30,6 @@
 	text-transform:lowercase;
 	width:220px!important;
 }
-#step-1 {border:none;}
 .inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select, .inputFormSections li {
 	border:none!important;
 	margin:3px 0;
