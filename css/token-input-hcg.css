@@ -120,13 +120,14 @@ div.token-input-dropdown-hcg {
     font-size: 0.96em;
     font-family: Verdana;
     z-index: 1;
+    color: #555;
 }
 
 div.token-input-dropdown-hcg p {
     margin: 0;
     padding: 5px;
     font-weight: bold;
-    color: #777;
+    color: #555;
 }
 
 div.token-input-dropdown-hcg ul {
@@ -156,7 +157,7 @@ div.token-input-dropdown-hcg ul li em {
 }
 
 div.token-input-dropdown-hcg ul li.token-input-selected-dropdown-item-hcg {
-    background-color: #777;
+    background-color: #555;
     color: #fff;
 }
 

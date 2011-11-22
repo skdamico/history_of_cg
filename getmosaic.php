@@ -17,7 +17,7 @@ if($category && $q && $for) {
 
     if($q == "all") {
         // fetch all associations data
-        $data["associations"] = get_all_associations($for, $category); 
+        $data["associations"] = get_all_associations($for, $category, true); 
 
         // fetch all narratives
         $data['narratives'] = get_narratives($for, $category);

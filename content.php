@@ -33,17 +33,19 @@ include_once("includes/timeline.php");
     <section class="entryMast">
 		<h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?></h1>
         <ul class="catBar">
-			<li class="catProject"><a href="#">Project</a></li>
-			<li class="catPeople"><a href="#">People</a></li>
-			<li class="catOrg"><a href="#">Organization</a></li>
-			<li class="catEvent"><a href="#">Event</a></li>
+			<li class="category project"><a href="#" data-filter=".project">Project</a></li>
+			<li class="category person"><a href="#" data-filter=".person">People</a></li>
+			<li class="category organization"><a href="#" data-filter=".organization">Organization</a></li>
+			<li class="category event"><a href="#" data-filter=".event">Event</a></li>
 			<li class="editEntry"><a href="<?php echo "entry.php?id={$data['main']['id']}&n={$data['main']['name']}&c={$category}"; ?>">Edit Entry</a></li>
 			<div class="cf"></div>
 		</ul>
 	</section>
+    <section class="tagLists">
+    </section>
 	<section class="mosaicBody">
-        <ul class="mosaic-container">
-            <li class="tile dynamic"><?php $data['main']['description']; ?></li>
+        <ul class="mosaicContainer cf">
+            <li class="dynamic <?php echo $category; ?>"><p><?php echo $data['main']['description']; ?></p></li>
         </ul>
 	</section>
 
@@ -51,6 +53,7 @@ include_once("includes/timeline.php");
         <input type="hidden" class="entryName" value="<?php echo $data['main']['name'];?>" />
         <input type="hidden" class="entryId" value="<?php echo $data['main']['id']; ?>" />
         <input type="hidden" class="entryCategory" value="<?php echo $category; ?>" />
+        <div class="entryDescription"><p><?php echo $data['main']['description']; ?></p></div>
     </section>
 <?php 
     include_once("includes/footer.php");

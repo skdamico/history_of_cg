@@ -22,12 +22,12 @@ include_once("includes/header.php");
             <div id="step-1" class="inputSection">
                 <p> 
                     <label for="name">Name</label>
-                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" />
+                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" title="Enter a name" />
                     <input id="name-id" type="hidden" name="name-id" value="<?php echo $id; ?>" />
                 </p>
                 <p>
                     <label for="categories">What is this?</label>
-                    <select id="categories" name="categories">
+                    <select id="categories" name="categories" title="Choose a category for your entry">
                     <?php
                     foreach($categories as $c) {
                         echo "<option value='{$c['value']}'";
@@ -39,7 +39,7 @@ include_once("includes/header.php");
                 </p>
                 <p>
                     <label for="tags" class="tags">Tags</label>
-                    <input id="tags" type="text" name="tags" />
+                    <input id="tags" type="text" name="tags" title="Enter at least two tags to further categorize your entry" />
                 </p>
                 <p>
                     <label for="suggested-tags">Suggested Tags</label>
@@ -55,7 +55,8 @@ include_once("includes/header.php");
                 </p>
             </div>
         </form>
-
+        
+        <div id="tooltip" style="display: none;"></div>
         <div id="target"></div>
         <div id="loader" style="display: none;"></div>
         <div id="location-date-module" class="location-date-module" style="display: none;">

@@ -1,4 +1,7 @@
 $(function() {
+    // Initialize tooltips
+    initTooltip("#inputform :input[title]");
+    
     // initialize data population first
     // load edit data if values are prepopulated
     if($("#name").val() != "" && $("#name-id").val() != "" && $("#categories").val() != "") {
@@ -588,12 +591,26 @@ $(function() {
 
             formInit(category);
             
+            initTooltip("#step-2 :input[title]");
+
             if(callback) {
                 callback();
             }
         });
     }
 
+    function initTooltip(selector) {
+        var $selection = $(selector);
+        $selection.focus(function() {
+            var $tooltip = $("#tooltip");
+            $tooltip.html($(this).attr("title"));
+            $tooltip.css("left", $(this).position().left + 320).css("top", $(this).position().top - 5);
+            $tooltip.stop().fadeIn(500);
+        })
+        .blur(function() {
+            $("#tooltip").stop().fadeOut(500);
+        });
+    }
 
     // step 1 initialization
     $("#name").change(function() {
@@ -689,6 +706,11 @@ $(function() {
         },
         target: "#target",
         success: function(response) {
+            $("#tags").tokenInput("clear");
+            $("#name").val("");
+            $("#name-id").val("");
+            formReset();
+
             $("#loader").fadeOut(200);
             $("#inputform").animate({opacity: 1.0},300).addClass("spacer");
             $("#target").fadeIn(400).delay(5000).fadeOut(400, function() { $("#inputform").removeClass("spacer"); });

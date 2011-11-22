@@ -187,18 +187,47 @@ function get_location($id) {
 }
 
 
-function get_association($assoc, $to, $what, $table_name) {
-    $query = "SELECT $assoc.id, $assoc.name FROM $table_name ".
-             "LEFT JOIN $assoc ON $assoc.id = $table_name.". $assoc ."_id ".
-             "WHERE $table_name.".$to."_id = $what";
+function get_association($assoc, $to, $what, $table_name, $with_tags) {
+    if(!empty($with_tags)) {
+        $query = "SELECT {$assoc}.id, {$assoc}.name, tags.name as tag FROM {$table_name} ".
+                 "JOIN {$assoc} ON {$assoc}.id = {$table_name}.{$assoc}_id ".
+                 "LEFT JOIN {$assoc}_tags ON {$assoc}_tags.{$assoc}_id = {$assoc}.id ".
+                 "LEFT JOIN tags ON tags.id = {$assoc}_tags.tags_id ".
+                 "WHERE {$table_name}.{$to}_id = {$what}";
+    }
+    else {
+        $query = "SELECT $assoc.id, $assoc.name FROM $table_name ".
+                 "LEFT JOIN $assoc ON $assoc.id = $table_name.". $assoc ."_id ".
+                 "WHERE $table_name.".$to."_id = $what";
 
+    }
     $result = mysql_query($query) or die(mysql_error());
 
     if(mysql_num_rows($result) != 0) {
         $tmp = array();
         
-        while($r = mysql_fetch_assoc($result)) {
-            $tmp[] = $r;
+        if(!empty($with_tags)) {
+            // fetch all tags
+            $ids = array();
+            $tags = array();
+            while($r = mysql_fetch_assoc($result)) {
+                if($r['tag'] != null) {
+                    $tags[$r['name']][] = $r['tag'];
+                }
+
+                $ids[$r['id']] = $r['name'];
+            }
+            $ids = array_unique($ids);
+
+            // add a tags array to each row
+            foreach($ids as $id => $name) { 
+                $tmp[] = array("id"=>$id, "name"=>$name, "tags"=>$tags[$name]);
+            }
+        }
+        else {
+            while($r = mysql_fetch_assoc($result)) {
+                $tmp[] = $r;
+            }
         }
 
         return $tmp;
@@ -208,28 +237,28 @@ function get_association($assoc, $to, $what, $table_name) {
     }
 }
 
-function get_all_associations($id, $category) {
+function get_all_associations($id, $category, $with_tags) {
     if($id != null && $category != null) {
         $tmp = array("person" => null, "project" => null, "organization" => null, "event" => null);
 
         if($category == "person") {
-            $tmp["organization"] = get_association("organization", $category, $id, "organization_person");
-            $tmp["project"] = get_association("project", $category, $id, "person_project");
+            $tmp["organization"] = get_association("organization", $category, $id, "organization_person", $with_tags);
+            $tmp["project"] = get_association("project", $category, $id, "person_project", $with_tags);
         }
         else if($category == "project") {
-            $tmp["person"] = get_association("person", $category, $id, "person_project");
-            $tmp["organization"] = get_association("organization", $category, $id, "organization_project");
-            $tmp["event"] = get_association("event", $category, $id, "event_project");
+            $tmp["person"] = get_association("person", $category, $id, "person_project", $with_tags);
+            $tmp["organization"] = get_association("organization", $category, $id, "organization_project", $with_tags);
+            $tmp["event"] = get_association("event", $category, $id, "event_project", $with_tags);
         }
         else if($category == "organization") {
-            $tmp["person"] = get_association("person", $category, $id, "organization_person");
-            $tmp["project"] = get_association("project", $category, $id, "organization_project");
-            $tmp["event"] = get_association("event", $category, $id, "event_organization");
+            $tmp["person"] = get_association("person", $category, $id, "organization_person", $with_tags);
+            $tmp["project"] = get_association("project", $category, $id, "organization_project", $with_tags);
+            $tmp["event"] = get_association("event", $category, $id, "event_organization", $with_tags);
         }
         else if($category == "event") {
-            $tmp["person"] = get_association("person", $category, $id, "event_person");
-            $tmp["project"] = get_association("project", $category, $id, "event_project");
-            $tmp["organization"] = get_association("organization", $category, $id, "event_organization");
+            $tmp["person"] = get_association("person", $category, $id, "event_person", $with_tags);
+            $tmp["project"] = get_association("project", $category, $id, "event_project", $with_tags);
+            $tmp["organization"] = get_association("organization", $category, $id, "event_organization", $with_tags);
         }
 
         return $tmp;

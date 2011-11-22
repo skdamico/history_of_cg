@@ -17,7 +17,7 @@ if($table != '') {
         $result = mysql_query($query) or die(mysql_error());
     }
     else if($table == "tags") {
-        $query = sprintf("SELECT id, name, category FROM tags WHERE approved = 1 and name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
+        $query = sprintf("SELECT id, name, category FROM tags WHERE name LIKE '%%%s%%' LIMIT 10", mysql_real_escape_string($query));
 
         $result = mysql_query($query) or die(mysql_error()); 
     }
