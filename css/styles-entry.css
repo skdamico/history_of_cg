@@ -1,5 +1,4 @@
-.wrapper h1 {color:#d0e1db;}
-.wrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
+.entryWrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
 	  rgba(0,0,0,0.45) 0%, rgba(23,23,23,0.45) 95%
@@ -13,12 +12,12 @@
 	width:800px;
 }
 
-.wrapper .inputSection.project {border-top: 1px solid #fc6500 !important;}
-.wrapper .inputSection.person {border-top: 1px solid #00b8d9 !important;}
-.wrapper .inputSection.organization {border-top: 1px solid #7bd900 !important;}
-.wrapper .inputSection.event {border-top: 1px solid #d200ff !important;}
+.entryWrapper .inputSection.project {border-top: 1px solid #fc6500 !important;}
+.entryWrapper .inputSection.person {border-top: 1px solid #00b8d9 !important;}
+.entryWrapper .inputSection.organization {border-top: 1px solid #7bd900 !important;}
+.entryWrapper .inputSection.event {border-top: 1px solid #d200ff !important;}
 
-.wrapper .inputFormSections form label {
+.entryWrapper .inputFormSections form label {
 	color:#e7e7e4;
 	float:left;
 	font-size:.85em;
@@ -31,10 +30,50 @@
 	width:220px!important;
 }
 .inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select, .inputFormSections li {
+	background-color:#e0dcd9;
 	border:none!important;
-	margin:3px 0;
+	margin:0;
+}
+.inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select#categories {
+	height:24px!important;
+	width:300px!important;
 }
 
+/* ===== entry forms formatting ===== */
+
+.entryWrapper label.error { 
+    float: right!important; 
+    color: #ffe450!important; 
+    padding-left: .5em!important; 
+    vertical-align: top;
+}
+.entryWrapper p { 
+    clear: both;
+	margin-bottom:10px;
+}
+.entryWrapper .submit { 
+    margin-left: 12em; 
+}
+#step-2 {
+    display: none;
+    position: relative;
+}
+.entryWrapper input.message, .entryWrapper select option.message {
+}
+#inputform.spacer {
+    margin-top: 60px;
+}
+#loader {
+    background: transparent url("../images/ajax-loader.gif") no-repeat left top;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+}
+#categories {
+    width: 190px;
+}
 #target {
     position: fixed;
     top: 0;
@@ -51,20 +90,6 @@
     font-size: 20px;
     z-index: 2;
 }
-
-#loader {
-    background: transparent url("../images/ajax-loader.gif") no-repeat left top;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 32px;
-    height: 32px;
-}
-
-#inputform.spacer {
-    margin-top: 60px;
-}
-
 #tooltip {
     position: absolute;
     background-color: #000;
@@ -79,3 +104,64 @@
     -moz-box-shadow: 0 0 5px #000;
     -webkit-box-shadow: 0 0 5px #000;
 }
+.inputFormSection .location-date-module .city {
+	margin-top:10px;
+}
+
+/* AUTOCOMPLETE */
+#name {
+    width: 300px;
+    border: 1px solid #555;
+}
+
+.entryWrapper .ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
+
+.entryWrapper .ui-autocomplete.ui-menu {
+    font: 0.96em Verdana;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    cursor: default;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+.entryWrapper .ui-autocomplete li.ui-menu-item {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.98em;
+    list-style-type: none;
+    height:1.5em;
+    clear: both;
+}
+
+.entryWrapper .ui-autocomplete li.ui-menu-item a {
+    display: block;
+    text-decoration: none;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 3px;
+}
+
+.entryWrapper.ui-autocomplete li.ui-menu-item a.ui-state-hover, 
+.entryWrapper .ui-autocomplete li a#ui-active-menuitem,
+.entryWrapper .ui-autocomplete li a#ui-active-menuitem span {
+    background-color: #777;
+    color: #fff;
+}
+
+.entryWrapper .autocomplete-name {
+    color: #333;
+    float: left;
+}
+.entryWrapper .autocomplete-name-category {
+    color: #777;
+    float: right;
+}
+.entryWrapper .autocomplete-name-term-highlight {
+    font-weight: bold;
+    color: #000;
+}
+
