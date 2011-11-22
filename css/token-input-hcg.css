@@ -1,9 +1,9 @@
 ul.token-input-list-hcg {
     overflow: hidden; 
-    height: auto !important; 
-    height: 1%;
+	height:auto!important;
+    min-height: 19px!important;
     width: 300px;
-    border: 1px solid #555;
+    border: 0;
     cursor: text;
     font-size: 0.98em;
     font-family: Verdana;
@@ -11,16 +11,15 @@ ul.token-input-list-hcg {
     line-height: 0.98em;
     z-index: 999;
     margin: 0;
-    padding: 0;
-    background-color: #fff;
+    padding: 3px 0;
+    background-color: #e0dcd9;
     list-style-type: none;
 }
 
 ul.token-input-list-hcg li input {
     border: 0;
-    width: 100px;
     padding: 1px 3px;
-    background-color: white;
+    background-color: #e0dcd9;
     margin: 1px 0;
     font: inherit;
     -webkit-appearance: caret;
@@ -29,19 +28,20 @@ ul.token-input-list-hcg li input {
 li.token-input-token-hcg {
     overflow: hidden; 
     height: auto !important; 
-    height: 15px;
-    margin: 1px 0 1px 2px;
+    margin: 0 2px!important;
     padding: 1px 1px 1px 3px;
-    background-color: #ddd;
+    background-color: #f5f9f6!important;
     color: #000;
     cursor: default;
     border: 1px solid #888;
     font-size: 0.98em;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     float: left;
     white-space: nowrap;
+}
+
+.inputFormSections .token-input-input-token-hcg input {
+	height:auto!important;
+	width:auto!important;
 }
 
 li.token-input-token-hcg p {

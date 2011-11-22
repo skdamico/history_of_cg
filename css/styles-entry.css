@@ -1,5 +1,4 @@
-.wrapper h1 {color:#d0e1db;}
-.wrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
+.entryWrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
 	  rgba(0,0,0,0.45) 0%, rgba(23,23,23,0.45) 95%
@@ -13,12 +12,12 @@
 	width:800px;
 }
 
-.wrapper .inputSection.project {border-top: 1px solid #fc6500 !important;}
-.wrapper .inputSection.person {border-top: 1px solid #00b8d9 !important;}
-.wrapper .inputSection.organization {border-top: 1px solid #7bd900 !important;}
-.wrapper .inputSection.event {border-top: 1px solid #d200ff !important;}
+.entryWrapper .inputSection.project {border-top: 1px solid #fc6500 !important;}
+.entryWrapper .inputSection.person {border-top: 1px solid #00b8d9 !important;}
+.entryWrapper .inputSection.organization {border-top: 1px solid #7bd900 !important;}
+.entryWrapper .inputSection.event {border-top: 1px solid #d200ff !important;}
 
-.wrapper .inputFormSections form label {
+.entryWrapper .inputFormSections form label {
 	color:#e7e7e4;
 	float:left;
 	font-size:.85em;
@@ -31,48 +30,35 @@
 	width:220px!important;
 }
 .inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select, .inputFormSections li {
+	background-color:#e0dcd9;
 	border:none!important;
-	margin:3px 0;
+	margin:0;
+}
+.inputFormSections input[type=text], .inputFormSections textarea, .inputFormSections select#categories {
+	height:24px!important;
+	width:300px!important;
 }
 
 /* ===== entry forms formatting ===== */
 
-label { 
-    width: 10em; 
-    float: left; 
-}
-label.error { 
-    float: none; 
-    color: red; 
-    padding-left: .5em; 
+.entryWrapper label.error { 
+    float: right!important; 
+    color: #ffe450!important; 
+    padding-left: .5em!important; 
     vertical-align: top;
 }
-p { 
+.entryWrapper p { 
     clear: both;
+	margin-bottom:10px;
 }
-.submit { 
+.entryWrapper .submit { 
     margin-left: 12em; 
-}
-input[type=text], textarea, select {
-    background-color: #FFFFFF;
-    border: 1px solid #555555;
 }
 #step-2 {
     display: none;
     position: relative;
 }
-.narrative-module {
-    border-bottom: 1px solid #333333;
-}
-.add-narrative {
-    cursor: pointer;
-    font-weight: bold;
-}
-.add-location-date {
-    cursor: pointer;
-    font-weight: bold;
-}
-input.message, select option.message {
+.entryWrapper input.message, .entryWrapper select option.message {
 }
 #inputform.spacer {
     margin-top: 60px;
@@ -104,6 +90,9 @@ input.message, select option.message {
     font-size: 20px;
     z-index: 2;
 }
+.inputFormSection .location-date-module .city {
+	margin-top:10px;
+}
 
 /* AUTOCOMPLETE */
 #name {
@@ -111,9 +100,9 @@ input.message, select option.message {
     border: 1px solid #555;
 }
 
-.ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
+.entryWrapper .ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
 
-.ui-autocomplete.ui-menu {
+.entryWrapper .ui-autocomplete.ui-menu {
     font: 0.96em Verdana;
     width: 300px;
     border: 1px solid #ccc;
@@ -125,7 +114,7 @@ input.message, select option.message {
     z-index: 1;
     overflow: hidden;
 }
-.ui-autocomplete li.ui-menu-item {
+.entryWrapper .ui-autocomplete li.ui-menu-item {
     padding: 0px;
     margin: 0px;
     font-size: 0.98em;
@@ -134,7 +123,7 @@ input.message, select option.message {
     clear: both;
 }
 
-.ui-autocomplete li.ui-menu-item a {
+.entryWrapper .ui-autocomplete li.ui-menu-item a {
     display: block;
     text-decoration: none;
     height: 1.5em;
@@ -142,22 +131,22 @@ input.message, select option.message {
     padding: 3px;
 }
 
-.ui-autocomplete li.ui-menu-item a.ui-state-hover, 
-.ui-autocomplete li a#ui-active-menuitem,
-.ui-autocomplete li a#ui-active-menuitem span {
+.entryWrapper.ui-autocomplete li.ui-menu-item a.ui-state-hover, 
+.entryWrapper .ui-autocomplete li a#ui-active-menuitem,
+.entryWrapper .ui-autocomplete li a#ui-active-menuitem span {
     background-color: #777;
     color: #fff;
 }
 
-.autocomplete-name {
+.entryWrapper .autocomplete-name {
     color: #333;
     float: left;
 }
-.autocomplete-name-category {
+.entryWrapper .autocomplete-name-category {
     color: #777;
     float: right;
 }
-.autocomplete-name-term-highlight {
+.entryWrapper .autocomplete-name-term-highlight {
     font-weight: bold;
     color: #000;
 }

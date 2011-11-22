@@ -31,7 +31,7 @@ include_once("includes/timeline.php");
 ?>
 <!-- start of page content -->
     <section class="entryMast">
-		<h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?></h1>
+		<h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?>filler title</h1>
         <ul class="catBar">
 			<li class="catProject"><a href="#">Project</a></li>
 			<li class="catPeople"><a href="#">People</a></li>
