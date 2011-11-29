@@ -38,7 +38,7 @@ include_once("includes/header.php");
                     </select>
                 </p>
                 <p>
-                    <label for="tags" class="tags">Tags</label>
+                    <label for="tags" class="tags">Tags/Keywords</label>
                     <input id="tags" type="text" name="tags" title="Enter at least two tags to further categorize your entry" />
                 </p>
                 <p>
