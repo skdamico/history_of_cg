@@ -1,13 +1,18 @@
 html,body {
+    background-color:#292f33;
+    background-image:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
+    background-position:center center, center 0;
+    background-repeat:repeat, no-repeat;
     height: 100%;
 }
 
 /* ~~~~ Containers ~~~~ */
 .wrapper {
-    background-color:#292f33;
+	background-color:#292f33;
     background-image:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
     background-position:center center, center 0;
     background-repeat:repeat, no-repeat;
+	
     color:#fff;
 	font-family:Helvetica, sans-serif;
 	font-size:75%;
@@ -35,12 +40,15 @@ h1 {
 h1.entryTitle {
     color:#fff;
     font-weight:bold;
-	padding-bottom:10px;
+	margin:0 auto;
+	overflow:hidden;
+	padding-bottom:5px;
     text-transform:uppercase;
+	width:990px;
 }
 
 h1.entryTitle.project {color:#fc6500 !important;}
-h1.entryTitle.person {border:1px red solid; color:#00b8d9 !important; width:990px;}
+h1.entryTitle.person {color:#00b8d9 !important;}
 h1.entryTitle.organization {color:#7bd900 !important;}
 h1.entryTitle.event {color:#d200ff !important;}
 

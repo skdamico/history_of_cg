@@ -1,31 +1,30 @@
 .contentWrapper {
-    background-color:#292f33;
-    background-image:url("../images/shadesBg.png"), url('../images/dotsBg.png'), url('../images/radialBg.jpg');
-    background-position:left 369px, center center, center 0;
-    background-repeat:repeat-x, repeat-x, repeat, no-repeat;
     color:#fff;
 	font-family:Helvetica, sans-serif;
 	font-size:75%;
 }
 /* --- categories bah --- */
 .entryMast {
+	background-image:url('../images/barBg.png');
+	background-position:0 48px;
+	background-repeat:repeat-x;
     margin:20px auto 0 auto;
     padding:0;
 }
 ul.catBar {
     background-color:#0f0f0f;
 	font-family:Gotham, Helvetica, sans-serif;
-    margin-bottom:0;
+    margin:0 auto;
     text-transform:uppercase;
+	width:990px;
 }
     ul.catBar li {
         display:inline;
-        padding:8px 0px;
     }
     ul.catBar li a {
         float:left;
         font-size:16px;
-        padding:6px 14px 7px 14px;
+        padding:6px 14px 3px 14px;
     }
     ul.catBar li.category.selected a,
     ul.catBar li.category a:hover {
@@ -73,12 +72,14 @@ ul.catBar {
 
 /* ----- mosaic content ----- */
 .mosaicBody {
+	background-image:url("../images/shadesBg.png");
     min-height:500px;
 }
 
 ul.mosaicContainer {
-    padding: 5px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+	padding:10px 0;
+	width:990px;
 }
 
 ul.mosaicContainer li.dynamic .filterList li {
