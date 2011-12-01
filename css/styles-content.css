@@ -52,13 +52,13 @@ ul.catBar {
     ul.catBar .editEntry a:hover {color:#9dd4fe;}
 
 /* ----- tag lists ----- */
-.tagLists div {
-    height: 100px;
-    margin: 10px;
-    padding: 20px;
-    background-color: #222228;
+.tagLists {background-image:url('../images/shadeFlatBg.png');}
 
+.tagLists div {
     clear: both;
+    height: 100px;
+    margin: 0 auto;
+	width:990px;
 }
 
 .tagLists div ul {
@@ -67,7 +67,7 @@ ul.catBar {
 }
 
 .tagLists div ul li {
-    padding: 4px 4px 8px 4px;
+    padding: 10px;
 }
 
 /* ----- mosaic content ----- */
