@@ -20,7 +20,7 @@
             </div>
             <div class="topRight unitx2">
                 <a href="<?php echo $site["about_page_url"]; ?>" target="_new"><?php echo $site["about_page_name"]; ?></a>
-                <form>
+                <form id="searchForm">
                     <fieldset class="search unitx2">
                         <input type="text" class="searchBox" placeholder="Start searching!" />
                         <button class="searchBtn" title="Search">Search</button>

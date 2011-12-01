@@ -706,11 +706,6 @@ $(function() {
         },
         target: "#target",
         success: function(response) {
-            $("#tags").tokenInput("clear");
-            $("#name").val("");
-            $("#name-id").val("");
-            formReset();
-
             $("#loader").fadeOut(200);
             $("#inputform").animate({opacity: 1.0},300).addClass("spacer");
             $("#target").fadeIn(400).delay(5000).fadeOut(400, function() { $("#inputform").removeClass("spacer"); });

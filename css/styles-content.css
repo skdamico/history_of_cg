@@ -107,6 +107,7 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
 ul.mosaicContainer li.tile p {
     margin: 10px;
     font-size: 15px;
+    overflow: hidden;
 }
 
 ul.mosaicContainer li.dynamic {
@@ -132,6 +133,7 @@ ul.mosaicContainer li.tile a {
     color: #fff;
     position: absolute;
     bottom: 0;
+    overflow: hidden;
 }
 
 ul.mosaicContainer li.tile a span {

@@ -22,7 +22,7 @@
 		</div>
 	</header>
 	<div id="homeSearch">
-		<form>
+		<form id="searchForm">
 			<fieldset class="search">
 				<input type="text" class="searchBox" placeholder="Start searching!" />
 				<button class="searchBtn" title="Search">Search</button>
