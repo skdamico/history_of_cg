@@ -22,7 +22,7 @@ include_once("includes/header.php");
             <div id="step-1" class="inputSection">
                 <p> 
                     <label for="name">Name</label>
-                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" title="Enter your name" />
+                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" title="Enter a name" />
                     <input id="name-id" type="hidden" name="name-id" value="<?php echo $id; ?>" />
                 </p>
                 <p>
