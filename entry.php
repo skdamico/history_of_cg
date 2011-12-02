@@ -39,7 +39,7 @@ include_once("includes/header.php");
                 </p>
                 <p>
                     <label for="tags" class="tags">Tags/Keywords</label>
-                    <input id="tags" type="text" name="tags" title="Enter at least two tags to further categorize your entry" />
+                    <input id="tags" type="text" name="tags" title="Type at least 2 key words to make connections between your entries and other similar ones. *Hint: if you’re stuck, start with the suggested tags below." />
                 </p>
                 <p>
                     <label for="suggested-tags">Suggested Tags</label>
