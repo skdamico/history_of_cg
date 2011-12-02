@@ -50,6 +50,7 @@ include_once("includes/header.php");
             <div id="step-2">
                 <div id="required-fields" class="inputSection"></div>
                 <div id="optional-fields" class="inputSection"></div>
+                <div id="sources" class="inputSection"></div>
                 <p>
                     <button type="button" id="clearForm">Clear Form</button>
                     <button type="button" id="save">Save</button>
@@ -105,11 +106,21 @@ include_once("includes/header.php");
                 <input name="author-id[]" class="author-id" type="hidden" />
             </p>
             <p>
-                <label for="citations">Citations</label>
-                <input name="citations[]" class="citation" type="text" />
+                <span class="add-narrative">+ Add another story</span>
+            </p>
+        </div>
+        <div id="source-module" class="source-module" style="display: none;">
+            <p>
+                <label for="source-name">Name</label>
+                <input name="source-name[]" class="source" type="text" />
+                <input name="source-id[]" class="source-id" type="hidden" />
             </p>
             <p>
-                <span class="add-narrative">+ Add another story</span>
+                <label for="source-url">URL</label>
+                <input name="source-url[]" class="url" type="text" />
+            </p>
+            <p>
+                <span class="add-source">+ Add Source</span>
             </p>
         </div>
         <div id="placeholder" style="display:none;"></div>

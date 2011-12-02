@@ -43,6 +43,9 @@ if($t != null and $t != '' and $q != null and $q != '') {
             // get narratives
             $arr["narratives"] = get_narratives($main_row['id'], $t);
 
+            // get sources
+            $arr["sources"] = get_sources($main_row['id'], $t);
+
             // get associations
             $arr["associations"] = get_all_associations($q, $t);
 

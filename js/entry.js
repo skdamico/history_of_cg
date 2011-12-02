@@ -234,11 +234,18 @@ $(function() {
                         "</span>");
             return $( "<li></li>" )
                 .data( "item.autocomplete", item )
-                .append( "<a><span class='autocomplete-name'>" + t + "</span></span></a>" )
+                .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-category-box person'></span></a>" )
                 .appendTo( ul );
         };
     }
 
+    function makeSourceModule() {
+        var sourceModule = $("#source-module").clone();
+        sourceModule.removeAttr("id");
+        sourceModule.fadeIn();
+        $("#sources").append(sourceModule);
+        $("#sources .add-source:last").click(function() { makeSourceModule() });
+    }
 
     // Reset the values in a location-date module
     // Input: DOM Object
@@ -432,14 +439,6 @@ $(function() {
             $(".author", module).val(narrative.author);
             $(".author-id", module).val(narrative.author_id);
         }
-        if(narrative.citations != null) {
-            var f = "";
-            $.each(narrative.citations, function(i, c) {
-                f += c.citation + ", ";
-            });
-
-            $(".citation", module).val(f.substring(0,f.length-2));
-        }
     }
 
     // Create and fill narrative modules with data
@@ -457,6 +456,33 @@ $(function() {
             }
             
             fillNarrative(narrative, currentNarrativeModule);
+        });
+    }
+
+    function fillSource(source, module) {
+        if(source.id != null) {
+            $(".source-id", module).val(source.id);
+        }
+        if(source.name != null) {
+            $(".source", module).val(source.name);
+        }
+        if(source.url != null) {
+            $(".url", module).val(source.url);
+        }
+    }
+
+    function fillSources(data) {
+        $.each(data, function(i, source) {
+            var currentSourceModule;
+            if(i > 0) {
+                makeSourceModule();
+                currentSourceModule = $(".source-module:last", $("#sources"));
+            }
+            else {
+                currentSourceModule = $(".source-module:first", $("#sources"));
+            }
+
+            fillSource(source, currentSourceModule);
         });
     }
 
@@ -502,6 +528,11 @@ $(function() {
                     // narratives
                     if(data.narratives) {
                         fillNarratives(data.narratives);
+                    }
+
+                    // sources
+                    if(data.sources) {
+                        fillSources(data.sources);
                     }
                 }
 
@@ -581,6 +612,9 @@ $(function() {
 
         // narrative
         makeNarrativeModule();
+
+        // source
+        makeSourceModule();
     }
 
     function formReset(callback) {
@@ -591,6 +625,8 @@ $(function() {
             // load the data
             $("#step-2 #required-fields").html($("#required-fields", "#placeholder").html());
             $("#step-2 #optional-fields").html($("#optional-fields", "#placeholder").html());
+
+            $("#step-2 #sources").html("");
 
             $("#step-2 input").not("input[type=submit]").not("input[type=checkbox]").val('');
             $("#step-2 textarea").val('');
@@ -608,15 +644,16 @@ $(function() {
     }
 
     function initTooltip(selector) {
-        var $selection = $(selector);
-        $selection.focus(function() {
-            var $tooltip = $("#tooltip");
-            $tooltip.html($(this).attr("title"));
-            $tooltip.css("left", $(this).position().left + 320).css("top", $(this).position().top - 5);
-            $tooltip.stop().fadeIn(500);
-        })
-        .blur(function() {
-            $("#tooltip").stop().fadeOut(500);
+        $(selector).bind({ 
+            focus : function() {
+                var $tooltip = $("#tooltip");
+                $tooltip.html($(this).attr("title"));
+                $tooltip.css("left", $(this).position().left + 320).css("top", $(this).position().top - 5);
+                $tooltip.stop().fadeIn(500);
+            },
+            blur : function() {
+               $("#tooltip").stop().fadeOut(500);
+            }
         });
     }
 

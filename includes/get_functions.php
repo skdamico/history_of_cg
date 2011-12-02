@@ -239,8 +239,11 @@ function get_association($assoc, $to, $what, $table_name, $with_tags) {
 
 function get_all_associations($id, $category, $with_tags) {
     if($id != null && $category != null) {
-        $tmp = array("person" => null, "project" => null, "organization" => null, "event" => null);
+        if(!isset($with_tags))
+            $with_tags = null;
 
+        $tmp = array("person" => null, "project" => null, "organization" => null, "event" => null);
+        
         if($category == "person") {
             $tmp["organization"] = get_association("organization", $category, $id, "organization_person", $with_tags);
             $tmp["project"] = get_association("project", $category, $id, "person_project", $with_tags);
@@ -294,16 +297,6 @@ function get_narratives($id, $category) {
             $tmp = array();
 
             while($row = mysql_fetch_assoc($result)) {
-                // get any citations
-                $query = "SELECT citation FROM citations WHERE narrative_id = ".$row['id'];
-                $c = mysql_query($query) or die(mysql_error());
-                
-                $c_arr = array();
-                while($c_row = mysql_fetch_assoc($c)) {
-                    $c_arr[] = $c_row;
-                }
-                $row["citations"] = $c_arr;
-
                 $tmp[] = $row;
             }
 
@@ -314,6 +307,29 @@ function get_narratives($id, $category) {
         return null;
     }
 }
+
+function get_sources($id, $category) {
+    if($id != null && $category != null) {
+        $query = "SELECT sources.id, sources.name, sources.url FROM sources ".
+                 "LEFT JOIN sources_$category as s ON sources.id = s.source_id ".
+                 "WHERE s.{$category}_id = $id";
+        $result = mysql_query($query) or die(mysql_error());
+
+        if(mysql_num_rows($result) != 0) {
+            $tmp = array();
+
+            while($row = mysql_fetch_assoc($result)) {
+                $tmp[] = $row;
+            }
+
+            return $tmp;
+        }
+    }
+    else {
+        return null;
+    }
+}
+
 
 function get_main($q, $category) {
     $query = null;

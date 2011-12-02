@@ -257,32 +257,50 @@
         }
     }
 
-    function insert_citations($narrative_id, $index) {
-        $citation = $_POST["citations"][$index];
-        $citation = trim($citation);
-        if($citation != null && $citation != '') {
-            $citation_arr = explode(",", $citation);
-            
-            foreach($citation_arr as $c) {
-                $c = trim($c);
-                $query = sprintf("SELECT id FROM citations WHERE narrative_id = %d AND citation = '%s'",
-                                 $narrative_id,
-                                 mysql_real_escape_string($c));
-                $result = mysql_query($query) or error(mysql_error());
+    function insert_sources($category, $id) {
+        if($_POST["source-name"] != null && $_POST["source-name"] != '') {
+            for($i=0; $i<sizeof($_POST["source-name"]); $i++) {
+                $source_name = $_POST["source-name"][$i];
+                $source_id = $_POST["source-id"][$i];
+                $source_url = $_POST["source-url"][$i];
 
-                if(mysql_num_rows($result) == 0) {
-                    // Insert citation
-                    $query = sprintf("INSERT INTO citations (narrative_id, citation) ".
-                                     "VALUES ($narrative_id, '%s')",
-                                     mysql_real_escape_string($c));
-                    mysql_query($query) or error(mysql_error());
-                }
-                else {
-                    $c_id = mysql_result($result, 0, "id");
-                    $query = sprintf("UPDATE citations SET citation = '%s' WHERE id = %d",
-                                     mysql_real_escape_string($c),
-                                     $c_id);
-                    mysql_query($query) or error(mysql_error());
+                if(!empty($source_name) && !empty($source_url)) {
+                    // insert
+                    if(empty($source_id)) {
+                        $query = sprintf("SELECT id FROM sources WHERE BINARY name = '%s'",
+                                         mysql_real_escape_string($source_name));
+
+                        $result = mysql_query($query) or die(mysql_error());
+
+                        if(mysql_num_rows($result) != 0) {
+                            $source_id = mysql_result($result, 0, "id");
+                            
+                            // update
+                            $query = sprintf("UPDATE sources SET name = '%s', url = '%s' WHERE id = $source_id",
+                                             mysql_real_escape_string($source_name),
+                                             mysql_real_escape_string($source_url));
+                            mysql_query($query) or die(mysql_error());
+                        }
+                        else {
+                            // insert
+                            $query = sprintf("INSERT INTO sources (name, url) VALUES ('%s', '%s')",
+                                             mysql_real_escape_string($source_name),
+                                             mysql_real_escape_string($source_url));
+                            mysql_query($query) or die(mysql_error());
+
+                            $source_id = mysql_insert_id();
+
+                            $query = "INSERT INTO sources_{$category} (source_id, {$category}_id) VALUES ({$source_id}, {$id})";
+                            mysql_query($query) or die(mysql_error());
+                        }
+                    }
+                    // update
+                    else {
+                        $query = sprintf("UPDATE sources SET name = '%s', url = '%s' WHERE id = $source_id",
+                                         mysql_real_escape_string($source_name),
+                                         mysql_real_escape_string($source_url));
+                        mysql_query($query) or die(mysql_error());
+                    }
                 }
             }
         }
@@ -354,8 +372,6 @@
                                          $person_id);
                         mysql_query($query) or error(mysql_error());
                     }
-                       
-                    insert_citations($narrative_id, $i);
                 }
             }
         }
@@ -522,6 +538,9 @@
     if($category_id != null) {
         // add narratives
         insert_narratives($category, $category_id);
+
+        // add sources
+        insert_sources($category, $category_id);
 
         // add tags
         secondary_entry_insert("tags", $category, $category_id, $category."_tags");

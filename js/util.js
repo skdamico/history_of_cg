@@ -14,7 +14,5 @@ function upperCaseWord(str) {
 
 function changeEntryHairline(category) {
     var categories = "person project organization event";
-    $("#step-1").removeClass(categories).addClass(category);
-    $("#required-fields").removeClass(categories).addClass(category);
-    $("#optional-fields").removeClass(categories).addClass(category);
+    $(".inputSection").removeClass(categories).addClass(category);
 }
