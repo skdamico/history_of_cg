@@ -117,50 +117,67 @@ header#masthead {
 .ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
 
 .ui-autocomplete.ui-menu {
-    font: 0.96em Verdana;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-top: none;
-    background-color: #fff;
-    cursor: default;
-    padding: 0;
-    margin: 0;
-    z-index: 1;
+    background-color: #141414;
+    background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    box-shadow: 0 0 1px 1.5px #0f0f0f;
+    -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
+    -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
+    margin:0;
+    padding:0px;
+    width:232px;
+    color: #b9b9b9;
     overflow: hidden;
+    cursor: default;
+    z-index: 1;
 }
 .ui-autocomplete li.ui-menu-item {
-    padding: 0px;
-    margin: 0px;
-    font-size: 0.98em;
+    padding: 5px 10px 5px 10px;
     list-style-type: none;
-    height:1.5em;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px #222 solid;
     clear: both;
 }
 
 .ui-autocomplete li.ui-menu-item a {
     display: block;
     text-decoration: none;
-    height: 1.5em;
-    line-height: 1.5em;
-    padding: 3px;
+    height: 30px;
 }
 
 .ui-autocomplete li.ui-menu-item a.ui-state-hover, 
 .ui-autocomplete li a#ui-active-menuitem,
 .ui-autocomplete li a#ui-active-menuitem span {
-    background-color: #777;
-    color: #fff;
 }
 
 .autocomplete-name {
-    color: #333;
     float: left;
 }
 .autocomplete-category {
-    color: #777;
     float: right;
 }
+.autocomplete-category.project {color:#fc6500;}
+.autocomplete-category.organization {color:#7bd900;}
+.autocomplete-category.event {color:#d200ff;}
+.autocomplete-category.person {color: #00b8d9;}
+
 .autocomplete-name-term-highlight {
     font-weight: bold;
-    color: #000;
 }
+
+.autocomplete-category-box {
+    width: 12px;
+    height: 12px;
+    margin: 9px 0;
+    float: right;
+    margin-left: 10px;
+    line-height: 30px;
+}
+.autocomplete-category-box.project {background-color:#fc6500;}
+.autocomplete-category-box.organization {background-color:#7bd900;}
+.autocomplete-category-box.event {background-color:#d200ff;}
+.autocomplete-category-box.person {background-color: #00b8d9;}

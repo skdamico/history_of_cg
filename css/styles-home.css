@@ -34,3 +34,8 @@
         #homeSearch .search button.searchBtn:active {
             background-position:0 -32px;
         }
+
+.ui-autocomplete.ui-menu {
+    margin-left: 3px;
+    width: 370px !important;
+}

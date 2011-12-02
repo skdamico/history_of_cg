@@ -68,7 +68,7 @@ $(document).ready(function() {
         var innerContent = "<a><span class='autocomplete-name'>"+ t +"</span><span class='autocomplete-category-box "+item.category+"'></span>";
 
         if(pagename === "" || pagename === "index.php") {
-            innerContent += "<span class='autocomplete-category'>" + upperCaseWord(item.category) + "</span>";
+            innerContent += "<span class='autocomplete-category "+item.category+"'>" + upperCaseWord(item.category) + "</span>";
         }
 
         innerContent += "</a>";

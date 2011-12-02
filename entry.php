@@ -51,7 +51,9 @@ include_once("includes/header.php");
                 <div id="required-fields" class="inputSection"></div>
                 <div id="optional-fields" class="inputSection"></div>
                 <p>
-                    <input type="submit" name="submit" value="Save" />
+                    <button type="button" id="clearForm">Clear Form</button>
+                    <button type="button" id="save">Save</button>
+                    <button type="button" id="preview">Preview</button>
                 </p>
             </div>
         </form>

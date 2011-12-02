@@ -1,4 +1,6 @@
 $(function() {
+    var preview = false;
+
     // Initialize tooltips
     initTooltip("#inputform :input[title]");
     
@@ -34,11 +36,17 @@ $(function() {
     function populateYears(id) {
         var date = new Date();
         var currentyear = parseInt(date.getFullYear());
-        var yearmin = 1930;
+        var yearmin = 1900;
 
         var yiter = yearmin;
         while (yiter <= currentyear) {
-            $(id).prepend("<option value='"+yiter+"'>"+yiter+"</option>");
+            var newOpt = "<option value='"+yiter+"'";
+            if(yiter == currentyear)
+                newOpt += " selected='selected'";
+            newOpt += ">"+yiter+"</option>";
+            
+            $(id).prepend(newOpt);
+
             yiter++;
         }
     }
@@ -647,7 +655,7 @@ $(function() {
                     "</span>");
         return $( "<li></li>" )
             .data( "item.autocomplete", item )
-            .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-name-category'>" + upperCaseWord(item.category) + "</span></a>" )
+            .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-category "+item.category+"'>" + upperCaseWord(item.category) + "</span></a>" )
             .appendTo( ul );
     };
 
@@ -657,20 +665,7 @@ $(function() {
         preventDuplicates: true,
         hintText: "Search for predefined tags or suggest new ones",
         onAdd: validateStep1,
-        onDelete: validateStep1,
-        onResult: function(results) {
-            /*var category = $("#categories").val();
-
-            if(category != "" && category != null) {
-                $.each(results, function(i, value) {
-                    if(category == value.category) {
-                        results.splice(i, 1);
-                    }
-                });
-            }
-            */
-            return results;
-        }
+        onDelete: validateStep1
     });
 
     $("#categories").change(function() {
@@ -709,8 +704,27 @@ $(function() {
             $("#loader").fadeOut(200);
             $("#inputform").animate({opacity: 1.0},300).addClass("spacer");
             $("#target").fadeIn(400).delay(5000).fadeOut(400, function() { $("#inputform").removeClass("spacer"); });
+
+            if(preview) {
+                window.open("content.php?c="+$("#categories").val()+"&q="+$("#name-id").val());
+                preview = false;
+            }
         },
     };
 
     $("#inputform").ajaxForm(options);
+
+    $("#save").click(function() {
+        $("#inputform").submit();
+    });
+    $("#preview").click(function() {
+        preview = true;
+
+        $("#inputform").submit();
+    });
+    $("#clearForm").click(function() {
+        formReset();
+        $("#name, #name-id, #categories").val("");
+        $("#tags").tokenInput("clear").blur();
+    });
 });
