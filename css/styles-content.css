@@ -52,12 +52,26 @@ ul.catBar {
     ul.catBar .editEntry a:hover {color:#9dd4fe;}
 
 /* ----- tag lists ----- */
-.tagLists {background-image:url('../images/shadeFlatBg.png');}
+.tagLists {
+	background-image:url('../images/shadeFlatBg.png');
+	padding:10px 0 0 0;
+}
 
 .tagLists div {
-    clear: both;
-    height: 100px;
+	background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%); 
+	border:1px #1b222a solid;
+	box-shadow: inset 0 0 1px 1.5px #0f0f0f; 
+	-moz-box-shadow: inset 0 0 1px 1.5px #0f0f0f;
+    -webkit-box-shadow: inset 0 0 1px 1.5px #0f0f0f;
+    clear: both!important;
+	color:#9fd6ff;
+	min-height:100px;
     margin: 0 auto;
+	padding:5px 5px 0 5px;
 	width:990px;
 }
 
@@ -67,7 +81,7 @@ ul.catBar {
 }
 
 .tagLists div ul li {
-    padding: 10px;
+    padding: 5px;
 }
 
 /* ----- mosaic content ----- */

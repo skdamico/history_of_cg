@@ -1,3 +1,5 @@
+.entryWrapper h1.entryTitle {width:850px;}
+
 .entryWrapper .inputSection { /*#step-1, #required-fields, #optional-fields*/
 	border-top:1px #e4e7fa solid;
 	background-image: -moz-linear-gradient(
