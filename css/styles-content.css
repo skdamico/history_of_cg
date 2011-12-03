@@ -84,6 +84,8 @@ ul.catBar {
     padding: 5px;
 }
 
+.tagLists div input {margin-right:5px;}
+
 /* ----- mosaic content ----- */
 .mosaicBody {
 	background-image:url("../images/shadesBg.png");
