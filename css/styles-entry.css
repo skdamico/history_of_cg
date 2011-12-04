@@ -61,8 +61,15 @@
     display: none;
     position: relative;
 }
+#step-2 span {
+	color:red;
+}
 .entryWrapper input.message, .entryWrapper select option.message {
 }
+
+.entryWrapper #step-2 #required-fields .country {width:200px;}
+.entryWrapper #step-2 #required-fields .state {margin-bottom:10px; width:100px;}
+
 #inputform.spacer {
     margin-top: 60px;
 }
