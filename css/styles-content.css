@@ -89,6 +89,7 @@ ul.catBar {
 /* ----- mosaic content ----- */
 .mosaicBody {
 	background-image:url("../images/shadesBg.png");
+	background-repeat:repeat-x;
     min-height:500px;
 }
 
