@@ -110,7 +110,7 @@ include_once("includes/header.php");
             </p>
         </div>
         <div id="source-module" class="source-module" style="display: none;">
-			<h3 class="form-section-title">Sources</h3>
+			<h3 class="section-title">Sources</h3>
             <p>
                 <label for="source-name">Name</label>
                 <input name="source-name[]" class="source" type="text" />
