@@ -1,0 +1,138 @@
+.timeline {
+    height:175px;
+	margin:0 auto;
+	width:990px;
+}
+
+#line {
+    position: relative;
+    width: 100%;
+    bottom: 20px;
+    height: 1px;
+    background-color: #555;
+    z-index: 2;
+}
+
+#content {
+    overflow: auto;
+    height: 160px;
+}
+
+#controls {
+    height: 15px;
+    width: 100%;
+    clear: left;
+}
+
+#slider.ui-slider {
+    background: none; 
+    border:0; 
+    margin: 0 auto;
+    position: relative;
+}
+#slider .ui-handle-helper-parent {
+    position: relative;
+    width: 100%; 
+    height: 15px; 
+    margin: 0 auto;
+}
+
+#slider .ui-slider-handle {
+    display: block;
+    height: 15px;
+    top: 0px;
+    background-color: #eee;
+    position: absolute;
+    border-radius: 2px 2px 2px 2px;
+}
+
+.events {
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.events .divider {
+    float: left;
+    width: 30px;
+    margin-right: 50px;
+    height: 100%;
+    position: relative;
+}
+
+.events li ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+.events li ul .timeline-event {
+    width: 25px;
+    height: 25px;
+    margin: 4px auto;
+}
+
+.events li ul .timeline-event a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.events li ul .timeline-event.person a {
+    background: transparent url('../images/timeline/person-button.png') center no-repeat;
+}
+.events li ul .timeline-event.person a:hover {
+    background: transparent url('../images/timeline/person-button-hover.png') center no-repeat;
+}
+.events li ul .timeline-event.project a {
+    background: transparent url('../images/timeline/project-button.png') center no-repeat;
+}
+.events li ul .timeline-event.project a:hover {
+    background: transparent url('../images/timeline/project-button-hover.png') center no-repeat;
+}
+.events li ul .timeline-event.organization a {
+    background: transparent url('../images/timeline/organization-button.png') center no-repeat;
+}
+.events li ul .timeline-event.organization a:hover {
+    background: transparent url('../images/timeline/organization-button-hover.png') center no-repeat;
+}
+.events li ul .timeline-event.event a {
+    background: transparent url('../images/timeline/event-button.png') center no-repeat;
+}
+.events li ul .timeline-event.event a:hover {
+    background: transparent url('../images/timeline/event-button-hover.png') center no-repeat;
+}
+
+.events li ul li .name {
+    width: 100%;
+    font-size: 15px;
+    color: #888;
+    margin: auto;
+    text-align: center;
+}
+
+.events li ul li .tick {
+    width: 1px;
+    height: 10px;
+    margin-top: 8px;
+    background-color: #555;
+    margin: 0 auto;
+}
+
+#tooltip {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    min-width: 30px;
+    min-height: 20px;
+    background-color: #000;
+    border-radius: 3px 3px 3px 3px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+}

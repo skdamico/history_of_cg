@@ -1,3 +1,10 @@
 <section class="timeline">
-    <p>this is our timeline section</p>
+    <div id="content">
+        <ul class='events'></ul>
+        <div id='line'></div>
+    </div>
+    <div id="controls">
+        <div id="slider"></div>
+    </div>
+    <div id="tooltip"></div>
 </section>

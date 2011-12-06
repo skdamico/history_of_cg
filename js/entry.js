@@ -763,5 +763,7 @@ $(function() {
         formReset();
         $("#name, #name-id, #categories").val("");
         $("#tags").tokenInput("clear").blur();
+
+        changeEntryHairline("");
     });
 });

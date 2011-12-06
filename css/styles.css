@@ -105,14 +105,6 @@ header#masthead {
 	    }
 	        .search button.searchBtn:active {background-position:0 -23px;}
 	
-/* ----- timeline ----- */
-.timeline {
-    border:1px #555 dashed;
-    height:175px;
-	margin:0 auto;
-	width:990px;
-}
-
 /* ----- autocomplete ----- */
 .ui-autocomplete-loading { background: white url('../images/small-loader.gif') right center no-repeat; }
 
