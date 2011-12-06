@@ -76,6 +76,7 @@
 	    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
 	    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
 		color:#fff;
+        cursor: pointer;
 	}
 
 /* ===== entry forms formatting ===== */
@@ -121,13 +122,14 @@
          background-image: -moz-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
          background-image: -webkit-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
          background-image: -ms-linear-gradient(bottom, rgb(29,29,29) 0%, rgb(21,21,21) 100%);
-		color:#fff;
+		 color:#fff;
+         cursor: pointer;
 	}
 .entryWrapper #step-2 #required-fields .country {width:200px;}
 .entryWrapper #step-2 #required-fields .state {margin-bottom:10px; width:100px;}
 
 #inputform.spacer {
-    margin-top: 60px;
+    margin-top: 90px;
 }
 #loader {
     background: transparent url("../images/ajax-loader.gif") no-repeat left top;
