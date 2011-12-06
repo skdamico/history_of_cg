@@ -95,10 +95,10 @@ include_once("includes/header.php");
                 <span class="add-location-date" style="display:none;">+ Multiple locations</span>
             </p>
         </div> 
-        <div id="narrative-module" class="narrative-module" style="display: none;" title="Share a personal story about this topic">
+        <div id="narrative-module" class="narrative-module" style="display: none;">
             <p>
                 <label for="narrative">Tell A Story</label>
-                <textarea rows="15" cols="40" class="narrative" name="narrative[]"></textarea>
+                <textarea rows="15" cols="40" class="narrative" name="narrative[]" title="Make this topic more personal by sharing a personal story about the people involved"></textarea>
             </p>
             <p>
                 <label for="author">Author</label>
