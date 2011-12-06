@@ -36,7 +36,6 @@ li.token-input-token-hcg {
     background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
     background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
     background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
-	color:#9dd4fe;
     cursor: default;
     border: 1px solid #888;
     font-size: 0.98em;
