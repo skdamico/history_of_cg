@@ -102,7 +102,7 @@ include_once("includes/header.php");
             </p>
             <p>
                 <label for="author">Author</label>
-                <input name="author[]" class="author" type="text" />
+                <input name="author[]" class="author" type="text" title="Name the original author of this story"/>
                 <input name="author-id[]" class="author-id" type="hidden" />
             </p>
             <p>
