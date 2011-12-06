@@ -3,37 +3,38 @@
 	font-family:Helvetica, sans-serif;
 	font-size:75%;
 	}
-
-/*-------------------- shaded bar title bar ------------*/
-
-.pLogo {background: url('../images/pLogo.png'); 
-		width: 150px; 
-		height: 180px; 
-		position:relative; 
-		z-index:1; 
-		margin-top:-15px;
-		float: left;
-		}
-
-.entryMast {
-	width: 100%;
-	background:url('../images/barBg.png') repeat-x;
-	}
-
-.HOCGtitle {
-	color:#DBDBDB;
-	font-family:Gotham, Helvetica, sans-serif;
-	text-transform: uppercase;
-	width: 815px;
+#HOCGtitle, #HOCGcreators {
+	background-color:#0F0F0F;
 	margin: 0 auto;
-	padding: 5px 0 5px 175px;
-	}
-
-
-/*-------------------- about the history of cg container ------------*/
-
-.AboutHOCGSection {
+	padding:0;
+}
+	#HOCGtitle h3, #HOCGcreators h3 {
+		color:#DBDBDB;
+		font-family:Helvetica, sans-serif!important;
+		font-weight:bold;
+		margin:0 auto!important;
+		text-transform:none!important;
+		padding: 5px 0;
+		width:575px;
+		}
+			#HOCGcreators h3 {width:990px!important;}
+.about-section {
 	background-image:url("../images/shadesBg.png");
+	margin:0 auto;
+	padding:0 0 20px 0;
+}
+/*-------------------- about the history of cg container ------------*/
+.AboutUsSection {
+	background:url("../images/shadesBg.png");
+}
+.pLogo {
+	background: url('../images/pLogo.png'); 
+	width: 150px; 
+	height: 180px; 
+	position:relative; 
+	z-index:1; 
+	margin:-15px 30px 0 0;
+	float: left;
 }
 
 .aboutHOCG {
@@ -42,139 +43,120 @@
     margin: 0 auto;
 	}
 
-ul.aboutHOCGContainer {
-    margin: 0 auto 20px auto;
-	padding:10px 0;
-	width:990px;
-}
-
 .columns {
-     width: 600px;
-     float: left;
-     margin-left: 20px;
-    }
-
-.columns .column {
-    position: relative;
-    width: 46%;
-    padding: 1%;
-    margin-top:10px;
-    }
-
-.columns .left {
-    float: left;
-    }
-
-.columns .right {
-    float: right;
-    }
+	width: 790px;
+	float: left;
+	margin-left: 20px;
+}
+	.columns .column {
+	    position: relative;
+	    width: 46%;
+	    padding: 1%;
+	    margin-top:10px;
+	    }
+		.columns .left {float: left;}
+		.columns .right {float: right;}
 
 /*-------------------- about the CREATORS section ------------*/
-
-.groupPhotoArrow {background: url('../images/groupPhotoArrow.png');
-		width: 20px;
-		height: 40px;
-		position: relative;
-		z-index:2; 
-		float:left;
-		margin-top: 25px;
-		}
-		
-/*-------------------- about the CREATORS section ------------*/ 
-
-
-#brian {
-	display: block;
-	width: 50px;
-	height: 215px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 500;
-	left: 20px;
-	top: 50px;
+.aboutCreators {
+ 	margin: 0 auto;
+	width: 990px;
+    min-height:375px;
+    position:relative;
+	}
+.groupPhoto {
+	background: url('../images/groupPhoto.png'); 
+	width: 500px; 
+	height: 300px; 
+	position:relative; 
+	z-index:3;
+	float:left;
+	margin-top: 10px;
 }
-
-#terrence {
-	display: block;
-	width: 50px;
-	height: 215px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 501;
-	left: 72px;
-	top: 40px;
+.groupPhotoArrow {
+	background: url('../images/groupPhotoArrow.png');
+	width: 20px;
+	height: 40px;
+	position: relative;
+	z-index:2; 
+	float:left;
+	margin-top: 25px;
 }
-
-#amy {
+#brian, #terrence, #amy, #connie, #michelle, #stefano, #james {
+	border:0;
 	display: block;
-	width: 51px;
-	height: 215px;
-	border: 1px solid red;
+	font-size:0;
 	position: absolute;
-	z-index: 502;
-	left: 123px;
-	top: 56px;
+	text-indent:9999px;
 }
+	#brian {
+		width: 50px;
+		height: 215px;
+		z-index: 500;
+		left: 20px;
+		top: 50px;
+	}
 
-#connie {
-	display: block;
-	width: 50px;
-	height: 200px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 503;
-	left: 175px;
-	top: 48px;
-}
+	#terrence {
+		width: 50px;
+		height: 215px;
+		z-index: 501;
+		left: 72px;
+		top: 40px;
+	}
 
-#michelle {
-	display: block;
-	width: 52px;
-	height: 200px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 504;
-	left: 228px;
-	top: 75px;
-}
+	#amy {
+		width: 51px;
+		height: 215px;
+		z-index: 502;
+		left: 123px;
+		top: 56px;
+	}
 
-#stefano {
-	display: block;
-	width: 58px;
-	height: 215px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 505;
-	left: 290px;
-	top: 30px;
-}
+	#connie {
+		width: 50px;
+		height: 200px;
+		z-index: 503;
+		left: 175px;
+		top: 48px;
+	}
 
-#james {
-	display: block;
-	width: 60px;
-	height: 215px;
-	border: 1px solid red;
-	position: absolute;
-	z-index: 506;
-	left: 350px;
-	top: 50px;
-}
+	#michelle {
+		width: 52px;
+		height: 200px;
+		z-index: 504;
+		left: 228px;
+		top: 75px;
+	}
+
+	#stefano {
+		width: 58px;
+		height: 215px;
+		z-index: 505;
+		left: 290px;
+		top: 30px;
+	}
+
+	#james {
+		width: 60px;
+		height: 215px;
+		z-index: 506;
+		left: 350px;
+		top: 50px;
+	}
 	
+/*-------------------- about the CREATORS section BIOS BOX ------------*/
 .moreInfo {
-	width: 245px;
-	height: 300px;
-	display: block;
 	background-color: #1a1c1d;
 	border: 1px solid #ffffff;
 	color: #e6e6e6;
-	float: left;
-	margin-top: 10px;
-	margin-left: 20px;
-	z-index: 600;
-	
+	display: block;
+	float:right;
+	height: 300px;
+	margin:13px 0 0 0;
+	width: 245px;
 }
-
-.picture_MAG {
+.bio-picture {
 	width: 104px;
 	height: 104px;
 	background:url('../images/picture_MAG.png');
@@ -182,180 +164,24 @@ ul.aboutHOCGContainer {
 	margin: 10px;
 	z-index: 601;
 }
-
-#name_MAG {
+.bio-name {
 	color:#DBDBDB;
 	font-family:Gotham-thin, Helvetica, sans-serif;
 	text-transform: uppercase;
 	font-size: 12pt;
 	margin-top: 10px;
 }
-
-#role_MAG {
+.bio-role {
 	color:#DBDBDB;
 	font-family:Gotham-regular, Helvetica, sans-serif;
 	text-transform: uppercase;
 	font-size: 12pt;
 	margin-top: 2px;
 }
-
-#info_MAG {
+.bio-info {
 	color:#DBDBDB;
 	font-family: Helvetica, sans-serif;
 	font-size: 9pt;
 	margin-top: 40px;
 	padding: 0 10px 10px 10px;
-}
-
-/* ------------------------Connie's mini bio -----------------------------*/
-
-.picture_CYC {
-	width: 104px;
-	height: 104px;
-	background:url('../images/picture_CYC.png');
-	float: left;
-	margin: 10px;
-	z-index: 603;
-}
-
-#name_CYC {
-	color:#DBDBDB;
-	font-family:Gotham-thin, Helvetica, sans-serif;
-	text-transform: uppercase;
-	font-size: 12pt;
-	margin-top: 10px;
-}
-
-#role_CYC {
-	color:#DBDBDB;
-	font-family:Gotham-regular, Helvetica, sans-serif;
-	text-transform: uppercase;
-	font-size: 12pt;
-	margin-top: 2px;
-}
-
-#info_CYC {
-	color:#DBDBDB;
-	font-family: Helvetica, sans-serif;
-	font-size: 9pt;
-	margin-top: 40px;
-	padding: 0 10px 10px 10px;
-}
-	
-/*
-.moreInfo_MAG {background: url('../images/moreInfo_MAG.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_CYC {background: url('../images/moreInfo_CYC.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_SKD {background: url('../images/moreInfo_SKD.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_AS {background: url('../images/moreInfo_AS.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_JS {background: url('../images/moreInfo_JS.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_TM {background: url('../images/moreInfo_TM.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px;
-		}
-		
-.moreInfo_BS {background: url('../images/moreInfo_BS.png');
-		width: 245px;
-		height: 301px;
-		position: relative;
-		z-index:4; 
-		float:left;
-		margin-top: 10px;
-		margin-left: 10px; */
-		}
-		
-/*-------------------- END about the CREATORS section ------------*/
-
-.entryMast2 {
-	width:100%;
-	background:url('../images/barBg.png') repeat-x;
-	}
-	
-.USsectionTitle {
-	color:#DBDBDB;
-	font-family:Gotham, Helvetica, sans-serif;
-	text-transform: uppercase;
-	width:990px;
-	margin: 0 auto;
-	padding: 5px 0;
-	}
-
-	
-/*-------------------- about THE CREATORS container ------------*/
-
-.AboutUsSection {
-	background:url("../images/shadesBg.png");
-}
-
-.aboutCreators {
- 	margin: 0 auto;
-	width: 990px;
-    min-height:375px;
-    position:relative;
-	}
-
-ul.aboutCreatorsContainer {
-	margin: 0 auto;
-	padding:10px 0;
-	width:990px;
-}
-
-
-.groupPhoto {background: url('../images/groupPhoto.png'); 
-		width: 500px; 
-		height: 300px; 
-		position:relative; 
-		z-index:3;
-		float:left;
-		margin-top: 10px;
-		}
 }

@@ -96,13 +96,6 @@
     display: none;
     position: relative;
 }
-h3.form-section-title {
-	color:#fff;
-	font-family:Gotham, Helvetica, sans-serif;
-	font-size: 18px;
-	margin-bottom:20px;
-	text-transform:uppercase;
-}
 #step-2 span.add-source, #step-2 span.add-narrative, #step-2 span.add-location-date {
 	background-color:#141414;
 	background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);

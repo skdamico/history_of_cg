@@ -45,6 +45,14 @@ h1.entryTitle.person {color:#00b8d9 !important;}
 h1.entryTitle.organization {color:#7bd900 !important;}
 h1.entryTitle.event {color:#d200ff !important;}
 
+h3.section-title {
+	color:#fff;
+	font-family:Gotham, Helvetica, sans-serif;
+	font-size: 18px;
+	margin-bottom:20px;
+	text-transform:uppercase;
+}
+
 header#masthead {
 	margin: 0 auto;
 	padding:25px 0;
