@@ -1,9 +1,11 @@
 <div id="required-fields">
+	<h3 class="section-title">Required</h3>
     <p>
        <label for="description">Short Bio</label>
        <textarea id="description" class="required" rows="5" cols="40" name="description"></textarea>
     </p>
-    <span style="float:left; margin-right: 25em">Birth</span><span><input type='checkbox' class='isdead' style='float: left' name="deceased" value="deceased" />Deceased?</span>
+    <p class="req-title">Birth</p>
+	<span id="isdead-check"><input type='checkbox' class='isdead' style='float: left' name="deceased" value="deceased" />Deceased?</span>
     <div id="birth" class="birth">
         <p>
            <label for="location">Location</label>
@@ -27,7 +29,7 @@
         </p>
     </div>
     <div id="death" class="death" style="display: none">
-        <span>Death</span>
+        <p class="req-title">Death</p>
         <p>
            <label for="location">Location</label>
            <div style="float:left">
@@ -49,18 +51,19 @@
            <div style="clear:both;"></div>
         </p>
     </div>
-    <p>Places lived</p>
+    <p class="req-title">Places lived</p>
     <p id="location-form">
     </p>
 </div>
 <div id="optional-fields">
-    <p>
+	<h3 class="section-title">Optional Fields</h3>
+   	<p>
        <label for="organization">Organizations Involved</label>
-       <input id="organization" type="text" name="organization" style="display: none" />
+       <input id="organization" type="text" name="organization" style="display: none" title="Name any organizations this person has worked for or been associated with" />
     </p>
     <p>
        <label for="project">Credited Projects</label>
-       <input id="project" type="text" name="project" style="display: none" />
+       <input id="project" type="text" name="project" style="display: none" title="Name any projects this person has been credited for working on"/>	
     </p>
     <p id="narrative-form">
     </p>

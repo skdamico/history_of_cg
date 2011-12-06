@@ -22,7 +22,7 @@ include_once("includes/header.php");
             <div id="step-1" class="inputSection">
                 <p> 
                     <label for="name">Name</label>
-                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" title="Enter your name" />
+                    <input id="name" class="required" type="text"  name="name" value="<?php echo $name; ?>" title="Enter a name" />
                     <input id="name-id" type="hidden" name="name-id" value="<?php echo $id; ?>" />
                 </p>
                 <p>
@@ -39,7 +39,7 @@ include_once("includes/header.php");
                 </p>
                 <p>
                     <label for="tags" class="tags">Tags/Keywords</label>
-                    <input id="tags" type="text" name="tags" title="Enter at least two tags to further categorize your entry" />
+                    <input id="tags" type="text" name="tags" title="Type at least 2 key words to make connections between your entries and other similar ones. *Hint: if you’re stuck, start with the suggested tags below." />
                 </p>
                 <p>
                     <label for="suggested-tags">Suggested Tags</label>
@@ -51,11 +51,11 @@ include_once("includes/header.php");
                 <div id="required-fields" class="inputSection"></div>
                 <div id="optional-fields" class="inputSection"></div>
                 <div id="sources" class="inputSection"></div>
-                <p>
+                <div id="form-save">
                     <button type="button" id="clearForm">Clear Form</button>
                     <button type="button" id="save">Save</button>
                     <button type="button" id="preview">Preview</button>
-                </p>
+                </div>
             </div>
         </form>
         
@@ -98,11 +98,11 @@ include_once("includes/header.php");
         <div id="narrative-module" class="narrative-module" style="display: none;">
             <p>
                 <label for="narrative">Tell A Story</label>
-                <textarea rows="15" cols="40" class="narrative" name="narrative[]"></textarea>
+                <textarea rows="15" cols="40" class="narrative" name="narrative[]" title="Make this topic more personal by sharing a personal story about the people involved"></textarea>
             </p>
             <p>
                 <label for="author">Author</label>
-                <input name="author[]" class="author" type="text" />
+                <input name="author[]" class="author" type="text" title="Name the original author of this story"/>
                 <input name="author-id[]" class="author-id" type="hidden" />
             </p>
             <p>
@@ -110,6 +110,7 @@ include_once("includes/header.php");
             </p>
         </div>
         <div id="source-module" class="source-module" style="display: none;">
+			<h3 class="section-title">Sources</h3>
             <p>
                 <label for="source-name">Name</label>
                 <input name="source-name[]" class="source" type="text" />

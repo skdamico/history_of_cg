@@ -3,20 +3,13 @@ html,body {
     background-image:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
     background-position:center center, center 0;
     background-repeat:repeat, no-repeat;
+    color:#fff;
+	font-family:Helvetica, sans-serif;
     height: 100%;
 }
 
 /* ~~~~ Containers ~~~~ */
-.wrapper {
-	background-color:#292f33;
-    background-image:url('../images/dotsBg.png'), url('../images/radialBg.jpg');
-    background-position:center center, center 0;
-    background-repeat:repeat, no-repeat;
-	
-    color:#fff;
-	font-family:Helvetica, sans-serif;
-	font-size:75%;
-}
+.wrapper {font-size:75%;}
 #page{
     margin:0 auto;
 	position: relative;
@@ -51,6 +44,14 @@ h1.entryTitle.project {color:#fc6500 !important;}
 h1.entryTitle.person {color:#00b8d9 !important;}
 h1.entryTitle.organization {color:#7bd900 !important;}
 h1.entryTitle.event {color:#d200ff !important;}
+
+h3.section-title {
+	color:#fff;
+	font-family:Gotham, Helvetica, sans-serif;
+	font-size: 18px;
+	margin-bottom:20px;
+	text-transform:uppercase;
+}
 
 header#masthead {
 	margin: 0 auto;

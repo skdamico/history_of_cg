@@ -1,3 +1,8 @@
+#homeWrapper #page {
+	margin:0 auto;
+	width:990px;
+}
+
 #homeWrapper .aboutProj {
     float:right;
     margin:35px 0 10px 0;

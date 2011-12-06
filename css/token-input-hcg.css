@@ -30,14 +30,21 @@ li.token-input-token-hcg {
     height: auto !important; 
     margin: 0 2px!important;
     padding: 1px 1px 1px 3px;
-    background-color: #f5f9f6!important;
-    color: #000;
+	background-color:#141414;
+	background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
     cursor: default;
     border: 1px solid #888;
     font-size: 0.98em;
     float: left;
     white-space: nowrap;
 }
+	li.token-input-token-hcg p {
+		padding:3px auto!important;
+	}
 
 .inputFormSections .token-input-input-token-hcg input {
 	height:auto!important;
