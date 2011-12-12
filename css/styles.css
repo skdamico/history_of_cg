@@ -66,6 +66,9 @@ header#masthead {
 .topRight, .topRight a, .topRight .search {float:right;}
     .topRight {margin-top:10px;}
     .topRight .search {margin-top:10px;}
+    .topRight a {
+        margin-left: 10px;
+    }
 
 	.search input.searchBox {
 	        background-color:#141414;
