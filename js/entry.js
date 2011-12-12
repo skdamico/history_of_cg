@@ -55,7 +55,7 @@ $(function() {
         var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         
         // append blank for validation
-        $(id).append("<option value='0'></option>");
+        $(id).html("<option value='0'>Month</option>");
         for(var i=0; i<months.length; i++) {
             $(id).append("<option value='"+(i+1)+"'>"+months[i]+"</option>");
         }
@@ -76,7 +76,7 @@ $(function() {
         var a = "<option";
         if(selectedDay == "")
             a += " selected='selected'";
-        a += " value='0'></option>";
+        a += " value='0'>Day</option>";
         $(day_id).append(a);
 
         // append rest

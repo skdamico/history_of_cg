@@ -79,20 +79,20 @@ include_once("includes/header.php");
             <p class="date">
                 <label for="start-year">Date Started</label>
                 <select class="start-year" class="required" name="start-year[]" style="float: left"></select>
-                <select class="start-month" name="start-month[]" style="float: left;"></select>
-                <select class="start-day" name="start-day[]" style="float:left;"></select>
+                <select class="start-month" name="start-month[]" style="float: left;"><option value='0'>Month</option></select>
+                <select class="start-day" name="start-day[]" style="float:left;"><option value='0'>Day</option></select>
                 <span class="end-date-option" style="float:left; display:none;"><input type="checkbox" name="end-date-option[]" value="end-date" /><span></span></span>
                 <div style="clear:both;"></div>
             </p>
             <p class="end-date" style="display: none;">
                 <label for="end-year">Date Ended</label>
                 <select class="end-year" class="required" name="end-year[]" style="float: left"></select>
-                <select class="end-month" name="end-month[]" style="float: left"></select>
-                <select class="end-day" name="end-day[]" style="float: left"></select>
+                <select class="end-month" name="end-month[]" style="float: left;"><option value='0'>Month</option></select>
+                <select class="end-day" name="end-day[]" style="float:left;"><option value='0'>Day</option></select>
                 <div style="clear:both;"></div>
             </p>
             <p>
-                <span class="add-location-date" style="display:none;">+ Multiple locations</span>
+                <span class="add-location-date" style="display:none;">+ Add another location</span>
             </p>
         </div> 
         <div id="narrative-module" class="narrative-module" style="display: none;">
@@ -121,7 +121,7 @@ include_once("includes/header.php");
                 <input name="source-url[]" class="url" type="text" />
             </p>
             <p>
-                <span class="add-source">+ Add Source</span>
+                <span class="add-source">+ Add another source</span>
             </p>
         </div>
         <div id="placeholder" style="display:none;"></div>
