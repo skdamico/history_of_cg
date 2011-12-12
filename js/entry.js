@@ -750,7 +750,7 @@ $(function() {
                 else {
                     idOrName = $("#name").val();
                 }
-                window.location("content.php?c="+$("#categories").val()+"&q="+idOrName);
+                window.location = "content.php?c="+$("#categories").val()+"&q="+idOrName;
                 preview = false;
             }
         },
