@@ -648,7 +648,7 @@ $(function() {
             focus : function() {
                 var $tooltip = $("#tooltip");
                 $tooltip.html($(this).attr("title"));
-                $tooltip.css("left", $(this).position().left + 320).css("top", $(this).position().top - 5);
+                $tooltip.css("left", $(this).offset().left + 320).css("top", $(this).offset().top - 5);
                 $tooltip.stop().fadeIn(500);
             },
             blur : function() {
@@ -743,7 +743,14 @@ $(function() {
             $("#target").fadeIn(400).delay(5000).fadeOut(400, function() { $("#inputform").removeClass("spacer"); });
 
             if(preview) {
-                window.open("content.php?c="+$("#categories").val()+"&q="+$("#name-id").val());
+                var idOrName;
+                if($("#name-id").val() != "" && $("#name-id").val() != null) {
+                    idOrName = $("#name-id").val();
+                }
+                else {
+                    idOrName = $("#name").val();
+                }
+                window.location("content.php?c="+$("#categories").val()+"&q="+idOrName);
                 preview = false;
             }
         },
