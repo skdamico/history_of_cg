@@ -148,6 +148,7 @@ header#masthead {
 .ui-autocomplete li.ui-menu-item a.ui-state-hover, 
 .ui-autocomplete li a#ui-active-menuitem,
 .ui-autocomplete li a#ui-active-menuitem span {
+    color: #fff;
 }
 
 .autocomplete-name {
