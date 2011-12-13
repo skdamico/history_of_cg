@@ -115,6 +115,13 @@ $(function() {
                 return false;
             });
         });
+
+        // fix description tile character limit
+        var $description = $(".mosaicContainer .dynamic");
+        var $description_text = $description.html();
+        if($description_text.length > 300) {
+            $description.html($description_text.substring(0,300) + ' ...');
+        }
     }
 
     function createTiles(type, category, data) {
