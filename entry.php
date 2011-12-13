@@ -52,9 +52,9 @@ include_once("includes/header.php");
                 <div id="optional-fields" class="inputSection"></div>
                 <div id="sources" class="inputSection"></div>
                 <div id="form-save">
-                    <button type="button" id="clearForm">Clear Form</button>
+                    <button type="button" id="clearForm">Clear without saving</button>
                     <button type="button" id="save">Save</button>
-                    <button type="button" id="preview">Preview</button>
+                    <button type="button" id="preview">Save & View</button>
                 </div>
             </div>
         </form>

@@ -660,7 +660,6 @@ $(function() {
     // step 1 initialization
     $("#name").change(function() {
         validateStep1();
-        $("#name-id").val("");
     });
     $("#name").bind("keydown", function(event) {
         if(event.keyCode === $.ui.keyCode.TAB &&
@@ -773,4 +772,5 @@ $(function() {
 
         changeEntryHairline("");
     });
+
 });

@@ -416,7 +416,8 @@
             return mysql_insert_id();
         }
         else {
-            $query = sprintf("UPDATE $table SET description = '%s'",
+            $query = sprintf("UPDATE $table SET name = '%s', description = '%s'",
+                             mysql_real_escape_string($name),
                              mysql_real_escape_string($description));
             if($loc_date) {
                 $query .= ", location_date_id = $loc_date";

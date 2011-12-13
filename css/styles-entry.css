@@ -176,6 +176,7 @@
     display: none;
     text-align: left;
 	font-size:.85em;
+    z-index: 2000;
 }
 
 .inputFormSection .location-date-module .city {
