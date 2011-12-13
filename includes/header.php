@@ -11,7 +11,7 @@
     
     <?php include_custom_page_styles(); ?>
 </head>
-<body class="<?php echo $page_name."Wrapper"; ?> wrapper">
+<body onunload="" class="<?php echo $page_name."Wrapper"; ?> wrapper">
     <div id="page">
         
         <header id="masthead">
