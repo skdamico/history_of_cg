@@ -26,7 +26,7 @@ class AppController extends Controller {
             'fields' => array(
                 'username' => 'email',
                 'password' => 'password'),
-            'userModel' => 'Users.User'
+            'userModel' => 'User'
         ), 'Form'
     );
 
