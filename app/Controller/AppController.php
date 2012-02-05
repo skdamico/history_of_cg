@@ -4,12 +4,15 @@ class AppController extends Controller {
 
   // We need the Auth component for our authentication system
   // And the Session component is needed for displaying flash messages.
-  var $components = array('Auth','Session');
+  var $components = array('Acl', 'Auth','Session');
 
   // if a user is successfully logged in we store that user's record in this variable
   var $current_user = false;
 
   function beforeFilter() {
+    // set the path for all actions
+    $this->Auth->actionPath = 'controllers';
+
     // Specify which controller/action handles logging in:
     $this->Auth->loginAction = array('controller' => 'sessions', 'action' => 'create');
     // Where to redirect to after successfully logging in:
@@ -30,6 +33,13 @@ class AppController extends Controller {
         ), 'Form'
     );
 
+    // Allow AuthComponent to use Acl
+    $this->Auth->authorize = array(
+      'Actions' => array(
+        'userModel' => 'User',
+        'actionPath' => 'controllers'
+      )
+    );
     // store a reference to the current user
     $this->current_user = $this->Auth->user();
   }

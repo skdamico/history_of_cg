@@ -10,7 +10,7 @@ class SessionsController extends AppController {
 
     // Tell the Auth controller that the 'create' action is accessible 
     // without being logged in.
-    $this->Auth->allow('create');
+    $this->Auth->allow('create','destroy');
   }
 
   public function create() {
