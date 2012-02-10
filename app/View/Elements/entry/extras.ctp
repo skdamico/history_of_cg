@@ -1,4 +1,4 @@
-<div class="basics buttons">
+<div class="buttons section-in-form">
     <ul class="story-or-connection">
         <li class="share-helpertext"><p>The most compelling element of this site has everything to do with what you, the contributor, puts into it! The history, the images, and the connections within this field are a complex web of amazing, intertwined stories just needing a place to converge. Make a mark on the history of computer graphics by including your share!</p></li>
         <li class="share"><a class="btn-story"><p>Share Stories</p></a></li>

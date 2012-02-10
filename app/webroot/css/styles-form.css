@@ -33,36 +33,36 @@ div.form-container {
     top: -5px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     margin-top: 175px; }
-  div.form-container form div.basics ul.story-or-connection {
+  div.form-container form div.buttons ul.story-or-connection {
     float: left;
     margin: 15px 0 0 20%;
     padding: 0;
     width: 440px; }
-    div.form-container form div.basics ul.story-or-connection a {
+    div.form-container form div.buttons ul.story-or-connection a {
       background-repeat: no-repeat;
       color: #bababa;
       display: block;
       float: left;
       height: 70px;
       margin-right: 10px; }
-      div.form-container form div.basics ul.story-or-connection a p {
+      div.form-container form div.buttons ul.story-or-connection a p {
         margin-top: 45px;
         text-align: center; }
-      div.form-container form div.basics ul.story-or-connection a.btn-story {
+      div.form-container form div.buttons ul.story-or-connection a.btn-story {
         background-image: url("../img/story_icon.png");
         background-position: 15px 0px;
         border-right: 1px #bababa solid;
         padding-right: 20px;
         width: 100px; }
-        div.form-container form div.basics ul.story-or-connection a.btn-story:hover {
+        div.form-container form div.buttons ul.story-or-connection a.btn-story:hover {
           background-image: url("../img/story_icon_yellow.png"); }
-      div.form-container form div.basics ul.story-or-connection a.btn-connect {
+      div.form-container form div.buttons ul.story-or-connection a.btn-connect {
         background-image: url("../img/connection_icon.png");
         background-position: 52px 0px;
         padding-left: 20px; }
-        div.form-container form div.basics ul.story-or-connection a.btn-connect:hover {
+        div.form-container form div.buttons ul.story-or-connection a.btn-connect:hover {
           background-image: url("../img/connection_icon_yellow.png"); }
-    div.form-container form div.basics ul.story-or-connection li.share-helpertext {
+    div.form-container form div.buttons ul.story-or-connection li.share-helpertext {
       margin-bottom: 30px; }
   div.form-container form div.stories-col div.stories div.story-collapsed {
     display: none; }

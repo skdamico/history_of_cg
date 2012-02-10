@@ -105,7 +105,7 @@ class EntriesController extends AppController {
                 $this->saveTags($entry_id, $tags);
 
                 $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
-                $this->redirect(array('action'=>'edit', $entry_id));
+                $this->redirect(array('action'=>'edit', str_replace(' ', '_', $entry['Entry']['name'])));
             }
             else {
                 $this->Session->setFlash(__('The entry could not be saved'));
@@ -124,7 +124,17 @@ class EntriesController extends AppController {
         }
         else if ($this->request->is('post') || $this->request->is('put')) {
             // update entry
-            $this->Entry->id = $id;
+
+            // check id first
+            if (is_numeric($id)) {
+                $this->Entry->id = $id;
+            }
+            else {
+                $id = $this->request->data['Entry']['id'];
+                $this->Entry->id = $id;
+            }
+
+            // does the entry exist?
             if (!$this->Entry->exists()) {
                 throw new NotFoundException(__("Invalid entry"));
             }
@@ -144,10 +154,27 @@ class EntriesController extends AppController {
             }
         }
 
-        // fetch the entry and render
-        $entry = $this->Entry->find('first', array(
-            'conditions' => array('Entry.id' => $id)
-        ));
+        // Get data for population
+        //
+        // if id isn't a number, find the id
+        if (is_numeric($id)) {
+            // fetch the entry and render
+            $entry = $this->Entry->find('first', array(
+                'conditions' => array('Entry.id' => $id),
+                'recursive' => 0
+            ));
+        }
+        else {
+            // replace all underscores in name with spaces
+            $tmp_id = str_replace('_', ' ', $id);
+
+            $entry = $this->Entry->find('first', array(
+                'conditions' => array(
+                    'Entry.name' => $tmp_id
+                ),
+                'recursive' => 0
+            ));
+        }
 
         $this->set(compact('entry'));
     }

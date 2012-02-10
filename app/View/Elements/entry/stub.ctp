@@ -23,7 +23,7 @@
             ); ?>
         </li>
         <li class="entry-name fields">
-            <input type='hidden' class='entry-id' value='<?php echo $entry['Entry']['id']; ?>' />
+            <input type='hidden' class='entry-id' name='data[Entry][id]' value='<?php echo $entry['Entry']['id']; ?>' />
             <?php echo $this->Form->input('name', array(
                 'div' => false,
                 'label' => false,
