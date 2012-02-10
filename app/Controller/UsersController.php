@@ -19,6 +19,7 @@ class UsersController extends AppController {
         $this->Acl->deny($group, 'controllers');
         $this->Acl->allow($group, 'controllers/Entries/add');
         $this->Acl->allow($group, 'controllers/Entries/edit');
+        $this->Acl->allow($group, 'controllers/Entries/get');
         $this->Acl->allow($group, 'controllers/Tags/fetch');
         //we add an exit to avoid an ugly "missing views" error message
         echo "all done";
