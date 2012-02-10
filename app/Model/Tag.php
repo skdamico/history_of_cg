@@ -3,5 +3,10 @@
 class Tag extends AppModel {
   public $name = 'Tag';
 
-  public $hasAndBelongsToMany = 'Entry';
+  public $hasMany = array(
+      'EntryTag' => array(
+          'className' => 'EntryTag',
+          'foreignKey' => 'tag_id'
+      )
+  );
 }

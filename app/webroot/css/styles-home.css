@@ -10,7 +10,7 @@
 	width: 108px;
 }
     #homeWrapper .aboutProj a {
-        background-image:url('../images/about.png');
+        background-image:url('../img/about.png');
         display:block;
         float:right;
         font-size:0;
@@ -32,7 +32,7 @@
         width:325px;
     }
     #homeSearch .search button.searchBtn {
-        background-image:url('../images/homeSearchBtn.png');
+        background-image:url('../img/homeSearchBtn.png');
         height:35px;
         width:35px;
     }

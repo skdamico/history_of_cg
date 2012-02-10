@@ -3,7 +3,7 @@
     echo $this->Html->link("Logout", "/logout");
     echo $this->Html->link("About", "/about");
     echo $this->Html->link("Add an Entry", "/entries/add");
-    echo $this->Html->link("Hello, ".$current_user["User"]["first_name"], "/users/view");
+    echo $this->Html->link("Hello, ".$current_user["first_name"], "/users/view");
   }
   else {
     echo $this->Html->link("About", "/about");

@@ -3,16 +3,15 @@
 class Entry extends AppModel {
   public $name = 'Entry';
 
-  public $belongsTo = array('User', 'Category', 'Location', 
-    'Author' => array(
-      'className' => 'Entry',
-      'foreignKey' => 'author_id',
-      'conditions' => array('Entry.Category.name' => 'story')
-    )
-  );
+  public $belongsTo = array('User', 'Category', 'Location');
 
-  public $hasMany = array('Source');
+  public $hasMany = array(
+      'EntryTag' => array(
+          'className' => 'EntryTag',
+          'foreignKey' => 'entry_id',
+  ));
 
+  /*
   public $hasAndBelongsToMany = array(
     'Relationship' => array(
       'joinTable' => 'relationships',
@@ -20,7 +19,8 @@ class Entry extends AppModel {
       'foreignKey' => 'entry_id_1',
       'associationForeignKey' => 'entry_id_2',
       'with' => 'Relationship'
-    ),
-    'Tag'
+    )
   );
+   */
+
 }

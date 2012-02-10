@@ -6,6 +6,11 @@
   <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.reset.css">
   <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css">
   <link type="text/css" rel="stylesheet" media="screen" href="css/styles-home.css" />
+
+    <?php
+        echo $this->Html->script(array('libs/jquery', 'common'), array('once' => true));
+        echo $scripts_for_layout;
+    ?>
 </head>
 
 <body id="homeWrapper" class="wrapper">
@@ -15,7 +20,7 @@
       <?php echo $this->element('top_menu'); ?>
     </div>
     <div id="homeBranding">
-      <img src="images/logo.png" alt="People Behind the Pixels" />
+      <img src="img/logo.png" alt="People Behind the Pixels" />
     </div>
   </header>
   <div id="content">

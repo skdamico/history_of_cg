@@ -1,0 +1,241 @@
+/* YOU CAN PROBABLY DELETE THESE */
+body {
+    font-size:14px;
+    margin:0;
+    padding:0;
+}
+div.cf {
+    clear:both;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* =============== standards =============== */
+$project:#ff6600;
+$person:#00b9db;
+$org:#7bd900;
+$event:#d200ff;
+
+$bg:#2a2f33;
+$dark-gray:#1c1c1c;
+$light-gray:#BABABA;
+$neutral:#f3bc00;
+
+$current-type:$person;
+
+/* =============== forms =============== */
+div.form-container {
+    font-family:Helvetica, sans-serif;
+    margin:0 auto;
+    width:780px;
+    form {
+        div.section-in-form {
+            border-bottom:1px darken($light-gray,45%) solid;
+            padding:20px 0;
+            &:last-child {
+                border:0;
+            }
+        }
+        div.stub {
+            ul.required-fields {
+                select.entry-type-select {
+                    margin-bottom:23px;
+                    width:340px;
+                }
+            }
+        }
+        div.basics {
+            ul.basic-fields {
+                li.entry-source {
+                    color:lighten($bg, 40%);
+                    margin-bottom:10px;
+                    position:relative;
+                    top:-5px;
+                }
+            }
+            ul.basic-labels {
+                li.label-entry-date {
+                    margin-top:175px;
+                }
+            }
+            ul.story-or-connection {
+                float:left;
+                margin:15px 0 0 20%;
+                padding:0;
+                width:440px;
+                a {
+                    background-repeat:no-repeat;
+                    color:$light-gray;
+                    display:block;
+                    float:left;
+                    height:70px;
+                    margin-right:10px;
+                    p {
+                        margin-top:45px;
+                        text-align:center;
+                    }
+                    &.btn-story {
+                        background-image:url('../img/story_icon.png');
+                        background-position:15px 0px;
+                        border-right:1px $light-gray solid;
+                        padding-right:20px;
+                        width:100px;
+                        &:hover {
+                            background-image:url('../img/story_icon_yellow.png');
+                        }
+                    }
+                    &.btn-connect {
+                        background-image:url('../img/connection_icon.png');
+                        background-position:52px 0px;
+                        padding-left:20px;
+                        &:hover {
+                            background-image:url('../img/connection_icon_yellow.png');
+                        }
+                    }
+                }
+                li.share-helpertext {
+                    margin-bottom:30px;
+                }
+            }
+        }
+        div.stories-col {
+            div.stories {
+                div.story-collapsed {display:none;}
+                p.story-collapsed-heading {
+                    background:darken($bg, 5%);
+                    border:1px darken($current-type,15%) solid;
+                    border-radius:5px;
+                    font-weight:bold;
+                    padding:10px;
+                    width:100%;
+
+                    span {
+                        color:lighten($bg, 5%);
+                        float:right;
+                        font-size:12px;
+                        font-weight:normal;
+                        text-shadow:none;
+                    }
+                }
+            }
+            ul.story-explanation {
+                li.label-story-header{
+                    float:left;
+                    width:20%;
+                }
+                li.story-helpertext {
+                    float:left;
+                    width:440px;
+                }
+            }
+            ul.story-labels {
+                li.label-story-header {
+                    margin-bottom:117px;
+                }
+                li.label-story-story {
+                    margin-bottom:150px;
+                }
+            }
+            ul.story-fields {
+                li.story-helpertext {
+                    width:440px
+                }
+                li.story-media {
+                    height:45px;
+                }
+                li.story-source {
+                    color:lighten($bg, 40%);
+                    margin-bottom:10px;
+                    position:relative;
+                    top:-5px;
+                }
+            }
+        }
+    }
+    li.source-title, li.source-url {
+        display:none;
+        label {
+            color:lighten($light-gray, 10%);
+            margin-right:10px;
+            text-shadow:1px 1px 1px #000;
+        }
+    }
+    p {
+        line-height:20px;
+        text-shadow:1px 1px 1px #000;
+        &.section-header {
+            color:$neutral;
+            font-family:"Gotham", Helvetica, sans-serif;
+            font-size:17px;
+            font-weight:700;
+            text-transform:uppercase;
+        }
+    }
+    span.required {
+        color:$neutral;
+    }
+    span.helper-popups {
+        background:darken($bg, 2%);
+        border:1px darken($current-type, 20%) solid;
+        border-radius:5px;
+        display:none;
+        font-size:12px;
+        margin-left:10px;
+        padding:10px;
+        position:absolute;
+        text-shadow:1px 1px 1px #000;
+        &#helper-date {
+            float:right;
+            width:250px;
+        }
+        &#helper-descript {
+            float:right;
+            width:150px;
+        }
+        &#helper-story-author {
+            width:250px;
+        }
+        &#helper-story-story {
+            width:150px;
+        }
+    }
+    ul.all-labels {
+        color:lighten($bg, 85%);
+        float:left;
+        font-size:14px;
+        font-weight:bold;
+        text-shadow:1px 1px 1px #000;
+        width:20%;
+
+        li {
+            margin-bottom:33px;
+        }
+    }
+    ul.all-fields {
+        float:right;
+        width:80%;
+        input[type="text"], textarea {
+            background-color:darken($bg, 3%);
+            border:1px lighten($bg, 5%) solid;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px darken($bg,25%);
+            color:$current-type;
+            font-size:14px;
+            margin-bottom:10px;
+            padding:10px;
+            width:340px;
+            &:focus {
+                background-color:$bg;
+                border:1px $current-type solid;
+                outline:0;
+            }
+        }
+        textarea {
+            height:150px;
+            width:440px;
+        }
+    }
+}
