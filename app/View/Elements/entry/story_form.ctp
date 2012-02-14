@@ -7,15 +7,15 @@
 </ul>
 <ul class="story-fields all-fields">
     <li class="story-title fields">
-        <input type="text" name="title" />
+        <input type="text" name="title" class="need-helper" />
         <span id="helper-story-title" class="helper-popups">What is this the story of?</span>
     </li>
     <li class="story-date fields">
-        <input type="text" class="datepicker">
+        <input type="text" class="datepicker" class="need-helper" />
         <span id="helper-story-date" class="helper-popups">When did this story take place?</span>
     </li>
     <li class="story-body fields">
-        <textarea id="story-story-box" rows="10" cols="30" name="story"></textarea>
+        <textarea id="story-story-box" class="need-helper" rows="10" cols="30" name="story"></textarea>
         <span id="helper-story-story" class="helper-popups">What happened? Who was involved? Remember, this is isn't an encyclopedia entry, give us the inside story!</span>
     </li>
     <li class="story-media fields">
@@ -23,7 +23,7 @@
     </li>
     <li class="story-author fields">
         <input type="text" name="author" />
-        <span id="helper-story-author" class="helper-popups">If this is a first hand account, give yourself credit! If not that's ok, tell us whose story it is.</span>
+        <span id="helper-story-author" class="helper-popups need-helper">If this is a first hand account, give yourself credit! If not that's ok, tell us whose story it is.</span>
     </li>
     <li class="story-source fields"><input type="checkbox" id="story-source" name="source" value="yes" /><label for="story-source">I got this description from somewhere else</label></li>
     <li class="source-title">
