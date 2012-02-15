@@ -1,6 +1,6 @@
 $(function() {
     function getTags(id) {
-        $.getJSON('/historyofcg/entries/get/'+id+'/tags', function(data) {
+        $.getJSON('/entries/get/'+id+'/tags', function(data) {
             if(data !== null) {
                 $('#tags').tokenInput('clear');
 
@@ -12,7 +12,7 @@ $(function() {
     }
 
     // ----------------- TAGS ---------------
-    $('#tags').tokenInput('/historyofcg/tags/fetch/', {
+    $('#tags').tokenInput('/tags/fetch/', {
         theme: 'hcg',
         allowCustomEntry: true,
         preventDuplicates: true,
