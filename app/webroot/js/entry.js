@@ -8,22 +8,15 @@ $(function() {
         $('.story-collapsed').slideToggle('slow');
     });
 
-    // ----------------- HELPER TEXTS - basics ----------------- NEED SOME ABSTRACTION HELP
-    $('.basics #entry-description-box')
-        .focus(function() {
-            $('#helper-descript').fadeIn();
-        })
-        .focusout(function() {
-            $('#helper-descript').fadeOut();
-        });
+    // ----------------- HELPER TEXTS - basics
+	$('.need-helper')
+		.focus(function () {
+			$(this).siblings('.helper-popups').fadeIn();
+		})
+		.focusout(function () {
+			$(this).siblings('.helper-popups').fadeOut();
+		});
 
-    $('.basics #entry-date-box-1')
-        .focus(function() {
-            $('#helper-date').fadeIn();
-        })
-        .focusout(function() {
-            $('#helper-date').fadeOut();
-        });
 
     // ----------------- HELPER TEXTS - story or collapse ----------------- NEED SOME ABSTRACTION HELP
     $('.story li.story-title input').focus(function() {

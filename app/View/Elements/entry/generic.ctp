@@ -8,6 +8,7 @@
             <?php echo $this->Form->input('description', array(
                 'type' => 'textarea',
                 'id' => 'entry-description-box',
+				'class' => 'need-helper',
                 'rows' => 10,
                 'cols' => 30,
                 'div' => false,
@@ -26,7 +27,7 @@
             <label>URL:</label><input type="text" name="source-url">
         </li>
         <li class="entry-date fields">
-            <input type='text' id='entry-date-box-1' class='datepicker' value='<?php
+            <input type='text' id='entry-date-box-1' class='datepicker need-helper' value='<?php
                     if (!empty($entry['Entry']['date_1'])) {
                         echo date('m/d/Y', strtotime($entry['Entry']['date_1'])); }?>' />
             <?php echo $this->Form->input('date_1', array('type' => 'hidden', 'id' => 'entry-date-box-1-helper', 'value' => $entry['Entry']['date_1'])); ?>
