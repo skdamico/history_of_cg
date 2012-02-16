@@ -12,13 +12,12 @@
         <li class="story-helpertext"><p>We want to hear your stories about your experiences in the computer graphics industry. Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? These kinds of archives are for the most part uncelebrated and unknown, but here is a chance to share them!</p></li>
     </ul>
     <div class="cf"></div>
-    <div id='stories'>
-        <?php
-            if(isset($stories)) {
-                echo $this->element('entry/stories', array('stories' => $stories));
-            }
-        ?>
-    </div>
+    <?php
+        echo $this->element('entry/story_template');
+        if(isset($stories)) {
+            echo $this->element('entry/stories', array('stories' => $stories));
+        }
+    ?>
 </div>
 <div class="connections-col section-in-form">
     <div class="connection-1">

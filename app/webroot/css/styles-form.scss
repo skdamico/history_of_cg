@@ -62,98 +62,106 @@ div.form-container {
                 }
             }
         }
-        div.buttons {
-            ul.story-or-connection {
-                float:left;
-                margin:15px 0 0 20%;
-                padding:0;
-                width:440px;
-                a {
-                    background-repeat:no-repeat;
-                    color:$light-gray;
-                    display:block;
-                    float:left;
-                    height:70px;
-                    margin-right:10px;
-                    p {
-                        margin-top:45px;
-                        text-align:center;
-                    }
-                    &.btn-story {
-                        background-image:url('../img/story_icon.png');
-                        background-position:15px 0px;
-                        border-right:1px $light-gray solid;
-                        padding-right:20px;
-                        width:100px;
-                        &:hover {
-                            background-image:url('../img/story_icon_yellow.png');
-                        }
-                    }
-                    &.btn-connect {
-                        background-image:url('../img/connection_icon.png');
-                        background-position:52px 0px;
-                        padding-left:20px;
-                        &:hover {
-                            background-image:url('../img/connection_icon_yellow.png');
-                        }
-                    }
-                }
-                li.share-helpertext {
-                    margin-bottom:30px;
+    }
+    div.section-in-form {
+        border-bottom:1px darken($light-gray,45%) solid;
+        padding:20px 0;
+        &:last-child {
+            border:0;
+        }
+    }
+    div.stories-col {
+        div.stories {
+            div.story-collapsed {display:none;}
+            p.story-collapsed-heading {
+                background:darken($bg, 5%);
+                border:1px darken($current-type,15%) solid;
+                border-radius:5px;
+                font-weight:bold;
+                padding:10px;
+                width:100%;
+
+                
+                span.info {
+                    color:lighten($bg, 5%);
+                    float:right;
+                    font-size:12px;
+                    font-weight:normal;
+                    text-shadow:none;
                 }
             }
         }
-        div.stories-col {
-            div.stories {
-                div.story-collapsed {display:none;}
-                p.story-collapsed-heading {
-                    background:darken($bg, 5%);
-                    border:1px darken($current-type,15%) solid;
-                    border-radius:5px;
-                    font-weight:bold;
-                    padding:10px;
-                    width:100%;
-
-                    span {
-                        color:lighten($bg, 5%);
-                        float:right;
-                        font-size:12px;
-                        font-weight:normal;
-                        text-shadow:none;
+        ul.story-explanation {
+            li.label-story-header{
+                float:left;
+                width:20%;
+            }
+            li.story-helpertext {
+                float:left;
+                width:440px;
+            }
+        }
+        ul.story-labels {
+            li.label-story-header {
+                margin-bottom:117px;
+            }
+            li.label-story-story {
+                margin-bottom:150px;
+            }
+        }
+        ul.story-fields {
+            li.story-helpertext {
+                width:440px
+            }
+            li.story-media {
+                height:45px;
+            }
+            li.story-source {
+                color:lighten($bg, 40%);
+                margin-bottom:10px;
+                position:relative;
+                top:-5px;
+            }
+        }
+    }
+    div.buttons {
+        ul.story-or-connection {
+            float:left;
+            margin:15px 0 0 20%;
+            padding:0;
+            width:440px;
+            a {
+                background-repeat:no-repeat;
+                color:$light-gray;
+                display:block;
+                float:left;
+                height:70px;
+                margin-right:10px;
+                p {
+                    margin-top:45px;
+                    text-align:center;
+                }
+                &.btn-story {
+                    background-image:url('../img/story_icon.png');
+                    background-position:15px 0px;
+                    border-right:1px $light-gray solid;
+                    padding-right:20px;
+                    width:100px;
+                    &:hover {
+                        background-image:url('../img/story_icon_yellow.png');
+                    }
+                }
+                &.btn-connect {
+                    background-image:url('../img/connection_icon.png');
+                    background-position:52px 0px;
+                    padding-left:20px;
+                    &:hover {
+                        background-image:url('../img/connection_icon_yellow.png');
                     }
                 }
             }
-            ul.story-explanation {
-                li.label-story-header{
-                    float:left;
-                    width:20%;
-                }
-                li.story-helpertext {
-                    float:left;
-                    width:440px;
-                }
-            }
-            ul.story-labels {
-                li.label-story-header {
-                    margin-bottom:117px;
-                }
-                li.label-story-story {
-                    margin-bottom:150px;
-                }
-            }
-            ul.story-fields {
-                li.story-helpertext {
-                    width:440px
-                }
-                li.story-media {
-                    height:45px;
-                }
-                li.story-source {
-                    color:lighten($bg, 40%);
-                    margin-bottom:10px;
-                    position:relative;
-                    top:-5px;
-                }
+            li.share-helpertext {
+                margin-bottom:30px;
             }
         }
     }

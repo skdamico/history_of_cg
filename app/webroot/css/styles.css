@@ -14,13 +14,24 @@ html,body {
     margin:0 auto;
     position: relative;
 }
+.spacer {
+    display: none;
+    margin-top: 50px;
+}
 .message, #flashMessage {
-    width: 400px;
-    margin: 5px auto;
-    min-height: 30px;
-    line-height: 30px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
     text-align: center;
-    background-color: #999;
+    background-color: #000;
+    z-index: 2;
 }
 
 

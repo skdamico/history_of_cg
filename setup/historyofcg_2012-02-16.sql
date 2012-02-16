@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.20)
 # Database: historyofcg
-# Generation Time: 2012-02-10 17:35:34 +0000
+# Generation Time: 2012-02-16 22:13:09 +0000
 # ************************************************************
 
 
@@ -41,37 +41,56 @@ LOCK TABLES `acos` WRITE;
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`)
 VALUES
-	(1,NULL,'',NULL,'controllers',1,62),
-	(2,1,NULL,NULL,'About',2,3),
-	(3,1,NULL,NULL,'Entries',4,17),
-	(4,1,NULL,NULL,'Groups',18,29),
-	(5,4,NULL,NULL,'index',19,20),
-	(6,4,NULL,NULL,'view',21,22),
-	(7,4,NULL,NULL,'add',23,24),
-	(8,4,NULL,NULL,'edit',25,26),
-	(9,4,NULL,NULL,'delete',27,28),
-	(10,1,NULL,NULL,'Home',30,33),
-	(11,10,NULL,NULL,'index',31,32),
-	(12,1,NULL,NULL,'Sessions',34,39),
-	(13,12,NULL,NULL,'create',35,36),
-	(14,12,NULL,NULL,'destroy',37,38),
-	(15,1,NULL,NULL,'Users',40,55),
-	(16,15,NULL,NULL,'signup',41,42),
-	(17,15,NULL,NULL,'index',43,44),
-	(18,15,NULL,NULL,'view',45,46),
-	(19,15,NULL,NULL,'add',47,48),
-	(20,15,NULL,NULL,'edit',49,50),
-	(21,15,NULL,NULL,'delete',51,52),
-	(22,1,NULL,NULL,'AclExtras',56,57),
-	(23,3,NULL,NULL,'index',5,6),
-	(24,3,NULL,NULL,'view',7,8),
-	(25,3,NULL,NULL,'add',9,10),
-	(26,3,NULL,NULL,'edit',11,12),
-	(27,15,NULL,NULL,'initDB',53,54),
-	(28,1,NULL,NULL,'Tags',58,61),
-	(29,28,NULL,NULL,'fetch',59,60),
-	(30,3,NULL,NULL,'get',13,14),
-	(31,3,NULL,NULL,'saveTags',15,16);
+	(1,NULL,'',NULL,'controllers',1,100),
+	(2,1,NULL,NULL,'About',2,7),
+	(3,1,NULL,NULL,'Entries',8,25),
+	(4,1,NULL,NULL,'Groups',26,41),
+	(5,4,NULL,NULL,'index',27,28),
+	(6,4,NULL,NULL,'view',29,30),
+	(7,4,NULL,NULL,'add',31,32),
+	(8,4,NULL,NULL,'edit',33,34),
+	(9,4,NULL,NULL,'delete',35,36),
+	(10,1,NULL,NULL,'Home',42,49),
+	(11,10,NULL,NULL,'index',43,44),
+	(12,1,NULL,NULL,'Sessions',50,59),
+	(13,12,NULL,NULL,'create',51,52),
+	(14,12,NULL,NULL,'destroy',53,54),
+	(15,1,NULL,NULL,'Users',60,79),
+	(16,15,NULL,NULL,'signup',61,62),
+	(17,15,NULL,NULL,'index',63,64),
+	(18,15,NULL,NULL,'view',65,66),
+	(19,15,NULL,NULL,'add',67,68),
+	(20,15,NULL,NULL,'edit',69,70),
+	(21,15,NULL,NULL,'delete',71,72),
+	(22,1,NULL,NULL,'AclExtras',80,81),
+	(23,3,NULL,NULL,'index',9,10),
+	(24,3,NULL,NULL,'view',11,12),
+	(25,3,NULL,NULL,'add',13,14),
+	(26,3,NULL,NULL,'edit',15,16),
+	(27,15,NULL,NULL,'initDB',73,74),
+	(28,1,NULL,NULL,'Tags',82,89),
+	(29,28,NULL,NULL,'fetch',83,84),
+	(30,3,NULL,NULL,'get',17,18),
+	(31,3,NULL,NULL,'saveTags',19,20),
+	(32,2,NULL,NULL,'urlize',3,4),
+	(33,2,NULL,NULL,'unUrlize',5,6),
+	(34,3,NULL,NULL,'urlize',21,22),
+	(35,3,NULL,NULL,'unUrlize',23,24),
+	(36,4,NULL,NULL,'urlize',37,38),
+	(37,4,NULL,NULL,'unUrlize',39,40),
+	(38,10,NULL,NULL,'urlize',45,46),
+	(39,10,NULL,NULL,'unUrlize',47,48),
+	(40,12,NULL,NULL,'urlize',55,56),
+	(41,12,NULL,NULL,'unUrlize',57,58),
+	(42,1,NULL,NULL,'Stories',90,99),
+	(43,42,NULL,NULL,'get',91,92),
+	(44,42,NULL,NULL,'add_or_edit',93,94),
+	(45,42,NULL,NULL,'urlize',95,96),
+	(46,42,NULL,NULL,'unUrlize',97,98),
+	(47,28,NULL,NULL,'urlize',85,86),
+	(48,28,NULL,NULL,'unUrlize',87,88),
+	(49,15,NULL,NULL,'urlize',75,76),
+	(50,15,NULL,NULL,'unUrlize',77,78);
 
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -131,7 +150,8 @@ VALUES
 	(3,2,25,'1','1','1','1'),
 	(4,2,26,'1','1','1','1'),
 	(5,2,30,'1','1','1','1'),
-	(6,2,29,'1','1','1','1');
+	(6,2,29,'1','1','1','1'),
+	(7,2,44,'1','1','1','1');
 
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -163,6 +183,25 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table connections
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `connections`;
+
+CREATE TABLE `connections` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_id_1` int(11) unsigned NOT NULL,
+  `entry_id_2` int(11) unsigned NOT NULL,
+  `role` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `entry_id_1` (`entry_id_1`),
+  KEY `entry_id_2` (`entry_id_2`),
+  CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`entry_id_1`) REFERENCES `entries` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`entry_id_2`) REFERENCES `entries` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 # Dump of table entries
 # ------------------------------------------------------------
 
@@ -189,12 +228,29 @@ CREATE TABLE `entries` (
 
 
 
-# Dump of table entry_tags
+# Dump of table entries_stories
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `entry_tags`;
+DROP TABLE IF EXISTS `entries_stories`;
 
-CREATE TABLE `entry_tags` (
+CREATE TABLE `entries_stories` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_id` int(11) unsigned NOT NULL,
+  `story_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `entry_id` (`entry_id`),
+  KEY `story_id` (`story_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table entries_tags
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `entries_tags`;
+
+CREATE TABLE `entries_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `tag_id` int(11) unsigned NOT NULL,
@@ -247,25 +303,6 @@ CREATE TABLE `locations` (
 
 
 
-# Dump of table connections
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `connections`;
-
-CREATE TABLE `connections` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `entry_id_1` int(11) unsigned NOT NULL,
-  `entry_id_2` int(11) unsigned NOT NULL,
-  `role` varchar(80) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `entry_id_1` (`entry_id_1`),
-  KEY `entry_id_2` (`entry_id_2`),
-  CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`entry_id_1`) REFERENCES `entries` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`entry_id_2`) REFERENCES `entries` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
 # Dump of table sources
 # ------------------------------------------------------------
 
@@ -280,6 +317,50 @@ CREATE TABLE `sources` (
   KEY `entry_id` (`entry_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
+# Dump of table stories
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `stories`;
+
+CREATE TABLE `stories` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `story_type_id` int(11) unsigned NOT NULL,
+  `date` datetime DEFAULT NULL,
+  `story` varchar(4000) DEFAULT NULL,
+  `url` varchar(250) DEFAULT NULL,
+  `author_id` int(11) unsigned DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table story_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `story_types`;
+
+CREATE TABLE `story_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `story_types` WRITE;
+/*!40000 ALTER TABLE `story_types` DISABLE KEYS */;
+
+INSERT INTO `story_types` (`id`, `name`)
+VALUES
+	(1,'video'),
+	(2,'picture'),
+	(3,'text');
+
+/*!40000 ALTER TABLE `story_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table tags
@@ -324,7 +405,7 @@ DROP TABLE IF EXISTS `views`;
 CREATE TABLE `views` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `table_id` int(11) unsigned NOT NULL,
-  `table_name` varchar(15) CHARACTER SET latin1 NOT NULL,
+  `table_name` varchar(15) NOT NULL DEFAULT '',
   `count` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

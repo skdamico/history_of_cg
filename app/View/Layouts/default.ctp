@@ -7,7 +7,7 @@
     <?php 
         echo $this->Html->css('styles');
 
-        echo $this->Html->script(array('libs/jquery', 'common'), array('once' => true));
+        echo $this->Html->script(array('libs/jquery', 'messages'), array('once' => true));
         echo $scripts_for_layout;
     ?>
 </head>
@@ -29,6 +29,7 @@
     <div class="cf"></div>
   </header>
   <div id='content'>
+    <div class='message' style='display: none;'></div>
     <?php echo $this->Session->flash(); ?>
     <?php echo $content_for_layout; ?>
   </div>

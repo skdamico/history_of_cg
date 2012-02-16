@@ -21,6 +21,7 @@ class UsersController extends AppController {
         $this->Acl->allow($group, 'controllers/Entries/edit');
         $this->Acl->allow($group, 'controllers/Entries/get');
         $this->Acl->allow($group, 'controllers/Tags/fetch');
+        $this->Acl->allow($group, 'controllers/Stories/add_or_edit');
         //we add an exit to avoid an ugly "missing views" error message
         echo "all done";
         exit;

@@ -9,7 +9,12 @@ class Entry extends AppModel {
       'EntryTag' => array(
           'className' => 'EntryTag',
           'foreignKey' => 'entry_id',
-  ));
+      ),
+      'EntryStory' => array(
+        'className' => 'EntryStory',
+        'foreignKey' => 'entry_id'
+      )
+  );
 
   /*
   public $hasAndBelongsToMany = array(

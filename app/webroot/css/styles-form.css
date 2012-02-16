@@ -33,71 +33,76 @@ div.form-container {
     top: -5px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     margin-top: 175px; }
-  div.form-container form div.buttons ul.story-or-connection {
-    float: left;
-    margin: 15px 0 0 20%;
-    padding: 0;
-    width: 440px; }
-    div.form-container form div.buttons ul.story-or-connection a {
-      background-repeat: no-repeat;
-      color: #bababa;
-      display: block;
-      float: left;
-      height: 70px;
-      margin-right: 10px; }
-      div.form-container form div.buttons ul.story-or-connection a p {
-        margin-top: 45px;
-        text-align: center; }
-      div.form-container form div.buttons ul.story-or-connection a.btn-story {
-        background-image: url("../img/story_icon.png");
-        background-position: 15px 0px;
-        border-right: 1px #bababa solid;
-        padding-right: 20px;
-        width: 100px; }
-        div.form-container form div.buttons ul.story-or-connection a.btn-story:hover {
-          background-image: url("../img/story_icon_yellow.png"); }
-      div.form-container form div.buttons ul.story-or-connection a.btn-connect {
-        background-image: url("../img/connection_icon.png");
-        background-position: 52px 0px;
-        padding-left: 20px; }
-        div.form-container form div.buttons ul.story-or-connection a.btn-connect:hover {
-          background-image: url("../img/connection_icon_yellow.png"); }
-    div.form-container form div.buttons ul.story-or-connection li.share-helpertext {
-      margin-bottom: 30px; }
-  div.form-container form div.stories-col div.stories div.story-collapsed {
+  div.form-container div.section-in-form {
+    border-bottom: 1px #474747 solid;
+    padding: 20px 0; }
+    div.form-container div.section-in-form:last-child {
+      border: 0; }
+  div.form-container div.stories-col div.stories div.story-collapsed {
     display: none; }
-  div.form-container form div.stories-col div.stories p.story-collapsed-heading {
+  div.form-container div.stories-col div.stories p.story-collapsed-heading {
     background: #1e2225;
     border: 1px #00788e solid;
     border-radius: 5px;
     font-weight: bold;
     padding: 10px;
     width: 100%; }
-    div.form-container form div.stories-col div.stories p.story-collapsed-heading span {
+    div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
       color: #363c41;
       float: right;
       font-size: 12px;
       font-weight: normal;
       text-shadow: none; }
-  div.form-container form div.stories-col ul.story-explanation li.label-story-header {
+  div.form-container div.stories-col ul.story-explanation li.label-story-header {
     float: left;
     width: 20%; }
-  div.form-container form div.stories-col ul.story-explanation li.story-helpertext {
+  div.form-container div.stories-col ul.story-explanation li.story-helpertext {
     float: left;
     width: 440px; }
-  div.form-container form div.stories-col ul.story-labels li.label-story-header {
+  div.form-container div.stories-col ul.story-labels li.label-story-header {
     margin-bottom: 117px; }
-  div.form-container form div.stories-col ul.story-labels li.label-story-story {
+  div.form-container div.stories-col ul.story-labels li.label-story-story {
     margin-bottom: 150px; }
-  div.form-container form div.stories-col ul.story-fields li.story-helpertext {
+  div.form-container div.stories-col ul.story-fields li.story-helpertext {
     width: 440px; }
-  div.form-container form div.stories-col ul.story-fields li.story-media {
+  div.form-container div.stories-col ul.story-fields li.story-media {
     height: 45px; }
-  div.form-container form div.stories-col ul.story-fields li.story-source {
+  div.form-container div.stories-col ul.story-fields li.story-source {
     color: #8a969f;
     margin-bottom: 10px;
     position: relative;
     top: -5px; }
+  div.form-container div.buttons ul.story-or-connection {
+    float: left;
+    margin: 15px 0 0 20%;
+    padding: 0;
+    width: 440px; }
+    div.form-container div.buttons ul.story-or-connection a {
+      background-repeat: no-repeat;
+      color: #bababa;
+      display: block;
+      float: left;
+      height: 70px;
+      margin-right: 10px; }
+      div.form-container div.buttons ul.story-or-connection a p {
+        margin-top: 45px;
+        text-align: center; }
+      div.form-container div.buttons ul.story-or-connection a.btn-story {
+        background-image: url("../img/story_icon.png");
+        background-position: 15px 0px;
+        border-right: 1px #bababa solid;
+        padding-right: 20px;
+        width: 100px; }
+        div.form-container div.buttons ul.story-or-connection a.btn-story:hover {
+          background-image: url("../img/story_icon_yellow.png"); }
+      div.form-container div.buttons ul.story-or-connection a.btn-connect {
+        background-image: url("../img/connection_icon.png");
+        background-position: 52px 0px;
+        padding-left: 20px; }
+        div.form-container div.buttons ul.story-or-connection a.btn-connect:hover {
+          background-image: url("../img/connection_icon_yellow.png"); }
+    div.form-container div.buttons ul.story-or-connection li.share-helpertext {
+      margin-bottom: 30px; }
   div.form-container li.source-title, div.form-container li.source-url {
     display: none; }
     div.form-container li.source-title label, div.form-container li.source-url label {

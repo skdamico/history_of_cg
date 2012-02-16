@@ -2,7 +2,7 @@
 
 class EntriesController extends AppController {
 
-    public $uses = array('Entry', 'Tag', 'EntryTag');
+    public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -105,7 +105,7 @@ class EntriesController extends AppController {
                 $this->saveTags($entry_id, $tags);
 
                 $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
-                $this->redirect(array('action'=>'edit', str_replace(' ', '_', $entry['Entry']['name'])));
+                $this->redirect(array('action'=>'edit', $this->urlize($entry['Entry']['name'])));
             }
             else {
                 $this->Session->setFlash(__('The entry could not be saved'));
@@ -166,7 +166,7 @@ class EntriesController extends AppController {
         }
         else {
             // replace all underscores in name with spaces
-            $tmp_id = str_replace('_', ' ', $id);
+            $tmp_id = $this->unUrlize($id);
 
             $entry = $this->Entry->find('first', array(
                 'conditions' => array(
@@ -176,6 +176,19 @@ class EntriesController extends AppController {
             ));
         }
 
+        // Get all stories
+        $stories = $this->EntryStory->find('all', array(
+            'conditions' => array(
+                'EntryStory.entry_id' => $entry['Entry']['id'],
+                'EntryStory.user_id' => $this->Auth->user('id')
+            ),
+            'recursive' => 0,
+            'fields' => array(
+                'Story.*'
+            )
+        ));
+
+        $this->set(compact('stories'));
         $this->set(compact('entry'));
     }
 
