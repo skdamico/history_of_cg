@@ -20,14 +20,14 @@
       Messages.$(_box).html(str);
       Messages.$(_box).slideDown().siblings('.spacer').slideDown();
 
-      Messages.fade(_box, t);
+      Messages.slide(_box, t);
     },
 
     /**
-     * fade - Object obj int t
-     *  fade the given object after a given delay or 4 seconds (default)
+     * slide - Object obj int t
+     *  slide the given object after a given delay or 4 seconds (default)
      */
-    fade: function(obj, t) {
+    slide: function(obj, t) {
       var _t = t;
       if(_t === undefined || _t === null) {
         _t = 4000;
@@ -60,7 +60,7 @@
         // If flash is available, show immediately
         if(Messages.$(_box).attr('id') !== undefined) {
           Messages.$('body .spacer').slideDown();
-          Messages.fade(_box);
+          Messages.slide(_box);
         }
 
       }
