@@ -35,7 +35,7 @@ $(function() {
       if(value === 'disable') {
         $publish.attr('disabled', true);
       }
-      else if(value === 'enable'
+      else if(value === 'enable') {
         $publish.removeAttr('disabled');
       }
     }
