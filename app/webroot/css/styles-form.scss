@@ -190,6 +190,27 @@ div.form-container {
 		padding:5px 0 0 0;
 		text-transform:uppercase;
 	}
+	input[type="submit"] {
+		background: #cacccb;
+		background: -moz-linear-gradient(top,  #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cacccb), color-stop(3%,#cacbc6), color-stop(6%,#c9c9c9), color-stop(13%,#c8cac9), color-stop(26%,#c2c2c2), color-stop(39%,#bcc0bf), color-stop(48%,#b8b9bb), color-stop(52%,#b9b9bb), color-stop(55%,#b7b5b6), color-stop(58%,#b5b5b7), color-stop(71%,#adafae), color-stop(74%,#adaeb0), color-stop(77%,#a9adae), color-stop(81%,#aaaaac), color-stop(97%,#a6a6a8));
+		background: -webkit-linear-gradient(top,  #cacccb 0%,#cacbc6 3%,#c9c9c9 6%,#c8cac9 13%,#c2c2c2 26%,#bcc0bf 39%,#b8b9bb 48%,#b9b9bb 52%,#b7b5b6 55%,#b5b5b7 58%,#adafae 71%,#adaeb0 74%,#a9adae 77%,#aaaaac 81%,#a6a6a8 97%);
+		background: -o-linear-gradient(top,  #cacccb 0%,#cacbc6 3%,#c9c9c9 6%,#c8cac9 13%,#c2c2c2 26%,#bcc0bf 39%,#b8b9bb 48%,#b9b9bb 52%,#b7b5b6 55%,#b5b5b7 58%,#adafae 71%,#adaeb0 74%,#a9adae 77%,#aaaaac 81%,#a6a6a8 97%);
+		background: -ms-linear-gradient(top,  #cacccb 0%,#cacbc6 3%,#c9c9c9 6%,#c8cac9 13%,#c2c2c2 26%,#bcc0bf 39%,#b8b9bb 48%,#b9b9bb 52%,#b7b5b6 55%,#b5b5b7 58%,#adafae 71%,#adaeb0 74%,#a9adae 77%,#aaaaac 81%,#a6a6a8 97%);
+		background: linear-gradient(top,  #cacccb 0%,#cacbc6 3%,#c9c9c9 6%,#c8cac9 13%,#c2c2c2 26%,#bcc0bf 39%,#b8b9bb 48%,#b9b9bb 52%,#b7b5b6 55%,#b5b5b7 58%,#adafae 71%,#adaeb0 74%,#a9adae 77%,#aaaaac 81%,#a6a6a8 97%);
+		border:1px $bg solid;
+		border-radius:5px;
+		box-shadow: 0 0 2px darken($bg,15%);
+		color: $bg;
+		font-family:Gotham, Helvetica, Arial, sans-serif;
+		font-size:12px;
+		font-weight:600;
+		text-transform:uppercase;
+		padding:7px 15px;
+		&:hover {
+			color:darken($current-type,5%);
+		}
+	}
     li.source-title, li.source-url {
         display:none;
 		input {
