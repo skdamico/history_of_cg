@@ -31,10 +31,10 @@
     </li>
     <li class="story-source fields"><input type="checkbox" class="story-source-checkbox" name="source" value="yes" /><label for="story-source">I got this description from somewhere else</label></li>
     <li class="source-title">
-        <label>Title:</label><input type="text" name="source-name">
+        <label>Source:</label><input type="text" name="source-name">
     </li>
     <li class="source-url">
-        <label>URL:</label><input type="text" name="source-url">
+        <label>URL (if applicable):</label><input type="text" name="source-url">
     </li>
     <li class='story-save'>
         <button>Save</button>
