@@ -37,7 +37,7 @@
         <label>URL (if applicable):</label><input type="text" name="source-url">
     </li>
     <li class='story-save'>
-        <button>Save</button>
+        <button>Save</button><button>Add another story</button>
     </li>
 </ul>
 <div class="cf"></div>
