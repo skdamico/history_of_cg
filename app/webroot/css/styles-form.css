@@ -173,6 +173,8 @@ div.form-container {
       color: #d3d3d3;
       margin-right: 10px;
       text-shadow: 1px 1px 1px #000; }
+  div.form-container li.source-url input {
+    width: 275px; }
   div.form-container p {
     line-height: 20px;
     text-shadow: 1px 1px 1px #000; }
