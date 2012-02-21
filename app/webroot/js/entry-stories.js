@@ -17,6 +17,38 @@ $(function() {
     $('.stories:last .story-collapsed').slideDown();
   }
 
+  function change_publish_ui(button, publish, value) {
+    var $publish = $(button).siblings('.publish');
+
+    if(publish === "publish") {
+      if(value === 1) {
+        $(button).html('Unpublish');
+        $publish.val('0');
+      }
+      else if(value === 0) {
+        $(button).html('Publish');
+        $publish.val('1');
+      }
+    }
+    else if(publish === "draft") {
+      // disable draft
+      if(value === 'disable') {
+        $publish.attr('disabled', true);
+      }
+      else if(value === 'enable' {
+        $publish.removeAttr('disabled');
+      }
+    }
+  }
+
+  function enable_publish_ui($container) {
+    $container.find('button').removeAttr('disabled');
+  }
+
+  function disable_publish_ui($container) {
+    $container.find('button').attr('disabled', true);
+  }
+
   function form_init(story) {
     // form options!
     var options = {
@@ -32,6 +64,21 @@ $(function() {
         if(data.id) {
           $f.find('.story-id').val(data.id);
         }
+
+        if(data.publish) {
+          if(data.publish === "published") {
+            // set button to unpublish
+            change_publish_ui($f.find('.story-save .publish-button'), "publish", 1);
+          }
+          else if(data.publish === "unpublished") {
+            // set button to publish
+            change_publish_ui($f.find('.story-save .publish-button'), "publish", 0);
+          }
+        }
+        else {
+          change_publish_ui($f.find('.story-save .publish-button'), "draft", "enable");
+        }
+        enable_publish_ui($f.find('.story-save'));
       }
     };
     var $form = $(story).find('.story-collapsed form');
@@ -39,8 +86,16 @@ $(function() {
 
     // submit form on click
     $form.find('.story-save button').click(function() {
+      if(!$(this).hasClass('publish-button')) {
+        // save draft, do not publish
+        change_publish_ui(this, "draft", "disable");
+      }
+
       // submit form
       $form.submit();
+
+      // diable the publish ui while submitting
+      disable_publish_ui($(this).parent());
 
       // update title
       var title = $form.find('.story-title input').val();

@@ -11,7 +11,7 @@
     </ul>
     <ul class="story-fields all-fields">
         <li class="story-title fields">
-            <input type='text' name='data[Story][title]' class='need-helper' value='' />
+            <input type='text' name='data[Story][title]' class='need-helper' value='' placeholder='New Story' />
             <span id="helper-story-title" class="helper-popups">What is this the story of?</span>
         </li>
         <li class="story-date fields">
@@ -38,7 +38,9 @@
             <label>URL:</label><input type="text" name="source-url">
         </li>
         <li class='story-save'>
-            <button>Save</button>
+            <button>Save Draft</button>
+            <button class='publish-button'>Publish</button>
+            <input type='hidden' class='publish' name='data[Story][published]' value='1' />
         </li>
     </ul>
     <div class="cf"></div>

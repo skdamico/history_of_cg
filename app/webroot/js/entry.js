@@ -1,4 +1,10 @@
 $(function() {
+    var current_category = '';
+    // --- Dropdown on change event
+    // + Color changes for category
+    // + Date template
+
+    
 
     // ----------------- DATEPICKER -----------------
     $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });

@@ -36,23 +36,35 @@ class StoriesController extends AppController {
         if($this->RequestHandler->isAjax()) {
             Configure::write('debug', 0);
         }
+
         if (!empty($this->request->data) && $this->request->is('post')) {
+            $published = isset($this->request->data['Story']['published']) ? $this->request->data['Story']['published'] : null;
 
             $story_id = $this->request->data['Story']['id'];
             // update the entry
             if(!empty($story_id)) {
 
-              $this->Story->id = $story_id;
-              $title = $this->request->data['Story']['title'];
-              if($this->Story->exists()) {
-                  // save the updated entry
-                  if($this->Story->save($this->request->data)) {
-                      echo json_encode(array('response'=>'The story \''.$title.'\' has been updated'));
-                  }
-                  else {
-                      echo json_encode(array('response'=>'Sorry the story \''.$title.'\' could not be updated'));
-                  }
-              }
+                $this->Story->id = $story_id;
+                $title = $this->request->data['Story']['title'];
+                if($this->Story->exists()) {
+                    // save the updated entry
+                    if($this->Story->save($this->request->data)) {
+
+                        // is this being published/unpublished?
+                        if($published == "1") {
+                            echo json_encode(array('publish'=>'published', 'response'=>'The story \''.$title.'\' was published'));
+                        }
+                        else if($published == "0") {
+                            echo json_encode(array('publish'=>'unpublished', 'response'=>'The story \''.$title.'\' was unpublished'));
+                        }
+                        else {
+                            echo json_encode(array('response'=>'The story \''.$title.'\' has been updated'));
+                        }
+                    }
+                    else {
+                        echo json_encode(array('response'=>'Sorry the story \''.$title.'\' could not be updated'));
+                    }
+                }
             }
             // Is this a new story?
             else {
@@ -77,7 +89,16 @@ class StoriesController extends AppController {
 
                     $this->EntryStory->create();
                     if($this->EntryStory->save($tmp)) {
-                        echo json_encode(array('id'=>$story_id, 'response'=>'The story \''.$title.'\' has been added'));
+                        // is this being published/unpublished?
+                        if($published == "1") {
+                            echo json_encode(array('id'=>$story_id, 'publish'=>'published', 'response'=>'The story \''.$title.'\' was published'));
+                        }
+                        else if($published == "0") {
+                            echo json_encode(array('id'=>$story_id, 'publish'=>'unpublished', 'response'=>'The story \''.$title.'\' was unpublished'));
+                        }
+                        else {
+                            echo json_encode(array('id'=>$story_id, 'response'=>'The story \''.$title.'\' has been added'));
+                        }
                     }
                     else {
                         echo json_encode(array('response'=>'Sorry the story \''.$title.'\' could not be added'));
