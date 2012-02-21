@@ -91,7 +91,9 @@ class EntriesController extends AppController {
             $entry = array();
             $entry['Entry'] = $this->request->data['Entry'];
             $entry['Entry']['user_id'] = $this->Auth->User('id');
-            $entry['Entry']['date_1'] = date('Y-m-d', strtotime($this->request->data['Entry']['date_1']));
+            if(!empty( $entry['Entry']['date_1'] )) {
+              $entry['Entry']['date_1'] = date('Y-m-d', strtotime($this->request->data['Entry']['date_1']));
+            }
 
             // Save the entry
             if ($this->Entry->save($entry)) {

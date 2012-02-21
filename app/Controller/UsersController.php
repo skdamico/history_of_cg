@@ -31,9 +31,13 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
             $this->User->create();
 
+            // save user and login
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('Your account has been created'));
-                return $this->redirect($this->Auth->redirect()); // redirect
+
+                if($this->Auth->login()) {
+                    return $this->redirect($this->Auth->redirect()); // redirect
+                }
             }
             else {
                 $this->Session->setFlash(
