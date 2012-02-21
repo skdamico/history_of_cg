@@ -65,7 +65,11 @@ div.form-container {
     background: #1e2225;
     border: 1px #00788e solid;
     border-radius: 5px;
-    font-weight: bold;
+    color: #00b9db;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
     padding: 10px;
     width: 100%; }
     div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {

@@ -122,10 +122,13 @@ div.form-container {
                 background:darken($bg, 5%);
                 border:1px darken($current-type,15%) solid;
                 border-radius:5px;
-                font-weight:bold;
+				color:$current-type;
+				font-family:Gotham, Helvetica, Arial, sans-serif;
+				font-size:16px;
+                font-weight:600;
+				text-transform:uppercase;
                 padding:10px;
                 width:100%;
-
                 
                 span.info {
                     color:lighten($bg, 5%);
