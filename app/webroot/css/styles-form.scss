@@ -12,12 +12,6 @@ ul {
     margin: 0;
     padding: 0;
 }
-/* =============== forms EDIT =============== */
-li.story-save {
-	button {
-		@include form-button;
-	}
-}
 
 /* =============== standards =============== */
 $project:#ff6600;
@@ -67,6 +61,13 @@ $current-type:$person;
 	padding:7px 15px;
 	&:hover {
 		color:darken($current-type,5%);
+	}
+}
+
+/* =============== forms EDIT =============== */
+li.story-save {
+	button {
+		@include form-button;
 	}
 }
 
