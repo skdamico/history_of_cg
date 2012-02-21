@@ -149,7 +149,17 @@ class EntriesController extends AppController {
 
                 $this->saveTags($id, $tags);
 
-                $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' has been updated"));
+                $published = $this->request->data['Entry']['published'];
+                // if we are publishing/unpublishing show a different message
+                if (!empty($published) && $published == 1) {
+                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was published"));
+                }
+                else if (!empty($published) && $published == 0) {
+                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was unpublished"));
+                }
+                else {
+                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' has been updated"));
+                }
             }
             else {
                 $this->Session->setFlash(__("The entry could not be updated"));
