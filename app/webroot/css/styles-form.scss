@@ -24,7 +24,7 @@ $dark-gray:#1c1c1c;
 $light-gray:#BABABA;
 $neutral:#f3bc00;
 
-$current-type:$person;
+$current-type:$project;
 
 @mixin field {
 	background-color:darken($bg, 3%);

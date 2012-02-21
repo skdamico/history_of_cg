@@ -1,8 +1,8 @@
 3.1.12 (Brainy Betty)
-67cf55c1e8dcea49d451eb3aa9c5fbec3ca5c96f
+6f3a4a7b5c59a1108df6e2be931f9763071707c3
 o:Sass::Tree::RootNode
 :
-@linei:@has_childrenT:@template"6%/* YOU CAN PROBABLY DELETE THESE */
+@linei:@has_childrenT:@template"7%/* YOU CAN PROBABLY DELETE THESE */
 body {
     font-size:14px;
     margin:0;
@@ -28,7 +28,7 @@ $dark-gray:#1c1c1c;
 $light-gray:#BABABA;
 $neutral:#f3bc00;
 
-$current-type:$person;
+$current-type:$project;
 
 @mixin field {
 	background-color:darken($bg, 3%);
@@ -378,7 +378,7 @@ event;i;#0;	@;$o;%	;i;	@;&{	;'iÒ;(i;)i ;*iÿ;0;
 [ o;";"dark-gray;i;#0;	@;$o;%	;i;	@;&{	;'i!;(i;)i!;*i!;0;
 [ o;";"light-gray;i;#0;	@;$o;%	;i;	@;&{	;'iº;(i;)iº;*iº;0;
 [ o;";"neutral;i;#0;	@;$o;%	;i;	@;&{	;'ió;(i;)i¼;*i ;0;
-[ o;";"current-type;i ;#0;	@;$o:Sass::Script::Variable	;"person;i :@underscored_name"person;	@;
+[ o;";"current-type;i ;#0;	@;$o:Sass::Script::Variable	;"project;i :@underscored_name"project;	@;
 [ o:Sass::Tree::MixinDefNode;"
 field;i";T;	@;
 [o;;;;i ;["background-color;i#;	@;o:Sass::Script::Funcall
