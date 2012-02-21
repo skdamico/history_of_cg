@@ -12,6 +12,12 @@ ul {
     margin: 0;
     padding: 0;
 }
+/* =============== forms EDIT =============== */
+li.story-save {
+	button {
+		@include form-button;
+	}
+}
 
 /* =============== standards =============== */
 $project:#ff6600;
@@ -64,7 +70,7 @@ $current-type:$person;
 	}
 }
 
-/* =============== forms =============== */
+/* =============== forms NEW =============== */
 div.form-container {
     font-family:Helvetica, sans-serif;
     margin:0 auto;
@@ -228,11 +234,6 @@ div.form-container {
             text-shadow:1px 1px 1px #000;
         }
     }
-	li.story-save {
-		button {
-			@include form-button;
-		}
-	}
     p {
         line-height:20px;
         text-shadow:1px 1px 1px #000;
@@ -301,6 +302,7 @@ div.form-container {
 		}
     }
 }
+
 /* =============== token =============== */
 ul.token-input-list-hcg {
 	@include field;
