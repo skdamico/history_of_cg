@@ -40,7 +40,7 @@ $current-type:$person;
 @mixin field-focus {
 	background-color:$bg;
     border:1px $current-type solid;
-    outline:0;
+    outline:0!important;
 }
 
 /* =============== forms =============== */
@@ -182,8 +182,22 @@ div.form-container {
             }
         }
     }
+	h1 {
+		text-transform:uppercase;
+	}
+	h2 {
+		font-family:Gotham, Helvetica, sans-serif;
+		padding:5px 0 0 0;
+		text-transform:uppercase;
+	}
     li.source-title, li.source-url {
         display:none;
+		input {
+			@include field;
+			&:focus {
+                @include field-focus;
+            }
+		}
         label {
             color:lighten($light-gray, 10%);
             margin-right:10px;
@@ -230,10 +244,10 @@ div.form-container {
         }
     }
     ul.all-labels {
-        color:lighten($bg, 85%);
+        color:lighten($bg, 65%);
         float:left;
         font-size:14px;
-        font-weight:bold;
+        font-weight:500;
         text-shadow:1px 1px 1px #000;
         width:20%;
 

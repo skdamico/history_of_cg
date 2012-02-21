@@ -103,8 +103,28 @@ div.form-container {
           background-image: url("../img/connection_icon_yellow.png"); }
     div.form-container div.buttons ul.story-or-connection li.share-helpertext {
       margin-bottom: 30px; }
+  div.form-container h1 {
+    text-transform: uppercase; }
+  div.form-container h2 {
+    font-family: Gotham, Helvetica, sans-serif;
+    padding: 5px 0 0 0;
+    text-transform: uppercase; }
   div.form-container li.source-title, div.form-container li.source-url {
     display: none; }
+    div.form-container li.source-title input, div.form-container li.source-url input {
+      background-color: #23272b;
+      border: 1px #363c41 solid;
+      border-radius: 5px;
+      box-shadow: inset 0 0 5px black;
+      color: #00b9db;
+      font-size: 14px;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 340px; }
+      div.form-container li.source-title input:focus, div.form-container li.source-url input:focus {
+        background-color: #2a2f33;
+        border: 1px #00b9db solid;
+        outline: 0!important; }
     div.form-container li.source-title label, div.form-container li.source-url label {
       color: #d3d3d3;
       margin-right: 10px;
@@ -141,10 +161,10 @@ div.form-container {
     div.form-container span.helper-popups#helper-story-story {
       width: 150px; }
   div.form-container ul.all-labels {
-    color: white;
+    color: #d0d5d8;
     float: left;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     text-shadow: 1px 1px 1px #000;
     width: 20%; }
     div.form-container ul.all-labels li {
@@ -165,7 +185,7 @@ div.form-container {
       div.form-container ul.all-fields li.fields input[type="text"]:focus, div.form-container ul.all-fields li.fields textarea:focus {
         background-color: #2a2f33;
         border: 1px #00b9db solid;
-        outline: 0; }
+        outline: 0!important; }
     div.form-container ul.all-fields li.fields textarea {
       height: 150px;
       width: 440px; }

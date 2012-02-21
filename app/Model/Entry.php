@@ -1,3 +1,4 @@
+<h1>Create a new entry</h1>
 <?php
 
 class Entry extends AppModel {
