@@ -1,3 +1,4 @@
+/app/webroot/css/.sass-cache/*
 /app/Config/*
 !/app/Config/routes.php
 /app/tmp
