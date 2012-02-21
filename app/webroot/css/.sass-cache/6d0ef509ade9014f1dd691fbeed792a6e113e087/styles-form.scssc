@@ -1,8 +1,8 @@
 3.1.12 (Brainy Betty)
-898875ddecc263092457575f7f00e7cc17a8df55
+67cf55c1e8dcea49d451eb3aa9c5fbec3ca5c96f
 o:Sass::Tree::RootNode
 :
-@linei:@has_childrenT:@template">%/* YOU CAN PROBABLY DELETE THESE */
+@linei:@has_childrenT:@template"6%/* YOU CAN PROBABLY DELETE THESE */
 body {
     font-size:14px;
     margin:0;
@@ -124,7 +124,7 @@ div.form-container {
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
                 background:darken($bg, 5%);
-                border:1px darken($current-type,15%) solid;
+                border:1px lighten($bg, 10%) solid;
                 border-radius:5px;
 				color:$current-type;
 				font-family:Gotham, Helvetica, Arial, sans-serif;
@@ -514,7 +514,7 @@ solid;
 ;"darken;i;/{ ;	@;0[o;+	;"bg;i;,"bg;	@o;1;2[ ;i;3["%;	@;i
 ;4"5%;
 [ o;;;;i ;["border;i{;	@;o;5	;i{;6;7;	@;[o;1;2[ ;i{;3["px;	@;i;4"1pxo;.
-;"darken;i{;/{ ;	@;0[o;+	;"current-type;i{;,"current_type;	@o;1;2[ ;i{;3["%;	@;i;4"15%o;	;; ;i{;	@;"
+;"lighten;i{;/{ ;	@;0[o;+	;"bg;i{;,"bg;	@o;1;2[ ;i{;3["%;	@;i;4"10%o;	;; ;i{;	@;"
 solid;
 [ o;;;;i ;["border-radius;i|;	@;o;;; ;	@;"5px;
 [ o;;;;i ;["

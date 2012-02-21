@@ -120,7 +120,7 @@ div.form-container {
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
                 background:darken($bg, 5%);
-                border:1px darken($current-type,15%) solid;
+                border:1px lighten($bg, 10%) solid;
                 border-radius:5px;
 				color:$current-type;
 				font-family:Gotham, Helvetica, Arial, sans-serif;
