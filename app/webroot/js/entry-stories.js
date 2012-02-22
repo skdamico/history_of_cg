@@ -1,7 +1,6 @@
 $(function() {
 
   function new_story() {
-
     //append new form to stories
     // get test form and clone it into new form
     var $storyform = $('.stories-col #story-template').clone();
@@ -10,6 +9,9 @@ $(function() {
     $storyform.removeAttr('id');
 
     // append to stories-col
+    if(!$('.stories-col').is(':visible')) {
+      $('.stories-col').fadeIn();
+    }
     $('.stories-col').append($storyform);
     // initialize it
     form_init($storyform);

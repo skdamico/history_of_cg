@@ -38,6 +38,8 @@ class StoriesController extends AppController {
         }
 
         if (!empty($this->request->data) && $this->request->is('post')) {
+
+            // Get published = 0 (unpublish), 1 (publish), or null (draft)
             $published = isset($this->request->data['Story']['published']) ? $this->request->data['Story']['published'] : null;
 
             $story_id = $this->request->data['Story']['id'];
