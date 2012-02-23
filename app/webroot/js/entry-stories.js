@@ -1,45 +1,26 @@
 $(function() {
 
   function new_story() {
-    //append new form to stories
-    // get test form and clone it into new form
-    var $storyform = $('.stories-col #story-template').clone();
+    // only do this if there are no other new story templates
+    if( $('.stories-col .stories.new').length <= 1) {
+      //append new form to stories
+      // get test form and clone it into new form
+      var $storyform = $('.stories-col #story-template').clone();
 
-    // remove id so we don't have duplicates
-    $storyform.removeAttr('id');
+      // remove id so we don't have duplicates
+      $storyform.removeAttr('id');
 
-    // append to stories-col
-    if(!$('.stories-col').is(':visible')) {
-      $('.stories-col').fadeIn();
-    }
-    $('.stories-col').append($storyform);
-    // initialize it
-    form_init($storyform);
-    $storyform.fadeIn();
-    $('.stories:last .story-collapsed').slideDown();
-  }
+      // append to stories-col
+      if(!$('.stories-col').is(':visible')) {
+        $('.stories-col').fadeIn();
+      }
 
-  function change_publish_ui(button, publish, value) {
-    var $publish = $(button).siblings('.publish');
+      $('.stories-col').append($storyform);
 
-    if(publish === "publish") {
-      if(value === 1) {
-        $(button).html('Unpublish');
-        $publish.val('0');
-      }
-      else if(value === 0) {
-        $(button).html('Publish');
-        $publish.val('1');
-      }
-    }
-    else if(publish === "draft") {
-      // disable draft
-      if(value === 'disable') {
-        $publish.attr('disabled', true);
-      }
-      else if(value === 'enable') {
-        $publish.removeAttr('disabled');
-      }
+      // initialize it
+      form_init($storyform);
+      $storyform.fadeIn();
+      $('.stories:last .story-collapsed').slideDown();
     }
   }
 
@@ -51,6 +32,10 @@ $(function() {
     $container.find('button').attr('disabled', true);
   }
 
+  /*
+   * Intialize story
+   *
+   */
   function form_init(story) {
     // form options!
     var options = {
@@ -83,8 +68,10 @@ $(function() {
         enable_publish_ui($f.find('.story-save'));
       }
     };
+
     var $form = $(story).find('.story-collapsed form');
     $form.ajaxForm(options);
+
 
     // submit form on click
     $form.find('.story-save button').click(function() {
@@ -99,6 +86,9 @@ $(function() {
       // diable the publish ui while submitting
       disable_publish_ui($(this).parent());
 
+      // remove new class
+      $(story).removeClass('new');
+
       // update title
       var title = $form.find('.story-title input').val();
       $(story).find('.story-collapsed-heading .title').html(title);
@@ -106,15 +96,18 @@ $(function() {
       return false;
     });
 
+
     // initialize datepicker function
     $form.find('.story-date .datepicker').live('focusin', function() {
       $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
     });
 
+
     // initialize sliding
     $(story).find('p.story-collapsed-heading').click(function() {
         $(this).next().slideToggle('slow');
     });
+
 
     // initialize helper text
     $form.find('li .need-helper').each(function() {
@@ -125,6 +118,7 @@ $(function() {
           $(this).siblings('.helper-popups').fadeOut();
         });
     });
+
 
     // initialize source fade
     $form.find('.story-source-checkbox').click(function(){
@@ -138,9 +132,11 @@ $(function() {
         }
 
     });
+
   }
 
   function init() {
+
     // populate stories section with user's stories
     // bind events
     $('.share .btn-story').click( new_story );

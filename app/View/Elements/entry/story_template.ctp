@@ -1,4 +1,4 @@
-<div class='stories' id='story-template' style='display: none;'>
+<div class='stories new' id='story-template' style='display: none;'>
   <p class="story-collapsed-heading"><span class='title'>New Story</span><span class='info'>(Click to toggle)</span></p>
   <div class="story-collapsed">
     <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
@@ -40,7 +40,7 @@
         <li class="source-url">
             <label>URL (if applicable):</label><input type="text" name="source-url">
         </li>
-        <li class='story-save'>
+        <li class='story-save save'>
             <button>Save Draft</button>
             <button class='publish-button'>Publish</button>
             <input type='hidden' class='publish' name='data[Story][published]' value='1' />

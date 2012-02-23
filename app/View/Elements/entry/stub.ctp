@@ -30,7 +30,7 @@
                 'value' => $entry['Entry']['name'])); ?>
         </li>
         <li class="entry-tags fields">
-            <input type='text' name='data[tags]' id='tags'/>
+            <input type='text' name='data[tags]' class='tags' />
         </li>
     </ul>
     <div class="cf"></div>

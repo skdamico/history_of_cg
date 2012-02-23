@@ -65,7 +65,7 @@ $current-type:$project;
 }
 
 /* =============== forms EDIT =============== */
-li.story-save {
+li.save, div.save {
 	button {
 		@include form-button;
 	}
@@ -129,7 +129,7 @@ div.form-container {
 				text-transform:uppercase;
                 padding:10px;
                 width:100%;
-                
+
                 span.info {
                     color:lighten($bg, 5%);
                     float:right;

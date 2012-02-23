@@ -36,7 +36,7 @@
     <li class="source-url">
         <label>URL (if applicable):</label><input type="text" name="source-url">
     </li>
-    <li class='story-save'>
+    <li class='story-save save'>
         <button>Save Draft</button>
         <button class='publish-button'><?php echo $story['Story']['published'] == 0 ? "Publish" : "Unpublish" ?></button>
         <input type='hidden' name='data[Story][published]' class='publish' value='<?php echo $story['Story']['published'] == 0 ? "1" : "0" ?>' />

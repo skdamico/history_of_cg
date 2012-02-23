@@ -106,7 +106,17 @@ class EntriesController extends AppController {
 
                 $this->saveTags($entry_id, $tags);
 
-                $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
+                // Get published = 0 (unpublish), 1 (publish), or null (draft)
+                $published = isset($this->request->data['Entry']['published']) ? $this->request->data['Entry']['published'] : null;
+
+                // if we are publishing/unpublishing show a different message
+                if ($published == "1") {
+                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was saved and published"));
+                }
+                else {
+                    $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
+                }
+
                 $this->redirect(array('action'=>'edit', $this->urlize($entry['Entry']['name'])));
             }
             else {
@@ -116,7 +126,6 @@ class EntriesController extends AppController {
 
         $entry = array();
         $entry['Entry'] = array('name' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '');
-        $entry['Category']['category'] = '';
         $this->set('entry');
     }
 
@@ -125,6 +134,7 @@ class EntriesController extends AppController {
             $this->redirect(array('action'=>'add'));
         }
         else if ($this->request->is('post') || $this->request->is('put')) {
+
             // update entry
 
             // check id first
@@ -149,12 +159,14 @@ class EntriesController extends AppController {
 
                 $this->saveTags($id, $tags);
 
-                $published = $this->request->data['Entry']['published'];
+                // Get published = 0 (unpublish), 1 (publish), or null (draft)
+                $published = isset($this->request->data['Entry']['published']) ? $this->request->data['Entry']['published'] : null;
+
                 // if we are publishing/unpublishing show a different message
-                if (!empty($published) && $published == 1) {
+                if ($published == "1") {
                     $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was published"));
                 }
-                else if (!empty($published) && $published == 0) {
+                else if ($published == "0") {
                     $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was unpublished"));
                 }
                 else {

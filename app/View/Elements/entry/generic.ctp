@@ -17,12 +17,12 @@
                 'value' => $entry['Entry']['description']
             )); ?>
             <span id="helper-descript" class="helper-popups">
-                Tell us some details about this <i><?php echo $entry['Category']['name']; ?></i>. Don't worry about too much technical data, just give us an idea of what this entry is about. This description will be displayed on the entries page.
+                Tell us some details about this entry. Don't worry about too much technical data, just give us an idea of what this entry is about. This description will be displayed on the entries page.
             </span>
         </li>
         <li class="entry-source fields"><input type="checkbox" id="entry-source" name="source" value="yes" />
-			<label for="entry-source">I got this description from somewhere else</label>
-		</li>
+            <label for="entry-source">I got this description from somewhere else</label>
+        </li>
         <li class="source-title">
             <label>Source:</label><input type="text" name="source-name">
         </li>
