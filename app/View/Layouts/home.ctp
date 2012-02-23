@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>People Behind the Pixels | Home</title>
-  <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.reset.css">
-  <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css">
+  <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.reset.css" />
+  <link type='text/css' rel='stylesheet' media='screen' href='css/jquery-ui.css' />
+  <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css" />
   <link type="text/css" rel="stylesheet" media="screen" href="css/styles-home.css" />
 
     <?php
-        echo $this->Html->script(array('libs/jquery', 'messages'), array('once' => true));
+        echo $this->Html->script(array('libs/jquery', 'libs/jquery-ui', 'search',  'messages'), array('once' => true));
         echo $scripts_for_layout;
     ?>
 </head>

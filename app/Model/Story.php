@@ -8,7 +8,7 @@ class Story extends AppModel {
       'Author' => array(
         'className' => 'Entry',
         'foreignKey' => 'author_id',
-        'conditions' => array('Entry.Category.name' => 'person')
+        'conditions' => array('Author.category_id' => '1')
       )
     );
 

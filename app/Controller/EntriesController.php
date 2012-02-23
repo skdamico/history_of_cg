@@ -7,14 +7,45 @@ class EntriesController extends AppController {
     function beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index', 'view');
-    }
-
-    public function index() {
-
+        $this->Auth->allow('view', 'get_by_phrase');
     }
 
     public function view() {
+
+    }
+
+    public function get_by_phrase( $type = null, $s = null ) {
+        // do not render any views for this action
+        $this->autoRender = false;
+
+        // check if a querystring was passed in
+        if(!isset($type) && isset($_GET['t'])) {
+            $type = $_GET['t'];
+        }
+        if(!isset($s) && isset($_GET['q'])) {
+            $s = $_GET['q'];
+        }
+
+        if(!empty($s)) {
+            $conditions = array('Entry.name LIKE' => '%'.$s.'%');
+            if($type != 'all') {
+                $conditions['Category.category'] = $type;
+            }
+
+            // find all tags that are approved and like given string
+            $results = $this->Entry->find('all', array(
+                'limit' => 10,
+                'recursive' => 0,
+                'fields' => array('Entry.id', 'Entry.name', 'Category.category'),
+                'conditions' => $conditions
+            ));
+
+            $tmp = array();
+            foreach( $results as $r) {
+                $tmp[] = array('id' => $r['Entry']['id'], 'name' => $r['Entry']['name'], 'category' => $r['Category']['category']);
+            }
+            echo json_encode($tmp);
+        }
 
     }
 
@@ -84,7 +115,7 @@ class EntriesController extends AppController {
         }
     }
 
-    public function add() {
+    public function add($name = null) {
         if ($this->request->is('post')) {
             // Save Entry first
             $this->Entry->create();
@@ -125,8 +156,8 @@ class EntriesController extends AppController {
         }
 
         $entry = array();
-        $entry['Entry'] = array('name' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '');
-        $this->set('entry');
+        $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0);
+        $this->set(compact('entry'));
     }
 
     public function edit($id = null) {
@@ -206,9 +237,12 @@ class EntriesController extends AppController {
                 'EntryStory.entry_id' => $entry['Entry']['id'],
                 'EntryStory.user_id' => $this->Auth->user('id')
             ),
-            'recursive' => 0,
-            'fields' => array(
-                'Story.*'
+            'contain' => array(
+                'Story' => array(
+                    'Author' => array(
+                        'fields' => array('Author.name')
+                    )
+                )
             )
         ));
 

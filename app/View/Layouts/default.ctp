@@ -5,9 +5,9 @@
     <title>People Behind the Pixels | <?php echo $title_for_layout; ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <?php 
-        echo $this->Html->css('styles');
+        echo $this->Html->css(array('jquery-ui', 'styles'));
 
-        echo $this->Html->script(array('libs/jquery', 'messages'), array('once' => true));
+        echo $this->Html->script(array('libs/jquery', 'libs/jquery-ui', 'search', 'messages'), array('once' => true));
         echo $scripts_for_layout;
     ?>
 </head>

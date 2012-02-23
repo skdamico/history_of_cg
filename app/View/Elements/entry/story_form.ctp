@@ -3,7 +3,6 @@
     <li class="label-story-title labels">Title</li>
     <li class="label-story-date labels">Date</li>
     <li class="label-story-story labels">Story</li>
-    <li class="label-story-media labels">Rich Media</li>
     <li class="label-story-author labels">Author</li>
 </ul>
 <ul class="story-fields all-fields">
@@ -22,11 +21,9 @@
         <textarea class='need-helper' name='data[Story][story]' rows='10' cols='30'><?php echo $story['Story']['story'] ?></textarea>
         <span id="helper-story-story" class="helper-popups">What happened? Who was involved? Remember, this is isn't an encyclopedia entry, give us the inside story!</span>
     </li>
-    <li class="story-media fields">
-        <input type="file">
-    </li>
     <li class="story-author fields">
-        <input type='text' name='data[Story][author_id]' class='need-helper' value='<?php echo $story['Story']['author_id']; ?>' />
+        <input type='text' class='need-helper' value='<?php echo isset($story['Story']['Author']['name']) ? $story['Story']['Author']['name'] : ""; ?>' />
+        <input type='hidden' class='author-id' name='data[Story][author_id]' value='<?php echo $story['Story']['author_id']; ?>' />
         <span id="helper-story-author" class="helper-popups need-helper">If this is a first hand account, give yourself credit! If not that's ok, tell us whose story it is.</span>
     </li>
     <li class="story-source fields"><input type="checkbox" class="story-source-checkbox" name="source" value="yes" /><label for="story-source">I got this description from somewhere else</label></li>

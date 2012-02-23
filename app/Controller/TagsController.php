@@ -1,7 +1,7 @@
 <?php
 
 class TagsController extends AppController {
-    
+
     public function fetch($s=null) {
         // do not render any views for this action
         $this->autoRender = false;

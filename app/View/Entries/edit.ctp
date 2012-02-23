@@ -1,5 +1,5 @@
-<?php $this->Html->script(array('libs/jquery-ui', 'libs/jquery.form', 'entry', 'entry-stories'), array( 'inline' => false, 'once' => true )); ?>
-<?php $this->Html->css(array('jquery-ui', 'styles-form'), null, array( 'inline' => false, 'once' => true )); ?>
+<?php $this->Html->script(array('libs/jquery.form', 'entry', 'entry-stories'), array( 'inline' => false, 'once' => true )); ?>
+<?php $this->Html->css(array('styles-form'), null, array( 'inline' => false, 'once' => true )); ?>
 
 <div class="form-container">
     <?php

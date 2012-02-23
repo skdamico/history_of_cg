@@ -1,6 +1,14 @@
 $(document).ready(function() {
+
+    // Returns the given string with its first letter upper cased
+    function upperCaseWord(str) {
+        return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+            return $1.toUpperCase();
+        });
+    }
+
     // Get pagename
-    var path = window.location.pathname; 
+    var path = window.location.pathname;
     var pagename = path.substring(path.lastIndexOf("/") + 1)
     pagename = pagename.toLowerCase();
 
@@ -18,21 +26,20 @@ $(document).ready(function() {
            var inDB = false;
 
            // check if item is in db
-           $.getJSON("autocomplete.php", { t: "all", q: searchtext }, function(d) {
+           $.getJSON("/entries/get_by_phrase/", { t: "all", q: searchtext }, function(d) {
                $.each(d, function(i, item) {
-                    if(item.name == searchtext) {
+                    if(item.name === searchtext) {
                         inDB = true;
-                        window.location = "content.php?c="+item.category+"&q="+item.id; 
+                        window.location = "/entries/view/"+item.name.replace(" ", "_");
                         return;
                     }
                });
 
-               
                if(!inDB) {
                    //Prompt user that item is not in the db
                    var addUser = confirm("'"+searchtext+"' cannot be found. Create an entry?");
                    if(addUser) {
-                       window.location = "entry.php?n="+searchtext;
+                       window.location = "/entries/add/"+searchtext.replace(" ", "_");
                    }
                }
            });
@@ -44,7 +51,7 @@ $(document).ready(function() {
     })
     .autocomplete({
         source: function(request, callback) {
-            $.getJSON("autocomplete.php", { t: "all", q: request.term }, callback);
+            $.getJSON("/entries/get_by_phrase/", { t: "all", q: request.term }, callback);
         },
         focus: function( event, ui ) {
             $( ".searchBox" ).val( ui.item.name );
@@ -52,7 +59,7 @@ $(document).ready(function() {
         },
         select: function( event, ui ) {
             //redirect to content page for that entry
-            window.location = "content.php?c="+ui.item.category+"&q="+ui.item.id;
+            window.location = "/entries/view/"+ui.item.name.replace(" ", "_");
 
             return false;
         },
@@ -67,7 +74,7 @@ $(document).ready(function() {
 
         var innerContent = "<a><span class='autocomplete-name'>"+ t +"</span><span class='autocomplete-category-box "+item.category+"'></span>";
 
-        if(pagename === "" || pagename === "index.php") {
+        if(pagename === "") {
             innerContent += "<span class='autocomplete-category "+item.category+"'>" + upperCaseWord(item.category) + "</span>";
         }
 
