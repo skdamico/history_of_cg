@@ -127,7 +127,7 @@ div.form-container {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#212938', endColorstr='#000000',GradientType=0 );
     border: 1px #050608 solid;
     border-radius: 5px;
-    box-shadow: 0 0 2px #000;
+    box-shadow: 0 0 2px #141414;
     color: #bababa;
     font-family: Gotham, Helvetica, Arial, sans-serif;
     font-size: 16px;
