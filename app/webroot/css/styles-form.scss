@@ -145,6 +145,10 @@ li.save, div.save {
 	}
 }
 
+button {
+    @include form-button;
+}
+
 /* =============== forms NEW =============== */
 div.form-container {
     font-family:Helvetica, sans-serif;

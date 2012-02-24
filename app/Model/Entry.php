@@ -16,16 +16,13 @@ class Entry extends AppModel {
       )
   );
 
-  /*
   public $hasAndBelongsToMany = array(
-    'Relationship' => array(
-      'joinTable' => 'relationships',
-      'className' => 'Entry',
+    'Connection' => array(
+      'joinTable' => 'connections',
+      'className' => 'Connection',
       'foreignKey' => 'entry_id_1',
       'associationForeignKey' => 'entry_id_2',
-      'with' => 'Relationship'
+      'with' => 'Connection'
     )
   );
-   */
-
 }

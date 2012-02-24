@@ -23,18 +23,11 @@ function change_publish_ui(button, publish, value) {
 }
 
 $(function() {
-    // setup colors for dynamic changing of colors
-    var colors = new Object();
-    colors['project'] = '#ff6600';
-    colors['person'] = '#00b9db';
-    colors['organization'] = '#7bd900';
-    colors['event'] = '#d200ff';
-    colors['none'] = '#BABABA';
 
     function change_colors(color) {
         var allFields = $('.fields input[type=text], .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
         var allBorderFields = $('.fields .helper-popups');
-        var allHoverFields = $('.save button');
+        var allHoverFields = $('button');
 
         allFields.removeClass('project person organization event none');
         allFields.addClass(color);
@@ -66,10 +59,10 @@ $(function() {
 
     function init() {
         // Initialize color change
-        change_colors_with($('.entry-type-select').children('option:selected').text().toLowerCase());
+        change_colors_with($('#main-stub .entry-type-select').children('option:selected').text().toLowerCase());
 
         // category change event should change all colors to current type
-        $('.entry-type-select').change(function() {
+        $('#main-stub .entry-type-select').change(function() {
             var t = $(this).children('option:selected').text().toLowerCase();
 
             change_colors_with(t);

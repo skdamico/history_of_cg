@@ -68,8 +68,8 @@ $(document).ready(function() {
     .data( "autocomplete" )._renderItem = function( ul, item ) {
         var re = new RegExp(this.term, "i");
         var match = item.name.match(re);
-        var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" + 
-                    match + 
+        var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" +
+                    match +
                     "</span>");
 
         var innerContent = "<a><span class='autocomplete-name'>"+ t +"</span><span class='autocomplete-category-box "+item.category+"'></span>";

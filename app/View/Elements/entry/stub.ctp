@@ -1,7 +1,7 @@
 <?php $this->Html->script(array('libs/jquery-tokeninput', 'entry-stub'), array( 'inline' => false, 'once' => true )); ?>
 <?php $this->Html->css(array('token-input', 'token-input-hcg'), null, array( 'inline' => false, 'once' => true )); ?>
 
-<div class="stub section-in-form">
+<div id='main-stub' class="stub section-in-form">
     <ul class="required-labels all-labels">
         <li class="label-entry-type labels">Type of entry <span class="required">*</span></li>
         <li class="label-entry-name labels">Entry name <span class="required">*</span></li>

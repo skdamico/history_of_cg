@@ -16,12 +16,16 @@ class UsersController extends AppController {
 
         //allow users to only add and edit on posts and widgets
         $group->id = 2;
+        $this->Acl->allow($group, 'controllers');
+        /*
         $this->Acl->deny($group, 'controllers');
         $this->Acl->allow($group, 'controllers/Entries/add');
         $this->Acl->allow($group, 'controllers/Entries/edit');
         $this->Acl->allow($group, 'controllers/Entries/get');
         $this->Acl->allow($group, 'controllers/Tags/fetch');
         $this->Acl->allow($group, 'controllers/Stories/add_or_edit');
+        $this->Acl->allow($group, 'controllers/Connections/add');
+        */
         //we add an exit to avoid an ugly "missing views" error message
         echo "all done";
         exit;

@@ -1,0 +1,104 @@
+<?php
+
+class ConnectionsController extends AppController {
+    public $uses = array('Connection', 'Entry', 'Tag', 'EntryTag');
+
+
+    function saveTags($entry_id, $tags) {
+        // delete all previous EntryTag for this entry
+        $this->EntryTag->deleteAll(array('EntryTag.entry_id' => $entry_id), false);
+
+        // Add the tags and relationships one by one
+        foreach($tags as $tag) {
+            $this->EntryTag->create();
+
+            $entryTag = array();
+            $entryTag['EntryTag']['entry_id'] = $entry_id;
+
+            // check if tag is a number, if so it most likely exists
+            if(is_numeric($tag)) {
+                $entryTag['EntryTag']['tag_id'] = $tag;
+            }
+            else {
+                // Get rid of single quotes and trim whitespace from tag
+                $tag = preg_replace("/(^\'|\'\z)/", "", $tag);
+                $tag = trim($tag);
+
+                // check to make sure tag is not in the DB
+                $result = $this->Tag->find('first', array(
+                    'conditions' => array(
+                        'Tag.name' => $tag
+                    ),
+                    'recursive' => 0
+                ));
+
+                if(!empty($result)) {
+                    // tag exists!
+                    $entryTag['EntryTag']['tag_id'] = $result['Tag']['id'];
+                }
+                else {
+                    // tag does not exist, create it
+                    $entryTag['Tag']['name'] = $tag;
+                }
+            }
+
+            // finally save the relationship (and tag)
+            $this->EntryTag->saveAll($entryTag);
+        }
+    }
+
+    public function add() {
+        $this->autoRender = false;
+
+        if($this->RequestHandler->isAjax()) {
+            Configure::write('debug', 0);
+        }
+
+        if (!empty($this->request->data) && $this->request->is('post')) {
+
+            // test if new entry
+            $entry_id = $this->request->data['entry_id'];
+            $connection_id = $this->request->data['connection_id'];
+
+            if(empty($connection_id)) {
+                // new entry stub needs to be created
+                $this->Entry->create();
+
+                $tmp = array();
+                $tmp['Entry'] = $this->request->data['Entry'];
+                $tmp['Entry']['user_id'] = $this->Auth->User('id');
+
+                if($this->Entry->save($tmp)) {
+                    $connection_id = $this->Entry->id;
+
+                    // Split tags from comma delimited list
+                    $tags = array();
+                    $tags = explode(',', $this->request->data['tags']);
+
+                    $this->saveTags($connection_id, $tags);
+                }
+                else {
+                    echo json_encode(array('response' => 'Sorry the entry could not be added at this time'));
+                    return;
+                }
+            }
+
+            // Save connection
+            $this->Connection->create();
+            $c = array();
+            $c['Connection']['entry_id_1'] = $entry_id;
+            $c['Connection']['entry_id_2'] = $connection_id;
+
+            // Save the entry
+            if ($this->Connection->save($c)) {
+                // Now get Entry id
+                $id = $this->Connection->id;
+
+                echo json_encode(array('id'=>$id, 'response'=>'The connection has been added'));
+            }
+            else {
+                echo json_encode(array('response'=>'Sorry the connection could not be added at this time'));
+            }
+        }
+    }
+}

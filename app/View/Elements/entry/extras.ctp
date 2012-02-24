@@ -6,7 +6,7 @@
     </ul>
     <div class="cf"></div>
 </div>
-<div class="stories-col section-in-form" <?php if(empty($stories)) echo "style='display:none;'"; ?> >
+<div class="stories-col section-in-form">
     <ul class="story-explanation">
         <li class="label-story-header labels"><p class="section-header">Add a Story</p></li>
         <li class="story-helpertext"><p>We want to hear your stories about your experiences in the computer graphics industry. Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? These kinds of archives are for the most part uncelebrated and unknown, but here is a chance to share them!</p></li>
@@ -20,7 +20,10 @@
     ?>
 </div>
 <div class="connections-col section-in-form">
-    <div class="connection-1">
-        <!-- same contents as div.stubs -->
-    </div>
+    <?php
+        echo $this->element('entry/connection_form');
+        if(isset($connections)) {
+            echo $this->element('entry/connections', array('connections' => $connections));
+        }
+    ?>
 </div>
