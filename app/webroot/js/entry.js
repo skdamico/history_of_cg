@@ -23,42 +23,96 @@ function change_publish_ui(button, publish, value) {
 }
 
 $(function() {
-    // ----------------- DATEPICKER -----------------
-    $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });
+    // setup colors for dynamic changing of colors
+    var colors = new Object();
+    colors['project'] = '#ff6600';
+    colors['person'] = '#00b9db';
+    colors['organization'] = '#7bd900';
+    colors['event'] = '#d200ff';
+    colors['none'] = '#BABABA';
 
-    // ----------------- HELPER TEXTS - basics
-    $('.need-helper')
-      .focus(function () {
-        $(this).siblings('.helper-popups').fadeIn();
-      })
-      .focusout(function () {
-        $(this).siblings('.helper-popups').fadeOut();
-    });
+    function change_colors(color) {
+        var allFields = $('.fields input[type=text], .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
+        var allBorderFields = $('.fields .helper-popups');
+        var allHoverFields = $('.save button');
 
-    // ----------------- SOURCES - basic information -----------------
-    $('.basics #entry-source').click(function(){
-        if (this.checked) {
-            $('.basics .source-title').fadeIn();
-            $('.basics .source-url').fadeIn();
-            $('.basics .label-entry-date').css('margin-top','280px');
+        allFields.removeClass('project person organization event none');
+        allFields.addClass(color);
+
+        allBorderFields.removeClass('project-border person-border organization-border event-border none-border');
+        allBorderFields.addClass(color+'-border');
+
+        allHoverFields.removeClass('project-hover person-hover organization-hover event-hover none-hover');
+        allHoverFields.addClass(color+'-hover');
+    }
+
+    function change_colors_with(t) {
+        if(t.indexOf('project') !== -1) {
+            change_colors('project');
+        }
+        else if(t.indexOf('person') !== -1) {
+            change_colors('person');
+        }
+        else if(t.indexOf('organization') !== -1) {
+            change_colors('organization');
+        }
+        else if(t.indexOf('event') !== -1) {
+            change_colors('event');
         }
         else {
-            $('.basics .label-entry-date').css('margin-top','175px');
-            $('.basics .source-title').hide();
-            $('.basics .source-url').hide();
+            change_colors('none');
         }
-    });
+    }
+
+    function init() {
+        // Initialize color change
+        change_colors_with($('.entry-type-select').children('option:selected').text().toLowerCase());
+
+        // category change event should change all colors to current type
+        $('.entry-type-select').change(function() {
+            var t = $(this).children('option:selected').text().toLowerCase();
+
+            change_colors_with(t);
+        });
+
+        // ----------------- DATEPICKER -----------------
+        $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });
+
+        // ----------------- HELPER TEXTS - basics
+        $('.need-helper')
+          .focus(function () {
+            $(this).siblings('.helper-popups').fadeIn();
+          })
+          .focusout(function () {
+            $(this).siblings('.helper-popups').fadeOut();
+        });
+
+        // ----------------- SOURCES - basic information -----------------
+        $('.basics #entry-source').click(function(){
+            if (this.checked) {
+                $('.basics .source-title').fadeIn();
+                $('.basics .source-url').fadeIn();
+                $('.basics .label-entry-date').css('margin-top','280px');
+            }
+            else {
+                $('.basics .label-entry-date').css('margin-top','175px');
+                $('.basics .source-title').hide();
+                $('.basics .source-url').hide();
+            }
+        });
 
 
-    // init entry save buttons
-    $('.form-container form .save button').click( function() {
+        // init entry save buttons
+        $('.form-container form .save button').click( function() {
 
-      if(!$(this).hasClass('publish-button')) {
-        // save draft, do not publish
-        change_publish_ui(this, "draft", "disable");
-      }
+          if(!$(this).hasClass('publish-button')) {
+            // save draft, do not publish
+            change_publish_ui(this, "draft", "disable");
+          }
 
-      return true;
-    });
+          return true;
+        });
+    }
 
+    init();
 });

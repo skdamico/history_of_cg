@@ -36,7 +36,7 @@ html,body {
 
 
 /* ~~~~ Tags ~~~~ */
-@font-face { font-family: Gotham; src: url('../files/Gotham-Bold.otf'); } 
+@font-face { font-family: Gotham; src: url('../files/Gotham-Bold.otf'); }
 a {
     color:#9dd4fe;
     font-weight:bold;
@@ -165,7 +165,7 @@ header#masthead {
     height: 30px;
 }
 
-.ui-autocomplete li.ui-menu-item a.ui-state-hover, 
+.ui-autocomplete li.ui-menu-item a.ui-state-hover,
 .ui-autocomplete li a#ui-active-menuitem,
 .ui-autocomplete li a#ui-active-menuitem span {
     color: #fff;

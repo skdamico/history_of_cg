@@ -24,7 +24,81 @@ $dark-gray:#1c1c1c;
 $light-gray:#BABABA;
 $neutral:#f3bc00;
 
-$current-type:$project;
+$current-type:$light-gray;
+
+.project {
+    color: $project !important;
+    &:focus {
+        border: 1px $project solid !important;
+    }
+}
+.person {
+    color: $person !important;
+    &:focus {
+        border: 1px $person solid !important;
+    }
+}
+.organization {
+    color: $org !important;
+    &:focus {
+        border: 1px $org solid !important;
+    }
+}
+.event {
+    color: $event !important;
+    &:focus {
+        border: 1px $event solid !important;
+    }
+}
+.none {
+    color: #BABABA !important;
+    &:focus {
+        border: 1px #BABABA solid !important;
+    }
+}
+
+.project-border {
+    border: 1px $project solid !important;
+}
+.person-border {
+    border: 1px $person solid !important;
+}
+.organization-border {
+    border: 1px $org solid !important;
+}
+.event-border {
+    border: 1px $event solid !important;
+}
+.none-border {
+    border: 1px #BABABA solid !important;
+}
+
+.project-hover {
+    &:hover {
+        color: darken($project, 5%) !important;
+    }
+}
+.person-hover {
+    &:hover {
+        color: darken($person, 5%) !important;
+    }
+}
+.organization-hover {
+    &:hover {
+        color: darken($org, 5%) !important;
+    }
+}
+.event-hover {
+    &:hover {
+        color: darken($event, 5%) !important;
+    }
+}
+.none-hover {
+    &:hover {
+        color: darken(#BABABA, 5%) !important;
+    }
+}
+
 
 @mixin field {
 	background-color:darken($bg, 3%);
