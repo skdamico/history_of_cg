@@ -124,7 +124,6 @@ div.form-container {
     background: -o-linear-gradient(top, #212938 0%, black 100%);
     background: -ms-linear-gradient(top, #212938 0%, black 100%);
     background: linear-gradient(top, #212938 0%, black 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#212938', endColorstr='#000000',GradientType=0 );
     border: 1px #050608 solid;
     border-radius: 5px;
     box-shadow: 0 0 2px #141414;
@@ -141,6 +140,8 @@ div.form-container {
       font-size: 12px;
       font-weight: normal;
       text-shadow: none; }
+    div.form-container div.stories-col div.stories p.story-collapsed-heading:hover {
+      background: red; }
   div.form-container div.stories-col ul.story-explanation li.label-story-header {
     float: left;
     width: 20%; }
