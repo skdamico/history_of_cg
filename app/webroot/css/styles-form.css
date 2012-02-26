@@ -141,7 +141,13 @@ div.form-container {
       font-weight: normal;
       text-shadow: none; }
     div.form-container div.stories-col div.stories p.story-collapsed-heading:hover {
-      background: red; }
+      background: #000000;
+      background: -moz-linear-gradient(top, black 0%, #212938 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, #212938));
+      background: -webkit-linear-gradient(top, black 0%, #212938 100%);
+      background: -o-linear-gradient(top, black 0%, #212938 100%);
+      background: -ms-linear-gradient(top, black 0%, #212938 100%);
+      background: linear-gradient(top, black 0%, #212938 100%); }
   div.form-container div.stories-col ul.story-explanation li.label-story-header {
     float: left;
     width: 20%; }
