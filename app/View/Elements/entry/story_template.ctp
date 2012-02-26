@@ -1,5 +1,5 @@
 <div class='stories new' id='story-template' style='display: none;'>
-  <p class="story-collapsed-heading"><span class='title'>New Story</span><span class='info'>(Click to toggle)</span></p>
+  <p class="story-collapsed-heading"><span class='title'>New Story</span><span class='info'>!! publish status !!</span></p>
   <div class="story-collapsed">
     <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
     <ul class="story-labels all-labels">
