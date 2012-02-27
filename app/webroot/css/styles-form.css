@@ -376,6 +376,7 @@ ul.token-input-list-hcg {
   #tabs div.tab-content {
     border-top: 1px #4d565d solid;
     clear: both;
+    min-height: 430px;
     padding: 15px; }
     #tabs div.tab-content h3 {
       margin-bottom: 12px; }
