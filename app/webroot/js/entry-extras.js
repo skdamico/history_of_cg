@@ -89,13 +89,19 @@ $(function() {
         }
 
         if(data.publish) {
+          var $headingInfo = $f.parent().siblings('.story-collapsed-heading').children('.info');
+
           if(data.publish === "published") {
             // set button to unpublish
             change_publish_ui($f.find('.story-save .publish-button'), "publish", 1);
+            // set heading to published
+            $headingInfo.html('Published');
           }
           else if(data.publish === "unpublished") {
             // set button to publish
             change_publish_ui($f.find('.story-save .publish-button'), "publish", 0);
+            // set heading to unpublished
+            $headingInfo.html('Unpublished');
           }
         }
         else {
@@ -207,6 +213,7 @@ $(function() {
 
   }
 
+
   function init_connections_form() {
 
     var $form = $('#connection-form form');
@@ -306,6 +313,7 @@ $(function() {
     // init connections
     init_connections_form();
 
+    // bind delete buttons
     $('.connections').each(function() {
       //connection_init(this);
     });
