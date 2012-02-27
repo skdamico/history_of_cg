@@ -190,6 +190,7 @@ div.form-container {
         }
     }
     div.stories-col {
+        float:left;
         width:530px;
         div.stories {
             div.story-collapsed {display:none;}
@@ -231,9 +232,8 @@ div.form-container {
                 }
             }
         }
-        textarea {
-            display:inline;
-            width:400px!important;
+        li.story-body {
+            width:440px;
         }
         ul.story-explanation {
             li.label-story-header{

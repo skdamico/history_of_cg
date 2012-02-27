@@ -115,6 +115,7 @@ div.form-container {
     div.form-container div.section-in-form:last-child {
       border: 0; }
   div.form-container div.stories-col {
+    float: left;
     width: 530px; }
     div.form-container div.stories-col div.stories div.story-collapsed {
       display: none; }
@@ -150,9 +151,8 @@ div.form-container {
         background: -o-linear-gradient(top, black 0%, #212938 100%);
         background: -ms-linear-gradient(top, black 0%, #212938 100%);
         background: linear-gradient(top, black 0%, #212938 100%); }
-    div.form-container div.stories-col textarea {
-      display: inline;
-      width: 400px!important; }
+    div.form-container div.stories-col li.story-body {
+      width: 440px; }
     div.form-container div.stories-col ul.story-explanation li.label-story-header {
       float: left; }
     div.form-container div.stories-col ul.story-explanation li.story-helpertext {
