@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.20)
 # Database: historyofcg
-# Generation Time: 2012-02-23 21:25:17 +0000
+# Generation Time: 2012-02-27 04:11:53 +0000
 # ************************************************************
 
 
@@ -41,7 +41,7 @@ LOCK TABLES `acos` WRITE;
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`)
 VALUES
-	(1,NULL,'',NULL,'controllers',1,100),
+	(1,NULL,'',NULL,'controllers',1,110),
 	(2,1,NULL,NULL,'About',2,7),
 	(3,1,NULL,NULL,'Entries',8,25),
 	(4,1,NULL,NULL,'Groups',26,41),
@@ -90,7 +90,12 @@ VALUES
 	(48,28,NULL,NULL,'unUrlize',87,88),
 	(49,15,NULL,NULL,'urlize',75,76),
 	(50,15,NULL,NULL,'unUrlize',77,78),
-	(51,3,NULL,NULL,'get_by_phrase',23,24);
+	(51,3,NULL,NULL,'get_by_phrase',23,24),
+	(52,1,NULL,NULL,'Connections',100,109),
+	(53,52,NULL,NULL,'saveTags',101,102),
+	(54,52,NULL,NULL,'add',103,104),
+	(55,52,NULL,NULL,'urlize',105,106),
+	(56,52,NULL,NULL,'unUrlize',107,108);
 
 /*!40000 ALTER TABLE `acos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -146,12 +151,7 @@ LOCK TABLES `aros_acos` WRITE;
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`)
 VALUES
 	(1,1,1,'1','1','1','1'),
-	(2,2,1,'-1','-1','-1','-1'),
-	(3,2,25,'1','1','1','1'),
-	(4,2,26,'1','1','1','1'),
-	(5,2,30,'1','1','1','1'),
-	(6,2,29,'1','1','1','1'),
-	(7,2,44,'1','1','1','1');
+	(2,2,1,'1','1','1','1');
 
 /*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
 UNLOCK TABLES;
