@@ -374,7 +374,7 @@ ul.token-input-list-hcg {
 #tabs {
   width: 530px; }
   #tabs div.tab-content {
-    border: 1px #4d565d solid;
+    border-top: 1px #4d565d solid;
     clear: both;
     padding: 15px; }
     #tabs div.tab-content h3 {
@@ -403,6 +403,6 @@ ul.token-input-list-hcg {
         font-weight: bold; }
       #tabs ul.tabs_nav li.tabs_link.active {
         border-top: 2px #FFFF66 solid;
-        background: #FFFFCC; }
+        background: #646f79; }
         #tabs ul.tabs_nav li.tabs_link.active a {
           color: #333; }

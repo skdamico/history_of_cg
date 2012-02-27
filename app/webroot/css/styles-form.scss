@@ -457,7 +457,7 @@ ul.token-input-list-hcg {
 #tabs {
     width:530px;
     div.tab-content {
-        border:1px lighten($bg, 15%) solid;
+        border-top:1px lighten($bg, 15%) solid;
         clear: both;
         padding: 15px;
         h3 {
@@ -491,7 +491,7 @@ ul.token-input-list-hcg {
             }
             &.active {
                 border-top:2px #FFFF66 solid;
-                background: #FFFFCC;
+                background: lighten($bg, 25%);
 
                 a {
                     color:#333;
