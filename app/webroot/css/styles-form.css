@@ -387,6 +387,7 @@ ul.token-input-list-hcg {
     padding-top: 4px; }
     #tabs ul.tabs_nav li.tabs_link {
       border: 1px red solid;
+      border-radius: 5px 0;
       display: inline;
       float: left;
       list-style: none;
