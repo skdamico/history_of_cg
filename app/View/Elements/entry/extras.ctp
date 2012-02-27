@@ -22,6 +22,7 @@
 <div class="connections-col section-in-form">
     <?php
         echo $this->element('entry/connection_form');
+        echo $this->element('entry/connection_template');
         if(isset($connections)) {
             echo $this->element('entry/connections', array('connections' => $connections));
         }

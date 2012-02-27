@@ -2,7 +2,7 @@
 
 class EntriesController extends AppController {
 
-    public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory');
+    public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory', 'Connection');
 
     function beforeFilter() {
         parent::beforeFilter();
@@ -246,6 +246,49 @@ class EntriesController extends AppController {
             )
         ));
 
+        // Get all connections made by this entry
+        $connections_1 = $this->Connection->find('all', array(
+            'conditions' => array(
+                'Connection.entry_id_1' => $entry['Entry']['id'],
+            ),
+            'contain' => array(
+                'Entry2' => array(
+                    'id',
+                    'name',
+                    'Category' => array(
+                        'category'
+                    )
+                )
+            )
+        ));
+
+        // Get all connections made by other entries
+        $connections_2 = $this->Connection->find('all', array(
+            'conditions' => array(
+                'Connection.entry_id_2' => $entry['Entry']['id'],
+            ),
+            'contain' => array(
+                'Entry1' => array(
+                    'id',
+                    'name',
+                    'Category' => array(
+                        'category'
+                    )
+                )
+            )
+        ));
+
+        $connections = array();
+
+        // Merge both sides of the circular connection into many 'Entry'
+        foreach( $connections_1 as $c_1) {
+            $connections[] = array('Entry' => $c_1['Entry2']);
+        }
+        foreach( $connections_2 as $c_2) {
+            $connections[] = array('Entry' => $c_2['Entry1']);
+        }
+
+        $this->set(compact('connections'));
         $this->set(compact('stories'));
         $this->set(compact('entry'));
     }

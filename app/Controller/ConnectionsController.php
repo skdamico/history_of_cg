@@ -1,7 +1,7 @@
 <?php
 
 class ConnectionsController extends AppController {
-    public $uses = array('Connection', 'Entry', 'Tag', 'EntryTag');
+    public $uses = array('Connection', 'Entry', 'Tag', 'EntryTag', 'Category');
 
 
     function saveTags($entry_id, $tags) {
@@ -59,45 +59,80 @@ class ConnectionsController extends AppController {
             // test if new entry
             $entry_id = $this->request->data['entry_id'];
             $connection_id = $this->request->data['connection_id'];
+            $connection_type = null;
 
+            $needs_more_info = false;
+
+            // find or save a new entry
             if(empty($connection_id)) {
-                // new entry stub needs to be created
-                $this->Entry->create();
+                // test if in db
+                $entry = $this->Entry->find('first', array(
+                    'conditions' => array(
+                        'Entry.name' => $this->request->data['Entry']['name']
+                    ),
+                    'recursive' => 0,
+                    'fields' => array('Entry.*')
+                ));
 
-                $tmp = array();
-                $tmp['Entry'] = $this->request->data['Entry'];
-                $tmp['Entry']['user_id'] = $this->Auth->User('id');
+                if(!empty($entry['Entry']['id'])) {
+                    $connection_id = $entry['Entry']['id'];
+                }
+                else if(!empty($this->request->data['Entry']['category_id']) && !empty($this->request->data['tags'])) {
+                    // new entry stub needs to be created
+                    $this->Entry->create();
 
-                if($this->Entry->save($tmp)) {
-                    $connection_id = $this->Entry->id;
+                    $tmp = array();
+                    $tmp['Entry'] = $this->request->data['Entry'];
+                    $tmp['Entry']['user_id'] = $this->Auth->User('id');
 
-                    // Split tags from comma delimited list
-                    $tags = array();
-                    $tags = explode(',', $this->request->data['tags']);
+                    if($this->Entry->save($tmp)) {
+                        $connection_id = $this->Entry->id;
 
-                    $this->saveTags($connection_id, $tags);
+                        // Split tags from comma delimited list
+                        $tags = array();
+                        $tags = explode(',', $this->request->data['tags']);
+
+                        $this->saveTags($connection_id, $tags);
+                    }
+                    else {
+                        echo json_encode(array('response' => 'Sorry the entry could not be added at this time'));
+                        return;
+                    }
                 }
                 else {
-                    echo json_encode(array('response' => 'Sorry the entry could not be added at this time'));
-                    return;
+                    $needs_more_info = true;
                 }
             }
 
-            // Save connection
-            $this->Connection->create();
-            $c = array();
-            $c['Connection']['entry_id_1'] = $entry_id;
-            $c['Connection']['entry_id_2'] = $connection_id;
+            if(!$needs_more_info) {
+                // Save connection
+                $this->Connection->create();
+                $c = array();
+                $c['Connection']['entry_id_1'] = $entry_id;
+                $c['Connection']['entry_id_2'] = $connection_id;
 
-            // Save the entry
-            if ($this->Connection->save($c)) {
-                // Now get Entry id
-                $id = $this->Connection->id;
+                // Save the entry
+                if ($this->Connection->save($c)) {
+                    // Now get Entry id
+                    $id = $this->Connection->id;
 
-                echo json_encode(array('id'=>$id, 'response'=>'The connection has been added'));
+                    $category = $this->Entry->find('first', array(
+                        'conditions' => array('Entry.id' => $connection_id),
+                        'contain' => array(
+                            'Category' => array('category')
+                        )
+                    ));
+
+                    $connection_type = $category['Category']['category'];
+
+                    echo json_encode(array('id'=>$id, 'type'=>$connection_type, 'response'=>'The connection has been added'));
+                }
+                else {
+                    echo json_encode(array('response'=>'Sorry the connection could not be added at this time'));
+                }
             }
             else {
-                echo json_encode(array('response'=>'Sorry the connection could not be added at this time'));
+                echo json_encode(array('more' => true));
             }
         }
     }
