@@ -190,6 +190,7 @@ div.form-container {
         }
     }
     div.stories-col {
+        width:530px;
         div.stories {
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
@@ -210,7 +211,7 @@ div.form-container {
                 font-weight:600;
 				text-transform:uppercase;
                 padding:10px;
-                width:100%;
+                width:505px;
 
                 span.info {
                     color:#273144;
@@ -229,6 +230,9 @@ div.form-container {
                     background: linear-gradient(top,  #000000 0%,#212938 100%);
                 }
             }
+        }
+        textarea {
+            width:400px;
         }
         ul.story-explanation {
             li.label-story-header{
@@ -426,14 +430,3 @@ ul.token-input-list-hcg {
 		padding:5px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
