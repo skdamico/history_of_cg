@@ -278,14 +278,15 @@ class EntriesController extends AppController {
             )
         ));
 
+
         $connections = array();
 
         // Merge both sides of the circular connection into many 'Entry'
         foreach( $connections_1 as $c_1) {
-            $connections[] = array('Entry' => $c_1['Entry2']);
+            $connections[] = array('Entry' => $c_1['Entry2'], 'Connection' => array('id' => $c_1['Connection']['id']));
         }
         foreach( $connections_2 as $c_2) {
-            $connections[] = array('Entry' => $c_2['Entry1']);
+            $connections[] = array('Entry' => $c_2['Entry1'], 'Connection' => array('id' => $c_2['Connection']['id']));
         }
 
         $this->set(compact('connections'));

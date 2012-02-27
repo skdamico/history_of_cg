@@ -137,4 +137,27 @@ class ConnectionsController extends AppController {
             }
         }
     }
+
+    public function delete($id=null) {
+        $this->autoRender = false;
+
+        if($this->RequestHandler->isAjax()) {
+            Configure::write('debug', 0);
+        }
+
+        // make sure the request is not GET or PUT
+        if ($this->request->is('post')) {
+            $this->Connection->id = $id;
+            if (!$this->Connection->exists()) {
+                echo json_encode(array('response' => 'Invalid connection'));
+                return;
+            }
+            if ($this->Connection->delete()) {
+                echo json_encode(array('response' => 'The connection was deleted'));
+            }
+            else {
+                echo json_encode(array('response' => 'Connection was not deleted'));
+            }
+        }
+    }
 }

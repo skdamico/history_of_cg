@@ -38,6 +38,9 @@ $(function() {
     // add category class depending on type
     $connection.addClass(type);
 
+    // make delete work
+    bind_connection_delete($connection);
+
     // append to connections-col
     $('.connections-col').append($connection);
 
@@ -215,7 +218,6 @@ $(function() {
 
 
   function init_connections_form() {
-
     var $form = $('#connection-form form');
 
     $connection_form_tags = $form.find('.all-fields .entry-tags .tags');
@@ -299,6 +301,24 @@ $(function() {
   }
 
 
+  function bind_connection_delete(item) {
+    var $item_delete = $(item).find('.delete');
+    var item_id = $(item).attr('data-id');
+
+    $item_delete.bind('click', function() {
+
+      // delete item on success
+      $.post('/connections/delete/'+item_id, function(data) {
+        // fade out and remove the connection
+        $(item).fadeOut(500, function() { $(this).remove(); });
+
+        // show message that connection was deleted
+        Messages.show(data.response, 4000);
+      }, 'json');
+    });
+  }
+
+
   function init() {
     // populate stories section with user's stories
     // bind events
@@ -315,7 +335,7 @@ $(function() {
 
     // bind delete buttons
     $('.connections').each(function() {
-      //connection_init(this);
+      bind_connection_delete(this);
     });
   }
 
