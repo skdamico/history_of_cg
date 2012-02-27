@@ -486,7 +486,7 @@ ul.token-input-list-hcg {
                 float:left;
                 text-decoration: none;
                 padding: 8px;
-                color: #000;
+                color: lighten($bg, 45%);
                 font-weight: bold;
             }
             &.active {
@@ -494,7 +494,7 @@ ul.token-input-list-hcg {
                 background: lighten($bg, 15%);
 
                 a {
-                    color:#333;
+                    color:#fff;
                 }
             }
         }

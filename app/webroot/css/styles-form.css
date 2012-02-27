@@ -399,10 +399,10 @@ ul.token-input-list-hcg {
         float: left;
         text-decoration: none;
         padding: 8px;
-        color: #000;
+        color: #98a2aa;
         font-weight: bold; }
       #tabs ul.tabs_nav li.tabs_link.active {
         border-top: 1px #646f79 solid;
         background: #4d565d; }
         #tabs ul.tabs_nav li.tabs_link.active a {
-          color: #333; }
+          color: #fff; }
