@@ -373,21 +373,23 @@ ul.token-input-list-hcg {
 /* ============== tabs ================ */
 #tabs {
   width: 530px; }
-  #tabs div {
+  #tabs div.tab-content {
+    border: 1px #4d565d solid;
     clear: both;
     padding: 15px; }
-    #tabs div h3 {
+    #tabs div.tab-content h3 {
       margin-bottom: 12px; }
-      #tabs div h3 p {
+      #tabs div.tab-content h3 p {
         line-height: 150%; }
   #tabs ul.tabs_nav {
-    border: 1px green solid;
     float: left;
     width: 500px;
     padding-top: 4px; }
     #tabs ul.tabs_nav li.tabs_link {
       background-color: #2a2f33;
+      border: 1px #4d565d solid;
       border-radius: 5px 5px 0 0;
+      box-shadow: 0 0 5px black;
       display: inline;
       float: left;
       list-style: none;

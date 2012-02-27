@@ -21,7 +21,7 @@ return false;
     <li class="tabs_link"><a href="#tab-3">Video</a></li>
     <li class="tabs_link"><a href="#tab-4">Music</a></li>
   </ul>
-  <div id="tab-1">
+  <div class="tab-content" id="tab-1">
 
     <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
     <ul class="story-labels all-labels">
@@ -69,13 +69,13 @@ return false;
     </form>
     <div class="cf"></div>
 </div>
-<div id="tab-2">
+<div class="tab-content" id="tab-2">
 images
 </div>
-<div id="tab-3">
+<div class="tab-content" id="tab-3">
 video
 </div>
-<div id="tab-4">
+<div class="tab-content" id="tab-4">
 music
 </div>
 </div>

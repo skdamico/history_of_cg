@@ -456,7 +456,8 @@ ul.token-input-list-hcg {
 /* ============== tabs ================ */
 #tabs {
     width:530px;
-    div {
+    div.tab-content {
+        border:1px lighten($bg, 15%) solid;
         clear: both;
         padding: 15px;
         h3 {
@@ -467,13 +468,14 @@ ul.token-input-list-hcg {
         }
     }
     ul.tabs_nav {
-        border:1px green solid;
         float: left;
         width: 500px;
         padding-top: 4px;
         li.tabs_link {
             background-color:$bg;
+            border:1px lighten($bg, 15%) solid;
             border-radius:5px 5px 0 0;
+            box-shadow: 0 0 5px darken($bg,25%);
             display:inline;
             float:left;
             list-style: none;
