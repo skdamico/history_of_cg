@@ -232,16 +232,15 @@ div.form-container {
             }
         }
         textarea {
+            display:inline;
             width:400px!important;
         }
         ul.story-explanation {
             li.label-story-header{
                 float:left;
-                width:20%;
             }
             li.story-helpertext {
                 float:left;
-                width:440px;
             }
         }
         ul.story-labels {

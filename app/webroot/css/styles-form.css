@@ -151,13 +151,12 @@ div.form-container {
         background: -ms-linear-gradient(top, black 0%, #212938 100%);
         background: linear-gradient(top, black 0%, #212938 100%); }
     div.form-container div.stories-col textarea {
+      display: inline;
       width: 400px!important; }
     div.form-container div.stories-col ul.story-explanation li.label-story-header {
-      float: left;
-      width: 20%; }
+      float: left; }
     div.form-container div.stories-col ul.story-explanation li.story-helpertext {
-      float: left;
-      width: 440px; }
+      float: left; }
     div.form-container div.stories-col ul.story-labels li.label-story-header {
       margin-bottom: 117px; }
     div.form-container div.stories-col ul.story-labels li.label-story-story {
