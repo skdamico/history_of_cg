@@ -27,7 +27,7 @@ $(function() {
     function change_colors(color) {
         var allFields = $('.fields input[type=text], .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
         var allBorderFields = $('.fields .helper-popups');
-        var allHoverFields = $('button');
+        var allHoverFields = $('button, .button');
 
         allFields.removeClass('project person organization event none');
         allFields.addClass(color);

@@ -133,27 +133,39 @@ $current-type:$light-gray;
 	font-weight:600;
 	text-transform:uppercase;
 	padding:7px 15px;
+    cursor: pointer;
 	&:hover {
 		color:darken($current-type,5%);
 	}
 }
 
 /* =============== forms EDIT =============== */
-li.save, div.save {
-	button {
-		@include form-button;
-	}
-}
-
-button {
+button, .button {
     @include form-button;
 }
+
 
 /* =============== forms NEW =============== */
 div.form-container {
     font-family:Helvetica, sans-serif;
     margin:0 auto;
     width:780px;
+
+    #toolbar {
+        span.title {
+            float: left;
+        }
+        span.view {
+            float: right;
+
+            a {
+                @include form-button;
+            }
+        }
+        span.publish-status {
+            float: right;
+        }
+    }
     form {
         div.section-in-form {
             border-bottom:1px darken($light-gray,45%) solid;
