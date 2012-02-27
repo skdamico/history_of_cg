@@ -67,16 +67,16 @@ return false;
     <div class="cf"></div>
     <input type='hidden' class='story-id' name='data[Story][id]' value='<?php echo $story['Story']['id']; ?>' />
     </form>
-    
-    </div>
-  <div id="tab-2">
-    images
-  </div>
-  <div id="tab-3">
-    video
-  </div>
-  <div id="tab-4">
-    music
-  </div>
+    <div class="cf"></div>
+</div>
+<div id="tab-2">
+images
+</div>
+<div id="tab-3">
+video
+</div>
+<div id="tab-4">
+music
+</div>
 </div>
 
