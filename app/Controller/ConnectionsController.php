@@ -54,6 +54,7 @@ class ConnectionsController extends AppController {
             Configure::write('debug', 0);
         }
 
+        // make sure its a POST request with data given
         if (!empty($this->request->data) && $this->request->is('post')) {
 
             // test if new entry
