@@ -134,44 +134,64 @@ div.form-container {
     padding: 20px 0; }
     div.form-container div.section-in-form:last-child {
       border: 0; }
-  div.form-container div.stories-col div.stories div.story-collapsed {
-    display: none; }
-  div.form-container div.stories-col div.stories p.story-collapsed-heading {
-    background: #1e2225;
-    border: 1px #41494f solid;
-    border-radius: 5px;
-    color: #bababa;
-    font-family: Gotham, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 10px;
-    width: 100%; }
-    div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
-      color: #363c41;
-      float: right;
-      font-size: 12px;
-      font-weight: normal;
-      text-shadow: none; }
-  div.form-container div.stories-col ul.story-explanation li.label-story-header {
+  div.form-container div.stories-col {
     float: left;
-    width: 20%; }
-  div.form-container div.stories-col ul.story-explanation li.story-helpertext {
-    float: left;
-    width: 440px; }
-  div.form-container div.stories-col ul.story-labels li.label-story-header {
-    margin-bottom: 117px; }
-  div.form-container div.stories-col ul.story-labels li.label-story-story {
-    margin-bottom: 150px; }
-  div.form-container div.stories-col ul.story-fields li.story-helpertext {
-    width: 440px; }
-  div.form-container div.stories-col ul.story-fields li.story-media {
-    height: 45px; }
-  div.form-container div.stories-col ul.story-fields li.story-source {
-    color: #8a969f;
-    margin-bottom: 10px;
-    position: relative;
-    top: -5px; }
+    width: 530px; }
+    div.form-container div.stories-col div.stories div.story-collapsed {
+      display: none; }
+    div.form-container div.stories-col div.stories p.story-collapsed-heading {
+      background: #212938;
+      background: -moz-linear-gradient(top, #212938 0%, black 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #212938), color-stop(100%, black));
+      background: -webkit-linear-gradient(top, #212938 0%, black 100%);
+      background: -o-linear-gradient(top, #212938 0%, black 100%);
+      background: -ms-linear-gradient(top, #212938 0%, black 100%);
+      background: linear-gradient(top, #212938 0%, black 100%);
+      border: 1px #050608 solid;
+      border-radius: 5px;
+      box-shadow: 0 0 2px #141414;
+      color: #bababa;
+      font-family: Gotham, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 10px;
+      width: 505px; }
+      div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
+        color: #273144;
+        float: right;
+        font-size: 12px;
+        font-weight: normal;
+        text-shadow: none; }
+      div.form-container div.stories-col div.stories p.story-collapsed-heading:hover {
+        background: #000000;
+        background: -moz-linear-gradient(top, black 0%, #212938 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, #212938));
+        background: -webkit-linear-gradient(top, black 0%, #212938 100%);
+        background: -o-linear-gradient(top, black 0%, #212938 100%);
+        background: -ms-linear-gradient(top, black 0%, #212938 100%);
+        background: linear-gradient(top, black 0%, #212938 100%); }
+    div.form-container div.stories-col li.story-body {
+      width: 440px; }
+    div.form-container div.stories-col textarea {
+      width: 400px!important; }
+    div.form-container div.stories-col ul.story-explanation li.label-story-header {
+      float: left; }
+    div.form-container div.stories-col ul.story-explanation li.story-helpertext {
+      float: left; }
+    div.form-container div.stories-col ul.story-labels li.label-story-header {
+      margin-bottom: 117px; }
+    div.form-container div.stories-col ul.story-labels li.label-story-story {
+      margin-bottom: 150px; }
+    div.form-container div.stories-col ul.story-fields li.story-helpertext {
+      width: 440px; }
+    div.form-container div.stories-col ul.story-fields li.story-media {
+      height: 45px; }
+    div.form-container div.stories-col ul.story-fields li.story-source {
+      color: #8a969f;
+      margin-bottom: 10px;
+      position: relative;
+      top: -5px; }
   div.form-container div.buttons ul.story-or-connection {
     float: left;
     margin: 15px 0 0 20%;

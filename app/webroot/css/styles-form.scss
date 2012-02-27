@@ -194,37 +194,60 @@ div.form-container {
         }
     }
     div.stories-col {
+        float:left;
+        width:530px;
         div.stories {
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
-                background:darken($bg, 5%);
-                border:1px lighten($bg, 10%) solid;
+                background: #212938;
+				background: -moz-linear-gradient(top,  #212938 0%, #000000 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#212938), color-stop(100%,#000000));
+				background: -webkit-linear-gradient(top,  #212938 0%,#000000 100%);
+				background: -o-linear-gradient(top,  #212938 0%,#000000 100%);
+				background: -ms-linear-gradient(top,  #212938 0%,#000000 100%);
+				background: linear-gradient(top,  #212938 0%,#000000 100%);
+				
+                border:1px darken(#181d28,10%) solid;
                 border-radius:5px;
+				box-shadow: 0 0 2px #141414;
 				color:$current-type;
 				font-family:Gotham, Helvetica, Arial, sans-serif;
 				font-size:16px;
                 font-weight:600;
 				text-transform:uppercase;
                 padding:10px;
-                width:100%;
+                width:505px;
 
                 span.info {
-                    color:lighten($bg, 5%);
+                    color:#273144;
                     float:right;
                     font-size:12px;
                     font-weight:normal;
                     text-shadow:none;
                 }
+                &:hover {
+                    background: #000000;
+                    background: -moz-linear-gradient(top,  #000000 0%, #212938 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#212938));
+                    background: -webkit-linear-gradient(top,  #000000 0%,#212938 100%);
+                    background: -o-linear-gradient(top,  #000000 0%,#212938 100%);
+                    background: -ms-linear-gradient(top,  #000000 0%,#212938 100%);
+                    background: linear-gradient(top,  #000000 0%,#212938 100%);
+                }
             }
+        }
+        li.story-body {
+            width:440px;
+        }
+        textarea {
+            width:400px!important;
         }
         ul.story-explanation {
             li.label-story-header{
                 float:left;
-                width:20%;
             }
             li.story-helpertext {
                 float:left;
-                width:440px;
             }
         }
         ul.story-labels {
@@ -413,14 +436,3 @@ ul.token-input-list-hcg {
 		padding:5px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
