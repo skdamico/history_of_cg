@@ -2,6 +2,9 @@
 <?php $this->Html->css(array('styles-form'), null, array( 'inline' => false, 'once' => true )); ?>
 
 <div class="form-container">
+    <div id='toolbar'>
+      <h1>Add Entry</h1>
+    </div>
     <?php
         echo $this->Form->create('Entry');
         echo $this->element('entry/stub');
