@@ -397,10 +397,12 @@ ul.token-input-list-hcg {
       padding: 0; }
       #tabs ul.tabs_nav li.tabs_link a {
         float: left;
+        font-family: Gotham, Helvetica, Arial, sans-serif;
         text-decoration: none;
         padding: 8px;
         color: #98a2aa;
-        font-weight: bold; }
+        font-weight: 600;
+        text-transform: uppercase; }
       #tabs ul.tabs_nav li.tabs_link.active {
         border-top: 1px #6f7c87 solid;
         background: #4d565d; }
