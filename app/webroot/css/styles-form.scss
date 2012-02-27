@@ -490,8 +490,8 @@ ul.token-input-list-hcg {
                 font-weight: bold;
             }
             &.active {
-                border-top:2px #FFFF66 solid;
-                background: lighten($bg, 25%);
+                border-top:1px lighten($bg, 25%) solid;
+                background: lighten($bg, 15%);
 
                 a {
                     color:#333;

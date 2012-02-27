@@ -402,7 +402,7 @@ ul.token-input-list-hcg {
         color: #000;
         font-weight: bold; }
       #tabs ul.tabs_nav li.tabs_link.active {
-        border-top: 2px #FFFF66 solid;
-        background: #646f79; }
+        border-top: 1px #646f79 solid;
+        background: #4d565d; }
         #tabs ul.tabs_nav li.tabs_link.active a {
           color: #333; }
