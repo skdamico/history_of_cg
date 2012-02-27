@@ -153,6 +153,8 @@ div.form-container {
         background: linear-gradient(top, black 0%, #212938 100%); }
     div.form-container div.stories-col li.story-body {
       width: 440px; }
+    div.form-container div.stories-col textarea {
+      width: 400px!important; }
     div.form-container div.stories-col ul.story-explanation li.label-story-header {
       float: left; }
     div.form-container div.stories-col ul.story-explanation li.story-helpertext {
