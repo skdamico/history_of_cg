@@ -228,6 +228,10 @@ div.form-container {
                 margin:10px 0!important;
             }
             div.connections {
+                clear:both;
+                span.delete {
+                    float:right;
+                }
                 span.name {
                     float:left;
                 }
@@ -417,6 +421,7 @@ div.form-container {
         }
     }
 	h1 {
+        margin-top:0;
 		text-transform:uppercase;
 	}
 	h2 {

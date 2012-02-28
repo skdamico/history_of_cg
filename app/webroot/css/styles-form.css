@@ -163,8 +163,12 @@ div.form-container {
       width: 200px; }
       div.form-container div.right-column div.connections-col button {
         margin: 10px 0!important; }
-      div.form-container div.right-column div.connections-col div.connections span.name {
-        float: left; }
+      div.form-container div.right-column div.connections-col div.connections {
+        clear: both; }
+        div.form-container div.right-column div.connections-col div.connections span.delete {
+          float: right; }
+        div.form-container div.right-column div.connections-col div.connections span.name {
+          float: left; }
       div.form-container div.right-column div.connections-col form {
         border-bottom: 1px #424b53 solid;
         margin-bottom: 10px; }
@@ -297,6 +301,7 @@ div.form-container {
       div.form-container div.buttons ul.story-or-connection li.share-helpertext p {
         margin: 0; }
   div.form-container h1 {
+    margin-top: 0;
     text-transform: uppercase; }
   div.form-container h2 {
     font-family: Gotham, Helvetica, sans-serif;
