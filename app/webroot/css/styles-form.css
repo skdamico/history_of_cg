@@ -138,7 +138,7 @@ div.form-container {
     margin-top: 200px; }
   div.form-container div.right-column {
     float: right;
-    margin: 20px 0 20px 0;
+    margin-top: 20px;
     padding: 0; }
     div.form-container div.right-column div.connections-col {
       background: #2f363e;
@@ -151,6 +151,7 @@ div.form-container {
       border-top: 1px #424b53 solid!important;
       border-radius: 5px;
       box-shadow: 0 0 5px black;
+      margin-bottom: 20px;
       padding: 10px!important;
       width: 200px; }
       div.form-container div.right-column div.connections-col button {
