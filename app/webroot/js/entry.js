@@ -70,6 +70,24 @@ $(function() {
 
         // ----------------- DATEPICKER -----------------
         $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });
+        $("#entry-date-box-2").datepicker({ altField: '#entry-date-box-2-helper', altFormat:'yy-mm-dd' });
+
+        show_second_date($('.basics #entry-date-selected').is(':checked'));
+        $('.basics #entry-date-selected').click(function() {
+            show_second_date(this.checked);
+        });
+
+        function show_second_date(show) {
+            if (show) {
+                $('.basics .entry-date-2').fadeIn();
+                $('.basics .label-entry-date-2').fadeIn();
+            }
+            else {
+                $('.basics .entry-date-2').hide();
+                $('.basics .label-entry-date-2').hide();
+            }
+        }
+
 
         // ----------------- HELPER TEXTS - basics
         $('.need-helper')
@@ -88,11 +106,13 @@ $(function() {
 
         function show_source(show) {
             if (show) {
+                $('.basics .entry-source input').val('yes');
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
             }
             else {
+                $('.basics .entry-source input').val('no');
                 $('.basics .label-entry-date').css('margin-top','175px');
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
