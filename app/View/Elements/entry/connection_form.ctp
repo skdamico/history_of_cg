@@ -7,7 +7,7 @@
             </li>
             <li class="entry-type fields extra" style='display: none;'>
                 <select class='entry-type-select' name='data[Entry][category_id]'>
-                    <option value=''>-- Type of Entry --</option>
+                    <option value='' selected="selected">-- Type of Entry --</option>
                     <option value='1'>A Person</option>
                     <option value='2'>A Project</option>
                     <option value='3'>An Organization</option>
