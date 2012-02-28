@@ -228,7 +228,12 @@ div.form-container {
                 margin:10px 0!important;
             }
             div.connections {
+                background:#171717;
+                border-radius:3px;
                 clear:both;
+                font-size:14px;
+                font-weight:600;
+                padding:5px;
                 span.delete {
                     float:right;
                 }
