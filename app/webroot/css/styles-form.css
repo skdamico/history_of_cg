@@ -144,7 +144,7 @@ div.form-container {
     background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
     background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
     background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    border-top: 1px #424b53 solid!important;
+    border-top: 1px #424b53 solid;
     border-radius: 5px;
     box-shadow: 0 0 5px black;
     float: right;
@@ -386,22 +386,22 @@ ul.token-input-list-hcg {
     padding: 5px; }
 
 /* ============== tabs ================ */
-.tabs {
+#tabs {
   width: 530px; }
-  .tabs div.tab-content {
+  #tabs div.tab-content {
     border-top: 1px #4d565d solid;
     clear: both;
     min-height: 420px;
     padding: 15px; }
-    .tabs div.tab-content h3 {
+    #tabs div.tab-content h3 {
       margin-bottom: 12px; }
-      .tabs div.tab-content h3 p {
+      #tabs div.tab-content h3 p {
         line-height: 150%; }
-  .tabs ul.tabs_nav {
+  #tabs ul.tabs_nav {
     float: left;
     width: 500px;
     padding-top: 4px; }
-    .tabs ul.tabs_nav li.tabs_link {
+    #tabs ul.tabs_nav li.tabs_link {
       background-color: #2a2f33;
       border: 1px #3a4147 solid;
       border-radius: 5px 5px 0 0;
@@ -410,7 +410,7 @@ ul.token-input-list-hcg {
       list-style: none;
       margin-left: 5px;
       padding: 0; }
-      .tabs ul.tabs_nav li.tabs_link a {
+      #tabs ul.tabs_nav li.tabs_link a {
         float: left;
         font-family: Gotham, Helvetica, Arial, sans-serif;
         text-decoration: none;
@@ -418,8 +418,8 @@ ul.token-input-list-hcg {
         color: #98a2aa;
         font-weight: 600;
         text-transform: uppercase; }
-      .tabs ul.tabs_nav li.tabs_link.active {
+      #tabs ul.tabs_nav li.tabs_link.active {
         border-top: 1px #6f7c87 solid;
         background: #4d565d; }
-        .tabs ul.tabs_nav li.tabs_link.active a {
+        #tabs ul.tabs_nav li.tabs_link.active a {
           color: #fff; }
