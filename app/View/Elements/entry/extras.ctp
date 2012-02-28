@@ -29,5 +29,6 @@
                 echo $this->element('entry/connections', array('connections' => $connections));
             }
         ?>
+        <div class="cf"></div>
     </div>
 </div>
