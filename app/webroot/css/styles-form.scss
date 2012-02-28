@@ -198,6 +198,16 @@ div.form-container {
             }
         }
     }
+    div.connections-col {
+        background-color:darken($bg, 3%);
+        border:1px lighten($bg, 5%) solid;
+        border-radius:5px;
+        box-shadow: 0 0 5px darken($bg,25%);
+        float:right;
+        margin-top:40px;
+        padding:10px;
+        width:200px;
+    }
     div.section-in-form {
         border-bottom:1px darken($light-gray,45%) solid;
         padding:20px 0;
