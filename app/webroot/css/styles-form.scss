@@ -202,7 +202,6 @@ div.form-container {
         float:right;
         margin-top:30px;
         padding:0;
-        width:200px;
         div.connections-col {
             background: #2f363e;
             background: -moz-linear-gradient(top,  #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
@@ -215,6 +214,7 @@ div.form-container {
             border-radius:5px;
             box-shadow: 0 0 5px darken($bg,25%);
             padding:10px!important;
+            width:200px;
             button {
                 margin:10px 0!important;
             }
