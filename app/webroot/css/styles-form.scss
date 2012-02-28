@@ -242,7 +242,7 @@ div.form-container {
                 span.delete {
                     float:right;
                     &:hover{
-                        background-color:#171717;
+                        background-color:darken(#171717, 7%);
                         border-radius:3px;
                     }
                 }
