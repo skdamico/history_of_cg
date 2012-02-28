@@ -136,6 +136,15 @@ div.form-container {
     top: -5px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     margin-top: 200px; }
+  div.form-container div.connections-col {
+    background-color: #23272b;
+    border: 1px #363c41 solid;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    float: right;
+    margin-top: 40px;
+    padding: 10px;
+    width: 200px; }
   div.form-container div.section-in-form {
     border-bottom: 1px #474747 solid;
     padding: 20px 0; }
