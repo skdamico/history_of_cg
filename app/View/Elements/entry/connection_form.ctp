@@ -1,18 +1,13 @@
 <div class="stub" id='connection-form'>
     <form action='/connections/add' method='post' accept-charset='utf-8'>
-        <ul class="required-labels all-labels">
-            <li class="label-entry-name labels">Entry name <span class="required">*</span></li>
-            <li class="label-entry-type labels extra" style='display: none;'>Type of entry <span class="required">*</span></li>
-            <li class="label-entry-tags labels extra" style='display: none;'>Tags <span class="required">*</span></li>
-        </ul>
         <ul class="required-fields all-fields">
             <li class="entry-name fields">
-                <input type='text' name='data[Entry][name]' value='' />
+                <input type='text' placeholder="Entry name" name='data[Entry][name]' value='' />
                 <input type='hidden' class='entry-id' name='data[connection_id]' value='' />
             </li>
             <li class="entry-type fields extra" style='display: none;'>
                 <select class='entry-type-select' name='data[Entry][category_id]'>
-                    <option value=''></option>
+                    <option value=''>-- Type of Entry --</option>
                     <option value='1'>A Person</option>
                     <option value='2'>A Project</option>
                     <option value='3'>An Organization</option>
@@ -20,7 +15,7 @@
                 </select>
             </li>
             <li class="entry-tags fields extra" style='display: none;'>
-                <input type='text' name='data[tags]' class='tags' />
+                <input type='text' placeholder="Related tags" name='data[tags]' class='tags' />
             </li>
         </ul>
         <div class="cf"></div>
