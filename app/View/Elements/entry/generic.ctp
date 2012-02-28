@@ -20,14 +20,14 @@
                 Tell us some details about this entry. Don't worry about too much technical data, just give us an idea of what this entry is about. This description will be displayed on the entries page.
             </span>
         </li>
-        <li class="entry-source fields"><input type="checkbox" id="entry-source" name="source" value="yes" />
+        <li class="entry-source fields"><input type="checkbox" id="entry-source" value="yes" <?php if( !empty($entry['Entry']['source_name']) || !empty($entry['Entry']['source_url']) ) { echo ' checked="checked"'; } ?>/>
             <label for="entry-source">I got this description from somewhere else</label>
         </li>
         <li class="source-title">
-            <label>Source:</label><input type="text" name="source-name">
+            <label>Source:</label><input type="text" name="data[Entry][source_name]" value='<?php echo $entry['Entry']['source_name']; ?>' />
         </li>
         <li class="source-url">
-            <label>URL (if applicable):</label><input type="text" name="source-url">
+            <label>URL (if applicable):</label><input type="text" name="data[Entry][source_url]" value='<?php echo $entry['Entry']['source_url']; ?>' />
         </li>
         <li class="entry-date fields">
             <input type='text' id='entry-date-box-1' class='datepicker need-helper' value='<?php

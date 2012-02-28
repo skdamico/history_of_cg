@@ -81,8 +81,13 @@ $(function() {
         });
 
         // ----------------- SOURCES - basic information -----------------
+        show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
-            if (this.checked) {
+            show_source(this.checked);
+        });
+
+        function show_source(show) {
+            if (show) {
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
@@ -92,8 +97,7 @@ $(function() {
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
             }
-        });
-
+        }
 
         // init entry save buttons
         $('.form-container form .save button').click( function() {
