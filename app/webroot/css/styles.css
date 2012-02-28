@@ -105,6 +105,7 @@ header#masthead {
             float:left;
             height:15px;
             margin:0;
+            outline:none;
             padding:5px;
             width:197px;
         }

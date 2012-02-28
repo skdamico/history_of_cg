@@ -228,9 +228,23 @@ div.form-container {
                 margin:10px 0!important;
             }
             div.connections {
+                background:#171717;
+                border-radius:3px;
                 clear:both;
+                font-size:14px;
+                font-weight:600;
+                margin-bottom:5px;
+                padding:5px;
+                &:hover{
+                    background:lighten(#171717, 3%);
+                    cursor:pointer;
+                }
                 span.delete {
                     float:right;
+                    &:hover{
+                        background-color:darken(#171717, 7%);
+                        border-radius:3px;
+                    }
                 }
                 span.name {
                     float:left;

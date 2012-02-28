@@ -164,9 +164,21 @@ div.form-container {
       div.form-container div.right-column div.connections-col button {
         margin: 10px 0!important; }
       div.form-container div.right-column div.connections-col div.connections {
-        clear: both; }
+        background: #171717;
+        border-radius: 3px;
+        clear: both;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        padding: 5px; }
+        div.form-container div.right-column div.connections-col div.connections:hover {
+          background: #1f1f1f;
+          cursor: pointer; }
         div.form-container div.right-column div.connections-col div.connections span.delete {
           float: right; }
+          div.form-container div.right-column div.connections-col div.connections span.delete:hover {
+            background-color: #050505;
+            border-radius: 3px; }
         div.form-container div.right-column div.connections-col div.connections span.name {
           float: left; }
       div.form-container div.right-column div.connections-col form {
