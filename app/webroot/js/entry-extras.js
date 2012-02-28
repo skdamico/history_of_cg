@@ -9,8 +9,6 @@ $(function() {
       // get test form and clone it into new form
       var $storyform = $('.stories-col #story-template').clone();
 
-      $storyform.find('.btn-group').bind("click", function() { return false; } );
-
       // remove id so we don't have duplicates
       $storyform.removeAttr('id');
 

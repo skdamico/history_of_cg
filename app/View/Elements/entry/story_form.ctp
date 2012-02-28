@@ -1,4 +1,29 @@
-<form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#tabs div').hide();
+$('#tabs div:first').show();
+$('#tabs ul li:first').addClass('active');
+$('#tabs ul li a').click(function(){ 
+$('#tabs ul li').removeClass('active');
+$(this).parent().addClass('active'); 
+var currentTab = $(this).attr('href'); 
+$('#tabs div').hide();
+$(currentTab).show();
+return false;
+});
+});
+</script>
+
+<div id="tabs">
+  <ul class="tabs_nav">
+    <li class="tabs_link"><a href="#tab-1">Text</a></li>
+    <li class="tabs_link"><a href="#tab-2">Image</a></li>
+    <li class="tabs_link"><a href="#tab-3">Video</a></li>
+    <li class="tabs_link"><a href="#tab-4">Music</a></li>
+  </ul>
+  <div class="tab-content" id="tab-1">
+
+    <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
     <ul class="story-labels all-labels">
         <li class="label-story-title labels">Title</li>
         <li class="label-story-date labels">Date</li>
@@ -28,10 +53,10 @@
         </li>
         <li class="story-source fields"><input type="checkbox" class="story-source-checkbox" name="source" value="yes" /><label for="story-source">I got this description from somewhere else</label></li>
         <li class="source-title">
-            <label>Source:</label><input type="text" name="source-name" />
+            <label>Source:</label><input type="text" name="source-name">
         </li>
         <li class="source-url">
-            <label>URL (if applicable):</label><input type="text" name="source-url" />
+            <label>URL (if applicable):</label><input type="text" name="source-url">
         </li>
         <li class='story-save save'>
             <button>Save Draft</button>
@@ -41,4 +66,17 @@
     </ul>
     <div class="cf"></div>
     <input type='hidden' class='story-id' name='data[Story][id]' value='<?php echo $story['Story']['id']; ?>' />
-</form>
+    </form>
+    <div class="cf"></div>
+</div>
+<div class="tab-content" id="tab-2">
+images
+</div>
+<div class="tab-content" id="tab-3">
+video
+</div>
+<div class="tab-content" id="tab-4">
+music
+</div>
+</div>
+
