@@ -120,10 +120,13 @@ header#masthead {
             background-color:#000!important;
             background-image:url('../img/searchBtn.png')!important;
             border:1px #161b21 solid!important;
+            border-radius:0!important;
+            box-shadow:0!important;
             float:left!important;
             font-size:0!important;
             height:25px!important;
             margin:1px 0 0 0!important;
+            padding:0!important;
             text-indent:9999px!important;
             width:25px!important;
         }
