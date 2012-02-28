@@ -153,6 +153,8 @@ div.form-container {
     width: 200px; }
     div.form-container div.connections-col ul.required-fields {
       float: none!important; }
+      div.form-container div.connections-col ul.required-fields input {
+        width: 177px!important; }
     div.form-container div.connections-col ul.required-labels {
       float: none!important;
       width: 100%!important; }

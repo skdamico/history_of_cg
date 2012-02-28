@@ -216,6 +216,9 @@ div.form-container {
         width:200px;
         ul.required-fields {
             float:none!important;
+            input {
+                width:177px!important;
+            }
         }
         ul.required-labels {
             float:none!important;
