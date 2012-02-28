@@ -151,13 +151,13 @@ div.form-container {
     margin-top: 40px;
     padding: 10px!important;
     width: 200px; }
+    div.form-container div.connections-col button {
+      margin: 10px 0!important; }
     div.form-container div.connections-col form {
       border-bottom: 1px #424b53 solid;
       margin-bottom: 10px; }
     div.form-container div.connections-col ul.required-fields {
       float: none!important; }
-      div.form-container div.connections-col ul.required-fields button {
-        margin: 10px 0; }
       div.form-container div.connections-col ul.required-fields input {
         width: 177px!important; }
       div.form-container div.connections-col ul.required-fields li.token-input-input-token-hcg input {

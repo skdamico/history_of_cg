@@ -214,15 +214,15 @@ div.form-container {
         margin-top:40px;
         padding:10px!important;
         width:200px;
+        button {
+            margin:10px 0!important;
+        }
         form {
             border-bottom:1px #424b53 solid;
             margin-bottom:10px;
         }
         ul.required-fields {
             float:none!important;
-            button {
-                margin:10px 0;
-            }
             input {
                 width:177px!important;
             }
