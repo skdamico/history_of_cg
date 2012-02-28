@@ -20,6 +20,7 @@
     ?>
 </div>
 <div class="right-column">
+    <h2>Create connections</h2>
     <div class="connections-col section-in-form">
         <?php
             echo $this->element('entry/connection_form');
