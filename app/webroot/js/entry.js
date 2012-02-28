@@ -27,27 +27,27 @@ $(function() {
     var dateInfo = {
         'project': {
             'dateLabel': 'Date',
-            'helperText': 'When did this <span class="project">project</span> take place?'
+            'helperText': 'When did this project take place?'
         },
         'person': {
             'dateLabel': 'Birth date',
-            'helperText': 'When was this <span class="person">person</span> live?',
+            'helperText': 'When was this person born?',
             'secondDateLabel': 'Deceased date',
-            'secondHelperText': '',
+            'secondHelperText': 'When did this person DIE!?',
             'secondDateCheckboxLabel': 'This person is deceased'
         },
         'organization': {
             'dateLabel': 'Established Date',
-            'helperText': 'When was this <span class="organization">organization</span> founded?',
+            'helperText': 'When was this organization founded?',
             'secondDateLabel': 'Closing Date',
-            'secondHelperText': '',
+            'secondHelperText': 'When did this organization close?',
             'secondDateCheckboxLabel': 'This organization no longer exists'
         },
         'event': {
             'dateLabel': 'Date',
-            'helperText': 'When did this <span class="event">event</span> take place?',
+            'helperText': 'When did this event take place?',
             'secondDateLabel': 'End Date',
-            'secondHelperText': '',
+            'secondHelperText': 'When did this event end?',
             'secondDateCheckboxLabel': 'This is a multi-day event'
         },
         'none': {
@@ -58,7 +58,7 @@ $(function() {
 
 
     function change_colors(color) {
-        var allFields = $('.fields input[type=text], .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
+        var allFields = $('.fields input[type=text], .fields select, .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
         var allBorderFields = $('.fields .helper-popups');
         var allHoverFields = $('button, .button');
 
