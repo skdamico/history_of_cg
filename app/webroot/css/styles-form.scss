@@ -152,6 +152,14 @@ div.form-container {
     width:780px;
 
     #toolbar {
+        span.publish-status {
+            color:darken($bg, 25%);
+            font-family:Gotham, Helvetica, Arial, sans-serif;
+            font-size:16px;
+            font-weight:600;
+            margin-left:25px;
+            text-transform:uppercase;
+        }
         span.title {
             float: left;
         }

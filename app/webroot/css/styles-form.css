@@ -95,6 +95,13 @@ div.form-container {
   font-family: Helvetica, sans-serif;
   margin: 0 auto;
   width: 780px; }
+  div.form-container #toolbar span.publish-status {
+    color: black;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 25px;
+    text-transform: uppercase; }
   div.form-container #toolbar span.title {
     float: left; }
   div.form-container #toolbar span.view {
