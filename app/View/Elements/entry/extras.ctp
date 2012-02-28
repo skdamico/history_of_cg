@@ -30,5 +30,4 @@
             }
         ?>
     </div>
-    <div class="cf"></div>
 </div>

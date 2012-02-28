@@ -241,10 +241,18 @@ div.form-container {
       position: relative;
       top: -5px; }
   div.form-container div.buttons ul.story-or-connection {
+    background: #2f363e;
+    background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+    background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    border-top: 1px #424b53 solid!important;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
     float: left;
-    margin: 15px 0 0 20%;
-    padding: 0;
-    width: 440px; }
+    padding: 15px; }
     div.form-container div.buttons ul.story-or-connection a {
       background-repeat: no-repeat;
       color: #bababa;
@@ -269,8 +277,16 @@ div.form-container {
         padding-left: 20px; }
         div.form-container div.buttons ul.story-or-connection a.btn-connect:hover {
           background-image: url("../img/connection_icon_yellow.png"); }
+    div.form-container div.buttons ul.story-or-connection li.connect {
+      float: right; }
+    div.form-container div.buttons ul.story-or-connection li.share {
+      float: left; }
     div.form-container div.buttons ul.story-or-connection li.share-helpertext {
-      margin-bottom: 30px; }
+      float: left;
+      margin-right: 30px;
+      width: 440px; }
+      div.form-container div.buttons ul.story-or-connection li.share-helpertext p {
+        margin: 0; }
   div.form-container h1 {
     text-transform: uppercase; }
   div.form-container h2 {
