@@ -12,6 +12,30 @@ $(function() {
       // remove id so we don't have duplicates
       $storyform.removeAttr('id');
 
+      // activate tabs for this shit
+      // delete this horrid code
+
+      $storyform.find('.tabs div').hide();
+      $storyform.find('.tabs div:first').show();
+      $storyform.find('.tabs ul li:first').addClass('active');
+      $storyform.find('.tabs ul li a').click(function(){
+        $(this).parent().siblings().removeClass('active');
+        $(this).parent().addClass('active');
+
+        var currentTab = $(this).attr('href');
+        $storyform.find('.tab-content').each(function() {
+          var contentTag = $(this).attr('data-tab');
+
+          if( contentTag === currentTab.substr(1)) {
+            $(this).show();
+          }
+          else {
+            $(this).hide();
+          }
+        });
+        return false;
+      });
+
       // append to stories-col
       $('.stories-col').append($storyform);
 
