@@ -188,8 +188,21 @@ class EntriesController extends AppController {
                 throw NotFoundException('Invalid id');
             }
 
+            $e = $this->request->data;
+
+            // check if date or source is checked
+            // make sure to rid the source or date accordingly
+            if (!isset($e['source_selected'])) {
+                $e['Entry']['source_name'] = null;
+                $e['Entry']['source_url'] = null;
+            }
+
+            if (!isset($e['date_selected'])) {
+                $e['Entry']['date_2'] = null;
+            }
+
             // save the updated entry
-            if ($this->Entry->save($this->request->data)) {
+            if ($this->Entry->save($e)) {
                 // Split tags from comma delimited list
                 $tags = array();
                 $tags = explode(',', $this->request->data['tags']);

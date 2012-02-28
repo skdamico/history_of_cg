@@ -106,13 +106,11 @@ $(function() {
 
         function show_source(show) {
             if (show) {
-                $('.basics .entry-source input').val('yes');
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
             }
             else {
-                $('.basics .entry-source input').val('no');
                 $('.basics .label-entry-date').css('margin-top','175px');
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
