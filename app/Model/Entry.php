@@ -14,6 +14,10 @@ class Entry extends AppModel {
       'EntryStory' => array(
         'className' => 'EntryStory',
         'foreignKey' => 'entry_id'
+      ),
+      'Source' => array(
+        'className' => 'Source',
+        'foreignKey' => 'entry_id'
       )
   );
 

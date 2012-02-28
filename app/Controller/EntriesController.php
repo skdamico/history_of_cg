@@ -137,6 +137,11 @@ class EntriesController extends AppController {
 
                 $this->saveTags($entry_id, $tags);
 
+                // Save the source if any
+                // if($entry['Source']['name']) {
+                //     $this->saveSource($entry_id, $entry['Source']);
+                // }
+
                 // Get published = 0 (unpublish), 1 (publish), or null (draft)
                 $published = isset($this->request->data['Entry']['published']) ? $this->request->data['Entry']['published'] : null;
 
