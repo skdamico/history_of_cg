@@ -96,11 +96,11 @@ div.form-container {
   margin: 0 auto;
   width: 780px; }
   div.form-container #toolbar span.publish-status {
-    color: black;
+    color: #41494f;
     font-family: Gotham, Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
-    margin-left: 25px;
+    margin-left: 15px;
     text-transform: uppercase; }
   div.form-container #toolbar span.title {
     float: left; }
