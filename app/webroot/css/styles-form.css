@@ -151,6 +151,13 @@ div.form-container {
     margin-top: 40px;
     padding: 10px!important;
     width: 200px; }
+    div.form-container div.connections-col ul.required-fields {
+      float: none!important; }
+    div.form-container div.connections-col ul.required-labels {
+      float: none!important;
+      width: 100%!important; }
+      div.form-container div.connections-col ul.required-labels li.labels {
+        margin-bottom: 7px!important; }
   div.form-container div.section-in-form {
     border-bottom: 1px #474747 solid;
     padding: 20px 0; }
