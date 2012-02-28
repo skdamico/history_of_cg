@@ -176,7 +176,7 @@ div.form-container {
         div.form-container div.right-column div.connections-col div.connections span.delete {
           float: right; }
           div.form-container div.right-column div.connections-col div.connections span.delete:hover {
-            background: #313131;
+            background-color: #383838;
             border-radius: 3px; }
         div.form-container div.right-column div.connections-col div.connections span.name {
           float: left; }
