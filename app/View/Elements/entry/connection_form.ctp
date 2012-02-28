@@ -19,6 +19,6 @@
             </li>
         </ul>
         <div class="cf"></div>
-        <button>Create connection</button>
+        <button>Connect entries</button>
     </form>
 </div>
