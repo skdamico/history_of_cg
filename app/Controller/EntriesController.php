@@ -161,7 +161,7 @@ class EntriesController extends AppController {
         }
 
         $entry = array();
-        $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0);
+        $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
         $this->set(compact('entry'));
     }
 
@@ -169,7 +169,8 @@ class EntriesController extends AppController {
         if (!$id && empty($this->request->data)) {
             $this->redirect(array('action'=>'add'));
         }
-        else if ($this->request->is('post') || $this->request->is('put')) {
+
+        if ($this->request->is('post') || $this->request->is('put')) {
 
             // update entry
 
@@ -182,9 +183,9 @@ class EntriesController extends AppController {
                 $this->Entry->id = $id;
             }
 
-            // does the entry exist?
+            // have a user add the entry if not
             if (!$this->Entry->exists()) {
-                throw new NotFoundException(__("Invalid entry"));
+                throw NotFoundException('Invalid id');
             }
 
             // save the updated entry
@@ -223,6 +224,11 @@ class EntriesController extends AppController {
                 'conditions' => array('Entry.id' => $id),
                 'recursive' => 0
             ));
+
+            // if not found, redirect to add page
+            if(empty($entry)) {
+                $this->redirect(array('action'=>'add'));
+            }
         }
         else {
             // replace all underscores in name with spaces
@@ -234,6 +240,11 @@ class EntriesController extends AppController {
                 ),
                 'recursive' => 0
             ));
+
+            // if not found, redirect to add page
+            if(empty($entry)) {
+                $this->redirect(array('action'=>'add', $id));
+            }
         }
 
         // Get all stories
