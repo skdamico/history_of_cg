@@ -153,6 +153,8 @@ div.form-container {
     width: 200px; }
     div.form-container div.connections-col button {
       margin: 10px 0!important; }
+    div.form-container div.connections-col div.connections span.name {
+      float: left; }
     div.form-container div.connections-col form {
       border-bottom: 1px #424b53 solid;
       margin-bottom: 10px; }
