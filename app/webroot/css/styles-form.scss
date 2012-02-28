@@ -216,9 +216,12 @@ div.form-container {
         width:200px;
         ul.required-fields {
             float:none!important;
-            li.fields {
+            input {
+                width:177px!important;
+            }
+            li.token-input-input-token-hcg {
                 input {
-                    width:177px!important;
+                    width:auto!important;
                 }
             }
             ul.token-input-list-hcg {
