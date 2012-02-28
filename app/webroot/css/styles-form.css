@@ -171,8 +171,14 @@ div.form-container {
         font-weight: 600;
         margin-bottom: 5px;
         padding: 5px; }
+        div.form-container div.right-column div.connections-col div.connections:hover {
+          background: #313131;
+          cursor: pointer; }
         div.form-container div.right-column div.connections-col div.connections span.delete {
           float: right; }
+          div.form-container div.right-column div.connections-col div.connections span.delete:hover {
+            background-color: #171717;
+            border-radius: 3px; }
         div.form-container div.right-column div.connections-col div.connections span.name {
           float: left; }
       div.form-container div.right-column div.connections-col form {
