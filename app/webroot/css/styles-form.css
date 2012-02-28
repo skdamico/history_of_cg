@@ -137,13 +137,19 @@ div.form-container {
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     margin-top: 200px; }
   div.form-container div.connections-col {
-    background-color: #23272b;
-    border: 1px #363c41 solid;
+    background: #2f363e;
+    background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+    background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    border-top: 1px #424b53 solid;
     border-radius: 5px;
     box-shadow: 0 0 5px black;
     float: right;
     margin-top: 40px;
-    padding: 10px;
+    padding: 10px!important;
     width: 200px; }
   div.form-container div.section-in-form {
     border-bottom: 1px #474747 solid;
