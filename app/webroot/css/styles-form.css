@@ -175,7 +175,9 @@ div.form-container {
         div.form-container div.right-column div.connections-col ul.required-fields li.token-input-input-token-hcg input {
           width: auto!important; }
         div.form-container div.right-column div.connections-col ul.required-fields select {
-          margin-bottom: 14px; }
+          background-position: 170px center!important;
+          margin-bottom: 14px;
+          width: 198px; }
         div.form-container div.right-column div.connections-col ul.required-fields ul.token-input-list-hcg {
           width: 185px!important; }
       div.form-container div.right-column div.connections-col ul.required-labels {
