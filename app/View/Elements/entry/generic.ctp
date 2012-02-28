@@ -2,8 +2,8 @@
 <div class="basics section-in-form">
     <ul class="basic-labels all-labels">
         <li class="label-entry-description labels">Description<span class="required"> *</span></li>
-        <li class="label-entry-date labels"><span>Date</span><span class="required"> *</span></li>
-        <li class="label-entry-date-2 labels"><span>Date 2</span><span class="required"> *</span></li>
+        <li class="label-entry-date labels"><span class='label'>Date</span><span class="required"> *</span></li>
+        <li class="label-entry-date-2 labels"><span class='label'>Date 2</span></li>
     </ul>
     <ul class="basic-fields all-fields">
         <li class="entry-description fields">

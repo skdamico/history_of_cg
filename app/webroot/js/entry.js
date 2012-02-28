@@ -23,6 +23,39 @@ function change_publish_ui(button, publish, value) {
 }
 
 $(function() {
+    // stupid
+    var dateInfo = {
+        'project': {
+            'dateLabel': 'Date',
+            'helperText': 'When did this <span class="project">project</span> take place?'
+        },
+        'person': {
+            'dateLabel': 'Birth date',
+            'helperText': 'When was this <span class="person">person</span> live?',
+            'secondDateLabel': 'Deceased date',
+            'secondHelperText': '',
+            'secondDateCheckboxLabel': 'This person is deceased'
+        },
+        'organization': {
+            'dateLabel': 'Established Date',
+            'helperText': 'When was this <span class="organization">organization</span> founded?',
+            'secondDateLabel': 'Closing Date',
+            'secondHelperText': '',
+            'secondDateCheckboxLabel': 'This organization no longer exists'
+        },
+        'event': {
+            'dateLabel': 'Date',
+            'helperText': 'When did this <span class="event">event</span> take place?',
+            'secondDateLabel': 'End Date',
+            'secondHelperText': '',
+            'secondDateCheckboxLabel': 'This is a multi-day event'
+        },
+        'none': {
+            'dateLabel': 'Date',
+            'helperText': 'Select an entry type to learn more about this date'
+        }
+    };
+
 
     function change_colors(color) {
         var allFields = $('.fields input[type=text], .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
@@ -57,15 +90,85 @@ $(function() {
         }
     }
 
+
+    function show_second_date(show) {
+        if (show) {
+            $('.basics .entry-date-2').fadeIn();
+            $('.basics .label-entry-date-2').fadeIn();
+        }
+        else {
+            $('.basics .entry-date-2').hide();
+            $('.basics .label-entry-date-2').hide();
+        }
+    }
+
+    function change_date_fields(t) {
+        var $dateLabel = $('.basics .label-entry-date span.label');
+        var $dateHelperText = $('.basics .entry-date .helper-popups');
+        var $secondDateLabel = $('.basics .label-entry-date-2 span.label');
+        var $secondDateHelperText = $('.basics .entry-date-2 .helper-popups');
+        var $secondDateCheckboxLabel = $('.basics .entry-date-2-selected label');
+        var $secondDate = $('.basics .entry-date-2');
+        var $secondDateCheckbox = $('.basics #entry-date-selected');
+
+        // date 1 section
+        $dateLabel.html(dateInfo[t].dateLabel);
+        $dateHelperText.html(dateInfo[t].helperText);
+
+        // project is the only type without a second date
+        if(t !== 'project' && t !== 'none') {
+            $secondDateLabel.html(dateInfo[t].secondDateLabel);
+            $secondDateHelperText.html(dateInfo[t].secondHelperText);
+            $secondDateCheckboxLabel.html(dateInfo[t].secondDateCheckboxLabel);
+
+            // show all second date related fields and labels
+            $secondDate.show();
+            $secondDateLabel.parent().show();
+            $secondDateCheckboxLabel.parent().show();
+
+            // is the checkbox checked? if so show the second date
+            show_second_date($secondDateCheckbox.is(':checked'));
+        }
+        else {
+            // hide the second date sections
+            $secondDateLabel.parent().hide();
+            $secondDateCheckboxLabel.parent().hide();
+            $secondDate.hide();
+        }
+    }
+
+    function change_date_fields_with(t) {
+        if(t.indexOf('project') !== -1) {
+            change_date_fields('project');
+        }
+        else if(t.indexOf('person') !== -1) {
+            change_date_fields('person');
+        }
+        else if(t.indexOf('organization') !== -1) {
+            change_date_fields('organization');
+        }
+        else if(t.indexOf('event') !== -1) {
+            change_date_fields('event');
+        }
+        else {
+            change_date_fields('none');
+        }
+    }
+
     function init() {
         // Initialize color change
-        change_colors_with($('#main-stub .entry-type-select').children('option:selected').text().toLowerCase());
+        var initialEntryType = $('#main-stub .entry-type-select').children('option:selected').text().toLowerCase();
+
+        change_colors_with(initialEntryType);
+        change_date_fields_with(initialEntryType);
 
         // category change event should change all colors to current type
         $('#main-stub .entry-type-select').change(function() {
             var t = $(this).children('option:selected').text().toLowerCase();
 
             change_colors_with(t);
+
+            change_date_fields_with(t);
         });
 
         // ----------------- DATEPICKER -----------------
@@ -76,17 +179,6 @@ $(function() {
         $('.basics #entry-date-selected').click(function() {
             show_second_date(this.checked);
         });
-
-        function show_second_date(show) {
-            if (show) {
-                $('.basics .entry-date-2').fadeIn();
-                $('.basics .label-entry-date-2').fadeIn();
-            }
-            else {
-                $('.basics .entry-date-2').hide();
-                $('.basics .label-entry-date-2').hide();
-            }
-        }
 
 
         // ----------------- HELPER TEXTS - basics
