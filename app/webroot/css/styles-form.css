@@ -134,8 +134,8 @@ div.form-container {
     div.form-container form div.section-in-form:last-child {
       border: 0; }
   div.form-container form div.stub ul.required-fields select.entry-type-select {
-    margin-bottom: 23px;
-    width: 340px; }
+    margin-bottom: 10px;
+    width: 360px; }
   div.form-container form div.basics ul.basic-fields li.entry-source {
     color: #8a969f;
     margin-bottom: 10px;
@@ -351,6 +351,20 @@ div.form-container {
       font-size: 17px;
       font-weight: 700;
       text-transform: uppercase; }
+  div.form-container select {
+    background-image: url("../img/arrow-down.png");
+    background-position: 330px center;
+    background-repeat: no-repeat;
+    background-color: #23272b;
+    border: 1px #363c41 solid;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px black;
+    color: #fff;
+    font-size: 14px!important;
+    height: 40px;
+    outline: none;
+    padding: 10px!important;
+    -webkit-appearance: none; }
   div.form-container span.required {
     color: #f3bc00; }
   div.form-container span.helper-popups {
