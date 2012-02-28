@@ -236,13 +236,12 @@ div.form-container {
                 margin-bottom:5px;
                 padding:5px;
                 &:hover{
-                    background:lighten(#171717, 3%);
                     cursor:pointer;
                 }
                 span.delete {
                     float:right;
                     &:hover{
-                        background-color:darken(#171717, 7%);
+                        background:lighten(#171717, 10%);
                         border-radius:3px;
                     }
                 }

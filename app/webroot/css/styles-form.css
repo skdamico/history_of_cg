@@ -172,12 +172,11 @@ div.form-container {
         margin-bottom: 5px;
         padding: 5px; }
         div.form-container div.right-column div.connections-col div.connections:hover {
-          background: #1f1f1f;
           cursor: pointer; }
         div.form-container div.right-column div.connections-col div.connections span.delete {
           float: right; }
           div.form-container div.right-column div.connections-col div.connections span.delete:hover {
-            background-color: #050505;
+            background: #313131;
             border-radius: 3px; }
         div.form-container div.right-column div.connections-col div.connections span.name {
           float: left; }
