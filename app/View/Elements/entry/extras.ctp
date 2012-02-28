@@ -19,12 +19,15 @@
         }
     ?>
 </div>
-<div class="connections-col section-in-form">
-    <?php
-        echo $this->element('entry/connection_form');
-        echo $this->element('entry/connection_template');
-        if(isset($connections)) {
-            echo $this->element('entry/connections', array('connections' => $connections));
-        }
-    ?>
+<div class="right-column">
+    <h2>Create connections</h2>
+    <div class="connections-col section-in-form">
+        <?php
+            echo $this->element('entry/connection_form');
+            echo $this->element('entry/connection_template');
+            if(isset($connections)) {
+                echo $this->element('entry/connections', array('connections' => $connections));
+            }
+        ?>
+    </div>
 </div>
