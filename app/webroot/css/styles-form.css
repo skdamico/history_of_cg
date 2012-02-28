@@ -136,43 +136,45 @@ div.form-container {
     top: -5px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     margin-top: 200px; }
-  div.form-container div.connections-col {
-    background: #2f363e;
-    background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
-    background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-    border-top: 1px #424b53 solid!important;
-    border-radius: 5px;
-    box-shadow: 0 0 5px black;
+  div.form-container div.right-column {
     float: right;
     margin-top: 30px;
-    padding: 10px!important;
+    padding: 0;
     width: 200px; }
-    div.form-container div.connections-col button {
-      margin: 10px 0!important; }
-    div.form-container div.connections-col div.connections span.name {
-      float: left; }
-    div.form-container div.connections-col form {
-      border-bottom: 1px #424b53 solid;
-      margin-bottom: 10px; }
-    div.form-container div.connections-col ul.required-fields {
-      float: none!important; }
-      div.form-container div.connections-col ul.required-fields input {
-        width: 177px!important; }
-      div.form-container div.connections-col ul.required-fields li.token-input-input-token-hcg input {
-        width: auto!important; }
-      div.form-container div.connections-col ul.required-fields select {
-        margin-bottom: 14px; }
-      div.form-container div.connections-col ul.required-fields ul.token-input-list-hcg {
-        width: 185px!important; }
-    div.form-container div.connections-col ul.required-labels {
-      float: none!important;
-      width: 100%!important; }
-      div.form-container div.connections-col ul.required-labels li.labels {
-        margin-bottom: 7px!important; }
+    div.form-container div.right-column div.connections-col {
+      background: #2f363e;
+      background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+      background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+      background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+      background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+      background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+      border-top: 1px #424b53 solid!important;
+      border-radius: 5px;
+      box-shadow: 0 0 5px black;
+      padding: 10px!important; }
+      div.form-container div.right-column div.connections-col button {
+        margin: 10px 0!important; }
+      div.form-container div.right-column div.connections-col div.connections span.name {
+        float: left; }
+      div.form-container div.right-column div.connections-col form {
+        border-bottom: 1px #424b53 solid;
+        margin-bottom: 10px; }
+      div.form-container div.right-column div.connections-col ul.required-fields {
+        float: none!important; }
+        div.form-container div.right-column div.connections-col ul.required-fields input {
+          width: 177px!important; }
+        div.form-container div.right-column div.connections-col ul.required-fields li.token-input-input-token-hcg input {
+          width: auto!important; }
+        div.form-container div.right-column div.connections-col ul.required-fields select {
+          margin-bottom: 14px; }
+        div.form-container div.right-column div.connections-col ul.required-fields ul.token-input-list-hcg {
+          width: 185px!important; }
+      div.form-container div.right-column div.connections-col ul.required-labels {
+        float: none!important;
+        width: 100%!important; }
+        div.form-container div.right-column div.connections-col ul.required-labels li.labels {
+          margin-bottom: 7px!important; }
   div.form-container div.section-in-form {
     border-bottom: 1px #474747 solid;
     padding: 20px 0; }
