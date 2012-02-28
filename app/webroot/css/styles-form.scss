@@ -152,12 +152,13 @@ div.form-container {
     width:780px;
 
     #toolbar {
+        margin-top:20px;
         span.publish-status {
             color:lighten($bg, 17%);
             font-family:Gotham, Helvetica, Arial, sans-serif;
             font-size:16px;
             font-weight:600;
-            margin:20px 0 0 15px;
+            margin-left:15px;
             text-transform:uppercase;
         }
         span.title {
