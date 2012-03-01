@@ -49,8 +49,16 @@ class StoriesController extends AppController {
                 $this->Story->id = $story_id;
                 $title = $this->request->data['Story']['title'];
                 if($this->Story->exists()) {
+                    $s = $this->request->data;
+
+                    // make sure to rid the source if checkbox not selected
+                    if (!isset($s['source_selected'])) {
+                        $s['Story']['source_name'] = null;
+                        $s['Story']['source_url'] = null;
+                    }
+
                     // save the updated entry
-                    if($this->Story->save($this->request->data)) {
+                    if($this->Story->save($s)) {
 
                         // is this being published/unpublished?
                         if($published == "1") {

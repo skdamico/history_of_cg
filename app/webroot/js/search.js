@@ -30,7 +30,7 @@ $(document).ready(function() {
                $.each(d, function(i, item) {
                     if(item.name === searchtext) {
                         inDB = true;
-                        window.location = "/entries/view/"+item.name.replace(" ", "_");
+                        window.location = "/entries/view/"+item.name.replace(/ /g, "_");
                         return;
                     }
                });
@@ -39,7 +39,7 @@ $(document).ready(function() {
                    //Prompt user that item is not in the db
                    var addUser = confirm("'"+searchtext+"' cannot be found. Create an entry?");
                    if(addUser) {
-                       window.location = "/entries/add/"+searchtext.replace(" ", "_");
+                       window.location = "/entries/add/"+searchtext.replace(/ /g, "_");
                    }
                }
            });
@@ -59,7 +59,7 @@ $(document).ready(function() {
         },
         select: function( event, ui ) {
             //redirect to content page for that entry
-            window.location = "/entries/view/"+ui.item.name.replace(" ", "_");
+            window.location = "/entries/view/"+ui.item.name.replace(/ /g, "_");
 
             return false;
         },

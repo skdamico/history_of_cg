@@ -26,12 +26,12 @@
             <input type='hidden' class='author-id' name='data[Story][author_id]' value='<?php echo $story['Story']['author_id']; ?>' />
             <span id="helper-story-author" class="helper-popups need-helper">If this is a first hand account, give yourself credit! If not that's ok, tell us whose story it is.</span>
         </li>
-        <li class="story-source fields"><input type="checkbox" class="story-source-checkbox" name="source" value="yes" /><label for="story-source">I got this description from somewhere else</label></li>
+        <li class="story-source fields"><input type="checkbox" class="story-source-checkbox" name="data[source_selected]" value="yes"<?php if( !empty($story['Story']['source_name']) || !empty($story['Story']['source_url']) ) { echo ' checked="checked"'; }?> /><label for="story-source">I got this description from somewhere else</label></li>
         <li class="source-title">
-            <label>Source:</label><input type="text" name="source-name">
+            <label>Source:</label><input type="text" name="data[Story][source_name]" value='<?php echo $story['Story']['source_name']; ?>' />
         </li>
         <li class="source-url">
-            <label>URL (if applicable):</label><input type="text" name="source-url">
+            <label>URL (if applicable):</label><input type="text" name="data[Story][source_url]" value='<?php echo $story['Story']['source_url']; ?>' />
         </li>
         <li class='story-save save'>
             <button>Save Draft</button>

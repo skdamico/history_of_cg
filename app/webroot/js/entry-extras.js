@@ -96,6 +96,17 @@ $(function() {
   }
 
 
+  function show_story_source(story, show) {
+      if (show) {
+          $(story).find('.source-title').fadeIn();
+          $(story).find('.source-url').fadeIn();
+      }
+      else {
+          $(story).find('.source-title').hide();
+          $(story).find('.source-url').hide();
+      }
+  }
+
   //
   // Intialize story
   //
@@ -225,17 +236,11 @@ $(function() {
     };
 
 
-    // initialize source fade
-    $form.find('.story-source-checkbox').click(function(){
-        if (this.checked) {
-            $form.find('.source-title').fadeIn();
-            $form.find('.source-url').fadeIn();
-        }
-        else {
-            $form.find('.source-title').hide();
-            $form.find('.source-url').hide();
-        }
+    // source init
+    show_story_source($form, $form.find('.story-source-checkbox').is(':checked'));
 
+    $form.find('.story-source-checkbox').click(function(){
+        show_story_source($form, $(this).is(':checked'));
     });
 
   }
