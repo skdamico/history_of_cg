@@ -82,6 +82,8 @@ $(function() {
 
     // clear the form
     $connection_form_tags.tokenInput("clear");
+    // fix a bug with the token input: after clearing, dropdown would stay open
+    $('.token-input-dropdown-hcg').hide();
 
     $form.clearForm();
     $form.find('.entry-id').val('');

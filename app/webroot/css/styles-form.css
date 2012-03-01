@@ -458,7 +458,8 @@ ul.token-input-list-hcg {
     ul.token-input-list-hcg li.token-input-input-token-hcg input {
       background-color: #2a2f33 !important;
       margin-bottom: 0!important;
-      padding: 5px!important; }
+      padding: 5px!important;
+      width: 40px!important; }
   ul.token-input-list-hcg li.token-input-token-hcg {
     background-color: #2a2f33 !important;
     border: 0!important;
