@@ -230,6 +230,11 @@ div.form-container {
       text-transform: uppercase;
       padding: 10px;
       width: 505px; }
+      div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete {
+        float: right; }
+        div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete:hover {
+          background-color: #383838;
+          border-radius: 3px; }
       div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
         color: #273144;
         float: right;
@@ -472,7 +477,6 @@ ul.token-input-list-hcg {
 .tabs {
   width: 530px; }
   .tabs div.tab-content {
-    border-top: 1px #4d565d solid;
     clear: both;
     min-height: 420px;
     padding: 15px; }
@@ -483,7 +487,8 @@ ul.token-input-list-hcg {
   .tabs ul.tabs_nav {
     float: left;
     width: 500px;
-    padding-top: 4px; }
+    padding-top: 4px;
+    border-bottom: 1px #4d565d solid; }
     .tabs ul.tabs_nav li.tabs_link {
       background-color: #2a2f33;
       border: 1px #3a4147 solid;

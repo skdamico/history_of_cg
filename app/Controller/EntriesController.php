@@ -270,6 +270,9 @@ class EntriesController extends AppController {
                 'Story' => array(
                     'Author' => array(
                         'fields' => array('Author.name')
+                    ),
+                    'StoryType' => array(
+                        'fields' => array('StoryType.name')
                     )
                 )
             )

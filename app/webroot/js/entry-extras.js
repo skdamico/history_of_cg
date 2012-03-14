@@ -14,7 +14,6 @@ $(function() {
 
       // activate tabs for this shit
       // delete this horrid code
-
       $storyform.find('.tabs div').hide();
       $storyform.find('.tabs div:first').show();
       $storyform.find('.tabs ul li:first').addClass('active');
@@ -39,8 +38,9 @@ $(function() {
       // append to stories-col
       $('.stories-col').append($storyform);
 
-      // initialize it
-      story_form_init($storyform);
+      // initialize all forms
+      new_story_form_init($storyform);
+      
       $storyform.fadeIn();
       $('.stories:last .story-collapsed').slideDown();
     }
@@ -109,10 +109,177 @@ $(function() {
       }
   }
 
+  function new_story_form_init(story) {
+    // form options!
+    var options = {
+      type: 'post',
+      data: { "data[entry_id]": $('#main-stub .required-fields .entry-name .entry-id').val() },
+      dataType: 'json',
+      success: function(data, s, xhr, $f) {
+        if(data.response) {
+          // show quick flash message
+          Messages.show(data.response, 4000);
+        }
+
+        if(data.id) {
+          $f.find('.story-id').val(data.id);
+        }
+
+        if(data.publish) {
+          var $headingInfo = $f.closest('.story-collapsed').siblings('.story-collapsed-heading').children('.info');
+
+          if(data.publish === "published") {
+            // set button to unpublish
+            change_publish_ui($f.find('.story-save .publish-button'), "publish", 1);
+            // set heading to published
+            $headingInfo.html('Published');
+          }
+          else if(data.publish === "unpublished") {
+            // set button to publish
+            change_publish_ui($f.find('.story-save .publish-button'), "publish", 0);
+            // set heading to unpublished
+            $headingInfo.html('Unpublished');
+          }
+        }
+        else {
+          change_publish_ui($f.find('.story-save .publish-button'), "draft", "enable");
+        }
+        enable_publish_ui($f.find('.story-save'));
+
+        // remove tabs and show type if new story
+        var $tabsnav = $('ul.tabs_nav', story);
+        
+        if($tabsnav.is(':visible')) {
+          // set story-type-header to selected tab
+          $f.find('.story-type-header').html($tabsnav.find('li.active').children('a').html()).show();
+          // remove tabs
+          $tabsnav.remove();
+          $('div.tab-content:hidden', story).remove();
+
+          // remove new class and update info
+          $(story).removeClass('new');
+          $(story).find('.story-collapsed-heading .info').html('Unpublished');
+
+          // make delete work
+          bind_story_delete(story);
+        }
+      }
+    };
+
+    // initialize sliding
+    $(story).find('p.story-collapsed-heading').click(function() {
+      $(this).next().slideToggle('slow');
+    });
+
+
+    // separately initialize all forms 
+    // each tab has a separate form
+    $('div.tab-content form', story).each(function() {
+
+      // new form
+      var $form = $(this);
+      $form.ajaxForm(options);
+
+      var storytype = null;
+      storytype = parseInt($form.find('.story-type').val());
+
+      // submit form on click
+      $form.find('.story-save button').click(function() {
+        if(!$(this).hasClass('publish-button')) {
+          // save draft, do not publish
+          change_publish_ui(this, "draft", "disable");
+        }
+
+        // submit form
+        $(this).closest('form').submit();
+
+        // diable the publish ui while submitting
+        disable_publish_ui($(this).parent());
+
+        // update title
+        var title = $form.find('.story-title input').val();
+        $(story).find('.story-collapsed-heading .title').html(title);
+
+        // check if image or video
+        //   if so, update previews
+        if(storytype === 2) {
+          $form.find('.story-preview img').remove();
+          var img = $('<img width="400" />').attr('src', $form.find('.story-url input').val()).hide();
+          img.appendTo($form.find('.story-preview')).fadeIn();
+        }
+      });
+
+
+      // initialize helper text
+      $form.find('li .need-helper').each(function() {
+          $(this).focus(function() {
+            $(this).siblings('.helper-popups').fadeIn();
+          })
+          .focusout(function() {
+            $(this).siblings('.helper-popups').fadeOut();
+          });
+      });
+
+      //
+      // text type specifics
+      //
+      if( storytype === 3 ) {
+        // initialize datepicker function
+        $form.find('.story-date .datepicker').live('focusin', function() {
+          $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
+        });
+
+        // initialize author autocomplete field
+        $form.find('.story-author input[type=text]').bind("keydown", function(event) {
+          if(event.keyCode === $.ui.keyCode.TAB &&
+            $(this).data("autocomplete").menu.active) {
+            event.preventDefault();
+          }
+        })
+        .autocomplete({
+          source: function(request, callback) {
+            $.getJSON("/entries/get_by_phrase/", { t: "person", q: request.term }, callback);
+          },
+          focus: function( event, ui ) {
+            $( this ).val( ui.item.name );
+            return false;
+          },
+          select: function( event, ui ) {
+            $(this).val( ui.item.name );
+            $(this).siblings('.author-id').val( ui.item.id );
+
+            return false;
+          },
+          minLength: 1
+        })
+        .data( "autocomplete" )._renderItem = function( ul, item ) {
+          var re = new RegExp(this.term, "i");
+          var match = item.name.match(re);
+          var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" +
+                    match +
+                    "</span>");
+          return $( "<li></li>" )
+            .data( "item.autocomplete", item )
+            .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-category-box person'></span></a>" )
+            .appendTo( ul );
+        };
+
+
+        // source init
+        show_story_source($form, $form.find('.story-source-checkbox').is(':checked'));
+
+        $form.find('.story-source-checkbox').click(function(){
+            show_story_source($form, $(this).is(':checked'));
+        });
+      }
+
+    });
+  }
+
   //
   // Intialize story
   //
-  function story_form_init(story) {
+  function story_form_init(story) { 
     // form options!
     var options = {
       type: 'post',
@@ -154,6 +321,8 @@ $(function() {
     var $form = $(story).find('.story-collapsed form');
     $form.ajaxForm(options);
 
+    var storytype = parseInt($form.find('.story-type').val());
+
 
     // submit form on click
     $form.find('.story-save button').click(function() {
@@ -168,21 +337,19 @@ $(function() {
       // diable the publish ui while submitting
       disable_publish_ui($(this).parent());
 
-      // remove new class
-      $(story).removeClass('new');
-
       // update title
       var title = $form.find('.story-title input').val();
       $(story).find('.story-collapsed-heading .title').html(title);
 
-      return false;
+      // check if image or video
+      //   if so, update previews
+      if(storytype === 2) {
+        $form.find('.story-preview img').remove();
+        var img = $('<img width="400" />').attr('src', $form.find('.story-url input').val()).hide();
+        img.appendTo($form.find('.story-preview')).fadeIn();
+      }
     });
 
-
-    // initialize datepicker function
-    $form.find('.story-date .datepicker').live('focusin', function() {
-      $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
-    });
 
 
     // initialize sliding
@@ -201,49 +368,58 @@ $(function() {
         });
     });
 
+    // story type specifics
+    if(storytype === 3) {
+      // Its text!
 
-    // initialize author autocomplete field
-    $form.find('.story-author input[type=text]').bind("keydown", function(event) {
-      if(event.keyCode === $.ui.keyCode.TAB &&
-        $(this).data("autocomplete").menu.active) {
-        event.preventDefault();
-      }
-    })
-    .autocomplete({
-      source: function(request, callback) {
-        $.getJSON("/entries/get_by_phrase/", { t: "person", q: request.term }, callback);
-      },
-      focus: function( event, ui ) {
-        $( this ).val( ui.item.name );
-        return false;
-      },
-      select: function( event, ui ) {
-        $(this).val( ui.item.name );
-        $(this).siblings('.author-id').val( ui.item.id );
+      // Initialize datepicker function
+      $form.find('.story-date .datepicker').live('focusin', function() {
+        $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
+      });
 
-        return false;
-      },
-      minLength: 1
-    })
-    .data( "autocomplete" )._renderItem = function( ul, item ) {
-      var re = new RegExp(this.term, "i");
-      var match = item.name.match(re);
-      var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" +
-                match +
-                "</span>");
-      return $( "<li></li>" )
-        .data( "item.autocomplete", item )
-        .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-category-box person'></span></a>" )
-        .appendTo( ul );
-    };
+      // initialize author autocomplete field
+      $form.find('.story-author input[type=text]').bind("keydown", function(event) {
+        if(event.keyCode === $.ui.keyCode.TAB &&
+          $(this).data("autocomplete").menu.active) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        source: function(request, callback) {
+          $.getJSON("/entries/get_by_phrase/", { t: "person", q: request.term }, callback);
+        },
+        focus: function( event, ui ) {
+          $( this ).val( ui.item.name );
+          return false;
+        },
+        select: function( event, ui ) {
+          $(this).val( ui.item.name );
+          $(this).siblings('.author-id').val( ui.item.id );
+
+          return false;
+        },
+        minLength: 1
+      })
+      .data( "autocomplete" )._renderItem = function( ul, item ) {
+        var re = new RegExp(this.term, "i");
+        var match = item.name.match(re);
+        var t = item.name.replace(re,"<span class='autocomplete-name-term-highlight'>" +
+                  match +
+                  "</span>");
+        return $( "<li></li>" )
+          .data( "item.autocomplete", item )
+          .append( "<a><span class='autocomplete-name'>" + t + "</span><span class='autocomplete-category-box person'></span></a>" )
+          .appendTo( ul );
+      };
 
 
-    // source init
-    show_story_source($form, $form.find('.story-source-checkbox').is(':checked'));
+      // source init
+      show_story_source($form, $form.find('.story-source-checkbox').is(':checked'));
 
-    $form.find('.story-source-checkbox').click(function(){
-        show_story_source($form, $(this).is(':checked'));
-    });
+      $form.find('.story-source-checkbox').click(function(){
+          show_story_source($form, $(this).is(':checked'));
+      });
+    }
 
   }
 
@@ -349,6 +525,23 @@ $(function() {
     });
   }
 
+  function bind_story_delete(item) {
+    var $item_delete = $(item).find('.delete');
+    var item_id = $(item).find('.story-id').val();
+
+    $item_delete.bind('click', function() {
+
+      // delete item on success
+      $.post('/stories/delete/'+item_id, function(data) {
+        // fade out and remove the connection
+        $(item).fadeOut(500, function() { $(this).remove(); });
+
+        // show message that connection was deleted
+        Messages.show(data.response, 4000);
+      }, 'json');
+    });
+  }
+
 
   function init() {
     // populate stories section with user's stories
@@ -359,6 +552,11 @@ $(function() {
     $('.stories').each(function() {
       // initialize form
       story_form_init(this);
+    });
+
+    // bind delete buttons
+    $('.stories').each(function() {
+      bind_story_delete(this);
     });
 
     // init connections

@@ -314,6 +314,13 @@ div.form-container {
                 padding:10px;
                 width:505px;
 
+                span.delete {
+                    float:right;
+                    &:hover{
+                        background-color:lighten(#171717, 13%);
+                        border-radius:3px;
+                    }
+                }
                 span.info {
                     color:#273144;
                     float:right;
@@ -580,7 +587,6 @@ ul.token-input-list-hcg {
 .tabs {
     width:530px;
     div.tab-content {
-        border-top:1px lighten($bg, 15%) solid;
         clear: both;
         min-height:420px;
         padding: 15px;
@@ -595,6 +601,7 @@ ul.token-input-list-hcg {
         float: left;
         width: 500px;
         padding-top: 4px;
+        border-bottom: 1px lighten($bg, 15%) solid;
         li.tabs_link {
             background-color:$bg;
             border:1px lighten($bg, 7%) solid;

@@ -28,6 +28,33 @@ class StoriesController extends AppController {
     }
 
     /*
+     * delete a story
+     */
+    public function delete($id=null) {
+        $this->autoRender = false;
+
+        if($this->RequestHandler->isAjax()) {
+            Configure::write('debug', 0);
+        }
+
+        // make sure the request is not GET or PUT
+        if ($this->request->is('post')) {
+            $this->Story->id = $id;
+            if (!$this->Story->exists()) {
+                echo json_encode(array('response' => 'Invalid story'));
+                return;
+            }
+            // delete story, db is setup for EntryStory to cascade on delete
+            if ($this->Story->delete()) {
+                echo json_encode(array('response' => 'The story was deleted'));
+            }
+            else {
+                echo json_encode(array('response' => 'The story was not deleted'));
+            }
+        }
+    }
+
+    /*
      * add a story to an entry
      */
     public function add_or_edit() {
@@ -82,8 +109,11 @@ class StoriesController extends AppController {
                 $this->Story->create();
                 $story = array();
                 $story['Story'] = $this->request->data['Story'];
-                $story['Story']['story_type_id'] = 3;
-                $story['Story']['date'] = date('Y-m-d', strtotime($this->request->data['Story']['date']));
+                $story['Story']['date'] = null;
+                
+                if(!empty( $this->request->data['Story']['date'] )) {
+                    $story['Story']['date'] = date('Y-m-d', strtotime($this->request->data['Story']['date']));
+                }
 
                 $title = $this->request->data['Story']['title'];
                 // Save the entry
