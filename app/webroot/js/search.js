@@ -54,7 +54,7 @@ $(document).ready(function() {
             $.getJSON("/entries/get_by_phrase/", { t: "all", q: request.term }, callback);
         },
         focus: function( event, ui ) {
-            $( ".searchBox" ).val( ui.item.name );
+            $( this ).val( ui.item.name );
             return false;
         },
         select: function( event, ui ) {

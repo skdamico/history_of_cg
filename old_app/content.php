@@ -31,23 +31,23 @@ include_once("includes/timeline.php");
 ?>
 <!-- start of page content -->
     <section class="entryMast">
-		<h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?></h1>
+        <h1 class="entryTitle <?php echo $category; ?>"><?php echo $data['main']['name']; ?></h1>
         <ul class="catBar">
-			<li class="category project"><a href="#" data-filter=".project">Project</a></li>
-			<li class="category person"><a href="#" data-filter=".person">People</a></li>
-			<li class="category organization"><a href="#" data-filter=".organization">Organization</a></li>
-			<li class="category event"><a href="#" data-filter=".event">Event</a></li>
-			<li class="editEntry"><a href="<?php echo "entry.php?id={$data['main']['id']}&n={$data['main']['name']}&c={$category}"; ?>">Edit Entry</a></li>
-			<div class="cf"></div>
-		</ul>
-	</section>
+            <li class="category project"><a href="#" data-filter=".project">Project</a></li>
+            <li class="category person"><a href="#" data-filter=".person">People</a></li>
+            <li class="category organization"><a href="#" data-filter=".organization">Organization</a></li>
+            <li class="category event"><a href="#" data-filter=".event">Event</a></li>
+            <li class="editEntry"><a href="<?php echo "entry.php?id={$data['main']['id']}&n={$data['main']['name']}&c={$category}"; ?>">Edit Entry</a></li>
+            <div class="cf"></div>
+        </ul>
+    </section>
     <section class="tagLists">
     </section>
-	<section class="mosaicBody">
+    <section class="mosaicBody">
         <ul class="mosaicContainer cf">
             <li class="dynamic <?php echo $category; ?>"><p><?php echo $data['main']['description']; ?></p></li>
         </ul>
-	</section>
+    </section>
 
     <section class="entryInfo" style="display: none;">
         <input type="hidden" class="entryName" value="<?php echo $data['main']['name'];?>" />

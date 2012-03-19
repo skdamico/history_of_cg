@@ -8,7 +8,7 @@
 </div>
 <div class="stories-col section-in-form">
     <ul class="story-explanation">
-        <li class="label-story-header labels"><h2>Add a Story</h2></li>
+        <li class="label-story-header labels"><h2>Add a Story or Media</h2></li>
         <li class="story-helpertext"><p>We want to hear your stories about your experiences in the computer graphics industry. Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? These kinds of archives are for the most part uncelebrated and unknown, but here is a chance to share them!</p></li>
     </ul>
     <div class="cf"></div>

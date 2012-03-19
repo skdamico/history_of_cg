@@ -1,17 +1,4 @@
-/* YOU CAN PROBABLY DELETE THESE */
-body {
-  font-size: 14px;
-  margin: 0;
-  padding: 0; }
-
-div.cf {
-  clear: both; }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-
+/* -------- Imports --------- */
 /* =============== standards =============== */
 .project {
   color: #ff6600 !important; }
@@ -67,6 +54,20 @@ ul {
 
 .none-hover:hover {
   color: #adadad !important; }
+
+/* YOU CAN PROBABLY DELETE THESE */
+body {
+  font-size: 14px;
+  margin: 0;
+  padding: 0; }
+
+div.cf {
+  clear: both; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
 
 /* =============== forms EDIT =============== */
 button, .button {

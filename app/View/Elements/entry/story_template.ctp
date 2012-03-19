@@ -27,7 +27,7 @@
                     <span id="helper-story-title" class="helper-popups">What is this the story of?</span>
                 </li>
                 <li class="story-date fields">
-                    <input type='text' class='datepicker need-helper' value='' />
+                    <input type='text' class='datepicker need-helper' value='' placeholder='MM/DD/YYYY' />
                     <input name='data[Story][date]' type='hidden' value='' />
                     <span id="helper-story-date" class="helper-popups">When did this story take place?</span>
                 </li>

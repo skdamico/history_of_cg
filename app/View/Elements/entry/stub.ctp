@@ -27,6 +27,7 @@
             <?php echo $this->Form->input('name', array(
                 'div' => false,
                 'label' => false,
+                'id' => 'entryName',
                 'value' => $entry['Entry']['name'])); ?>
         </li>
         <li class="entry-tags fields">

@@ -33,7 +33,7 @@
         <li class="entry-date fields">
             <input type='text' id='entry-date-box-1' class='datepicker need-helper' value='<?php
                     if (!empty($entry['Entry']['date_1'])) {
-                        echo date('m/d/Y', strtotime($entry['Entry']['date_1'])); }?>' />
+                        echo date('m/d/Y', strtotime($entry['Entry']['date_1'])); }?>' placeholder='MM/DD/YYYY' />
             <?php echo $this->Form->input('date_1', array('type' => 'hidden', 'id' => 'entry-date-box-1-helper', 'value' => $entry['Entry']['date_1'])); ?>
             <span id="helper-date" class="helper-popups">When did this <i>Project/Event</i> take place? This will define where your entry goes on the timeline.</span>
         </li>
@@ -43,7 +43,7 @@
         <li class='entry-date-2 fields'>
             <input type='text' id='entry-date-box-2' class='datepicker need-helper' value='<?php
                     if (!empty($entry['Entry']['date_2'])) {
-                        echo date('m/d/Y', strtotime($entry['Entry']['date_2'])); }?>' />
+                        echo date('m/d/Y', strtotime($entry['Entry']['date_2'])); }?>' placeholder='MM/DD/YYYY' />
             <?php echo $this->Form->input('date_2', array('type' => 'hidden', 'id' => 'entry-date-box-2-helper', 'value' => $entry['Entry']['date_2'])); ?>
             <span id="helper-date" class="helper-popups">When did this <i>Project/Event</i> take place? This will define where your entry goes on the timeline.</span>
         </li>

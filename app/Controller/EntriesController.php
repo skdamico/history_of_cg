@@ -10,8 +10,88 @@ class EntriesController extends AppController {
         $this->Auth->allow('view', 'get_by_phrase');
     }
 
-    public function view() {
+    public function view( $name = null ) {
+         // replace all underscores in name with spaces
+        $tmp_name = $this->unUrlize($name);
 
+        $entry = $this->Entry->find('first', array(
+            'conditions' => array(
+                'Entry.name' => $tmp_name,
+                'Entry.published' => 1
+            ),
+            'contain' => array(
+                'Category' => array(
+                    'fields' => array('Category.category')
+                )
+            )
+        ));
+
+        // if not found, redirect to not found page
+        if(empty($entry)) {
+            $this->redirect(array('action'=>'not_found', $tmp_name));
+        }
+
+        // Get all published stories
+        $stories = $this->EntryStory->find('all', array(
+            'conditions' => array(
+                'EntryStory.entry_id' => $entry['Entry']['id']
+            ),
+            'contain' => array(
+                'Story' => array(
+                    'conditions' => array('Story.published' => 1),
+                    'StoryType' => array(
+                        'fields' => array('StoryType.name')
+                    )
+                )
+            )
+        ));
+
+        // Get all connections made by this entry
+        $connections_1 = $this->Connection->find('all', array(
+            'conditions' => array(
+                'Connection.entry_id_1' => $entry['Entry']['id'],
+            ),
+            'contain' => array(
+                'Entry2' => array(
+                    'id',
+                    'name',
+                    'Category' => array(
+                        'category'
+                    )
+                )
+            )
+        ));
+
+        // Get all connections made by other entries
+        $connections_2 = $this->Connection->find('all', array(
+            'conditions' => array(
+                'Connection.entry_id_2' => $entry['Entry']['id'],
+            ),
+            'contain' => array(
+                'Entry1' => array(
+                    'id',
+                    'name',
+                    'Category' => array(
+                        'category'
+                    )
+                )
+            )
+        ));
+
+
+        $connections = array();
+
+        // Merge both sides of the circular connection into many 'Entry'
+        foreach( $connections_1 as $c_1) {
+            $connections[] = array('Entry' => $c_1['Entry2'], 'Connection' => array('id' => $c_1['Connection']['id']));
+        }
+        foreach( $connections_2 as $c_2) {
+            $connections[] = array('Entry' => $c_2['Entry1'], 'Connection' => array('id' => $c_2['Connection']['id']));
+        }
+
+        $this->set(compact('connections'));
+        $this->set(compact('stories'));
+        $this->set(compact('entry'));
     }
 
     public function get_by_phrase( $type = null, $s = null ) {

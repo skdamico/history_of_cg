@@ -15,7 +15,7 @@
         <li class="story-date fields">
             <input type='text' class='datepicker need-helper' value='<?php
                     if (!empty($story['Story']['date'])) {
-                        echo date('m/d/Y', strtotime($story['Story']['date'])); }?>' />
+                        echo date('m/d/Y', strtotime($story['Story']['date'])); }?>' placeholder='MM/DD/YYYY' />
             <input name='data[Story][date]' type='hidden' value='<?php echo $story['Story']['date']; ?>' />
             <span id="helper-story-date" class="helper-popups">When did this story take place?</span>
         </li>

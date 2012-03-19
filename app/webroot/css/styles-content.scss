@@ -1,0 +1,257 @@
+/* -------- Imports --------- */
+@import "colors";
+
+.contentWrapper {
+    color:#fff;
+    font-family:Helvetica, sans-serif;
+    font-size:75%;
+}
+/* --- categories bah --- */
+.entryMast {
+    background-image:url('../images/barBg.png');
+    background-position:0 48px;
+    background-repeat:repeat-x;
+    margin:20px auto 0 auto;
+    padding:0;
+}
+
+
+ul.catBar {
+    background-color:#0f0f0f;
+    font-family:Gotham, Helvetica, sans-serif;
+    margin:0 auto;
+    text-transform:uppercase;
+    width:990px;
+    
+    li {
+        display:inline;
+
+        a {
+            float:left;
+            font-size:16px;
+            padding:6px 14px 3px 14px;
+        }    
+    }
+    li.editEntry {
+        a {
+            color:#393a3a;
+            float:right;
+            font-size:12px;
+            text-transform:none;
+            &:hover {
+                color:#9dd4fe;
+            }
+        }
+    } 
+    li.category {
+        &.selected, a, a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        &.project {
+            a {
+                color:$project;
+            }
+            &.selected, a:hover {
+                background-color: $project;
+            }
+        }
+        &.person {
+            a {
+                color:$person;
+            }
+            &.selected, a:hover {
+                background-color: $person;
+            }
+        }
+        &.organization {
+            a {
+                color:$org;
+            }
+            &.selected, a:hover {
+                background-color: $org;
+            }
+        }
+        &.event {
+            a {
+                color:$event;
+            }
+            &.selected, a:hover {
+                background-color: $event;
+            }
+        }
+    }
+}
+    
+
+/* ----- tag lists ----- */
+.tagLists {
+    background-image:url('../images/shadeFlatBg.png');
+    padding:10px 0 0 0;
+}
+
+.tagLists div {
+    background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%); 
+    border:1px #1b222a solid;
+    box-shadow: inset 0 0 1px 1.5px #0f0f0f; 
+    -moz-box-shadow: inset 0 0 1px 1.5px #0f0f0f;
+    -webkit-box-shadow: inset 0 0 1px 1.5px #0f0f0f;
+    clear: both!important;
+    color:#9fd6ff;
+    min-height:100px;
+    margin: 0 auto;
+    padding:5px 5px 0 5px;
+    width:990px;
+}
+
+.tagLists div ul {
+    float: left;
+    margin-right: 50px;
+}
+
+.tagLists div ul li {
+    padding: 5px;
+}
+
+.tagLists div input {margin-right:5px;}
+
+/* ----- mosaic content ----- */
+.mosaicBody {
+    background-image:url("../images/shadesBg.png");
+    background-repeat:repeat-x;
+    min-height:500px;
+}
+
+ul.mosaicContainer {
+    margin: 0 auto 20px auto;
+    padding:10px 0;
+    width:990px;
+}
+
+ul.mosaicContainer li.dynamic .filterList li {
+    list-style: none;
+    margin: 5px;
+}
+
+ul.mosaicContainer li.dynamic .filterList li a {
+    text-decoration: none;
+    color: #e4e7fa;
+    font-size: 15px;
+}
+
+ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
+    float: left;
+    margin: 5px;
+    border: 1px solid #e4e7fa;
+    width: 250px;
+    height: 250px;
+    font-size: 20px;
+    background-color: #222228;
+    position: relative;
+    overflow: hidden;
+}
+
+ul.mosaicContainer li.tile p {
+    margin: 10px;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+ul.mosaicContainer li.dynamic {
+    border-left: none !important;
+    border-right:none !important;
+    border-bottom: none !important;
+    width: 500px;
+    height: 180px;
+}
+
+ul.mosaicContainer li.dynamic p {
+    margin: 5px;
+    font-size: 15px;
+}
+
+ul.mosaicContainer li.tile a {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #e4e7fa;
+    text-decoration: none;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+
+ul.mosaicContainer li.tile a span {
+    margin-left: 8px;
+}
+
+ul.mosaicContainer .person {
+   border: 1px solid $person !important;
+}
+ul.mosaicContainer .person a {
+    background-color: $person !important;
+}
+
+ul.mosaicContainer .project {
+   border: 1px solid $project !important;
+}
+ul.mosaicContainer .project a {
+    background-color: $project !important;
+}
+
+ul.mosaicContainer .organization {
+   border: 1px solid $org !important;
+}
+ul.mosaicContainer .organization a {
+    background-color: $org !important;
+}
+
+ul.mosaicContainer .event {
+   border: 1px solid $event !important;
+}
+ul.mosaicContainer .event a {
+    background-color: $event !important;
+}
+
+/**** isotope ****/
+.isotope-item {
+    z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+          transition-duration: 0s;
+}
