@@ -88,6 +88,13 @@ div.form-container {
                 @include form-button;
             }
         }
+        span.add-new {
+            float: right;
+            margin-right: 10px;
+            a {
+                @include form-button;
+            }
+        }
         span.publish-status {
             float: right;
         }

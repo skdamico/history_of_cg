@@ -20,7 +20,7 @@
         <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo $entry['Entry']['description']; ?></p></li>
     <?php foreach($connections as $c): ?>
         <li class="tile connection <?php echo $c['Entry']['Category']['category']; ?>">
-            <a href='/entries/edit/<?php echo $c['Entry']['name']; ?>'><span><?php echo $c['Entry']['name']; ?></span></a>
+            <a href='/entries/view/<?php echo $c['Entry']['name']; ?>'><span><?php echo $c['Entry']['name']; ?></span></a>
         </li>
     <?php endforeach; ?>
     <?php foreach($stories as $s): ?>
