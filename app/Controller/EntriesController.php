@@ -94,6 +94,14 @@ class EntriesController extends AppController {
         $this->set(compact('entry'));
     }
 
+
+    public function not_found( $name = null ) {
+        if(!empty($name)) {
+            $this->set(compact('name'));
+        }
+    }
+
+
     public function get_by_phrase( $type = null, $s = null ) {
         // do not render any views for this action
         $this->autoRender = false;
