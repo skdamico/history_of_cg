@@ -278,9 +278,7 @@ div.form-container {
       width: 440px; }
     div.form-container div.stories-col textarea {
       width: 380px!important; }
-    div.form-container div.stories-col ul.story-explanation li.label-story-header {
-      float: left; }
-    div.form-container div.stories-col ul.story-explanation li.story-helpertext {
+    div.form-container div.stories-col ul.story-explanation li.label-story-header, div.form-container div.stories-col ul.story-explanation li.story-helpertext, div.form-container div.stories-col ul.story-explanation li.share {
       float: left; }
     div.form-container div.stories-col ul.story-labels li.label-story-header {
       margin-bottom: 117px; }
