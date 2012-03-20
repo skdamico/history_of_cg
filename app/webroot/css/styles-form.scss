@@ -264,6 +264,14 @@ div.form-container {
                     cursor: pointer;
                 }
             }
+            div.story-type-header {
+                border:1px red solid;
+                position:relative;
+                width:25px;
+                &.story-type-icon-text {
+                   background:blue;
+                }
+            }
         }
         li.story-body {
             width:440px;
