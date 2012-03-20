@@ -150,8 +150,6 @@ $(function() {
         var $tabsnav = $('ul.tabs_nav', story);
         
         if($tabsnav.is(':visible')) {
-          // set story-type-header to selected tab
-          $f.find('.story-type-header').html($tabsnav.find('li.active').children('a').html()).show();
           // remove tabs
           $tabsnav.remove();
           $('div.tab-content:hidden', story).remove();
@@ -159,6 +157,10 @@ $(function() {
           // remove new class and update info
           $(story).removeClass('new');
           $(story).find('.story-collapsed-heading .info').html('Unpublished');
+
+          // set story-type-icon to selected tab
+          var story_type = $tabsnav.find('li.active').children('a').html().toLowerCase();
+          $(story).find('.story-collapsed-heading .story-type').addClass('story-type-icon-'+story_type);
 
           // make delete work
           bind_story_delete(story);

@@ -2,6 +2,7 @@
   <p class="story-collapsed-heading">
     <span class='title'>New Story</span>
     <span class='delete ui-icon ui-icon-close'></span>
+    <span class='story-type'></span>
     <span class='info'>Not Saved</span>
   </p>
   <div class="story-collapsed">
