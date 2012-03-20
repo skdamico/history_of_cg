@@ -8,7 +8,7 @@
 }
 /* --- categories bah --- */
 .entryMast {
-    background-image:url('../images/barBg.png');
+    background-image:url('../img/barBg.png');
     background-position:0 48px;
     background-repeat:repeat-x;
     margin:20px auto 0 auto;
@@ -86,7 +86,7 @@ ul.catBar {
 
 /* ----- tag lists ----- */
 .tagLists {
-    background-image:url('../images/shadeFlatBg.png');
+    background-image:url('../img/shadeFlatBg.png');
     padding:10px 0 0 0;
 }
 
@@ -121,13 +121,13 @@ ul.catBar {
 
 /* ----- mosaic content ----- */
 .mosaicBody {
-    background-image:url("../images/shadesBg.png");
+    background-image:url("../img/shadesBg.png");
     background-repeat:repeat-x;
-    min-height:500px;
+    min-height:400px;
 }
 
 ul.mosaicContainer {
-    margin: 0 auto 20px auto;
+    margin:0 auto 20px auto;
     padding:10px 0;
     width:990px;
 }
@@ -144,15 +144,28 @@ ul.mosaicContainer li.dynamic .filterList li a {
 }
 
 ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
-    float: left;
-    margin: 5px;
+    //float: left;
     border: 1px solid #e4e7fa;
-    width: 250px;
-    height: 250px;
+    margin: 0px 2px 10px 2px;
+    width: 240px;
+    min-height: 180px;
     font-size: 20px;
     background-color: #222228;
     position: relative;
     overflow: hidden;
+    //clear: both;
+}
+
+ul.mosaicContainer li.tile.story-image {
+    width: 240px;
+}
+ul.mosaicContainer li.tile a.img-link {
+    vertical-align: top;
+    display: block;
+}
+ul.mosaicContainer li.tile a img {
+    width: 240px;
+    margin: 0 auto;
 }
 
 ul.mosaicContainer li.tile p {
@@ -165,21 +178,20 @@ ul.mosaicContainer li.dynamic {
     border-left: none !important;
     border-right:none !important;
     border-bottom: none !important;
-    width: 500px;
-    height: 180px;
+    width: 480px;
 }
 
 ul.mosaicContainer li.dynamic p {
-    margin: 5px;
+    margin: 10px 10px;
     font-size: 15px;
 }
 
-ul.mosaicContainer li.tile a {
+ul.mosaicContainer li.tile .bottom-link {
     display: block;
     width: 100%;
     height: 30px;
     line-height: 30px;
-    background-color: #e4e7fa;
+    background-color: #333;
     text-decoration: none;
     color: #fff;
     position: absolute;
@@ -187,35 +199,56 @@ ul.mosaicContainer li.tile a {
     overflow: hidden;
 }
 
-ul.mosaicContainer li.tile a span {
+ul.mosaicContainer li.tile.connection .bottom-link a.link-button  {
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: right;
+    border-left: 1px solid #666;
+    position: relative;
+}
+
+ul.mosaicContainer li.tile.connection .bottom-link a.link-button .triangle {
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    border-left: 6px solid #444;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+ul.mosaicContainer li.tile .bottom-link span {
     margin-left: 8px;
+    float: left;
 }
 
 ul.mosaicContainer .person {
    border: 1px solid $person !important;
 }
-ul.mosaicContainer .person a {
+ul.mosaicContainer .person .bottom-link {
     background-color: $person !important;
 }
 
 ul.mosaicContainer .project {
    border: 1px solid $project !important;
 }
-ul.mosaicContainer .project a {
+ul.mosaicContainer .project .bottom-link {
     background-color: $project !important;
 }
 
 ul.mosaicContainer .organization {
    border: 1px solid $org !important;
 }
-ul.mosaicContainer .organization a {
+ul.mosaicContainer .organization .bottom-link {
     background-color: $org !important;
 }
 
 ul.mosaicContainer .event {
    border: 1px solid $event !important;
 }
-ul.mosaicContainer .event a {
+ul.mosaicContainer .event .bottom-link {
     background-color: $event !important;
 }
 

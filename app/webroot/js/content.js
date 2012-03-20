@@ -1,5 +1,4 @@
 /****** top-left corner stamp *******/
-
 $.Isotope.prototype._masonryResizeChanged = function() {
     return true;
 };
@@ -31,16 +30,15 @@ $(function() {
     var $mosaic = $(".mosaicBody .mosaicContainer");
 
     function initMosaic() {
-        var tiles = "";
-
         $mosaic.isotope({
             itemSelector: ".tile",
             animationEngine: "best-available",
+            layoutMode: "masonry",
             masonry: {
-                columnWidth: 265,
+                columnWidth: 246,
                 cornerStampSelector: ".dynamic"
-            },
-            resizable: true
+            }
+            //resizable: true
         });
         $mosaic.isotope("shuffle");
 
