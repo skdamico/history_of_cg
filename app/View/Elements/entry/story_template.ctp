@@ -13,7 +13,6 @@
         </ul>
         <div class="tab-content" data-tab="type-1">
             <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
-            <div class='story-type-header'></div>
             <input type='hidden' class='story-type' name='data[Story][story_type_id]' value='3' />
             <ul class="story-labels all-labels">
                 <li class="label-story-title labels">Title</li>
@@ -63,7 +62,6 @@
         </div>
         <div class="tab-content" data-tab="type-2">
             <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
-                <div class='story-type-header'></div>
                 <input type='hidden' class='story-type' name='data[Story][story_type_id]' value='2' />
                 <ul class="story-labels all-labels">
                     <li class="label-story-title labels">Title</li>
@@ -93,7 +91,6 @@
         </div>
         <div class="tab-content" data-tab="type-3">
             <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
-                <div class='story-type-header'></div>
                 <input type='hidden' class='story-type' name='data[Story][story_type_id]' value='1' />
                 <ul class="story-labels all-labels">
                     <li class="label-story-title labels">Title</li>

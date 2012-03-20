@@ -1,5 +1,4 @@
 <form action='/stories/add_or_edit' method='post' accept-charset='utf-8'>
-    <div class='story-type-header'><?php echo $story['Story']['StoryType']['name']; ?></div>
     <input type='hidden' class='story-type' name='data[Story][story_type_id]' value='<?php echo $story['Story']['story_type_id']; ?>' />
     <ul class="story-labels all-labels">
         <li class="label-story-title labels">Title</li>

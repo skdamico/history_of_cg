@@ -105,6 +105,7 @@ class ConnectionsController extends AppController {
                 }
             }
 
+
             if(!$needs_more_info) {
                 // Save connection
                 $this->Connection->create();

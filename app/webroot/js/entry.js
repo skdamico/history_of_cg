@@ -58,7 +58,7 @@ $(function() {
 
 
     function change_colors(color) {
-        var allFields = $('.fields input[type=text], .fields select, .fields textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
+        var allFields = $('.fields:not(.connection-fields) input[type=text], .fields:not(.connection-fields) select, .fields:not(.connection-fields) textarea, ul.token-input-list-hcg, li.source-title input, li.source-url input, .stories-col .stories p.story-collapsed-heading span.title');
         var allBorderFields = $('.fields .helper-popups');
         var allHoverFields = $('button, .button');
 

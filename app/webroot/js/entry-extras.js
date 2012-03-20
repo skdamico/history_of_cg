@@ -445,6 +445,7 @@ $(function() {
         event.preventDefault();
       }
     })
+    .change(function() { $(this).siblings('.entry-id').val(''); })
     .autocomplete({
       source: function(request, callback) {
         $.getJSON("/entries/get_by_phrase/", { t: "all", q: request.term }, callback);
