@@ -275,6 +275,9 @@ div.form-container {
             li.label-story-header, li.story-helpertext, li.share {
                 float:left;
             }
+            li.share {
+                @include form-button;
+            }
         }
         ul.story-labels {
             li.label-story-header {
