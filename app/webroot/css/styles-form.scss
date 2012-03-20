@@ -272,10 +272,7 @@ div.form-container {
             width:380px!important;
         }
         ul.story-explanation {
-            li.label-story-header{
-                float:left;
-            }
-            li.story-helpertext {
+            li.label-story-header, li.story-helpertext, li.share {
                 float:left;
             }
         }
