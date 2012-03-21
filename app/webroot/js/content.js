@@ -37,8 +37,8 @@ $(function() {
             masonry: {
                 columnWidth: 246,
                 cornerStampSelector: ".dynamic"
-            }
-            //resizable: true
+            },
+            resizable: true
         });
         $mosaic.isotope("shuffle");
 
@@ -174,5 +174,9 @@ $(function() {
         });
     }
 
-    initMosaic();
+    // initialize isotope after all images are loaded
+    $mosaic.imagesLoaded(function() { 
+        $mosaic.animate({opacity: 1.0}, 800, function() { $mosaic.removeClass('loading'); });
+        initMosaic(); 
+    });
 });

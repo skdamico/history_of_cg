@@ -132,6 +132,12 @@ ul.mosaicContainer {
     width:990px;
 }
 
+ul.mosaicContainer.loading {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5;
+}
+
 ul.mosaicContainer li.dynamic .filterList li {
     list-style: none;
     margin: 5px;
@@ -147,8 +153,10 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
     //float: left;
     border: 1px solid #e4e7fa;
     margin: 0px 2px 10px 2px;
+    padding: 0;
     width: 240px;
     min-height: 180px;
+    height: auto;
     font-size: 20px;
     background-color: #222228;
     position: relative;
@@ -159,13 +167,9 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
 ul.mosaicContainer li.tile.story-image {
     width: 240px;
 }
-ul.mosaicContainer li.tile a.img-link {
-    vertical-align: top;
-    display: block;
-}
-ul.mosaicContainer li.tile a img {
-    width: 240px;
-    margin: 0 auto;
+
+ul.mosaicContainer li.tile img {
+    width: 100%;
 }
 
 ul.mosaicContainer li.tile p {

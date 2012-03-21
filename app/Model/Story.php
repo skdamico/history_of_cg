@@ -2,6 +2,7 @@
 
 class Story extends AppModel {
     public $name = 'Story';
+    public $actsAs = array('Containable');
 
     public $belongsTo = array(
       'StoryType',

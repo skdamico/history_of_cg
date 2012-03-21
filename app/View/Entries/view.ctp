@@ -16,10 +16,11 @@
 <section class="tagLists">
 </section>
 <section class="mosaicBody">
-    <ul class="mosaicContainer cf">
+    <ul class="mosaicContainer loading cf">
         <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo $entry['Entry']['description']; ?></p></li>
     <?php foreach($connections as $c): ?>
-        <li class="tile connection <?php echo $c['Entry']['Category']['category']; ?>" style='height: <?php if(rand()%2==1) { echo "300px"; } ?>'>
+        <li class="tile connection <?php echo $c['Entry']['Category']['category']; ?>">
+            <img style='width: 240px;' src='<?php echo $c['image_url']; ?>' />
             <div class='bottom-link'>
                 <span><?php echo $c['Entry']['name']; ?></span>
                 <a class='link-button' href='/entries/view/<?php echo $c['Entry']['name']; ?>'><span class='triangle'></span></a>
@@ -35,7 +36,7 @@
                 <p><?php echo $s['Story']['story']?></p>
             <?php else: ?>
             <li class="tile story story-image">
-                <a class='img-link' href=''><img width='240' src='<?php echo $s['Story']['url']; ?>' /></a>
+                <img width='240' src='<?php echo $s['Story']['url']; ?>' />
             <?php endif; ?>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span></div>
             </li>

@@ -83,10 +83,16 @@ class EntriesController extends AppController {
 
         // Merge both sides of the circular connection into many 'Entry'
         foreach( $connections_1 as $c_1) {
-            $connections[] = array('Entry' => $c_1['Entry2'], 'Connection' => array('id' => $c_1['Connection']['id']));
+            $display_image_url = null;
+            $display_image_url = $this->find_display_image($c_1['Entry2']['id']);
+
+            $connections[] = array('Entry' => $c_1['Entry2'], 'image_url' => $display_image_url, 'Connection' => array('id' => $c_1['Connection']['id']));
         }
         foreach( $connections_2 as $c_2) {
-            $connections[] = array('Entry' => $c_2['Entry1'], 'Connection' => array('id' => $c_2['Connection']['id']));
+            $display_image_url = null;
+            $display_image_url = $this->find_display_image($c_2['Entry1']['id']);
+
+            $connections[] = array('Entry' => $c_2['Entry1'], 'image_url' => $display_image_url, 'Connection' => array('id' => $c_2['Connection']['id']));
         }
 
         $this->set(compact('connections'));
@@ -94,6 +100,52 @@ class EntriesController extends AppController {
         $this->set(compact('entry'));
     }
 
+
+    /*
+     * find a front display image from the list of stories that are images
+     * if there are no images, use a default local image   
+     */
+    private function find_display_image( $id=null ) {
+        if(empty($id)) {
+            return null;
+        }
+
+        // Temporarily unbind the Connection relationship
+        $this->Entry->unbindModel(array(
+            'hasAndBelongsToMany' => array('Connection')
+        ));
+
+        // We want this query to get a random Story
+        $this->Entry->bindModel(array(
+            'hasAndBelongsToMany' => array(
+                'Story' => array(
+                    'recursive' => 0,
+                    'order' => 'RAND()',
+                    'limit' => 1,
+                    'conditions' => array('Story.story_type_id = 2', 'Story.published = 1'),
+                    'fields' => 'Story.url'
+                )
+            )
+        ));
+
+        // Find the story
+        $story = $this->Entry->find('first', array(
+            'conditions' => array('Entry.id' => $id),
+            'fields' => 'Entry.id',
+            'contain' => array(
+                'Story' => array(
+                    'fields' => 'Story.url'
+                )
+            )
+        ));
+
+        if(!empty($story) && !empty($story['Story'])) {
+            return $story['Story'][0]['url'];
+        }
+        else {
+            return null;
+        }
+    }
 
     public function not_found( $name = null ) {
         if(!empty($name)) {
