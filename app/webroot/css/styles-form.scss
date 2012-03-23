@@ -253,7 +253,6 @@ div.form-container {
                     text-shadow:none;
                 }
                 span.story-type {
-                    background-repeat:no-repeat;
                     float:right;
                     height:25px;  
                     margin-left:5px;
@@ -261,16 +260,19 @@ div.form-container {
                     &.story-type-icon-text {
                         background:url('../img/richMedia_icons.png');
                         background-position:1px 0;
+                        background-repeat:no-repeat;
                         width:25px;
                     }
                     &.story-type-icon-image {
                         background:url('../img/richMedia_icons.png');
                         background-position:-23px 0;
+                        background-repeat:no-repeat;
                         width:25px;
                     }
                     &.story-type-icon-video {
                         background:url('../img/richMedia_icons.png');
                         background-position:-46px 0;
+                        background-repeat:no-repeat;
                         width:25px;
                     }
                 }
