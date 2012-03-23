@@ -1,7 +1,7 @@
 <div class="stories-col section-in-form">
     <ul class="story-explanation">
         <li class="label-story-header labels"><h2>Add a Story or Media</h2></li>
-        <li class="story-helpertext"><p>We want to hear your stories about your experiences in the computer graphics industry. Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? These kinds of archives are for the most part uncelebrated and unknown, but here is a chance to share them!</p></li>
+        <li class="story-helpertext"><p>Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? Here is a chance to share them!</p></li>
         <li class="share"><button class="btn-story">Share Stories</button></li>
     </ul>
     <div class="cf"></div>
@@ -14,6 +14,7 @@
 </div>
 <div class="right-column">
     <h2>Create connections</h2>
+    <p>Think of some other topics, subjects or categories that this post relates to? Make the connections between entries here!</p>
     <div class="connections-col section-in-form">
         <?php
             echo $this->element('entry/connection_form');
