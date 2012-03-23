@@ -255,17 +255,20 @@ div.form-container {
                 span.story-type {
                     border:1px red solid;
                     float:right;
-                    width:25px;
-                    height:25px;
+                    height:25px;  
 
                     &.story-type-icon-text {
-                        background:blue;
+                        background:url('../img/richMedia_icons.png');
+                        background-position:1px 0;
+                        width:25px;
                     }
                     &.story-type-icon-image {
                         background:red;
+                        width:25px;
                     }
                     &.story-type-icon-video {
                         background:green;
+                        width:25px;
                     }
                 }
                 &:hover {
