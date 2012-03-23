@@ -88,24 +88,25 @@ ul.catBar {
     ul.catBar li.editEntry a:hover {
       color: #9dd4fe; }
   ul.catBar li.category.selected, ul.catBar li.category a, ul.catBar li.category a:hover {
-    color: white;
     text-decoration: none; }
+  ul.catBar li.category.selected a, ul.catBar li.category a:hover {
+    color: white !important; }
   ul.catBar li.category.project a {
     color: #ff6600; }
-  ul.catBar li.category.project.selected, ul.catBar li.category.project a:hover {
-    background-color: #ff6600; }
+  ul.catBar li.category.project.selected a, ul.catBar li.category.project a:hover {
+    background-color: #ff6600 !important; }
   ul.catBar li.category.person a {
     color: #00b9db; }
-  ul.catBar li.category.person.selected, ul.catBar li.category.person a:hover {
-    background-color: #00b9db; }
+  ul.catBar li.category.person.selected a, ul.catBar li.category.person a:hover {
+    background-color: #00b9db !important; }
   ul.catBar li.category.organization a {
     color: #7bd900; }
-  ul.catBar li.category.organization.selected, ul.catBar li.category.organization a:hover {
-    background-color: #7bd900; }
+  ul.catBar li.category.organization.selected a, ul.catBar li.category.organization a:hover {
+    background-color: #7bd900 !important; }
   ul.catBar li.category.event a {
     color: #d200ff; }
-  ul.catBar li.category.event.selected, ul.catBar li.category.event a:hover {
-    background-color: #d200ff; }
+  ul.catBar li.category.event.selected a, ul.catBar li.category.event a:hover {
+    background-color: #d200ff !important; }
 
 /* ----- tag lists ----- */
 .tagLists {

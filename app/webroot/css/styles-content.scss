@@ -45,39 +45,41 @@ ul.catBar {
     } 
     li.category {
         &.selected, a, a:hover {
-            color: white;
             text-decoration: none;
+        }
+        &.selected a, a:hover {
+            color: white !important;
         }
         &.project {
             a {
                 color:$project;
             }
-            &.selected, a:hover {
-                background-color: $project;
+            &.selected a, a:hover {
+                background-color: $project !important;
             }
         }
         &.person {
             a {
                 color:$person;
             }
-            &.selected, a:hover {
-                background-color: $person;
+            &.selected a, a:hover {
+                background-color: $person !important;
             }
         }
         &.organization {
             a {
                 color:$org;
             }
-            &.selected, a:hover {
-                background-color: $org;
+            &.selected a, a:hover {
+                background-color: $org !important;
             }
         }
         &.event {
             a {
                 color:$event;
             }
-            &.selected, a:hover {
-                background-color: $event;
+            &.selected a, a:hover {
+                background-color: $event !important;
             }
         }
     }
