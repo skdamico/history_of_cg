@@ -13,8 +13,10 @@
     ?>
 </div>
 <div class="right-column">
-    <h2>Create connections</h2>
-    <p>Think of some other topics, subjects or categories that this post relates to? Make the connections between entries here!</p>
+    <ul>
+        <li><h2>Create connections</h2></li>
+        <li><p>Think of some other topics, subjects or categories that this post relates to? Make the connections between entries here!</p></li>
+    </ul>
     <div class="connections-col section-in-form">
         <?php
             echo $this->element('entry/connection_form');
