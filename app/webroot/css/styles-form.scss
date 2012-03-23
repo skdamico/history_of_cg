@@ -253,9 +253,10 @@ div.form-container {
                     text-shadow:none;
                 }
                 span.story-type {
-                    border:1px red solid;
+                    background-repeat:none;
                     float:right;
                     height:25px;  
+                    margin-left:5px;
 
                     &.story-type-icon-text {
                         background:url('../img/richMedia_icons.png');
@@ -263,11 +264,13 @@ div.form-container {
                         width:25px;
                     }
                     &.story-type-icon-image {
-                        background:red;
+                        background:url('../img/richMedia_icons.png');
+                        background-position:-46px 0;
                         width:25px;
                     }
                     &.story-type-icon-video {
-                        background:green;
+                        background:url('../img/richMedia_icons.png');
+                        background-position:-23px 0;
                         width:25px;
                     }
                 }
