@@ -7,7 +7,7 @@
     <?php 
         echo $this->Html->css(array('jquery-ui', 'styles'));
 
-        echo $this->Html->script(array('libs/jquery', 'libs/jquery-ui', 'search', 'messages'), array('once' => true));
+        echo $this->Html->script(array('libs/jquery', 'libs/jquery-ui', 'search', 'messages', 'libs/URI.min'), array('once' => true));
         echo $scripts_for_layout;
     ?>
 </head>

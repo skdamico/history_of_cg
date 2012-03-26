@@ -109,6 +109,26 @@ $(function() {
       }
   }
 
+  function find_video_id(url) {
+    // Given a youtube url, find the id 
+    // usually in youtube.com/watch?v=<id>
+    var u = new URI(url);
+    var domain = u.domain();
+    if(domain.indexOf('youtube') != -1 || domain.indexOf('youtu') != -1) {
+      // youtube video
+
+      // get querystring as an object
+      var q = u.query(true);
+
+      if(q.v !== undefined && q.v !== null) {
+        return q.v;
+      }
+    }
+    else {
+        return null;
+    }
+  }
+
   function new_story_form_init(story) {
     // form options!
     var options = {
@@ -192,6 +212,12 @@ $(function() {
           change_publish_ui(this, "draft", "disable");
         }
 
+        if(storytype === 1) {
+          // change video id
+          var v_id = find_video_id($form.find('.story-url input').val());
+          $form.find('.story-url .video-id').val(v_id);
+        }
+
         // submit form
         $(this).closest('form').submit();
 
@@ -208,6 +234,13 @@ $(function() {
           $form.find('.story-preview img').remove();
           var img = $('<img width="400" />').attr('src', $form.find('.story-url input').val()).hide();
           img.appendTo($form.find('.story-preview')).fadeIn();
+        }
+        else if(storytype === 1) {
+          $form.find('.story-preview *').remove();
+          var video = $('<div style="width:420px; height:300px" class="lite"></div>').attr('id', find_video_id($form.find('.story-url input').val())).hide();
+          video.appendTo($form.find('.story-preview'));
+          video.YTLite();
+          video.fadeIn();
         }
       });
 
@@ -333,6 +366,12 @@ $(function() {
         change_publish_ui(this, "draft", "disable");
       }
 
+      if(storytype === 1) {
+        // change video id
+        var v_id = find_video_id($form.find('.story-url input').val());
+        $form.find('.story-url .video-id').val(v_id);
+      }
+
       // submit form
       $form.submit();
 
@@ -349,6 +388,13 @@ $(function() {
         $form.find('.story-preview img').remove();
         var img = $('<img width="400" />').attr('src', $form.find('.story-url input').val()).hide();
         img.appendTo($form.find('.story-preview')).fadeIn();
+      }
+      else if(storytype === 1) {
+        $form.find('.story-preview *').remove();
+        var video = $('<div style="width:420px; height:300px" class="lite"></div>').attr('id', find_video_id($form.find('.story-url input').val())).hide();
+        video.appendTo($form.find('.story-preview'));
+        video.YTLite();
+        video.fadeIn();
       }
     });
 

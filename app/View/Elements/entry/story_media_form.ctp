@@ -11,11 +11,17 @@
         </li>
         <li class="story-url fields">
             <input type='text' name='data[Story][url]' class='need-helper' value='<?php echo $story['Story']['url'] ?>' />
+            
+            <?php if($story['Story']['StoryType']['name'] == 'Video'): ?>
+            <input type='hidden' name='data[Story][video]' class='video-id' value='<?php echo $story['Story']['video'] ?>' />
+            <?php endif; ?>
             <span id="helper-story-date" class="helper-popups">Paste or type a URL to the media in here.</span>
         </li>
         <li class='story-preview'>
         <?php if($story['Story']['StoryType']['name'] == 'Image'): ?>
             <img width='400' src='<?php echo $story['Story']['url']; ?>' />
+        <?php else: ?>
+            <div class='lite' style='width:420px; height:300px' id="<?php echo $story['Story']['video']; ?>"></div>
         <?php endif; ?>
         </li>
         <li class='story-save save'>

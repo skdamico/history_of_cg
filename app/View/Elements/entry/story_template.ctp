@@ -104,6 +104,7 @@
                     </li>
                     <li class="story-url fields">
                         <input type='text' name='data[Story][url]' class='need-helper' value='' />
+                        <input type='hidden' name='data[Story][video]' class='video-id' value='' />
                         <span id="helper-story-date" class="helper-popups">Paste or type a URL to the media in here.</span>
                     </li>
                     <li class='story-preview'>

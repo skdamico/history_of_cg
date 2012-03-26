@@ -1,5 +1,5 @@
-<?php $this->Html->script(array('libs/jquery.form', 'entry', 'entry-extras'), array( 'inline' => false, 'once' => true )); ?>
-<?php $this->Html->css(array('styles-form'), null, array( 'inline' => false, 'once' => true )); ?>
+<?php $this->Html->script(array('libs/jquery.lazyload.min', 'libs/lite-youtube-min', 'libs/jquery.form', 'entry', 'entry-extras'), array( 'inline' => false, 'once' => true )); ?>
+<?php $this->Html->css(array('styles-youtube', 'styles-form'), null, array( 'inline' => false, 'once' => true )); ?>
 
 <div class="form-container">
     <?php

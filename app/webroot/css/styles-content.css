@@ -170,8 +170,6 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
   margin: 0px 2px 10px 2px;
   padding: 0;
   width: 240px;
-  min-height: 180px;
-  height: auto;
   font-size: 20px;
   background-color: #222228;
   position: relative;
@@ -180,19 +178,28 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
 ul.mosaicContainer li.tile.story-image {
   width: 240px; }
 
-ul.mosaicContainer li.tile img {
-  width: 100%; }
+ul.mosaicContainer li.tile.story-image img, ul.mosaicContainer li.tile.connection img {
+  margin-bottom: -5px; }
 
-ul.mosaicContainer li.tile p {
+ul.mosaicContainer li.tile.story-video {
+  width: 486px; }
+
+ul.mosaicContainer li.tile .container {
+  width: 100%;
+  min-height: 150px;
+  margin: 0;
+  padding: 0; }
+
+ul.mosaicContainer li.tile .container p {
   margin: 10px;
-  font-size: 15px;
-  overflow: hidden; }
+  font-size: 15px; }
 
 ul.mosaicContainer li.dynamic {
   border-left: none !important;
   border-right: none !important;
   border-bottom: none !important;
-  width: 480px; }
+  width: 486px;
+  min-height: 150px; }
 
 ul.mosaicContainer li.dynamic p {
   margin: 10px 10px;
@@ -206,14 +213,12 @@ ul.mosaicContainer li.tile .bottom-link {
   background-color: #333;
   text-decoration: none;
   color: #fff;
-  position: absolute;
-  bottom: 0;
   overflow: hidden; }
   ul.mosaicContainer li.tile .bottom-link span.story-type {
     float: right;
-    height: 30px;
-    margin-left: 5px;
-    line-height: 25px; }
+    margin-top: 5px;
+    margin-right: 3px;
+    height: 25px; }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-text {
       background: url("../img/richMedia_icons.png");
       background-position: 1px 0;
