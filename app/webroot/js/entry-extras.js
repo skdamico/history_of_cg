@@ -482,7 +482,7 @@ $(function() {
         theme: 'hcg',
         allowCustomEntry: true,
         preventDuplicates: true,
-        hintText: 'Please further categorize this entry'
+        hintText: 'Enter keywords to describe this connection'
     });
 
     //
