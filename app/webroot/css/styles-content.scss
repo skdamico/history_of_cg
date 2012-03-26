@@ -6,6 +6,7 @@
     font-family:Helvetica, sans-serif;
     font-size:75%;
 }
+
 /* --- categories bah --- */
 .entryMast {
     background-image:url('../img/barBg.png');
@@ -168,6 +169,10 @@ ul.mosaicContainer li.tile.story-image {
     width: 240px;
 }
 
+ul.mosaicContainer li.tile.story-image.double-size {
+    width: 486px;
+}
+
 ul.mosaicContainer li.tile.story-image img, ul.mosaicContainer li.tile.connection img {
     margin-bottom: -5px;
 }
@@ -178,7 +183,7 @@ ul.mosaicContainer li.tile.story-video {
 
 ul.mosaicContainer li.tile .container {
     width: 100%;
-    min-height: 150px;
+    min-height: 100px;
     margin: 0;
     padding: 0;
 }
@@ -204,7 +209,7 @@ ul.mosaicContainer li.dynamic p {
 ul.mosaicContainer li.tile .bottom-link {
     display: block;
     width: 100%;
-    height: 30px;
+    min-height: 30px;
     line-height: 30px;
     background-color: #333;
     text-decoration: none;
@@ -240,7 +245,6 @@ ul.mosaicContainer li.tile .bottom-link {
 }
 
 ul.mosaicContainer li.tile.connection .bottom-link a.link-button  {
-    display: block;
     width: 30px;
     height: 30px;
     float: right;
@@ -261,7 +265,9 @@ ul.mosaicContainer li.tile.connection .bottom-link a.link-button .triangle {
 
 ul.mosaicContainer li.tile .bottom-link span {
     margin-left: 8px;
+    word-wrap: break-word;
     float: left;
+    width: 80%;
 }
 
 ul.mosaicContainer .person {

@@ -52,9 +52,18 @@
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
             </li>
             <?php else: ?>
-            <li class="tile story story-image">
+
+            <?php
+                $img = null;
+                $doubleSize = false;
+                $img = getimagesize($s['Story']['url']);
+                if($img[0] >= 486) {
+                    $doubleSize = true;
+                }
+            ?>
+                <li class="tile story story-image<?php echo $doubleSize ? ' double-size' : ''; ?>">
                 <div class='container'>
-                    <img width='240' src='<?php echo $s['Story']['url']; ?>' />
+                    <img width='<?php echo $doubleSize ? '486' : '240'; ?>' src='<?php echo $s['Story']['url']; ?>' />
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-image'></span></div>
             </li>
