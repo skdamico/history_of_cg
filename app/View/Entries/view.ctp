@@ -20,7 +20,11 @@
         <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo $entry['Entry']['description']; ?></p></li>
     <?php foreach($connections as $c): ?>
         <li class="tile connection <?php echo $c['Entry']['Category']['category']; ?>">
-            <img style='width: 240px;' src='<?php echo $c['image_url']; ?>' />
+            <?php if($c['connection_display_type'] == 'image'): ?>
+            <img style='width: 240px;' src='<?php echo $c['connection_display']; ?>' />
+            <?php else: ?>
+            <p><?php echo $c['connection_display']; ?></p>
+            <?php endif; ?>
             <div class='bottom-link'>
                 <span><?php echo $c['Entry']['name']; ?></span>
                 <a class='link-button' href='/entries/view/<?php echo $c['Entry']['name']; ?>'><span class='triangle'></span></a>
@@ -34,13 +38,19 @@
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
             <li class="tile story story-text">
                 <p><?php echo $s['Story']['story']?></p>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text'><span></div>
+            </li>
+            <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
+            <li class="tile story story-video">
+                <iframe width="480" height="360" src="<?php echo $s['Story']['url']; ?>" frameborder="0" allowfullscreen></iframe>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
+            </li>
             <?php else: ?>
             <li class="tile story story-image">
                 <img width='240' src='<?php echo $s['Story']['url']; ?>' />
-            <?php endif; ?>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span></div>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-image'></span></div>
             </li>
-            
+            <?php endif; ?>
         <?php endif; ?>
     <?php endforeach; ?>
     </ul>

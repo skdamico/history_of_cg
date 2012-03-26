@@ -83,16 +83,16 @@ class EntriesController extends AppController {
 
         // Merge both sides of the circular connection into many 'Entry'
         foreach( $connections_1 as $c_1) {
-            $display_image_url = null;
-            $display_image_url = $this->find_display_image($c_1['Entry2']['id']);
+            $display = null;
+            $display = $this->find_display_image($c_1['Entry2']['id']);
 
-            $connections[] = array('Entry' => $c_1['Entry2'], 'image_url' => $display_image_url, 'Connection' => array('id' => $c_1['Connection']['id']));
+            $connections[] = array('Entry' => $c_1['Entry2'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_1['Connection']['id']));
         }
         foreach( $connections_2 as $c_2) {
-            $display_image_url = null;
-            $display_image_url = $this->find_display_image($c_2['Entry1']['id']);
+            $display = null;
+            $display = $this->find_display_image($c_2['Entry1']['id']);
 
-            $connections[] = array('Entry' => $c_2['Entry1'], 'image_url' => $display_image_url, 'Connection' => array('id' => $c_2['Connection']['id']));
+            $connections[] = array('Entry' => $c_2['Entry1'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_2['Connection']['id']));
         }
 
         $this->set(compact('connections'));
@@ -131,7 +131,7 @@ class EntriesController extends AppController {
         // Find the story
         $story = $this->Entry->find('first', array(
             'conditions' => array('Entry.id' => $id),
-            'fields' => 'Entry.id',
+            'fields' => array('Entry.id', 'Entry.description'),
             'contain' => array(
                 'Story' => array(
                     'fields' => 'Story.url'
@@ -140,10 +140,12 @@ class EntriesController extends AppController {
         ));
 
         if(!empty($story) && !empty($story['Story'])) {
-            return $story['Story'][0]['url'];
+            return array('connection_display' => $story['Story'][0]['url'],
+                         'connection_display_type' => 'image');
         }
         else {
-            return null;
+            return array('connection_display' => $story['Entry']['description'],
+                         'connection_display_type' => 'text');
         }
     }
 

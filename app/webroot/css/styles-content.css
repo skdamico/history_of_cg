@@ -209,6 +209,26 @@ ul.mosaicContainer li.tile .bottom-link {
   position: absolute;
   bottom: 0;
   overflow: hidden; }
+  ul.mosaicContainer li.tile .bottom-link span.story-type {
+    float: right;
+    height: 30px;
+    margin-left: 5px;
+    line-height: 25px; }
+    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-text {
+      background: url("../img/richMedia_icons.png");
+      background-position: 1px 0;
+      background-repeat: no-repeat;
+      width: 25px; }
+    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image {
+      background: url("../img/richMedia_icons.png");
+      background-position: -23px 0;
+      background-repeat: no-repeat;
+      width: 25px; }
+    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-video {
+      background: url("../img/richMedia_icons.png");
+      background-position: -46px 0;
+      background-repeat: no-repeat;
+      width: 25px; }
 
 ul.mosaicContainer li.tile.connection .bottom-link a.link-button {
   display: block;
