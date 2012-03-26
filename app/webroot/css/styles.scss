@@ -209,5 +209,8 @@ div.content_nf {
 
     a.button {
         @include form-button;
+        &:hover {
+            color:darken($bg, 10%);
+        }
     }
 }
