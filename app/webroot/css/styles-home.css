@@ -32,12 +32,12 @@
         width:325px;
     }
     #homeSearch .search button.searchBtn {
-        background-image:url('../img/homeSearchBtn.png');
-        height:35px;
-        width:35px;
+        background-image:url('../img/homeSearchBtn.png')!important;
+        height:35px!important;
+        width:35px!important;
     }
         #homeSearch .search button.searchBtn:active {
-            background-position:0 -32px;
+            background-position:0 -32px!important;
         }
 
 .ui-autocomplete.ui-menu {

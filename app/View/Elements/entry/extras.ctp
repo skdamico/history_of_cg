@@ -2,7 +2,7 @@
     <ul class="story-explanation">
         <li class="label-story-header labels"><h2>Add a Story or Media</h2></li>
         <li class="story-helpertext"><p>Did you contribute to the development of an innovative technology or project? Did you have a chance to work with someone brimming with amazing talent? Here is a chance to share them!</p></li>
-        <li class="share"><button class="btn-story">Share Stories</button></li>
+        <li class="share"><button class="btn-story">Share Stories or Add Media</button></li>
     </ul>
     <div class="cf"></div>
     <?php
