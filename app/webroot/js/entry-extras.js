@@ -145,6 +145,26 @@ $(function() {
           $f.find('.story-id').val(data.id);
         }
 
+        // remove tabs and show type if new story
+        var $tabsnav = $('ul.tabs_nav', story);
+        
+        if($tabsnav.is(':visible')) {
+          // remove tabs
+          $tabsnav.remove();
+          $('div.tab-content:hidden', story).remove();
+
+          // remove new class and update info
+          $(story).removeClass('new');
+          $(story).find('.story-collapsed-heading .info').html('Unpublished');
+
+          // set story-type-icon to selected tab
+          var story_type = $tabsnav.find('li.active').children('a').html().toLowerCase();
+          $(story).find('.story-collapsed-heading .story-type').addClass('story-type-icon-'+story_type);
+
+          // make delete work
+          bind_story_delete(story);
+        }
+
         if(data.publish) {
           var $headingInfo = $f.closest('.story-collapsed').siblings('.story-collapsed-heading').children('.info');
 
@@ -166,25 +186,6 @@ $(function() {
         }
         enable_publish_ui($f.find('.story-save'));
 
-        // remove tabs and show type if new story
-        var $tabsnav = $('ul.tabs_nav', story);
-        
-        if($tabsnav.is(':visible')) {
-          // remove tabs
-          $tabsnav.remove();
-          $('div.tab-content:hidden', story).remove();
-
-          // remove new class and update info
-          $(story).removeClass('new');
-          $(story).find('.story-collapsed-heading .info').html('Unpublished');
-
-          // set story-type-icon to selected tab
-          var story_type = $tabsnav.find('li.active').children('a').html().toLowerCase();
-          $(story).find('.story-collapsed-heading .story-type').addClass('story-type-icon-'+story_type);
-
-          // make delete work
-          bind_story_delete(story);
-        }
       }
     };
 
