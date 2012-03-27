@@ -160,7 +160,6 @@ header#masthead {
   border-radius: 0 0 5px 5px;
   box-shadow: 0 0 5px black;
   margin-bottom: 50px;
-  margin-top: 10px;
   position: relative; }
   .topRight.internal {
     border-radius: 5px; }
@@ -187,7 +186,7 @@ header#masthead {
   float: right;
   position: absolute;
   right: 0;
-  top: 50px; }
+  top: 60px; }
 
 .search input.searchBox {
   background-color: #141414;
