@@ -6,3 +6,6 @@
       </fieldset>
     </form>
   </div>
+  <div class="timeline" id="home-tl">
+      <img src="img/timeline/timeline.png" />
+  </div>
