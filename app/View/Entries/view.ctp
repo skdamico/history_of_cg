@@ -1,6 +1,7 @@
 <?php $this->Html->script(array('libs/jquery.lazyload.min', 'libs/lite-youtube-min', 'libs/jquery.isotope.min', 'content'), array( 'inline' => false, 'once' => true )); ?>
 <?php $this->Html->css(array('styles-youtube', 'styles-content'), null, array( 'inline' => false, 'once' => true )); ?>
 
+<?php echo $this->element('timeline_static'); ?>
 <!-- start of page content -->
 <section class="entryMast">
     <h1 class="entryTitle <?php echo $entry['Category']['category'];?>"><?php echo $entry['Entry']['name']; ?></h1>
@@ -14,6 +15,14 @@
     </ul>
 </section>
 <section class="tagLists">
+    <div class='' style='display:none;'>
+        <ul>
+            <li class="all"><input type="checkbox" data-filter="*" checked="checked" />All</li>
+            <?php foreach($connections as $c): ?>
+            <li><input type='checkbox' data-filter='<?php echo $c['Entry']['Tag']; ?>' /></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 </section>
 <section class="mosaicBody">
     <ul class="mosaicContainer loading cf">
