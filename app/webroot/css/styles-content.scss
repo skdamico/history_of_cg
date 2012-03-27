@@ -107,16 +107,21 @@ ul.catBar {
     color:#9fd6ff;
     min-height:100px;
     margin: 0 auto;
-    padding:5px 5px 0 5px;
+    overflow:scroll;
+    padding:0 10px;
     width:990px;
 }
 
 .tagLists div ul {
     float: left;
-    margin-right: 50px;
+    padding:0;
+    list-style-type:none;
 }
 
 .tagLists div ul li {
+    display:inline-block;
+    background:black;
+    width:150px;
     padding: 5px;
 }
 
