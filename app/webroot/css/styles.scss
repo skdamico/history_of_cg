@@ -304,6 +304,10 @@ form#UserCreateForm, form#UserSignupForm {
     }
     input[type="text"], input[type="password"], input[type="email"] {
         @include field;
+        &:focus {
+            border:1px lighten($bg, 30%) solid;
+            outline:0!important;
+        }
     }
     input[type="submit"] {
         @include form-button;
