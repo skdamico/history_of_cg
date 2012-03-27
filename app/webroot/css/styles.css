@@ -180,9 +180,14 @@ header#masthead {
     padding: 10px;
     z-index: 99999; }
     .topRight #login_box a {
-      color: #fda200; }
+      color: #fda200;
+      padding: 0 0 10px 0; }
     .topRight #login_box div.form-container {
       clear: both; }
+      .topRight #login_box div.form-container label {
+        color: #4f5d69;
+        display: block;
+        padding-bottom: 5px; }
       .topRight #login_box div.form-container input[type="text"], .topRight #login_box div.form-container input[type="password"] {
         background-color: #23272b;
         border: 1px #363c41 solid;
