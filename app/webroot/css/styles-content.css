@@ -204,8 +204,9 @@ ul.mosaicContainer li.tile .container {
 
 ul.mosaicContainer li.tile .container p {
   margin: 10px;
-  font-size: 15px;
-  color: #fff; }
+  font-size: 13px;
+  line-height: 17px;
+  color: #646f79; }
 
 ul.mosaicContainer li.dynamic {
   border-left: none !important;
