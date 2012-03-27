@@ -183,8 +183,6 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
   background-color: #222228;
   position: relative;
   overflow: hidden; }
-  ul.mosaicContainer .tile p, ul.mosaicContainer .dynamic p {
-    color: #fff; }
 
 ul.mosaicContainer li.tile.story-image {
   width: 240px; }
@@ -218,7 +216,9 @@ ul.mosaicContainer li.dynamic {
 
 ul.mosaicContainer li.dynamic p {
   margin: 10px 10px;
-  font-size: 15px; }
+  font-size: 13px;
+  line-height: 17px;
+  color: #fff; }
 
 ul.mosaicContainer li.tile .bottom-link {
   display: block;
@@ -271,7 +271,11 @@ ul.mosaicContainer li.tile.connection .bottom-link a.link-button .triangle {
 ul.mosaicContainer li.tile .bottom-link span {
   margin-left: 8px;
   word-wrap: break-word;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Gotham, Helvetica, sans-serif;
   float: left;
+  font-size: 16px;
   width: 80%; }
 
 ul.mosaicContainer .person {
