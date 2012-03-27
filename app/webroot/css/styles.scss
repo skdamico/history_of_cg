@@ -122,9 +122,17 @@ header#masthead {
             left: 0;
             padding:10px;
             z-index:99999;
-            a {color:#fda200;}
+            a {
+                color:#fda200;
+                padding:0 0 10px 0;
+            }
             div.form-container {
                 clear:both;
+                label {
+                    color:lighten(#2e363d, 15%);
+                    display:block;
+                    padding-bottom:5px;
+                }
                 input[type="text"], input[type="password"] {
                     background-color:darken($bg, 3%);
                     border:1px lighten($bg, 5%) solid;
