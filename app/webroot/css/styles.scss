@@ -137,8 +137,7 @@ header#masthead {
                     padding:5px;
                     width:92%;
                     &:focus {
-                        border:1px lighten($bg, 30%) solid;
-                        outline:0!important;
+                        border:1px lighten($bg, 30%) solid!important;
                     }
                 }
                 input[type="submit"] {
