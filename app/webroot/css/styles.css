@@ -199,6 +199,9 @@ header#masthead {
         margin-bottom: 10px;
         padding: 5px;
         width: 92%; }
+        .topRight #login_box div.form-container input[type="text"]:focus, .topRight #login_box div.form-container input[type="password"]:focus {
+          border: 1px #6f7c87 solid;
+          outline: 0!important; }
       .topRight #login_box div.form-container input[type="submit"] {
         background: #cacccb;
         background: -moz-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
