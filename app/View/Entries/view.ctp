@@ -10,7 +10,7 @@
         <li class="category person"><a href="#" data-filter=".person">People</a></li>
         <li class="category organization"><a href="#" data-filter=".organization">Organizations</a></li>
         <li class="category event"><a href="#" data-filter=".event">Events</a></li>
-        <li class="editEntry"><a href="/entries/edit/<?php echo $entry['Entry']['name']; ?>">Edit Entry</a></li>
+        <li class="editEntry"><a href="/entries/edit/<?php echo str_replace(' ', '_', $entry['Entry']['name']); ?>">Edit Entry</a></li>
         <div class="cf"></div>
     </ul>
 </section>
@@ -38,7 +38,7 @@
             </div>
             <div class='bottom-link'>
                 <span><?php echo $c['Entry']['name']; ?></span>
-                <a class='link-button' href='/entries/view/<?php echo $c['Entry']['name']; ?>'><span class='triangle'></span></a>
+                <a class='link-button' href='/entries/view/<?php echo str_replace(" ", "_", $c['Entry']['name']); ?>'><span class='triangle'></span></a>
                 <div class='cf'></div>
             </div>
         </li>
