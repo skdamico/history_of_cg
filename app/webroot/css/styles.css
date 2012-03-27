@@ -160,7 +160,6 @@ header#masthead {
   border-radius: 0 0 5px 5px;
   box-shadow: 0 0 5px black;
   margin-bottom: 50px;
-  margin-top: 10px;
   position: relative; }
   .topRight.internal {
     border-radius: 5px; }
@@ -178,9 +177,9 @@ header#masthead {
   border-left: 1px #3b464f solid;
   border-right: 1px #161a1e solid;
   padding: 7px 20px; }
-  .topRight a:first-child {
+  .topRight a:first-of-type {
     border-right: 0; }
-  .topRight a:last-child {
+  .topRight a:last-of-type {
     border-left: 0; }
 
 .topSearch {

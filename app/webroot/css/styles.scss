@@ -91,7 +91,6 @@ header#masthead {
 }
 .topRight, .topRight a, .topRight .search {float:right;}
     .topRight {
-        //border:1px red solid;
         background: #2f363e;
         background: -moz-linear-gradient(top,  #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2f363e), color-stop(9%,#2d363d), color-stop(20%,#2a3137), color-stop(21%,#2c3039), color-stop(24%,#293036), color-stop(41%,#282d31), color-stop(100%,#23262b));
@@ -102,7 +101,6 @@ header#masthead {
         border-radius: 0 0 5px 5px;
         box-shadow: 0 0 5px darken($bg,25%);
         margin-bottom:50px;
-        margin-top:10px;
         position: relative;
         &.internal {
             border-radius:5px;
@@ -121,10 +119,10 @@ header#masthead {
         border-left:1px lighten(#2c343b, 7%) solid;
         border-right:1px darken(#2c343b, 10%) solid;
         padding: 7px 20px;
-        &:first-child {
+        &:first-of-type {
             border-right:0;
         }
-        &:last-child {
+        &:last-of-type {
             border-left:0;
         }
     }
