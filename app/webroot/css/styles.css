@@ -159,9 +159,17 @@ header#masthead {
   background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
   border-radius: 0 0 5px 5px;
   box-shadow: 0 0 5px black;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  margin-top: 10px;
+  position: relative; }
   .topRight.internal {
     border-radius: 5px; }
+  .topRight #login_box {
+    position: absolute;
+    display: none;
+    top: 20px;
+    left: 0;
+    background-color: #888; }
 
 .topRight .search {
   margin-top: 10px; }

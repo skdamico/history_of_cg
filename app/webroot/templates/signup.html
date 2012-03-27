@@ -1,0 +1,25 @@
+<form action='/signup' method='post' accept-charset='utf-8'>
+    <div class='input text'>
+        <label for='UserFirstName'>First name</label>
+        <input type='text' name='data[User][first_name]' maxlength='20' id='UserFirstName' />
+    </div>
+    <div class='input text'>
+        <label for='UserLastName'>Last name</label>
+        <input type='text' name='data[User][last_name]' maxlength='30' id='UserLastName' />
+    </div>
+    <div class='input text required'>
+        <label for='UserEmail'>Email</label>
+        <input type='text' name='data[User][email]' maxlength='200' id='UserEmail' />
+    </div>
+    <div class='input password required'>
+        <label for='UserPassword'>Password</label>
+        <input type='password' name='data[User][password]' id='UserPassword' />
+    </div>
+    <div class='input password required'>
+        <label for='UserPasswordConfirm'>Confirm password</label>
+        <input type='password' name='data[User][password_confirm]' id='UserPasswordConfirm' />
+    </div>
+    <div class='submit'>
+        <input type='submit' value='Sign up' />
+    </div>
+</form>
