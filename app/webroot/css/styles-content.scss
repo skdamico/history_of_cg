@@ -109,7 +109,7 @@ ul.catBar {
     margin: 0 auto;
     overflow:scroll;
     padding:0 10px;
-    width:990px;
+    width:970px;
 }
 
 .tagLists div ul {
@@ -119,8 +119,10 @@ ul.catBar {
 }
 
 .tagLists div ul li {
+    border:1px $bg solid;
+    border-radius:5px;
     display:inline-block;
-    background:black;
+    background:darken($bg, 15%);
     width:150px;
     padding: 5px;
 }
