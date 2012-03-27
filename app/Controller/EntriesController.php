@@ -129,6 +129,7 @@ class EntriesController extends AppController {
             $connections[] = array('Entry' => $c_2['Entry1'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_2['Connection']['id']));
         }
 
+        pr($connections);
         // Get only the unique tags and sort them alphabetical
         $tags = $this->array_unique_tags($tags);
 
