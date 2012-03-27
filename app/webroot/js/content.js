@@ -96,8 +96,8 @@ $(function() {
 
 
         function filter_tag_checkboxes(selector) {
-            $('li:not(li'+selector+')', '.tagLists div ul').hide();
-            $('li'+selector, '.tagLists div ul').show();
+            $('li:not(li'+selector+', li.all)', '.tagLists div ul').hide();
+            $('li.all, li'+selector, '.tagLists div ul').show();
         }
 
         var $list = $('.tagLists div ul');
