@@ -30,8 +30,8 @@
     </div>
     <div class="cf"></div>
   </header>
-  <div class="timeline" id="home-tl">
-      <img src="timeline/timeline.png" />
+  <div class="timeline">
+      <img src="img/timeline/timeline.png" />
   </div>
   <div id='content'>
     <div class='message' style='display: none;'></div>
