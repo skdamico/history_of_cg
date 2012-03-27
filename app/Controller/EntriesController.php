@@ -28,7 +28,7 @@ class EntriesController extends AppController {
 
         // if not found, redirect to not found page
         if(empty($entry)) {
-            $this->redirect(array('action'=>'not_found', $tmp_name));
+            $this->redirect(array('action'=>'not_found', $this->urlize($tmp_name)));
         }
 
         // Get all published stories
