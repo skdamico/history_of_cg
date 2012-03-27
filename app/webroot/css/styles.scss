@@ -82,6 +82,10 @@ header#masthead {
 /* ----- masthead ----- */
 #masthead {position:relative;}
 .branding {float:left;}
+.timeline {
+    margin:0 auto 20px auto;
+    width:960px;
+}
 .topRight, .topRight a, .topRight .search {float:right;}
     .topRight {
         //border:1px red solid;
