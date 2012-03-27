@@ -25,18 +25,21 @@ $(function() {
 
     function toggleSignupForm(signup) {
         if(signup) {
-            $('#login_box .form-container').load('../templates/signup.html');
+            $('#login_box .form-container').load('/templates/signup.html');
             $('#login_box .signup-or-login')
                 .removeClass('login')
                 .children('a').html(buttonText.signupOrLogin.signup);
         }
         else {
-            $('#login_box .form-container').load('../templates/login.html');
+            $('#login_box .form-container').load('/templates/login.html');
             $('#login_box .signup-or-login')
                 .addClass('login')
                 .children('a').html(buttonText.signupOrLogin.login);
         }
     }
 
-    $('#login_box .form-container').load('../templates/login.html');
+    
+    if( $('#login_button') ) {
+        $('#login_box .form-container').load('/templates/login.html');
+    }
 });
