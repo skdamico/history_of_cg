@@ -30,9 +30,6 @@
     </div>
     <div class="cf"></div>
   </header>
-  <div class="timeline">
-      <img src="../../img/timeline/timeline.png" />
-  </div>
   <div id='content'>
     <div class='message' style='display: none;'></div>
     <?php echo $this->Session->flash(); ?>
