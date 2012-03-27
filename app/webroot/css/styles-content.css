@@ -141,8 +141,10 @@ ul.catBar {
   border-radius: 5px;
   display: inline-block;
   background: #070809;
-  width: 150px;
+  width: 125px;
   padding: 5px; }
+  .tagLists div ul li.all {
+    color: #d6dff2; }
 
 .tagLists div input {
   margin-right: 5px; }
