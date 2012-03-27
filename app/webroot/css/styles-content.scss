@@ -163,6 +163,7 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
     position: relative;
     overflow: hidden;
     //clear: both;
+    p {color:#fff;}
 }
 
 ul.mosaicContainer li.tile.story-image {
@@ -191,6 +192,7 @@ ul.mosaicContainer li.tile .container {
 ul.mosaicContainer li.tile .container p {
     margin: 10px;
     font-size: 15px;
+    color:#fff;
 }
 
 ul.mosaicContainer li.dynamic {
