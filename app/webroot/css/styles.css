@@ -141,6 +141,10 @@ header#masthead {
 .branding {
   float: left; }
 
+.timeline {
+  margin: 0 auto 20px auto;
+  width: 960px; }
+
 .topRight, .topRight a, .topRight .search {
   float: right; }
 
