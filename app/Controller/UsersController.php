@@ -48,6 +48,8 @@ class UsersController extends AppController {
                     __('Your newly created account could not be saved'));
             }
         }
+
+        $this->set('title_for_layout', 'Signup');
     }
 
 

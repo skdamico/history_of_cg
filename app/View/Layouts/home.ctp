@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>People Behind the Pixels | Home</title>
+  <title>People Behind the Pixels</title>
   <link type="text/css" rel="stylesheet" media="screen" href="css/baseline.reset.css" />
   <link type='text/css' rel='stylesheet' media='screen' href='css/jquery-ui.css' />
   <link type="text/css" rel="stylesheet" media="screen" href="css/styles.css" />
