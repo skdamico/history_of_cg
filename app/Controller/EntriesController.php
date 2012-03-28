@@ -47,21 +47,11 @@ class EntriesController extends AppController {
         ));
 
 
-        $this->Entry->unbindModel(array('hasAndBelongsToMany' => array('Connection')));
         // work around to get Tag to work with the aliased classes Entry1 and Entry2
         $this->Connection->Entry2->bindModel(
             array(
                 'hasAndBelongsToMany' => array(
-                    'T' => array(
-                        'className' => 'Tag'
-                    )
-                )
-            )
-        );
-        $this->Connection->Entry1->bindModel(
-            array(
-                'hasAndBelongsToMany' => array(
-                    'T' => array(
+                    'Tag' => array(
                         'className' => 'Tag'
                     )
                 )
@@ -79,14 +69,22 @@ class EntriesController extends AppController {
                     'Category' => array(
                         'category'
                     ),
-                    'T' => array(
+                    'Tag' => array(
                         'name',
                     )
                 )
             )
         ));
 
-
+        $this->Connection->Entry1->bindModel(
+            array(
+                'hasAndBelongsToMany' => array(
+                    'Tag' => array(
+                        'className' => 'Tag'
+                    )
+                )
+            )
+        );
         // Get all connections made by other entries
         $connections_2 = $this->Connection->find('all', array(
             'conditions' => array(
@@ -99,13 +97,12 @@ class EntriesController extends AppController {
                     'Category' => array(
                         'category'
                     ),
-                    'T' => array(
+                    'Tag' => array(
                         'name',
                     )
                 )
             )
         ));
-
 
         $tags = array();
         $connections = array();
@@ -115,7 +112,7 @@ class EntriesController extends AppController {
             $display = null;
             $display = $this->find_display_image($c_1['Entry2']['id']);
 
-            $t = $this->get_tag_names($c_1['Entry2']['T'], $c_1['Entry2']['Category']['category']);
+            $t = $this->get_tag_names($c_1['Entry2']['Tag'], $c_1['Entry2']['Category']['category']);
             $tags = array_merge($tags, $t['extra']);
 
             $connections[] = array('Entry' => $c_1['Entry2'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_1['Connection']['id']));
@@ -124,7 +121,7 @@ class EntriesController extends AppController {
             $display = null;
             $display = $this->find_display_image($c_2['Entry1']['id']);
 
-            $t = $this->get_tag_names($c_2['Entry1']['T'], $c_2['Entry1']['Category']['category']);
+            $t = $this->get_tag_names($c_2['Entry1']['Tag'], $c_2['Entry1']['Category']['category']);
             $tags = array_merge($tags, $t['extra']);
 
             $connections[] = array('Entry' => $c_2['Entry1'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_2['Connection']['id']));
