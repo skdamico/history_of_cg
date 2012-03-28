@@ -1,4 +1,6 @@
 <?php
+  echo $this->Html->script(array('common'), array('once' => true));
+
   if(isset($current_user) && !empty($current_user)) {
     echo $this->Html->link("Logout", "/logout");
     echo $this->Html->link("About", "/about");
@@ -7,7 +9,12 @@
   }
   else {
     echo $this->Html->link("About", "/about");
-    echo $this->Html->link("Sign Up", "/signup");
-    echo $this->Html->link("Login", "/login");
+    echo "<a href='#' id='login_button'>Login/Signup</a>";
   }
 ?>
+<div id='login_box'>
+    <div class='signup-or-login login'>
+        <a href='#'>Not signed up yet?</a>
+    </div>
+    <div class='form-container'></div>
+</div>

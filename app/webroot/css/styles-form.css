@@ -184,8 +184,8 @@ div.form-container {
       background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
       background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
       background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
-      border-top: 1px #424b53 solid!important;
       border-radius: 5px;
+      box-shadow: 0 0 5px black;
       box-shadow: 0 0 5px black;
       margin-bottom: 20px;
       padding: 10px!important;

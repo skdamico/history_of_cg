@@ -28,7 +28,7 @@ class EntriesController extends AppController {
 
         // if not found, redirect to not found page
         if(empty($entry)) {
-            $this->redirect(array('action'=>'not_found', $tmp_name));
+            $this->redirect(array('action'=>'not_found', $this->urlize($tmp_name)));
         }
 
         // Get all published stories
@@ -46,6 +46,17 @@ class EntriesController extends AppController {
             )
         ));
 
+
+        // work around to get Tag to work with the aliased classes Entry1 and Entry2
+        $this->Connection->Entry2->bindModel(
+            array(
+                'hasAndBelongsToMany' => array(
+                    'Tag' => array(
+                        'className' => 'Tag'
+                    )
+                )
+            )
+        );
         // Get all connections made by this entry
         $connections_1 = $this->Connection->find('all', array(
             'conditions' => array(
@@ -57,11 +68,23 @@ class EntriesController extends AppController {
                     'name',
                     'Category' => array(
                         'category'
+                    ),
+                    'Tag' => array(
+                        'name',
                     )
                 )
             )
         ));
 
+        $this->Connection->Entry1->bindModel(
+            array(
+                'hasAndBelongsToMany' => array(
+                    'Tag' => array(
+                        'className' => 'Tag'
+                    )
+                )
+            )
+        );
         // Get all connections made by other entries
         $connections_2 = $this->Connection->find('all', array(
             'conditions' => array(
@@ -73,12 +96,15 @@ class EntriesController extends AppController {
                     'name',
                     'Category' => array(
                         'category'
+                    ),
+                    'Tag' => array(
+                        'name',
                     )
                 )
             )
         ));
 
-
+        $tags = array();
         $connections = array();
 
         // Merge both sides of the circular connection into many 'Entry'
@@ -86,20 +112,61 @@ class EntriesController extends AppController {
             $display = null;
             $display = $this->find_display_image($c_1['Entry2']['id']);
 
-            $connections[] = array('Entry' => $c_1['Entry2'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_1['Connection']['id']));
+            $t = $this->get_tag_names($c_1['Entry2']['Tag'], $c_1['Entry2']['Category']['category']);
+            $tags = array_merge($tags, $t['extra']);
+
+            $connections[] = array('Entry' => $c_1['Entry2'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_1['Connection']['id']));
         }
         foreach( $connections_2 as $c_2) {
             $display = null;
             $display = $this->find_display_image($c_2['Entry1']['id']);
 
-            $connections[] = array('Entry' => $c_2['Entry1'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_2['Connection']['id']));
+            $t = $this->get_tag_names($c_2['Entry1']['Tag'], $c_2['Entry1']['Category']['category']);
+            $tags = array_merge($tags, $t['extra']);
+
+            $connections[] = array('Entry' => $c_2['Entry1'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_2['Connection']['id']));
         }
+
+        // Get only the unique tags and sort them alphabetical
+        $tags = $this->array_unique_tags($tags);
+
+        function cmp($a, $b) {
+            return strnatcmp($a['name'], $b['name']);
+        }
+        usort($tags, 'cmp');
 
         $this->set(compact('connections'));
         $this->set(compact('stories'));
         $this->set(compact('entry'));
+        $this->set(compact('tags'));
+
+        $this->set('title_for_layout', $entry['Entry']['name']);
     }
 
+    private function array_unique_tags($t_arr) {
+        $seen = array();
+        $tmp = array();
+
+        foreach($t_arr as $t) {
+            if(!in_array($t['name'], $seen)) {
+                $tmp[] = $t;
+                $seen[] = $t['name'];
+            }
+        }
+        return $tmp;
+    }
+
+    private function get_tag_names($t_arr, $cat) {
+        $t = array();
+        $simple = array();
+
+        foreach($t_arr as $tmp) {
+            $t[] = array('name' => $tmp['name'], 'category' => $cat);
+            $simple[] = $tmp['name'];
+        }
+
+        return array('simple' => $simple, 'extra' => $t);
+    }
 
     /*
      * find a front display image from the list of stories that are images
@@ -305,6 +372,8 @@ class EntriesController extends AppController {
         $entry = array();
         $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
         $this->set(compact('entry'));
+
+        $this->set('title_for_layout', 'Add an entry');
     }
 
     public function edit($id = null) {
@@ -466,6 +535,8 @@ class EntriesController extends AppController {
         $this->set(compact('connections'));
         $this->set(compact('stories'));
         $this->set(compact('entry'));
+
+        $this->set('title_for_layout', 'Edit - ' . $entry['Entry']['name']);
     }
 
 }

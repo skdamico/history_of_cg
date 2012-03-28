@@ -62,7 +62,8 @@ html, body {
   background-repeat: repeat, no-repeat;
   color: #fff;
   font-family: Helvetica, sans-serif;
-  height: 100%; }
+  height: 100%;
+  margin: 0; }
 
 /* ~~~~ Containers ~~~~ */
 .wrapper {
@@ -128,7 +129,7 @@ h3.section-title {
 
 header#masthead {
   margin: 0 auto;
-  padding: 25px 0;
+  padding: 15px 0 25px 0;
   width: 990px; }
 
 .cf {
@@ -136,22 +137,111 @@ header#masthead {
 
 /* ----- masthead ----- */
 #masthead {
-  margin-top: 35px; }
+  position: relative; }
 
 .branding {
   float: left; }
+
+.timeline {
+  margin: 0 auto 20px auto;
+  width: 960px; }
 
 .topRight, .topRight a, .topRight .search {
   float: right; }
 
 .topRight {
-  margin-top: 10px; }
+  background: #2f363e;
+  background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+  background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px black;
+  margin-bottom: 50px;
+  position: relative; }
+  .topRight.internal {
+    border-radius: 5px; }
+  .topRight #login_box {
+    background: #2f363e;
+    background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+    background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    position: absolute;
+    display: none;
+    top: 35px;
+    left: 0;
+    padding: 10px;
+    z-index: 99999; }
+    .topRight #login_box a {
+      color: #fda200;
+      padding: 0 0 10px 0; }
+    .topRight #login_box div.form-container {
+      clear: both; }
+      .topRight #login_box div.form-container label {
+        color: #4f5d69;
+        display: block;
+        padding-bottom: 5px; }
+      .topRight #login_box div.form-container input[type="text"], .topRight #login_box div.form-container input[type="password"] {
+        background-color: #23272b;
+        border: 1px #363c41 solid;
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px black;
+        color: #c6d2e6;
+        display: block;
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 92%; }
+        .topRight #login_box div.form-container input[type="text"]:focus, .topRight #login_box div.form-container input[type="password"]:focus {
+          border: 1px #6f7c87 solid !important;
+          outline: 0!important; }
+      .topRight #login_box div.form-container input[type="submit"] {
+        background: #cacccb;
+        background: -moz-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cacccb), color-stop(3%, #cacbc6), color-stop(6%, #c9c9c9), color-stop(13%, #c8cac9), color-stop(26%, #c2c2c2), color-stop(39%, #bcc0bf), color-stop(48%, #b8b9bb), color-stop(52%, #b9b9bb), color-stop(55%, #b7b5b6), color-stop(58%, #b5b5b7), color-stop(71%, #adafae), color-stop(74%, #adaeb0), color-stop(77%, #a9adae), color-stop(81%, #aaaaac), color-stop(97%, #a6a6a8));
+        background: -webkit-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+        background: -o-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+        background: -ms-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+        background: linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+        border: 1px #2a2f33 solid;
+        border-radius: 5px;
+        box-shadow: 0 0 2px #070809;
+        color: #2a2f33;
+        font-family: Gotham, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 7px 15px;
+        cursor: pointer; }
+        .topRight #login_box div.form-container input[type="submit"]:hover {
+          color: #adadad; }
+        .topRight #login_box div.form-container input[type="submit"]:hover {
+          color: #131517; }
 
 .topRight .search {
   margin-top: 10px; }
 
 .topRight a {
-  margin-left: 10px; }
+  border-left: 1px #3b464f solid;
+  border-right: 1px #161a1e solid;
+  padding: 7px 20px; }
+  .topRight a:first-of-type {
+    border-right: 0; }
+  .topRight a:last-of-type {
+    border-left: 0; }
+
+.topSearch {
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 50px; }
 
 .search input.searchBox {
   background-color: #141414;
@@ -303,4 +393,59 @@ div.content_nf {
     div.content_nf a.button:hover {
       color: #adadad; }
     div.content_nf a.button:hover {
+      color: #131517; }
+
+/* ----- login/sign up PAGES ----- */
+form#UserCreateForm, form#UserSignupForm {
+  background: #2f363e;
+  background: -moz-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f363e), color-stop(9%, #2d363d), color-stop(20%, #2a3137), color-stop(21%, #2c3039), color-stop(24%, #293036), color-stop(41%, #282d31), color-stop(100%, #23262b));
+  background: -webkit-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -o-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: -ms-linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  background: linear-gradient(top, #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  width: 360px; }
+  form#UserCreateForm label, form#UserSignupForm label {
+    color: #657686;
+    display: block;
+    font-size: 14px;
+    padding-bottom: 3px; }
+  form#UserCreateForm input[type="text"], form#UserCreateForm input[type="password"], form#UserCreateForm input[type="email"], form#UserSignupForm input[type="text"], form#UserSignupForm input[type="password"], form#UserSignupForm input[type="email"] {
+    background-color: #23272b;
+    border: 1px #363c41 solid;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px black;
+    color: #bababa;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 340px; }
+    form#UserCreateForm input[type="text"]:focus, form#UserCreateForm input[type="password"]:focus, form#UserCreateForm input[type="email"]:focus, form#UserSignupForm input[type="text"]:focus, form#UserSignupForm input[type="password"]:focus, form#UserSignupForm input[type="email"]:focus {
+      border: 1px #6f7c87 solid;
+      outline: 0!important; }
+  form#UserCreateForm input[type="submit"], form#UserSignupForm input[type="submit"] {
+    background: #cacccb;
+    background: -moz-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cacccb), color-stop(3%, #cacbc6), color-stop(6%, #c9c9c9), color-stop(13%, #c8cac9), color-stop(26%, #c2c2c2), color-stop(39%, #bcc0bf), color-stop(48%, #b8b9bb), color-stop(52%, #b9b9bb), color-stop(55%, #b7b5b6), color-stop(58%, #b5b5b7), color-stop(71%, #adafae), color-stop(74%, #adaeb0), color-stop(77%, #a9adae), color-stop(81%, #aaaaac), color-stop(97%, #a6a6a8));
+    background: -webkit-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+    background: -o-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+    background: -ms-linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+    background: linear-gradient(top, #cacccb 0%, #cacbc6 3%, #c9c9c9 6%, #c8cac9 13%, #c2c2c2 26%, #bcc0bf 39%, #b8b9bb 48%, #b9b9bb 52%, #b7b5b6 55%, #b5b5b7 58%, #adafae 71%, #adaeb0 74%, #a9adae 77%, #aaaaac 81%, #a6a6a8 97%);
+    border: 1px #2a2f33 solid;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #070809;
+    color: #2a2f33;
+    font-family: Gotham, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 7px 15px;
+    cursor: pointer; }
+    form#UserCreateForm input[type="submit"]:hover, form#UserSignupForm input[type="submit"]:hover {
+      color: #adadad; }
+    form#UserCreateForm input[type="submit"]:hover, form#UserSignupForm input[type="submit"]:hover {
       color: #131517; }

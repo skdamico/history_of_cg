@@ -44,3 +44,7 @@
     margin-left: 3px;
     width: 370px !important;
 }
+
+div.timeline#home-tl {
+    margin-top:75px;
+}

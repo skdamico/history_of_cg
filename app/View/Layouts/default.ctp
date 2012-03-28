@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php echo $this->Html->charset(); ?>
-    <title>People Behind the Pixels | <?php echo $title_for_layout; ?></title>
+    <title><?php echo $title_for_layout; ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <?php 
         echo $this->Html->css(array('jquery-ui', 'styles'));
@@ -19,8 +19,10 @@
             'url' => array('controller' => 'home', 'action' => 'index'),
             'alt' => 'People Behind the Pixels')); ?>
     </div>
-    <div class="topRight unitx2">
+    <div class="topRight internal">
       <?php echo $this->element('top_menu'); ?>
+    </div>
+    <div class="topSearch">
       <form id="searchForm" class="search unitx2 cf">
         <input type="text" class="searchBox" placeholder="Start searching!" />
         <button class="searchBtn" title="Search">Search</button>

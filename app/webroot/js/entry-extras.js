@@ -482,7 +482,10 @@ $(function() {
         theme: 'hcg',
         allowCustomEntry: true,
         preventDuplicates: true,
-        hintText: 'Enter keywords to describe this connection'
+        hintText: 'Enter tags to describe this connection',
+        onReady: function() {
+            $form.find('.token-input-input-token-hcg input').attr('placeholder', 'Add a tag');
+        }
     });
 
     //
