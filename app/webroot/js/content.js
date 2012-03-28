@@ -71,9 +71,7 @@ $(function() {
                 $(".entryMast .catBar .category").removeClass("selected");
                 $parent.addClass("selected");
 
-                // filter by category
                 var selector = $(this).attr("data-filter");
-                $mosaic.isotope({filter: selector});
 
                 filter_tag_checkboxes(selector);
 
@@ -87,6 +85,10 @@ $(function() {
                 // create hairline
                 $dynamic.removeClass("person project organization event");
                 $dynamic.addClass(selector.replace(/\./g, ""));
+
+                // filter by category
+                $mosaic.isotope({filter: selector});
+                $mosaic.isotope( 'reLayout' );
 
                 // toggle tag filter list
                 $('.tagLists div').slideDown();

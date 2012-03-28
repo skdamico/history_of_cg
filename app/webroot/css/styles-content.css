@@ -183,7 +183,7 @@ ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
   position: relative;
   overflow: hidden; }
 
-ul.mosaicContainer li.tile.story-image, ul.mosaicContainer li.tile.story-image {
+ul.mosaicContainer li.tile.story-image, ul.mosaicContainer li.tile.story-image img {
   width: 233px; }
 
 ul.mosaicContainer li.tile.story-image.double-size, ul.mosaicContainer li.tile.story-image.double-size img {

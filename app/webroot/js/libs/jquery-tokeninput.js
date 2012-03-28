@@ -53,7 +53,8 @@ var DEFAULT_SETTINGS = {
         
     onResult: null,
     onAdd: null,
-    onDelete: null
+    onDelete: null,
+    onReady: null
 };
 
 
@@ -485,6 +486,11 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
     }
     
     
+    // Initialization is done
+    if($.isFunction(settings.onReady)) {
+        settings.onReady.call();
+    }
+
     //
     // Public functions
     //
