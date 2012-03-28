@@ -50,10 +50,8 @@ $(function() {
             if($parent.hasClass("selected")) {
                 // remove selected
                 $parent.removeClass("selected");
-                
-                // remove filters
-                $mosaic.isotope({filter: "*"});
 
+                // hide tag list
                 $(".tagLists div").slideUp();
 
                 // repopulate description
@@ -63,6 +61,10 @@ $(function() {
                 // add hairline
                 $dynamic.removeClass("person project organization event");
                 $dynamic.addClass($('.entryInfo .entryCategory').val());
+
+                // remove filters
+                $mosaic.isotope({filter: "*"});
+                $mosaic.isotope( 'reLayout' );
             }
             else {
                 // add selected class
