@@ -139,6 +139,8 @@ class EntriesController extends AppController {
         $this->set(compact('stories'));
         $this->set(compact('entry'));
         $this->set(compact('tags'));
+
+        $this->set('title_for_layout', $entry['Entry']['name']);
     }
 
     private function array_unique_tags($t_arr) {
@@ -370,6 +372,8 @@ class EntriesController extends AppController {
         $entry = array();
         $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
         $this->set(compact('entry'));
+
+        $this->set('title_for_layout', 'Add an entry');
     }
 
     public function edit($id = null) {
@@ -531,6 +535,8 @@ class EntriesController extends AppController {
         $this->set(compact('connections'));
         $this->set(compact('stories'));
         $this->set(compact('entry'));
+
+        $this->set('title_for_layout', 'Edit - ' . $entry['Entry']['name']);
     }
 
 }

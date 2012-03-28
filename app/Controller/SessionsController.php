@@ -24,6 +24,8 @@ class SessionsController extends AppController {
         $this->Session->setFlash(__('Email or password is incorrect',true));
       }
     }
+
+    $this->set('title_for_layout', 'Login');
   }
 
   public function destroy() {

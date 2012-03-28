@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php echo $this->Html->charset(); ?>
-    <title>People Behind the Pixels | <?php echo $title_for_layout; ?></title>
+    <title><?php echo $title_for_layout; ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <?php 
         echo $this->Html->css(array('jquery-ui', 'styles'));
