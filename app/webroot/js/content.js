@@ -35,7 +35,7 @@ $(function() {
             animationEngine: "best-available",
             layoutMode: "masonry",
             masonry: {
-                columnWidth: 246,
+                columnWidth: 245,
                 cornerStampSelector: ".dynamic"
             },
             resizable: true
