@@ -35,7 +35,7 @@ $(function() {
             animationEngine: "best-available",
             layoutMode: "masonry",
             masonry: {
-                columnWidth: 246,
+                columnWidth: 245,
                 cornerStampSelector: ".dynamic"
             },
             resizable: true
@@ -57,7 +57,7 @@ $(function() {
                 // repopulate description
                 var $dynamic = $(".mosaicContainer .dynamic");
                 $dynamic.html($(".entryInfo .entryDescription").html());
-                
+
                 // add hairline
                 $dynamic.removeClass("person project organization event");
                 $dynamic.addClass($('.entryInfo .entryCategory').val());
@@ -77,10 +77,6 @@ $(function() {
 
                 filter_tag_checkboxes(selector);
 
-                // toggle tag filter list
-                $('.tagLists div').slideDown();
-
-
                 // create list of filter
                 var $dynamic = $(".mosaicContainer .dynamic");
                 $dynamic.html("<p>List of "+$(this).html().toLowerCase()+" in relation w/ "+$(".entryInfo .entryName").val()+"</p><ul class='filterList'></ul>");
@@ -91,6 +87,9 @@ $(function() {
                 // create hairline
                 $dynamic.removeClass("person project organization event");
                 $dynamic.addClass(selector.replace(/\./g, ""));
+
+                // toggle tag filter list
+                $('.tagLists div').slideDown();
             }
 
             return false;

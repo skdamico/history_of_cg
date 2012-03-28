@@ -31,7 +31,7 @@
         <li class="tile connection <?php echo $c['Entry']['Category']['category']; echo " " . implode(' ', $c['tags']); ?>">
             <div class='container'>
                 <?php if($c['connection_display_type'] == 'image'): ?>
-                <img style='width: 240px;' src='<?php echo $c['connection_display']; ?>' />
+                <img src='<?php echo $c['connection_display']; ?>' />
                 <?php else: ?>
                 <p><?php echo $c['connection_display']; ?></p>
                 <?php endif; ?>
@@ -56,7 +56,10 @@
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
             <li class="tile story story-video">
                 <div class='container'>
-                    <div class='lite' style='width:486px; height:360px' id="<?php echo $s['Story']['video']; ?>"></div>
+                    <!-- 
+                      4:3 aspect ratio
+                    -->
+                    <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
             </li>
@@ -66,13 +69,13 @@
                 $img = null;
                 $doubleSize = false;
                 $img = getimagesize($s['Story']['url']);
-                if($img[0] >= 486) {
+                if($img[0] >= 478) {
                     $doubleSize = true;
                 }
             ?>
-                <li class="tile story story-image<?php echo $doubleSize ? ' double-size' : ''; ?>">
+            <li class="tile story story-image<?php echo $doubleSize ? ' double-size' : ''; ?>">
                 <div class='container'>
-                    <img width='<?php echo $doubleSize ? '486' : '240'; ?>' src='<?php echo $s['Story']['url']; ?>' />
+                    <img src='<?php echo $s['Story']['url']; ?>' />
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-image'></span></div>
             </li>
