@@ -28,6 +28,6 @@ class Entry extends AppModel {
       'foreignKey' => 'entry_id_1',
       'associationForeignKey' => 'entry_id_2',
       'with' => 'Connection'
-    )
+    ),
   );
 }
