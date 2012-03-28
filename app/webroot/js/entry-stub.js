@@ -22,7 +22,7 @@ $(function() {
             theme: 'hcg',
             allowCustomEntry: true,
             preventDuplicates: true,
-            hintText: 'Please further categorize this entry'
+            hintText: 'Enter tags to describe this entry',
         });
 
         if($entryId.val() !== '') {
