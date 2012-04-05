@@ -1,3 +1,5 @@
+<link type="text/css" rel="stylesheet" media="screen" href="css/styles-about.css" />
+
 <h1 class="entryTitle">About</h1>
 <section class="about-section">    	
 	<div id="HOCGtitle"><h3 class="section-title">About the History of CG</h3></div>
@@ -33,19 +35,52 @@
 <section class="about-section">
 	<div id="HOCGcreators"><h3 class="section-title">About the Creators</h3></div>
 	<div class="aboutCreators">
-   		<div class="groupPhoto"></div>
-		<a href="#" id="connie">Test Connie</a>
-		<a href="#" id="michelle">Test Michelle</a>
-		<a href="#" id="stefano">Test Stefano</a>
-		<a href="#" id="amy">Test Amy</a>
-		<a href="#" id="james">Test James</a>
-		<a href="#" id="terrence">Test Terrence</a>
-		<a href="#" id="brian">Test Brian</a>
-   		<div class="groupPhotoArrow"></div>
-		<div class="moreInfo">
-			<div class="bio-picture"></div>
-			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
-			<div class="bio-role"><p> Designer <br> Developer </p></div>
+   	<div class="groupPhoto"></div>
+		<a class="teamdetails" id="connie">Test Connie</a>
+		<a class="teamdetails" id="michelle">Test Michelle</a>
+		<a class="teamdetails" id="stefano">Test Stefano</a>
+		<a class="teamdetails" id="amy">Test Amy</a>
+		<a class="teamdetails" id="james">Test James</a>
+		<a class="teamdetails" id="terrence">Test Terrence</a>
+		<a class="teamdetails" id="brian">Test Brian</a>
+   	<div class="groupPhotoArrow"><img src="img/aboutUsArrow.png" /></div>
+
+    <div class="moreInfo" id="general-info">
+      <div class="bio-top">
+        <div class="bio-name"><p>Meet the team</p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+    <div class="moreInfo" id="connie-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_connie.png" alt="Connie Chan" /></div>
+        <div class="bio-name"><p> Connie <br> Chan </p></div>
+        <div class="bio-role"><p> Designer &amp;<br> Developer </p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+		<div class="moreInfo" id="michelle-info">
+      <div class="bio-top">
+  			<div class="bio-picture"><img src="img/picture_michelle.png" alt="Michelle Gayowski" /></div>
+  			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
+  			<div class="bio-role"><p> Designer &amp; <br> Developer </p></div>
+      </div>
 			<div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
 			elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
 			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
@@ -53,6 +88,110 @@
 			reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
 			pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
 			qui officia deserunt mollit anim id est laborum. </p>
-		</div>
-	</div>
+		  </div>
+    </div>
+
+    <div class="moreInfo" id="stefano-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_stefano.png" alt="Stefano D'Amico" /></div>
+        <div class="bio-name"><p> Stefano <br> D'Amico </p></div>
+        <div class="bio-role"><p> Developer </p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+    <div class="moreInfo" id="amy-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_amy.png" alt="Amy Schaffer" /></div>
+        <div class="bio-name"><p> Amy <br> Schaffer </p></div>
+        <div class="bio-role"><p> Developer </p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+    <div class="moreInfo" id="james-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_james.png" alt="James Staub" /></div>
+        <div class="bio-name"><p> James <br> Staub </p></div>
+        <div class="bio-role"><p> Project Manager </p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+    <div class="moreInfo" id="terrence-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_terrence.png" alt="Terrence Masson" /></div>
+        <div class="bio-name"><p> Terrence <br> Masson </p></div>
+        <div class="bio-role"><p>Mastermind &amp;<br />Professor</p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+    <div class="moreInfo" id="brian-info">
+      <div class="bio-top">
+        <div class="bio-picture"><img src="img/picture_brian.png" alt="Brian Sullivan" /></div>
+        <div class="bio-name"><p>Brian<br>Sullivan</p></div>
+        <div class="bio-role"><p>Professor</p></div>
+      </div>
+      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<script>
+$('.moreInfo#general-info').show();
+$('.teamdetails').click(function () {
+  var who = this.id;
+  $('.moreInfo').slideUp();
+  $('#'+who+'-info').slideDown();
+  //well taht was ez!
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
