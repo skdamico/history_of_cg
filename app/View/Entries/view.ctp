@@ -19,7 +19,7 @@
         <ul>
             <li class="all"><input type="checkbox" data-filter="*" checked="checked" />All</li>
             <?php foreach($tags as $t): ?>
-            <li class='<?php echo $t['category']; ?>'><input type='checkbox' data-filter='.<?php echo $t['name']; ?>' /><?php echo $t['name']; ?></li>
+            <li class='<?php echo $t['category']; ?>'><input type='checkbox' data-filter='.<?php echo str_replace(' ', '-', $t['name']); ?>' /><?php echo $t['name']; ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -28,7 +28,7 @@
     <ul class="mosaicContainer loading cf">
         <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo $entry['Entry']['description']; ?></p></li>
     <?php foreach($connections as $c): ?>
-        <li class="tile connection <?php echo $c['Entry']['Category']['category']; echo " " . implode(' ', $c['tags']); ?>">
+        <li class="tile connection <?php echo $c['Entry']['Category']['category']; echo " " . implode(' ', str_replace(' ', '-', $c['tags'])); ?>">
             <div class='container'>
                 <?php if($c['connection_display_type'] == 'image'): ?>
                 <img src='<?php echo $c['connection_display']; ?>' />
