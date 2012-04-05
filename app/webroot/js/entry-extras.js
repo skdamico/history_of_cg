@@ -79,6 +79,7 @@ $(function() {
 
     // hide the extra fields
     $form.find('.extra').slideUp();
+    $form.find('button').html('Connect Entries');
 
     // clear the form
     $connection_form_tags.tokenInput("clear");
@@ -538,6 +539,7 @@ $(function() {
         if(data.more) {
           // show connection form extras
           $form.find('.extra').slideDown();
+          $form.find('button').html('Save and Connect Entry');
         }
         else {
           if(data.response) {
