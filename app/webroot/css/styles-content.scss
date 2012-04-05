@@ -35,7 +35,7 @@ ul.catBar {
     }
     li.editEntry {
         a {
-            color:#393a3a;
+            color:lighten(#393a3a,10%);
             float:right;
             font-size:12px;
             text-transform:none;
