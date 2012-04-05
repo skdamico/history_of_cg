@@ -1,27 +1,3 @@
-function change_publish_ui(button, publish, value) {
-    var $publish = $(button).siblings('.publish');
-
-    if(publish === "publish") {
-        if(value === 1) {
-            $(button).html('Unpublish');
-            $publish.val('0');
-        }
-        else if(value === 0) {
-            $(button).html('Publish');
-            $publish.val('1');
-        }
-    }
-    else if(publish === "draft") {
-        // disable draft
-        if(value === 'disable') {
-            $publish.attr('disabled', true);
-        }
-        else if(value === 'enable') {
-            $publish.removeAttr('disabled');
-        }
-    }
-}
-
 $(function() {
     // stupid
     var dateInfo = {
@@ -209,12 +185,14 @@ $(function() {
             }
         }
 
+        var $allpublish = $('.form-container form .save .publish');
+
         // init entry save buttons
         $('.form-container form .save button').click( function() {
 
           if(!$(this).hasClass('publish-button')) {
             // save draft, do not publish
-            change_publish_ui(this, "draft", "disable");
+            $allpublish.attr('disabled', true);
           }
 
           return true;
