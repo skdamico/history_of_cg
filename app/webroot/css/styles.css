@@ -146,7 +146,7 @@ header#masthead {
   margin: 0 auto 20px auto;
   width: 960px; }
 
-.topRight, .topRight a, .topRight .search {
+.topRight, .topRight a, .topRight .menu-item, .topRight .search {
   float: right; }
 
 .topRight {
@@ -228,13 +228,13 @@ header#masthead {
 .topRight .search {
   margin-top: 10px; }
 
-.topRight a {
+.topRight a, .topRight .menu-item {
   border-left: 1px #3b464f solid;
   border-right: 1px #161a1e solid;
   padding: 7px 20px; }
-  .topRight a:first-of-type {
+  .topRight a:first-of-type, .topRight .menu-item:first-of-type {
     border-right: 0; }
-  .topRight a:last-of-type {
+  .topRight a:last-of-type, .topRight .menu-item:last-of-type {
     border-left: 0; }
 
 .topSearch {
