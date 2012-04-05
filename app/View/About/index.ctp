@@ -64,7 +64,7 @@
         <div class="bio-top">
           <div class="bio-picture"><img src="img/picture_connie.png" alt="Connie Chan" /></div>
           <div class="bio-name"><p> Connie <br> Chan </p></div>
-          <div class="bio-role"><p> Designer &amp;<br> Developer </p></div>
+          <div class="bio-role"><p> Designer &amp;<br> Front-end </p></div>
         </div>
         <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
         elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
@@ -80,7 +80,7 @@
         <div class="bio-top">
     			<div class="bio-picture"><img src="img/picture_michelle.png" alt="Michelle Gayowski" /></div>
     			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
-    			<div class="bio-role"><p> Designer &amp; <br> Developer </p></div>
+    			<div class="bio-role"><p> Designer &amp; <br> Front-end </p></div>
         </div>
   			<div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
   			elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
