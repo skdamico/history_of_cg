@@ -30,32 +30,26 @@ div.form-container {
 
     #toolbar {
         margin-top:20px;
-        span.publish-status {
+        .publish-status {
             color:lighten($bg, 17%);
             font-family:Gotham, Helvetica, Arial, sans-serif;
             font-size:16px;
             font-weight:600;
             margin-left:15px;
             text-transform:uppercase;
+            float: right;
         }
-        span.title {
+        .title {
             float: left;
         }
-        span.view {
+        .view {
             float: right;
 
             a {
                 @include form-button;
             }
         }
-        span.add-new {
-            float: right;
-            margin-right: 10px;
-            a {
-                @include form-button;
-            }
-        }
-        span.publish-status {
+        .save {
             float: right;
         }
     }

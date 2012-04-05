@@ -5,7 +5,7 @@
     echo $this->Html->link("Logout", "/logout");
     echo $this->Html->link("About", "/about");
     echo $this->Html->link("Add an Entry", "/entries/add");
-    echo $this->Html->link("Hello, ".$current_user["first_name"], "/users/view");
+    echo "<span class='menu-item'>Hello, ".$current_user["first_name"]."</span>";
   }
   else {
     echo $this->Html->link("About", "/about");

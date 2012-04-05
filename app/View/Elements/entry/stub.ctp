@@ -28,7 +28,7 @@
                 'div' => false,
                 'label' => false,
                 'id' => 'entryName',
-                'value' => $entry['Entry']['name'])); ?>
+                'value' => str_replace('_', ' ', $entry['Entry']['name']))); ?>
         </li>
         <li class="entry-tags fields">
             <input type='text' name='data[tags]' class='tags' />

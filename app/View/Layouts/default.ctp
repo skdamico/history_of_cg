@@ -24,7 +24,7 @@
     </div>
     <div class="topSearch">
       <form id="searchForm" class="search unitx2 cf">
-        <input type="text" class="searchBox" placeholder="Start searching!" />
+        <input type="text" class="searchBox" placeholder="Search" />
         <button class="searchBtn" title="Search">Search</button>
       </form>
     </div>

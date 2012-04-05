@@ -1,27 +1,3 @@
-function change_publish_ui(button, publish, value) {
-    var $publish = $(button).siblings('.publish');
-
-    if(publish === "publish") {
-        if(value === 1) {
-            $(button).html('Unpublish');
-            $publish.val('0');
-        }
-        else if(value === 0) {
-            $(button).html('Publish');
-            $publish.val('1');
-        }
-    }
-    else if(publish === "draft") {
-        // disable draft
-        if(value === 'disable') {
-            $publish.attr('disabled', true);
-        }
-        else if(value === 'enable') {
-            $publish.removeAttr('disabled');
-        }
-    }
-}
-
 $(function() {
     // stupid
     var dateInfo = {
@@ -167,13 +143,50 @@ $(function() {
             var t = $(this).children('option:selected').text().toLowerCase();
 
             change_colors_with(t);
-
             change_date_fields_with(t);
         });
 
         // ----------------- DATEPICKER -----------------
-        $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });
-        $("#entry-date-box-2").datepicker({ altField: '#entry-date-box-2-helper', altFormat:'yy-mm-dd' });
+        $("#entry-date-box-1").datepicker({
+          altField: '#entry-date-box-1-helper',
+          altFormat:'yy-mm-dd',
+          changeMonth: true,
+          changeYear: true,
+          minDate: new Date(1940, 1 - 1, 1),
+          yearRange: '1940:c',
+          onSelect: function( selectedDate ) {
+            var option = "minDate",
+                instance = $( this ).data( "datepicker" ),
+                date = $.datepicker.parseDate(
+                  instance.settings.dateFormat ||
+                  $.datepicker._defaults.dateFormat,
+                  selectedDate, instance.settings );
+            $('#entry-date-box-2').datepicker( "option", option, date );
+
+            // select the second date automatically if shown.
+            if($('.basics #entry-date-selected').is(':checked')) {
+              $('#entry-date-box-2').val(selectedDate);
+            }
+          },
+          minDate: new Date(1940, 1 - 1, 1)
+        });
+        $("#entry-date-box-2").datepicker({
+          altField: '#entry-date-box-2-helper',
+          altFormat:'yy-mm-dd',
+          changeMonth: true,
+          changeYear: true,
+          minDate: new Date(1940, 1 - 1, 1),
+          yearRange: '1940:c',
+          onSelect: function( selectedDate ) {
+            var option = "maxDate",
+                instance = $( this ).data( "datepicker" ),
+                date = $.datepicker.parseDate(
+                  instance.settings.dateFormat ||
+                  $.datepicker._defaults.dateFormat,
+                  selectedDate, instance.settings );
+            $('#entry-date-box-1').datepicker( "option", option, date );
+          },
+        });
 
         show_second_date($('.basics #entry-date-selected').is(':checked'));
         $('.basics #entry-date-selected').click(function() {
@@ -209,12 +222,14 @@ $(function() {
             }
         }
 
+        var $allpublish = $('.form-container form .save .publish');
+
         // init entry save buttons
         $('.form-container form .save button').click( function() {
 
           if(!$(this).hasClass('publish-button')) {
             // save draft, do not publish
-            change_publish_ui(this, "draft", "disable");
+            $allpublish.attr('disabled', true);
           }
 
           return true;

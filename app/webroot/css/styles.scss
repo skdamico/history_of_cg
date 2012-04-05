@@ -89,7 +89,7 @@ header#masthead {
     margin:0 auto 20px auto;
     width:960px;
 }
-.topRight, .topRight a, .topRight .search {float:right;}
+.topRight, .topRight a, .topRight .menu-item, .topRight .search {float:right;}
     .topRight {
         background: #2f363e;
         background: -moz-linear-gradient(top,  #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
@@ -151,7 +151,7 @@ header#masthead {
         }
     }
     .topRight .search {margin-top:10px;}
-    .topRight a {
+    .topRight a, .topRight .menu-item {
         border-left:1px lighten(#2c343b, 7%) solid;
         border-right:1px darken(#2c343b, 10%) solid;
         padding: 7px 20px;
