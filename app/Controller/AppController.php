@@ -17,7 +17,7 @@ class AppController extends Controller {
     $this->Auth->loginAction = array('controller' => 'sessions', 'action' => 'create');
     // Where to redirect to after successfully logging in:
     // This can also be an array() with 'controller' and 'action' keys like above.
-    $this->Auth->loginRedirect = '/';
+    $this->Auth->loginRedirect = $this->Auth->referrer;
     // Where to redirect to after successfully logging out:
     $this->Auth->logoutRedirect = '/';
 
