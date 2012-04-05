@@ -184,15 +184,3 @@ $('.teamdetails').click(function () {
   //well taht was ez!
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
