@@ -143,13 +143,50 @@ $(function() {
             var t = $(this).children('option:selected').text().toLowerCase();
 
             change_colors_with(t);
-
             change_date_fields_with(t);
         });
 
         // ----------------- DATEPICKER -----------------
-        $("#entry-date-box-1").datepicker({ altField: '#entry-date-box-1-helper', altFormat:'yy-mm-dd' });
-        $("#entry-date-box-2").datepicker({ altField: '#entry-date-box-2-helper', altFormat:'yy-mm-dd' });
+        $("#entry-date-box-1").datepicker({
+          altField: '#entry-date-box-1-helper',
+          altFormat:'yy-mm-dd',
+          changeMonth: true,
+          changeYear: true,
+          minDate: new Date(1940, 1 - 1, 1),
+          yearRange: '1940:c',
+          onSelect: function( selectedDate ) {
+            var option = "minDate",
+                instance = $( this ).data( "datepicker" ),
+                date = $.datepicker.parseDate(
+                  instance.settings.dateFormat ||
+                  $.datepicker._defaults.dateFormat,
+                  selectedDate, instance.settings );
+            $('#entry-date-box-2').datepicker( "option", option, date );
+
+            // select the second date automatically if shown.
+            if($('.basics #entry-date-selected').is(':checked')) {
+              $('#entry-date-box-2').val(selectedDate);
+            }
+          },
+          minDate: new Date(1940, 1 - 1, 1)
+        });
+        $("#entry-date-box-2").datepicker({
+          altField: '#entry-date-box-2-helper',
+          altFormat:'yy-mm-dd',
+          changeMonth: true,
+          changeYear: true,
+          minDate: new Date(1940, 1 - 1, 1),
+          yearRange: '1940:c',
+          onSelect: function( selectedDate ) {
+            var option = "maxDate",
+                instance = $( this ).data( "datepicker" ),
+                date = $.datepicker.parseDate(
+                  instance.settings.dateFormat ||
+                  $.datepicker._defaults.dateFormat,
+                  selectedDate, instance.settings );
+            $('#entry-date-box-1').datepicker( "option", option, date );
+          },
+        });
 
         show_second_date($('.basics #entry-date-selected').is(':checked'));
         $('.basics #entry-date-selected').click(function() {
