@@ -45,132 +45,133 @@
 		<a class="teamdetails" id="brian">Test Brian</a>
    	<div class="groupPhotoArrow"><img src="img/aboutUsArrow.png" /></div>
 
-    <div class="moreInfo" id="general-info">
-      <div class="bio-top">
-        <div class="bio-name"><p>Meet the team</p></div>
+    <div class="right-info">
+      <div class="moreInfo" id="general-info">
+        <div class="bio-top">
+          <div class="bio-name"><p>Meet the team</p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
       </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
+
+      <div class="moreInfo" id="connie-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_connie.png" alt="Connie Chan" /></div>
+          <div class="bio-name"><p> Connie <br> Chan </p></div>
+          <div class="bio-role"><p> Designer &amp;<br> Developer </p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </div>
+
+  		<div class="moreInfo" id="michelle-info">
+        <div class="bio-top">
+    			<div class="bio-picture"><img src="img/picture_michelle.png" alt="Michelle Gayowski" /></div>
+    			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
+    			<div class="bio-role"><p> Designer &amp; <br> Developer </p></div>
+        </div>
+  			<div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+  			elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+  			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+  			nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+  			reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+  			pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+  			qui officia deserunt mollit anim id est laborum. </p>
+  		  </div>
+      </div>
+
+      <div class="moreInfo" id="stefano-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_stefano.png" alt="Stefano D'Amico" /></div>
+          <div class="bio-name"><p> Stefano <br> D'Amico </p></div>
+          <div class="bio-role"><p> Developer </p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </div>
+
+      <div class="moreInfo" id="amy-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_amy.png" alt="Amy Schaffer" /></div>
+          <div class="bio-name"><p> Amy <br> Schaffer </p></div>
+          <div class="bio-role"><p> Developer </p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </div>
+
+      <div class="moreInfo" id="james-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_james.png" alt="James Staub" /></div>
+          <div class="bio-name"><p> James <br> Staub </p></div>
+          <div class="bio-role"><p> Project Manager </p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </div>
+
+      <div class="moreInfo" id="terrence-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_terrence.png" alt="Terrence Masson" /></div>
+          <div class="bio-name"><p> Terrence <br> Masson </p></div>
+          <div class="bio-role"><p>Mastermind &amp;<br />Professor</p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </div>
+
+      <div class="moreInfo" id="brian-info">
+        <div class="bio-top">
+          <div class="bio-picture"><img src="img/picture_brian.png" alt="Brian Sullivan" /></div>
+          <div class="bio-name"><p>Brian<br>Sullivan</p></div>
+          <div class="bio-role"><p>Professor</p></div>
+        </div>
+        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
+        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
+        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
+        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
+        qui officia deserunt mollit anim id est laborum. </p>
+        </div>
       </div>
     </div>
-
-    <div class="moreInfo" id="connie-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_connie.png" alt="Connie Chan" /></div>
-        <div class="bio-name"><p> Connie <br> Chan </p></div>
-        <div class="bio-role"><p> Designer &amp;<br> Developer </p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
-		<div class="moreInfo" id="michelle-info">
-      <div class="bio-top">
-  			<div class="bio-picture"><img src="img/picture_michelle.png" alt="Michelle Gayowski" /></div>
-  			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
-  			<div class="bio-role"><p> Designer &amp; <br> Developer </p></div>
-      </div>
-			<div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-			elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-			nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-			reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-			pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-			qui officia deserunt mollit anim id est laborum. </p>
-		  </div>
-    </div>
-
-    <div class="moreInfo" id="stefano-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_stefano.png" alt="Stefano D'Amico" /></div>
-        <div class="bio-name"><p> Stefano <br> D'Amico </p></div>
-        <div class="bio-role"><p> Developer </p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
-    <div class="moreInfo" id="amy-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_amy.png" alt="Amy Schaffer" /></div>
-        <div class="bio-name"><p> Amy <br> Schaffer </p></div>
-        <div class="bio-role"><p> Developer </p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
-    <div class="moreInfo" id="james-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_james.png" alt="James Staub" /></div>
-        <div class="bio-name"><p> James <br> Staub </p></div>
-        <div class="bio-role"><p> Project Manager </p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
-    <div class="moreInfo" id="terrence-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_terrence.png" alt="Terrence Masson" /></div>
-        <div class="bio-name"><p> Terrence <br> Masson </p></div>
-        <div class="bio-role"><p>Mastermind &amp;<br />Professor</p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
-    <div class="moreInfo" id="brian-info">
-      <div class="bio-top">
-        <div class="bio-picture"><img src="img/picture_brian.png" alt="Brian Sullivan" /></div>
-        <div class="bio-name"><p>Brian<br>Sullivan</p></div>
-        <div class="bio-role"><p>Professor</p></div>
-      </div>
-      <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-      elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-      reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-      pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-      qui officia deserunt mollit anim id est laborum. </p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -178,8 +179,8 @@
 $('.moreInfo#general-info').show();
 $('.teamdetails').click(function () {
   var who = this.id;
-  $('.moreInfo').slideUp();
-  $('#'+who+'-info').slideDown();
+  $('.moreInfo').slideUp(200);
+  $('#'+who+'-info').slideDown(200);
   //well taht was ez!
 });
 </script>

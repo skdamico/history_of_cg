@@ -146,19 +146,21 @@
 	}
 	
 /*-------------------- about the CREATORS section BIOS BOX ------------*/
+.right-info {
+	float:right;
+	margin-top:13px;
+	width:280px;
+}
 .moreInfo {
 	background-color: #1a1c1d;
 	border: 1px solid #ffffff;
 	color: #e6e6e6;
-	//display: block;
 	display:none;
 	float:right;
 	height: 300px;
-	margin:13px 0 0 0;
 	width: 275px;
 }
 	.bio-top {
-		display:block;
 		height:110px;
 		width:100%;
 	}
