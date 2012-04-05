@@ -4,6 +4,7 @@
 <div class="form-container">
     <div id='toolbar'>
       <h1>Add Entry</h1>
+      <span class="required">* Required</span>
     </div>
     <?php
         echo $this->Form->create('Entry');

@@ -55,7 +55,6 @@ div.form-container {
     }
     form {
         div.section-in-form {
-            border-bottom:1px darken($light-gray,45%) solid;
             padding:20px 0;
             &:last-child {
                 border:0;
@@ -157,7 +156,6 @@ div.form-container {
         }
     }
     div.section-in-form {
-        border-bottom:1px darken($light-gray,45%) solid;
         padding:20px 0;
         &:last-child {
             border:0;

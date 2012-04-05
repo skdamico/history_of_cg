@@ -133,7 +133,6 @@ div.form-container {
     div.form-container #toolbar .save {
       float: right; }
   div.form-container form div.section-in-form {
-    border-bottom: 1px #474747 solid;
     padding: 20px 0; }
     div.form-container form div.section-in-form:last-child {
       border: 0; }
@@ -208,7 +207,6 @@ div.form-container {
         div.form-container div.right-column div.connections-col ul.required-labels li.labels {
           margin-bottom: 7px!important; }
   div.form-container div.section-in-form {
-    border-bottom: 1px #474747 solid;
     padding: 20px 0; }
     div.form-container div.section-in-form:last-child {
       border: 0; }
