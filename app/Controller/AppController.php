@@ -15,10 +15,6 @@ class AppController extends Controller {
 
     // Specify which controller/action handles logging in:
     $this->Auth->loginAction = array('controller' => 'sessions', 'action' => 'create');
-    // Where to redirect to after successfully logging in:
-    // This can also be an array() with 'controller' and 'action' keys like above.
-    $this->Auth->loginRedirect = $this->Auth->referrer;
-    // Where to redirect to after successfully logging out:
     $this->Auth->logoutRedirect = '/';
 
     // By default, the Auth component expects a username and a password

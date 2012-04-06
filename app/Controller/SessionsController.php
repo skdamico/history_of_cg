@@ -15,14 +15,21 @@ class SessionsController extends AppController {
 
   public function create() {
     if($this->request->is('post')) {
-      if($this->Auth->login()) {
-        // the redirect() function in the Auth class redirects us
-        // to the url we set up in the AppController.
-        return $this->redirect( $this->Auth->redirect() );
-      }
-      else {
-        $this->Session->setFlash(__('Email or password is incorrect',true));
-      }
+        if($this->Auth->login()) {
+
+            // if this is the /login or /signup page, redirect to home
+            // otherwise we want to stay on the referral page
+            if( $this->referer(null, true) == Router::url(array('controller'=>'sessions', 'action'=>'create')) ||
+                $this->referer(null, true) == Router::url(array('controller'=>'users', 'action'=>'signup')) ) {
+                $this->redirect('/');
+            }
+            else {
+                $this->redirect( $this->Auth->redirect( $this->referer() ) );
+            }
+        }
+        else {
+            $this->Session->setFlash(__('Email or password is incorrect',true));
+        }
     }
 
     $this->set('title_for_layout', 'Login');
