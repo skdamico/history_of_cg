@@ -5,3 +5,4 @@
     <?php echo $this->element('entry/publish_ui', array('table_name' => 'Entry', 't' => $entry)); ?>
     <div class='cf'></div>
 </div>
+<span class="required">* Required</span>
