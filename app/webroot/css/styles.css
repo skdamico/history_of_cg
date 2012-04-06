@@ -145,6 +145,19 @@ header#masthead {
 .timeline {
   margin: 0 auto 20px auto;
   width: 960px; }
+  .timeline .tooltip {
+    border-radius: 5px;
+    display: none;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 10px;
+    position: absolute;
+    text-shadow: 1px 1px 1px #000;
+    line-height: 30px;
+    height: 30px;
+    width: 120px;
+    background-color: #1e2225;
+    text-align: center; }
 
 .topRight, .topRight a, .topRight .menu-item, .topRight .search {
   float: right; }

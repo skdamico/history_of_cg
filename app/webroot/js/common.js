@@ -42,4 +42,22 @@ $(function() {
     if( $('#login_button') ) {
         $('#login_box .form-container').load('/templates/login.html');
     }
+
+    var $timeline = $('.timeline');
+    var $tooltip = $('.timeline .tooltip');
+    if( $timeline ) {
+      $timeline.hover(
+        function() {
+          $tooltip.fadeIn();
+        },
+        function() {
+          $tooltip.fadeOut();
+        });
+      $(document).bind('mousemove', function(e) {
+        $tooltip.css({
+          left: e.pageX,
+          top: e.pageY
+        });
+      });
+    }
 });
