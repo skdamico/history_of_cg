@@ -1,23 +1,8 @@
 #homeWrapper #page {
-	margin:0 auto;
-	width:990px;
+    margin:0 auto;
+    width:990px;
 }
 
-#homeWrapper .aboutProj {
-    float:right;
-    margin:35px 0 10px 0;
-    text-align:right;
-	width: 108px;
-}
-    #homeWrapper .aboutProj a {
-        background-image:url('../img/about.png');
-        display:block;
-        float:right;
-        font-size:0;
-        height:69px;
-        text-indent:99999px;
-        width:61px;
-    }
 #homeWrapper #homeBranding {
     clear:both;
     text-align:center;
@@ -45,6 +30,7 @@
     width: 370px !important;
 }
 
-div.timeline#home-tl {
+div.timeline {
     margin-top:75px;
 }
+
