@@ -217,6 +217,9 @@ div.form-container {
   div.form-container div.stories-col {
     float: left;
     width: 530px; }
+    div.form-container div.stories-col div.stories.new {
+      background-image: url("../img/dark-bg.png");
+      border-radius: 5px; }
     div.form-container div.stories-col div.stories div.story-collapsed {
       display: none; }
     div.form-container div.stories-col div.stories p.story-collapsed-heading {
