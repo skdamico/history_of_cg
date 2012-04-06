@@ -104,6 +104,7 @@ div.form-container {
       font-size: 16px;
       font-weight: 600;
       margin-left: 15px;
+      margin-top: 8px;
       text-transform: uppercase;
       float: right; }
     div.form-container #toolbar .title {
@@ -127,7 +128,10 @@ div.form-container {
         font-weight: 600;
         text-transform: uppercase;
         padding: 7px 15px;
-        cursor: pointer; }
+        cursor: pointer;
+        float: right;
+        margin-left: 5px;
+        margin-top: 2px; }
         div.form-container #toolbar .view a:hover {
           color: #adadad; }
     div.form-container #toolbar .save {
