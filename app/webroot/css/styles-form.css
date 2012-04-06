@@ -104,6 +104,7 @@ div.form-container {
       font-size: 16px;
       font-weight: 600;
       margin-left: 15px;
+      margin-top: 8px;
       text-transform: uppercase;
       float: right; }
     div.form-container #toolbar .title {
@@ -127,7 +128,10 @@ div.form-container {
         font-weight: 600;
         text-transform: uppercase;
         padding: 7px 15px;
-        cursor: pointer; }
+        cursor: pointer;
+        float: right;
+        margin-left: 5px;
+        margin-top: 2px; }
         div.form-container #toolbar .view a:hover {
           color: #adadad; }
     div.form-container #toolbar .save {
@@ -213,65 +217,67 @@ div.form-container {
   div.form-container div.stories-col {
     float: left;
     width: 530px; }
-    div.form-container div.stories-col div.stories div.story-collapsed {
-      display: none; }
-    div.form-container div.stories-col div.stories p.story-collapsed-heading {
-      background: #212938;
-      background: -moz-linear-gradient(top, #212938 0%, black 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #212938), color-stop(100%, black));
-      background: -webkit-linear-gradient(top, #212938 0%, black 100%);
-      background: -o-linear-gradient(top, #212938 0%, black 100%);
-      background: -ms-linear-gradient(top, #212938 0%, black 100%);
-      background: linear-gradient(top, #212938 0%, black 100%);
-      border: 1px #050608 solid;
-      border-radius: 5px;
-      box-shadow: 0 0 2px #141414;
-      color: #bababa;
-      font-family: Gotham, Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 10px;
-      width: 505px; }
-      div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete {
-        float: right; }
-        div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete:hover {
-          background-color: #383838;
-          border-radius: 3px; }
-      div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
-        color: #273144;
-        float: right;
-        font-size: 12px;
-        font-weight: normal;
-        text-shadow: none; }
-      div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type {
-        float: right;
-        height: 25px;
-        margin-left: 5px; }
-        div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-text {
-          background: url("../img/richMedia_icons.png");
-          background-position: 1px 0;
-          background-repeat: no-repeat;
-          width: 25px; }
-        div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-image {
-          background: url("../img/richMedia_icons.png");
-          background-position: -23px 0;
-          background-repeat: no-repeat;
-          width: 25px; }
-        div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-video {
-          background: url("../img/richMedia_icons.png");
-          background-position: -46px 0;
-          background-repeat: no-repeat;
-          width: 25px; }
-      div.form-container div.stories-col div.stories p.story-collapsed-heading:hover {
-        background: #000000;
-        background: -moz-linear-gradient(top, black 0%, #212938 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, #212938));
-        background: -webkit-linear-gradient(top, black 0%, #212938 100%);
-        background: -o-linear-gradient(top, black 0%, #212938 100%);
-        background: -ms-linear-gradient(top, black 0%, #212938 100%);
-        background: linear-gradient(top, black 0%, #212938 100%);
-        cursor: pointer; }
+    div.form-container div.stories-col div.stories {
+      border-radius: 5px; }
+      div.form-container div.stories-col div.stories div.story-collapsed {
+        display: none; }
+      div.form-container div.stories-col div.stories p.story-collapsed-heading {
+        background: #212938;
+        background: -moz-linear-gradient(top, #212938 0%, black 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #212938), color-stop(100%, black));
+        background: -webkit-linear-gradient(top, #212938 0%, black 100%);
+        background: -o-linear-gradient(top, #212938 0%, black 100%);
+        background: -ms-linear-gradient(top, #212938 0%, black 100%);
+        background: linear-gradient(top, #212938 0%, black 100%);
+        border: 1px #050608 solid;
+        border-radius: 5px;
+        box-shadow: 0 0 2px #141414;
+        color: #bababa;
+        font-family: Gotham, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px;
+        width: 505px; }
+        div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete {
+          float: right; }
+          div.form-container div.stories-col div.stories p.story-collapsed-heading span.delete:hover {
+            background-color: #383838;
+            border-radius: 3px; }
+        div.form-container div.stories-col div.stories p.story-collapsed-heading span.info {
+          color: #273144;
+          float: right;
+          font-size: 12px;
+          font-weight: normal;
+          text-shadow: none; }
+        div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type {
+          float: right;
+          height: 25px;
+          margin-left: 5px; }
+          div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-text {
+            background: url("../img/richMedia_icons.png");
+            background-position: 1px 0;
+            background-repeat: no-repeat;
+            width: 25px; }
+          div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-image {
+            background: url("../img/richMedia_icons.png");
+            background-position: -23px 0;
+            background-repeat: no-repeat;
+            width: 25px; }
+          div.form-container div.stories-col div.stories p.story-collapsed-heading span.story-type.story-type-icon-video {
+            background: url("../img/richMedia_icons.png");
+            background-position: -46px 0;
+            background-repeat: no-repeat;
+            width: 25px; }
+        div.form-container div.stories-col div.stories p.story-collapsed-heading:hover {
+          background: #000000;
+          background: -moz-linear-gradient(top, black 0%, #212938 100%);
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, #212938));
+          background: -webkit-linear-gradient(top, black 0%, #212938 100%);
+          background: -o-linear-gradient(top, black 0%, #212938 100%);
+          background: -ms-linear-gradient(top, black 0%, #212938 100%);
+          background: linear-gradient(top, black 0%, #212938 100%);
+          cursor: pointer; }
     div.form-container div.stories-col li.story-body {
       width: 440px; }
     div.form-container div.stories-col textarea {
