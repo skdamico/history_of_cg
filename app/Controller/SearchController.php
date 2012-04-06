@@ -7,24 +7,32 @@ class SearchController extends AppController {
     function beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index');
+        $this->Auth->allow('entries');
     }
 
-    public function index( $type, $query ) {
+    public function entries( $query=null ) {
         if(empty($query)) {
+            $this->set('query', null);
             $this->set('results', null);
             return;
         }
 
-        if(!empty($type) && $type == "entries") {
-            $results = $this->Entry->find('all', array(
-                'limit' => 10,
-                'recursive' => 0,
-                'fields' => array('Entry.id', 'Entry.name', 'Category.category'),
-                'conditions' => array('Entry.name LIKE' => '%'.$query.'%')
-            ));
+        $q_arr = explode('+', $query);
 
-            $this->set(compact('results'));
+        $c = array();
+        foreach($q_arr as $q) {
+            $c[] = array('Entry.name LIKE' => '%'.$q.'%');
         }
+        $conditions = array('OR' => $c);
+
+        $results = $this->Entry->find('all', array(
+            'limit' => 10,
+            'recursive' => 0,
+            'fields' => array('Entry.id', 'Entry.slug', 'Entry.name', 'Category.category'),
+            'conditions' => $conditions
+        ));
+
+        $this->set(compact('query'));
+        $this->set(compact('results'));
     }
 }
