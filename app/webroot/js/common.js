@@ -48,10 +48,10 @@ $(function() {
     if( $timeline ) {
       $timeline.hover(
         function() {
-          $tooltip.fadeIn();
+          $tooltip.stop(true, true).fadeIn('fast');
         },
         function() {
-          $tooltip.fadeOut();
+          $tooltip.stop(true, true).fadeOut('fast');
         });
       $(document).mousemove(function(e) {
         $tooltip.css({
