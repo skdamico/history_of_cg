@@ -169,6 +169,10 @@ div.form-container {
         float:left;
         width:530px;
         div.stories {
+            &.new {
+                background-image:url('../img/dark-bg.png');
+                border-radius:5px;
+            }
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
                 background: #212938;
