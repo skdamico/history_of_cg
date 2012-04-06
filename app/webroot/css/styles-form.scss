@@ -169,8 +169,9 @@ div.form-container {
         float:left;
         width:530px;
         div.stories {
-            //background-image:url('../img/dark-bg.png');
+            background-image:url('../img/dark-bg.png');
             border-radius:5px;
+            padding: 0 0 10px 10px;
             
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
@@ -190,7 +191,9 @@ div.form-container {
 				font-size:16px;
                 font-weight:600;
 				text-transform:uppercase;
+                margin:0 0 10px -10px;
                 padding:10px;
+                position:relative;
                 width:505px;
 
                 span.delete {
