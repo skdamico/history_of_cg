@@ -36,6 +36,7 @@ div.form-container {
             font-size:16px;
             font-weight:600;
             margin-left:15px;
+            margin-top:8px;
             text-transform:uppercase;
             float: right;
         }
@@ -47,6 +48,9 @@ div.form-container {
 
             a {
                 @include form-button;
+                float:right;
+                margin-left:5px;
+                margin-top:2px;
             }
         }
         .save {
