@@ -36,11 +36,15 @@ $(document).ready(function() {
                });
 
                if(!inDB) {
+                  /* REAL SEARCH!
                    //Prompt user that item is not in the db
                    var addUser = confirm("'"+searchtext+"' cannot be found. Create an entry?");
                    if(addUser) {
                        window.location = "/entries/add/"+searchtext.replace(/ /g, "_");
                    }
+
+                  */
+                   window.location = "/search/entries/"+searchtext.replace(/ /g, "+");
                }
            });
 
