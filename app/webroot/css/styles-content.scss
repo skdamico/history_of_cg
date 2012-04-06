@@ -35,7 +35,7 @@ ul.catBar {
     }
     li.editEntry {
         a {
-            color:#393a3a;
+            color:lighten(#393a3a,10%);
             float:right;
             font-size:12px;
             text-transform:none;
@@ -106,10 +106,25 @@ ul.catBar {
     clear: both!important;
     color:#9fd6ff;
     min-height:100px;
+    max-height:150px;
     margin: 0 auto;
-    overflow:scroll;
+    overflow-y:auto;
+    overflow-x:hidden;
     padding:0 10px;
     width:970px;
+
+    //styling vert scrollbar
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
 }
 
 .tagLists div ul {

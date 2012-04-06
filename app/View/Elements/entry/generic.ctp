@@ -1,4 +1,3 @@
-<h2>Required information</h2>
 <div class="basics section-in-form">
     <ul class="basic-labels all-labels">
         <li class="label-entry-description labels">Description<span class="required"> *</span></li>

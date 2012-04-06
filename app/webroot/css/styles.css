@@ -462,3 +462,5 @@ form#UserCreateForm, form#UserSignupForm {
       color: #adadad; }
     form#UserCreateForm input[type="submit"]:hover, form#UserSignupForm input[type="submit"]:hover {
       color: #131517; }
+  form#UserCreateForm div.submit p, form#UserSignupForm div.submit p {
+    float: right; }
