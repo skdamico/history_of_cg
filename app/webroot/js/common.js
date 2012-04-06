@@ -53,7 +53,7 @@ $(function() {
         function() {
           $tooltip.fadeOut();
         });
-      $(document).bind('mousemove', function(e) {
+      $(document).mousemove(function(e) {
         $tooltip.css({
           left: e.pageX,
           top: e.pageY

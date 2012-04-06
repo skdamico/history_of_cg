@@ -17,7 +17,6 @@ html,body {
 .wrapper {font-size:75%;}
 #page{
     margin:0 auto;
-    position: relative;
 }
 .spacer {
     display: none;
@@ -102,6 +101,7 @@ header#masthead {
         width: 120px;
         background-color: darken(#292f33, 5%);
         text-align: center;
+        z-index: 200;
     }
 }
 .topRight, .topRight a, .topRight .menu-item, .topRight .search {float:right;}

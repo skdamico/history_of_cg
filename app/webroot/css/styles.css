@@ -70,8 +70,7 @@ html, body {
   font-size: 75%; }
 
 #page {
-  margin: 0 auto;
-  position: relative; }
+  margin: 0 auto; }
 
 .spacer {
   display: none;
@@ -157,7 +156,8 @@ header#masthead {
     height: 30px;
     width: 120px;
     background-color: #1e2225;
-    text-align: center; }
+    text-align: center;
+    z-index: 200; }
 
 .topRight, .topRight a, .topRight .menu-item, .topRight .search {
   float: right; }
