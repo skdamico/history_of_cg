@@ -297,10 +297,15 @@ header#masthead {
 .autocomplete-category-box.person {background-color: #00b8d9;}
 
 /* ----- autocomplete hover states ----- */
-a.ui-corner-all {
-    border:1px red solid;
+li.ui-menu-item {
     &:hover {
-        border:1px green solid;
+        border:1px red solid;
+    }
+    a.ui-corner-all {
+        &:hover {
+            background:none;
+            border:none;
+        }
     }
 }
 
