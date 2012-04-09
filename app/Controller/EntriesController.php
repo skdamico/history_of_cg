@@ -385,7 +385,7 @@ class EntriesController extends AppController {
         }
 
         $entry = array();
-        $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
+        $entry['Entry'] = array('name' => $name, 'homepage_url' => '', 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
         $this->set(compact('entry'));
 
         $this->set('title_for_layout', 'Add an entry');
