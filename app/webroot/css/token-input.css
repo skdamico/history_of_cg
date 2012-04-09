@@ -94,7 +94,6 @@ div.token-input-dropdown {
     cursor: default;
     //font-size: 12px;
     //font-family: Verdana;
-    padding:10px;
     z-index: 999;
 }
 
@@ -107,7 +106,7 @@ div.token-input-dropdown p {
 
 div.token-input-dropdown ul {
     margin: 0;
-    padding: 0;
+    padding:10px;
 }
 
 div.token-input-dropdown ul li {
