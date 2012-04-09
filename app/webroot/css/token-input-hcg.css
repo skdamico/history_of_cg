@@ -156,7 +156,8 @@ div.token-input-dropdown-hcg ul {
 
 div.token-input-dropdown-hcg ul li {
     //background-color: #fff;
-    padding: 3px;
+    border-bottom:1px gray solid;
+    padding:5px 0;
     margin: 0;
     font-size: 0.98em;
     list-style-type: none;
