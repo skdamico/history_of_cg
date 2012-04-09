@@ -40,7 +40,15 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('Your account has been created'));
 
                 if($this->Auth->login()) {
-                    return $this->redirect($this->Auth->redirect()); // redirect
+                    // if this is the /login or /signup page, redirect to home
+                    // otherwise we want to stay on the referral page
+                    if( $this->referer(null, true) == Router::url(array('controller'=>'sessions', 'action'=>'create')) ||
+                        $this->referer(null, true) == Router::url(array('controller'=>'users', 'action'=>'signup')) ) {
+                        $this->redirect('/');
+                    }
+                    else {
+                        $this->redirect( $this->Auth->redirect( $this->referer() ) );
+                    }
                 }
             }
             else {
