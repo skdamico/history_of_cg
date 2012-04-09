@@ -125,17 +125,19 @@ div.token-input-dropdown-hcg {
     background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
     background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
     background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    border: 1px solid lighten(#1d1e22,10%);
     border-radius:5px;
     box-shadow: 0 0 1px 1.5px #0f0f0f;
     -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
     -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
 
     margin-top:3px;
+    padding:10px;
     overflow: hidden;
-    border: 1px solid lighten(#1d1e22,10%);
+    
     cursor: default;
-    font-size: 0.96em;
-    font-family: Verdana;
+    //font-size: 0.96em;
+    //font-family: Verdana;
     z-index: 999;
     color: #fff;
 }
