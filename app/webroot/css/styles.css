@@ -382,9 +382,10 @@ header#masthead {
   background-color: #00b8d9; }
 
 /* ----- autocomplete hover states ----- */
-.ui-corner-all:hover {
-  background: none;
-  border: 0; }
+a.ui-corner-all {
+  border: 1px red solid; }
+  a.ui-corner-all:hover {
+    border: 1px green solid; }
 
 /* ----- not found content ----- */
 div.content_nf {
