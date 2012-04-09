@@ -299,7 +299,7 @@ header#masthead {
 /* ----- autocomplete hover states ----- */
 li.ui-menu-item {
     &:hover {
-        border:1px red solid;
+        background:#1d1e22;
     }
     a.ui-corner-all {
         &:hover {
