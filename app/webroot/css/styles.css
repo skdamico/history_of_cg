@@ -320,7 +320,7 @@ header#masthead {
   color: #b9b9b9;
   overflow: hidden;
   cursor: default;
-  z-index: 1; }
+  z-index: 9999!important; }
 
 .ui-autocomplete li.ui-menu-item {
   padding: 5px 10px 5px 10px;
