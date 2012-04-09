@@ -383,7 +383,7 @@ header#masthead {
 
 /* ----- autocomplete hover states ----- */
 li.ui-menu-item:hover {
-  border: 1px red solid; }
+  background: #1d1e22; }
 li.ui-menu-item a.ui-corner-all:hover {
   background: none;
   border: none; }
