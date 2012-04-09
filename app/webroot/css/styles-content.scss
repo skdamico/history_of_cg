@@ -246,12 +246,15 @@ ul.mosaicContainer li.tile .bottom-link {
     display: block;
     width: 100%;
     //min-height: 30px;
-    //line-height: 30px;
     background-color: #333;
     text-decoration: none;
     color: #fff;
     overflow: hidden;
 
+    span {
+        line-height: 19px;
+        padding:7px 0;
+    }
     span.story-type {
         float:right;
         margin-top: 5px;
