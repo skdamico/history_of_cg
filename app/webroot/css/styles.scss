@@ -296,6 +296,12 @@ header#masthead {
 .autocomplete-category-box.event {background-color:#d200ff;}
 .autocomplete-category-box.person {background-color: #00b8d9;}
 
+/* ----- autocomplete hover states ----- */
+.ui-corner-all:hover {
+    background:none;
+    border:0;
+}
+
 /* ----- not found content ----- */
 div.content_nf {
     margin:0 auto;
