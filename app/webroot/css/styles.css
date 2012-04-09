@@ -245,8 +245,6 @@ header#masthead {
   border-left: 1px #3b464f solid;
   border-right: 1px #161a1e solid;
   padding: 7px 20px; }
-  .topRight a:first-of-type, .topRight .menu-item:first-of-type {
-    border-right: 0; }
 
 .topRight .menu-item:last-of-type {
   border-left: 0; }

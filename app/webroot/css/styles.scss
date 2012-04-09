@@ -170,9 +170,6 @@ header#masthead {
         border-left:1px lighten(#2c343b, 7%) solid;
         border-right:1px darken(#2c343b, 10%) solid;
         padding: 7px 20px;
-        &:first-of-type {
-            border-right:0;
-        }
     }
     .topRight .menu-item:last-of-type {
         border-left:0;
