@@ -132,7 +132,7 @@ div.token-input-dropdown-hcg {
 
     margin-top:3px;
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: 1px solid lighten(#1d1e22,10%);
     cursor: default;
     font-size: 0.96em;
     font-family: Verdana;
