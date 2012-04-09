@@ -239,8 +239,6 @@ ul.mosaicContainer li.dynamic p {
 ul.mosaicContainer li.tile .bottom-link {
   display: block;
   width: 100%;
-  min-height: 30px;
-  line-height: 30px;
   background-color: #333;
   text-decoration: none;
   color: #fff;
