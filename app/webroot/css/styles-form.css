@@ -510,6 +510,7 @@ ul.token-input-list-hcg {
     min-height: 420px;
     padding: 15px; }
     .tabs div.tab-content button {
+      font-size: 11px;
       padding: 4px 10px; }
     .tabs div.tab-content h3 {
       margin-bottom: 12px; }
