@@ -92,9 +92,10 @@ div.token-input-dropdown {
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     cursor: default;
-    font-size: 12px;
-    font-family: Verdana;
-    z-index: 1;
+    //font-size: 12px;
+    //font-family: Verdana;
+    padding:10px;
+    z-index: 999;
 }
 
 div.token-input-dropdown p {
