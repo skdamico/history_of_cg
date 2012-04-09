@@ -185,6 +185,7 @@ ul.mosaicContainer li.dynamic .filterList li a {
   font-size: 15px; }
 
 ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
+  box-shadow: 0 0 10px 0px #000;
   margin: 0px 5px 10px 5px;
   padding: 0;
   width: 233px;
@@ -250,7 +251,7 @@ ul.mosaicContainer li.tile .bottom-link {
     float: right;
     margin-top: 5px;
     margin-right: 3px;
-    height: 5px; }
+    height: 9px; }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-text {
       background: url("../img/richMedia_icons.png");
       background-position: 1px 0;
