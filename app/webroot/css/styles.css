@@ -382,11 +382,13 @@ header#masthead {
   background-color: #00b8d9; }
 
 /* ----- autocomplete hover states ----- */
-li.ui-menu-item:hover {
-  background: #1d1e22; }
-li.ui-menu-item a.ui-corner-all:hover {
-  background: none;
-  border: none; }
+li.ui-menu-item {
+  z-index: 999; }
+  li.ui-menu-item:hover {
+    background: #34363e; }
+  li.ui-menu-item a.ui-corner-all:hover {
+    background: none;
+    border: none; }
 
 /* ----- not found content ----- */
 div.content_nf {

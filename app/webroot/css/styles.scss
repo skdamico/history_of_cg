@@ -298,8 +298,9 @@ header#masthead {
 
 /* ----- autocomplete hover states ----- */
 li.ui-menu-item {
+    z-index:999;
     &:hover {
-        background:#1d1e22;
+        background:lighten(#1d1e22,10%);
     }
     a.ui-corner-all {
         &:hover {
