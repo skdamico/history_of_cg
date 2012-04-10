@@ -172,7 +172,10 @@ div.form-container {
             background-image:url('../img/dark-bg.png');
             border-radius:5px;
             margin:10px 0;
-            //padding: 0 0 10px 10px;
+            padding: 0 0 10px 10px;
+            &.new {
+                padding:0;
+            }
             
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
@@ -192,7 +195,7 @@ div.form-container {
 				font-size:16px;
                 font-weight:600;
 				text-transform:uppercase;
-                //margin:0 0 10px -10px;
+                margin:0 0 10px 0;
                 padding:10px;
                 position:relative;
                 width:505px;
@@ -492,7 +495,7 @@ ul.token-input-list-hcg {
     width:530px;
     div.tab-content {
         clear: both;
-        min-height:420px;
+        min-height:400px;
         padding: 15px;
         button {
             font-size:11px;
