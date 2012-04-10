@@ -50,14 +50,7 @@
       <div class="moreInfo" id="general-info">
         <div class="bio-top">
           <div class="bio-name"><p>Meet the team</p></div>
-        </div>
-        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-        qui officia deserunt mollit anim id est laborum. </p>
+          <p>Click on our pixely counterparts to learn more<br/> about each team member!</p>
         </div>
       </div>
 
