@@ -3,8 +3,8 @@
 
 <div class="form-container">
     <?php
-        echo $this->element('entry/toolbar', array('title' => 'Edit Entry', 'entry' => $entry));
         echo $this->Form->create('Entry');
+        echo $this->element('entry/toolbar', array('title' => 'Edit Entry', 'entry' => $entry));
         echo $this->element('entry/stub');
         echo $this->element('entry/generic');
         echo $this->element('entry/publish_ui', array('table_name' => 'Entry', 't' => $entry));

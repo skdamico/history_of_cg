@@ -47,7 +47,7 @@ $(function() {
           },
           select: function( event, ui ) {
             //redirect to content page for that entry
-            window.location = "/entries/view/"+ui.item.name.replace(/ /g, "_");
+            window.location = "/entries/view/"+ui.item.slug;
 
             return false;
           },

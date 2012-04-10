@@ -70,8 +70,7 @@ html, body {
   font-size: 75%; }
 
 #page {
-  margin: 0 auto;
-  position: relative; }
+  margin: 0 auto; }
 
 .spacer {
   display: none;
@@ -145,8 +144,22 @@ header#masthead {
 .timeline {
   margin: 0 auto 20px auto;
   width: 960px; }
+  .timeline .tooltip {
+    border-radius: 5px;
+    display: none;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 10px;
+    position: absolute;
+    text-shadow: 1px 1px 1px #000;
+    line-height: 30px;
+    height: 30px;
+    width: 120px;
+    background-color: #1e2225;
+    text-align: center;
+    z-index: 200; }
 
-.topRight, .topRight a, .topRight .search {
+.topRight, .topRight a, .topRight .menu-item, .topRight .search {
   float: right; }
 
 .topRight {
@@ -228,14 +241,13 @@ header#masthead {
 .topRight .search {
   margin-top: 10px; }
 
-.topRight a {
+.topRight a, .topRight .menu-item {
   border-left: 1px #3b464f solid;
   border-right: 1px #161a1e solid;
   padding: 7px 20px; }
-  .topRight a:first-of-type {
-    border-right: 0; }
-  .topRight a:last-of-type {
-    border-left: 0; }
+
+.topRight .menu-item:last-of-type {
+  border-left: 0; }
 
 .topSearch {
   float: right;
@@ -301,13 +313,13 @@ header#masthead {
   box-shadow: 0 0 1px 1.5px #0f0f0f;
   -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
   -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
-  margin: 0;
+  margin: 3px 0 0 0;
   padding: 0px;
   width: 232px;
   color: #b9b9b9;
   overflow: hidden;
   cursor: default;
-  z-index: 1; }
+  z-index: 9999!important; }
 
 .ui-autocomplete li.ui-menu-item {
   padding: 5px 10px 5px 10px;
@@ -367,6 +379,15 @@ header#masthead {
 
 .autocomplete-category-box.person {
   background-color: #00b8d9; }
+
+/* ----- autocomplete hover states ----- */
+li.ui-menu-item {
+  z-index: 999; }
+  li.ui-menu-item:hover {
+    background: #34363e; }
+  li.ui-menu-item a.ui-corner-all:hover {
+    background: none;
+    border: none; }
 
 /* ----- not found content ----- */
 div.content_nf {
@@ -449,3 +470,5 @@ form#UserCreateForm, form#UserSignupForm {
       color: #adadad; }
     form#UserCreateForm input[type="submit"]:hover, form#UserSignupForm input[type="submit"]:hover {
       color: #131517; }
+  form#UserCreateForm div.submit p, form#UserSignupForm div.submit p {
+    float: right; }

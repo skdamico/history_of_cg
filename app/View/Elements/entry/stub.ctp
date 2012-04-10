@@ -5,6 +5,9 @@
     <ul class="required-labels all-labels">
         <li class="label-entry-type labels">Type of entry <span class="required">*</span></li>
         <li class="label-entry-name labels">Entry name <span class="required">*</span></li>
+        <?php if(!empty($entry['Entry']['id'])): ?>
+        <li class='label-entry-slug labels'>Permalink</li>
+        <?php endif; ?>
         <li class="label-entry-tags labels">Tags <span class="required">*</span></li>
     </ul>
     <ul class="required-fields all-fields">
@@ -28,8 +31,13 @@
                 'div' => false,
                 'label' => false,
                 'id' => 'entryName',
-                'value' => $entry['Entry']['name'])); ?>
+                'value' => str_replace('_', ' ', $entry['Entry']['name']))); ?>
         </li>
+        <?php if(!empty($entry['Entry']['id'])): ?>
+        <li class='entry-slug fields'>
+            <input type='text' name='data[Entry][slug]' value='<?php echo $entry['Entry']['slug']; ?>' />
+        </li>
+        <?php endif; ?>
         <li class="entry-tags fields">
             <input type='text' name='data[tags]' class='tags' />
         </li>

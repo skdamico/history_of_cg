@@ -118,16 +118,28 @@ li.token-input-insert-after-hcg {
 div.token-input-dropdown-hcg {
     position: absolute;
     width: 300px;
-    background-color: #fff;
+    
+    background-color: #141414;
+    background-image: linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(21,21,21) 0%, rgb(29,29,29) 100%);
+    border: 1px solid lighten(#1d1e22,10%);
+    border-radius:5px;
+    box-shadow: 0 0 1px 1.5px #0f0f0f;
+    -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
+    -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
+
+    margin-top:3px;
+    padding:10px;
     overflow: hidden;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    
     cursor: default;
-    font-size: 0.96em;
-    font-family: Verdana;
-    z-index: 1;
-    color: #555;
+    //font-size: 0.96em;
+    //font-family: Verdana;
+    z-index: 999;
+    color: #fff;
 }
 
 div.token-input-dropdown-hcg p {
@@ -143,19 +155,18 @@ div.token-input-dropdown-hcg ul {
 }
 
 div.token-input-dropdown-hcg ul li {
-    background-color: #fff;
-    padding: 3px;
+    border-bottom:1px #222 solid;
+    padding:5px 0;
     margin: 0;
-    font-size: 0.98em;
     list-style-type: none;
 }
 
 div.token-input-dropdown-hcg ul li.token-input-dropdown-item-hcg {
-    background-color: #fff;
+    //background-color: #fff;
 }
 
 div.token-input-dropdown-hcg ul li.token-input-dropdown-item2-hcg {
-    background-color: #fff;
+    //background-color: #fff;
 }
 
 div.token-input-dropdown-hcg ul li em {

@@ -17,7 +17,6 @@ html,body {
 .wrapper {font-size:75%;}
 #page{
     margin:0 auto;
-    position: relative;
 }
 .spacer {
     display: none;
@@ -88,8 +87,24 @@ header#masthead {
 .timeline {
     margin:0 auto 20px auto;
     width:960px;
+
+    .tooltip {
+        border-radius:5px;
+        display:none;
+        font-size:12px;
+        margin-left:10px;
+        padding:10px;
+        position:absolute;
+        text-shadow:1px 1px 1px #000;
+        line-height: 30px;
+        height: 30px;
+        width: 120px;
+        background-color: darken(#292f33, 5%);
+        text-align: center;
+        z-index: 200;
+    }
 }
-.topRight, .topRight a, .topRight .search {float:right;}
+.topRight, .topRight a, .topRight .menu-item, .topRight .search {float:right;}
     .topRight {
         background: #2f363e;
         background: -moz-linear-gradient(top,  #2f363e 0%, #2d363d 9%, #2a3137 20%, #2c3039 21%, #293036 24%, #282d31 41%, #23262b 100%);
@@ -151,16 +166,13 @@ header#masthead {
         }
     }
     .topRight .search {margin-top:10px;}
-    .topRight a {
+    .topRight a, .topRight .menu-item {
         border-left:1px lighten(#2c343b, 7%) solid;
         border-right:1px darken(#2c343b, 10%) solid;
         padding: 7px 20px;
-        &:first-of-type {
-            border-right:0;
-        }
-        &:last-of-type {
-            border-left:0;
-        }
+    }
+    .topRight .menu-item:last-of-type {
+        border-left:0;
     }
     .topSearch {
         float:right;
@@ -224,13 +236,13 @@ header#masthead {
     box-shadow: 0 0 1px 1.5px #0f0f0f;
     -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
     -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
-    margin:0;
+    margin:3px 0 0 0;
     padding:0px;
     width:232px;
     color: #b9b9b9;
     overflow: hidden;
     cursor: default;
-    z-index: 1;
+    z-index: 9999!important;
 }
 .ui-autocomplete li.ui-menu-item {
     padding: 5px 10px 5px 10px;
@@ -281,6 +293,20 @@ header#masthead {
 .autocomplete-category-box.event {background-color:#d200ff;}
 .autocomplete-category-box.person {background-color: #00b8d9;}
 
+/* ----- autocomplete hover states ----- */
+li.ui-menu-item {
+    z-index:999;
+    &:hover {
+        background:lighten(#1d1e22,10%);
+    }
+    a.ui-corner-all {
+        &:hover {
+            background:none;
+            border:none;
+        }
+    }
+}
+
 /* ----- not found content ----- */
 div.content_nf {
     margin:0 auto;
@@ -318,5 +344,8 @@ form#UserCreateForm, form#UserSignupForm {
         &:hover {
             color:darken($bg, 10%);
         }
+    }
+    div.submit p {
+        float:right;
     }
 }

@@ -79,6 +79,7 @@ $(function() {
 
     // hide the extra fields
     $form.find('.extra').slideUp();
+    $form.find('button').html('Connect Entries');
 
     // clear the form
     $connection_form_tags.tokenInput("clear");
@@ -262,7 +263,14 @@ $(function() {
       if( storytype === 3 ) {
         // initialize datepicker function
         $form.find('.story-date .datepicker').live('focusin', function() {
-          $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
+          $(this).datepicker({
+            altField: $(this).next('input[type=hidden]'), 
+            altFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date(1940, 1 - 1, 1),
+            yearRange: '1940:c',
+          });
         });
 
         // initialize author autocomplete field
@@ -423,7 +431,14 @@ $(function() {
 
       // Initialize datepicker function
       $form.find('.story-date .datepicker').live('focusin', function() {
-        $(this).datepicker({altField: $(this).next('input[type=hidden]'), altFormat: 'yy-mm-dd'});
+        $(this).datepicker({
+          altField: $(this).next('input[type=hidden]'),
+          altFormat: 'yy-mm-dd',
+          changeMonth: true,
+          changeYear: true,
+          minDate: new Date(1940, 1 - 1, 1),
+          yearRange: '1940:c',
+        });
       });
 
       // initialize author autocomplete field
@@ -538,6 +553,7 @@ $(function() {
         if(data.more) {
           // show connection form extras
           $form.find('.extra').slideDown();
+          $form.find('button').html('Save and Connect Entry');
         }
         else {
           if(data.response) {

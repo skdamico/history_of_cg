@@ -19,16 +19,16 @@
 		}
 			#HOCGcreators h3 {width:990px!important;}
 .about-section {
-	background-image:url("../images/shadesBg.png");
+	background-image:url("../img/shadesBg.png");
 	margin:0 auto;
 	padding:0 0 20px 0;
 }
 /*-------------------- about the history of cg container ------------*/
 .AboutUsSection {
-	background:url("../images/shadesBg.png");
+	background:url("../img/shadesBg.png");
 }
 .pLogo {
-	background: url('../images/pLogo.png'); 
+	background: url('../img/pLogo.png'); 
 	width: 150px; 
 	height: 180px; 
 	position:relative; 
@@ -65,16 +65,16 @@
     position:relative;
 	}
 .groupPhoto {
-	background: url('../images/groupPhoto.png'); 
-	width: 500px; 
-	height: 300px; 
+	background: url('../img/groupPhotoLarge.jpg');
+	width: 600px; 
+	height: 400px; 
 	position:relative; 
 	z-index:3;
 	float:left;
 	margin-top: 10px;
 }
 .groupPhotoArrow {
-	background: url('../images/groupPhotoArrow.png');
+	background: url('../img/groupPhotoArrow.png');
 	width: 20px;
 	height: 40px;
 	position: relative;
@@ -83,105 +83,101 @@
 	margin-top: 25px;
 }
 #brian, #terrence, #amy, #connie, #michelle, #stefano, #james {
-	border:0;
 	display: block;
 	font-size:0;
+	height:277px;
 	position: absolute;
 	text-indent:9999px;
+	width:73px;
 }
 	#brian {
-		width: 50px;
-		height: 215px;
 		z-index: 500;
-		left: 20px;
-		top: 50px;
+		left: 21px;
+		top: 68px;
 	}
 
 	#terrence {
-		width: 50px;
-		height: 215px;
 		z-index: 501;
-		left: 72px;
-		top: 40px;
+		left: 77px;
+		top: 51px;
 	}
 
 	#amy {
-		width: 51px;
-		height: 215px;
 		z-index: 502;
-		left: 123px;
-		top: 56px;
+		left: 164px;
+		top: 77px;
 	}
 
 	#connie {
-		width: 50px;
-		height: 200px;
 		z-index: 503;
-		left: 175px;
-		top: 48px;
+		left: 224px;
+		top: 58px;
 	}
 
 	#michelle {
-		width: 52px;
-		height: 200px;
 		z-index: 504;
-		left: 228px;
-		top: 75px;
+		left: 294px;
+		top: 93px;
 	}
 
 	#stefano {
-		width: 58px;
-		height: 215px;
 		z-index: 505;
-		left: 290px;
-		top: 30px;
+		left: 383px;
+		top: 40px;
 	}
 
 	#james {
-		width: 60px;
-		height: 215px;
 		z-index: 506;
-		left: 350px;
-		top: 50px;
+		left: 464px;
+		top: 65px;
 	}
 	
 /*-------------------- about the CREATORS section BIOS BOX ------------*/
+.right-info {
+	float:right;
+	margin-top:13px;
+	width:280px;
+}
 .moreInfo {
 	background-color: #1a1c1d;
 	border: 1px solid #ffffff;
 	color: #e6e6e6;
-	display: block;
+	display:none;
 	float:right;
-	height: 300px;
-	margin:13px 0 0 0;
-	width: 245px;
+	width: 325px;
 }
-.bio-picture {
-	width: 104px;
-	height: 104px;
-	background:url('../images/picture_MAG.png');
-	float: left;
-	margin: 10px;
-	z-index: 601;
-}
-.bio-name {
-	color:#DBDBDB;
-	font-family:Gotham-thin, Helvetica, sans-serif;
-	text-transform: uppercase;
-	font-size: 12pt;
-	margin-top: 10px;
-}
-.bio-role {
-	color:#DBDBDB;
-	font-family:Gotham-regular, Helvetica, sans-serif;
-	text-transform: uppercase;
-	font-size: 12pt;
-	margin-top: 2px;
-}
-.bio-info {
-	color:#DBDBDB;
-	font-family: Helvetica, sans-serif;
-	font-size: 9pt;
-	margin-top: 40px;
-	padding: 0 10px 10px 10px;
+	.bio-top {
+		height:110px;
+		width:100%;
+	}
+	.bio-picture {
+		width: 104px;
+		height: 104px;
+		background:url('../img/picture_MAG.png');
+		float: left;
+		margin: 0 20px 0 10px;
+		z-index: 601;
+	}
+	.bio-name {
+		color:#DBDBDB;
+		font-family:Gotham-thin, Helvetica, sans-serif;
+		text-transform: uppercase;
+		font-size: 12pt;
+	}
+	.bio-role {
+		color:#DBDBDB;
+		font-family:Gotham-regular, Helvetica, sans-serif;
+		text-transform: uppercase;
+		font-size: 12pt;
+		margin-top: 2px;
+	}
+	.bio-info {
+		color:#DBDBDB;
+		font-family: Helvetica, sans-serif;
+		font-size: 9pt;
+		padding: 0 10px 10px 10px;
+	}
+
+.moreInfo#general-info .bio-top {
+	margin-left:20px;
 }

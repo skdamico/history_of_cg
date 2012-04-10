@@ -15,10 +15,6 @@ class AppController extends Controller {
 
     // Specify which controller/action handles logging in:
     $this->Auth->loginAction = array('controller' => 'sessions', 'action' => 'create');
-    // Where to redirect to after successfully logging in:
-    // This can also be an array() with 'controller' and 'action' keys like above.
-    $this->Auth->loginRedirect = '/';
-    // Where to redirect to after successfully logging out:
     $this->Auth->logoutRedirect = '/';
 
     // By default, the Auth component expects a username and a password
@@ -52,11 +48,20 @@ class AppController extends Controller {
       $this->set('current_user',$this->current_user );
   }
 
-  function urlize($str) {
-    return str_replace(' ', '_', $str);
-  }
-  function unUrlize($str) {
-    return str_replace('_', ' ', $str);
+  function create_slug($str, $replace=array(), $delimiter='-') {
+
+    setlocale(LC_ALL, 'en_US.UTF8');
+
+    if(!empty($replace)) {
+      $str = str_replace((array)$replace, ' ', $str);
+    }
+
+    $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+    $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+    $clean = strtolower(trim($clean, '-'));
+    $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+    return $clean;
   }
 
 }
