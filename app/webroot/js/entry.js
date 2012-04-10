@@ -3,11 +3,11 @@ function change_publish_ui(button, publish, value) {
 
     if(publish === "publish") {
         if(value === 1) {
-            $(button).html('Unpublish');
+            $(button).html('Unpublish Story');
             $publish.val('0');
         }
         else if(value === 0) {
-            $(button).html('Publish');
+            $(button).html('Publish Story');
             $publish.val('1');
         }
     }

@@ -25,8 +25,8 @@
         <?php endif; ?>
         </li>
         <li class='story-save save'>
-            <button>Save Draft</button>
-            <button class='publish-button'><?php echo $story['Story']['published'] == 0 ? "Publish" : "Unpublish" ?></button>
+            <button>Save Story</button>
+            <button class='publish-button'><?php echo $story['Story']['published'] == 0 ? "Publish Story" : "Unpublish Story" ?></button>
             <input type='hidden' class='publish' name='data[Story][published]' value='<?php echo $story['Story']['published'] == 0 ? "1" : "0" ?>' />
         </li>
     </ul>
