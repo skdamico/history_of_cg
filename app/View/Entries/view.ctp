@@ -1,3 +1,18 @@
+<?php 
+
+function limit_words($str, $word_limit) {
+    $words = null;
+    $words = explode(" ",$str);
+
+    if(sizeof($words) >= $word_limit) {
+        $words = array_splice($words,0,$word_limit);
+        $words[] = '...';
+    }
+    return implode(" ", $words);
+}
+?>
+
+
 <?php $this->Html->script(array('libs/jquery.lazyload.min', 'libs/lite-youtube-min', 'libs/jquery.isotope.min', 'content'), array( 'inline' => false, 'once' => true )); ?>
 <?php $this->Html->css(array('styles-youtube', 'styles-content'), null, array( 'inline' => false, 'once' => true )); ?>
 
@@ -26,14 +41,14 @@
 </section>
 <section class="mosaicBody">
     <ul class="mosaicContainer loading cf">
-        <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo $entry['Entry']['description']; ?></p></li>
+        <li class="dynamic <?php echo $entry['Category']['category']; ?>"><p><?php echo limit_words($entry['Entry']['description'], 120); ?></p></li>
     <?php foreach($connections as $c): ?>
         <li class="tile connection <?php echo $c['Entry']['Category']['category']; echo " " . implode(' ', str_replace(' ', '-', $c['tags'])); ?>">
             <div class='container'>
                 <?php if($c['connection_display_type'] == 'image'): ?>
                 <img src='<?php echo $c['connection_display']; ?>' />
                 <?php else: ?>
-                <p><?php echo $c['connection_display']; ?></p>
+                <p><?php echo limit_words($c['connection_display'], 80); ?></p>
                 <?php endif; ?>
             </div>
             <div class='bottom-link'>
@@ -45,11 +60,11 @@
     <?php endforeach; ?>
     <?php foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
-        
+
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
             <li class="tile story story-text">
                 <div class='container'>
-                    <p><?php echo $s['Story']['story']?></p>
+                    <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text'><span></div>
             </li>

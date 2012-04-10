@@ -67,6 +67,8 @@
   background-repeat: repeat-x;
   margin: 20px auto 0 auto;
   padding: 0; }
+  .entryMast .entryTitle {
+    cursor: pointer; }
 
 ul.catBar {
   background-color: #0f0f0f;
