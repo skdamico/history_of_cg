@@ -224,6 +224,8 @@ div.form-container {
       padding: 0 0 0 10px; }
       div.form-container div.stories-col div.stories.new {
         padding: 0; }
+        div.form-container div.stories-col div.stories.new p.story-collapsed-heading {
+          margin-left: 0; }
       div.form-container div.stories-col div.stories div.story-collapsed {
         display: none; }
       div.form-container div.stories-col div.stories p.story-collapsed-heading {
