@@ -1,4 +1,4 @@
-<h2>Search Results</h2>
+<h2><?php echo $message; ?></h2>
 
 <input type='text' class='search-page-search' value='<?php echo str_replace('+', ' ', $query); ?>'/>
 <button class='search-page-button'>Search</button>
