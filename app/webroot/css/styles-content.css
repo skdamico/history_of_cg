@@ -71,7 +71,10 @@
 ul.catBar {
   background-color: #0f0f0f;
   font-family: Gotham, Helvetica, sans-serif;
+  left: -9px;
   margin: 0 auto;
+  padding: 0;
+  position: relative;
   text-transform: uppercase;
   width: 990px; }
   ul.catBar li {
