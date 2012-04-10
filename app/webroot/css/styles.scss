@@ -170,12 +170,9 @@ header#masthead {
         border-left:1px lighten(#2c343b, 7%) solid;
         border-right:1px darken(#2c343b, 10%) solid;
         padding: 7px 20px;
-        &:first-of-type {
-            border-right:0;
-        }
-        &:last-of-type {
-            border-left:0;
-        }
+    }
+    .topRight .menu-item:last-of-type {
+        border-left:0;
     }
     .topSearch {
         float:right;
@@ -239,13 +236,13 @@ header#masthead {
     box-shadow: 0 0 1px 1.5px #0f0f0f;
     -moz-box-shadow: 0 0 1px 1.5px #0f0f0f;
     -webkit-box-shadow: 0 0 1px 1.5px #0f0f0f;
-    margin:0;
+    margin:3px 0 0 0;
     padding:0px;
     width:232px;
     color: #b9b9b9;
     overflow: hidden;
     cursor: default;
-    z-index: 1;
+    z-index: 9999!important;
 }
 .ui-autocomplete li.ui-menu-item {
     padding: 5px 10px 5px 10px;
@@ -295,6 +292,20 @@ header#masthead {
 .autocomplete-category-box.organization {background-color:#7bd900;}
 .autocomplete-category-box.event {background-color:#d200ff;}
 .autocomplete-category-box.person {background-color: #00b8d9;}
+
+/* ----- autocomplete hover states ----- */
+li.ui-menu-item {
+    z-index:999;
+    &:hover {
+        background:lighten(#1d1e22,10%);
+    }
+    a.ui-corner-all {
+        &:hover {
+            background:none;
+            border:none;
+        }
+    }
+}
 
 /* ----- not found content ----- */
 div.content_nf {
