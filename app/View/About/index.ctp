@@ -77,7 +77,7 @@
     			<div class="bio-name"><p> Michelle <br> Gayowski </p></div>
     			<div class="bio-role"><p> Designer &amp; <br> Front-end </p></div>
         </div>
-  			<div class="bio-info"><p>Michelle is a graphic designer who proudly hails from the small farm town of Boxborough, Massachusetts. Apart from design, she likes photography, traveling, and reading Boston Metro horoscopes. She has worked in the fast-paced NYC fashion industry, in a hands-on local sign shop, and with a small group at a cozy design firm in Boston. Post-graduation, she plans to scrape up new experiences doing freelance projects while moving around the US. To contact her, please visit <a href="www.michellegayowski.com" title="MichelleGayowski.com" target="_new">www.michellegayowski.com</a>.</p>
+  			<div class="bio-info"><p>Michelle is a graphic designer who proudly hails from the small farm town of Boxborough, Massachusetts. Apart from design, she likes photography, traveling, and reading Boston Metro horoscopes. She has worked in the fast-paced NYC fashion industry, in a hands-on local sign shop, and with a small group at a cozy design firm in Boston. Post-graduation, she plans to scrape up new experiences doing freelance projects while moving around the US. To contact her, please visit <a href="http://www.michellegayowski.com" title="MichelleGayowski.com" target="_new">www.michellegayowski.com</a>.</p>
   		  </div>
       </div>
 
@@ -87,13 +87,7 @@
           <div class="bio-name"><p> Stefano <br> D'Amico </p></div>
           <div class="bio-role"><p> Developer </p></div>
         </div>
-        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-        qui officia deserunt mollit anim id est laborum. </p>
+        <div class="bio-info"><p>Stefano D'Amico is a software engineer with a love for the web and coffee. He is currently a senior and dual major of Computer Science and Interactive Media at Northeastern University. After school, his entrepreneurial spirit will bring him to San Francisco to join one of many startups in the area and to pursue his dream of opening a cafe.</p>
         </div>
       </div>
 
@@ -103,13 +97,7 @@
           <div class="bio-name"><p> Amy <br> Schaffer </p></div>
           <div class="bio-role"><p> Developer </p></div>
         </div>
-        <div class="bio-info"><p> Lorem ipsum dolor sit amet, coctetur adipisicing 
-        elit, sed do esmod tempor inciunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea comodo consuat. Duis aute irure dolor in 
-        reprehenderit in volupe velit esse cillum dolore eu fugiat nulla 
-        pariatur. Excer sint occaecat cupidatat non proident, sunt in culpa 
-        qui officia deserunt mollit anim id est laborum. </p>
+        <div class="bio-info"><p>Amy Schaffer is a senior at Northeastern University studying Computer Science and Interactive Media. When she's not coding, she loves to relax with yoga or a good television show. One day she hopes to use her knowledge of the programming and digital art worlds to help her become an amazing project manager for game or animation development.</p>
         </div>
       </div>
 
