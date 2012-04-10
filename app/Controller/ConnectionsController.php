@@ -86,6 +86,8 @@ class ConnectionsController extends AppController {
                     $tmp['Entry'] = $this->request->data['Entry'];
                     $tmp['Entry']['user_id'] = $this->Auth->User('id');
 
+                    $tmp['Entry']['slug'] = $this->create_slug($tmp['Entry']['name']);
+
                     if($this->Entry->save($tmp)) {
                         $connection_id = $this->Entry->id;
 

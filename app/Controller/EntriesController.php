@@ -10,14 +10,10 @@ class EntriesController extends AppController {
         $this->Auth->allow('view', 'get_by_phrase');
     }
 
-    public function view( $name = null ) {
-         // replace all underscores in name with spaces
-        $tmp_name = $this->unUrlize($name);
-
+    public function view( $slug = null ) {
         $entry = $this->Entry->find('first', array(
             'conditions' => array(
-                'Entry.name' => $tmp_name,
-                'Entry.published' => 1
+                'Entry.slug' => $slug,
             ),
             'contain' => array(
                 'Category' => array(
@@ -28,7 +24,10 @@ class EntriesController extends AppController {
 
         // if not found, redirect to not found page
         if(empty($entry)) {
-            $this->redirect(array('action'=>'not_found', $this->urlize($tmp_name)));
+            $this->redirect(array('action'=>'not_found', $slug));
+        }
+        else if($entry['Entry']['published'] == 0) {
+            $this->redirect(array('action'=>'not_published', $entry['Entry']['slug']));
         }
 
         // Get all published stories
@@ -66,6 +65,7 @@ class EntriesController extends AppController {
                 'Entry2' => array(
                     'id',
                     'name',
+                    'slug',
                     'Category' => array(
                         'category'
                     ),
@@ -94,6 +94,7 @@ class EntriesController extends AppController {
                 'Entry1' => array(
                     'id',
                     'name',
+                    'slug',
                     'Category' => array(
                         'category'
                     ),
@@ -216,9 +217,21 @@ class EntriesController extends AppController {
         }
     }
 
-    public function not_found( $name = null ) {
-        if(!empty($name)) {
-            $this->set(compact('name'));
+    public function not_found( $slug = null ) {
+        $this->set(compact('slug'));
+    }
+
+    public function not_published( $slug = null ) {
+        if( !empty($slug) ) {
+            $entry = $this->Entry->find('first', array(
+                'conditions' => array(
+                    'Entry.slug' => $slug,
+                ),
+                'recursive' => 0,
+                'fields' => array('Entry.name', 'Entry.slug', 'Entry.id')
+            ));
+
+            $this->set(compact('entry'));
         }
     }
 
@@ -245,13 +258,13 @@ class EntriesController extends AppController {
             $results = $this->Entry->find('all', array(
                 'limit' => 10,
                 'recursive' => 0,
-                'fields' => array('Entry.id', 'Entry.name', 'Category.category'),
+                'fields' => array('Entry.id', 'Entry.name', 'Entry.slug', 'Category.category'),
                 'conditions' => $conditions
             ));
 
             $tmp = array();
             foreach( $results as $r) {
-                $tmp[] = array('id' => $r['Entry']['id'], 'name' => $r['Entry']['name'], 'category' => $r['Category']['category']);
+                $tmp[] = array('id' => $r['Entry']['id'], 'name' => $r['Entry']['name'], 'slug' => $r['Entry']['slug'], 'category' => $r['Category']['category']);
             }
             echo json_encode($tmp);
         }
@@ -334,6 +347,8 @@ class EntriesController extends AppController {
             if(!empty( $entry['Entry']['date_1'] )) {
               $entry['Entry']['date_1'] = date('Y-m-d', strtotime($this->request->data['Entry']['date_1']));
             }
+            $entry['Entry']['slug'] = $this->create_slug($entry['Entry']['name']);
+
 
             // Save the entry
             if ($this->Entry->save($entry)) {
@@ -362,7 +377,7 @@ class EntriesController extends AppController {
                     $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
                 }
 
-                $this->redirect(array('action'=>'edit', $this->urlize($entry['Entry']['name'])));
+                $this->redirect(array('action'=>'edit', $entry['Entry']['slug']));
             }
             else {
                 $this->Session->setFlash(__('The entry could not be saved'));
@@ -370,7 +385,7 @@ class EntriesController extends AppController {
         }
 
         $entry = array();
-        $entry['Entry'] = array('name' => $name, 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
+        $entry['Entry'] = array('name' => $name, 'homepage_url' => '', 'category_id' => '', 'description' => '', 'date_1' => '', 'date_2' => '', 'id' => '', 'published' => 0, 'source_name' => '', 'source_url' => '');
         $this->set(compact('entry'));
 
         $this->set('title_for_layout', 'Add an entry');
@@ -381,7 +396,7 @@ class EntriesController extends AppController {
             $this->redirect(array('action'=>'add'));
         }
 
-        if ($this->request->is('post') || $this->request->is('put')) {
+        if ($this->request->is('post')) {
 
             // update entry
 
@@ -410,6 +425,11 @@ class EntriesController extends AppController {
 
             if (!isset($e['date_selected'])) {
                 $e['Entry']['date_2'] = null;
+            }
+
+            // check for slug, if nothing, recreate one
+            if (empty($e['Entry']['slug'])) {
+                $e['Entry']['slug'] = $this->create_slug($e['Entry']['name']);
             }
 
             // save the updated entry
@@ -455,19 +475,17 @@ class EntriesController extends AppController {
             }
         }
         else {
-            // replace all underscores in name with spaces
-            $tmp_id = $this->unUrlize($id);
-
+            // its a slug!
             $entry = $this->Entry->find('first', array(
                 'conditions' => array(
-                    'Entry.name' => $tmp_id
+                    'Entry.slug' => $id
                 ),
                 'recursive' => 0
             ));
 
             // if not found, redirect to add page
             if(empty($entry)) {
-                $this->redirect(array('action'=>'add', $id));
+                $this->redirect(array('action'=>'add'));
             }
         }
 

@@ -30,7 +30,7 @@
     slide: function(obj, t) {
       var _t = t;
       if(_t === undefined || _t === null) {
-        _t = 4000;
+        _t = 5000;
       }
 
       setTimeout(function() {

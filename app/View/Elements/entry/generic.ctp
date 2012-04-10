@@ -1,6 +1,7 @@
 <div class="basics section-in-form">
     <ul class="basic-labels all-labels">
         <li class="label-entry-description labels">Description<span class="required"> *</span></li>
+        <li class='label-entry-homepage labels'>Homepage URL</li>
         <li class="label-entry-date labels"><span class='label'>Date</span><span class="required"> *</span></li>
         <li class="label-entry-date-2 labels"><span class='label'>Date 2</span></li>
     </ul>
@@ -28,6 +29,9 @@
         </li>
         <li class="source-url">
             <label>URL (if applicable):</label><input type="text" name="data[Entry][source_url]" value='<?php echo $entry['Entry']['source_url']; ?>' />
+        </li>
+        <li class='entry-homepage fields'>
+            <input type='text' id='entry-homepage' class='need-helper' name='data[Entry][homepage_url]' value='<?php echo $entry['Entry']['homepage_url']; ?>' />
         </li>
         <li class="entry-date fields">
             <input type='text' id='entry-date-box-1' class='datepicker need-helper' value='<?php
