@@ -179,7 +179,6 @@ ul.mosaicContainer li.dynamic .filterList li a {
 
 ul.mosaicContainer .tile, ul.mosaicContainer .dynamic {
     //float: left;
-    box-shadow:0 0 10px 0px #000;
     margin: 0px 5px 10px 5px;
     padding: 0;
     width: 233px;
@@ -219,6 +218,7 @@ ul.mosaicContainer li.tile .container {
 
 ul.mosaicContainer li.tile.story {
     border: 1px solid #696969;
+    box-shadow:0 0 10px 0px #000;
 }
 
 ul.mosaicContainer li.tile .container p {
