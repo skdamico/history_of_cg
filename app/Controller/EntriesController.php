@@ -7,7 +7,7 @@ class EntriesController extends AppController {
     function beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('view', 'get_by_phrase');
+        $this->Auth->allow('view', 'get_by_phrase', 'not_found', 'not_published');
     }
 
     public function view( $slug = null ) {

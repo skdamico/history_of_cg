@@ -43,28 +43,38 @@ $(function() {
         $mosaic.isotope("shuffle");
 
 
+        function close_tag_lists() {
+          // remove selected
+          $('.entryMast .catBar .category.selected').removeClass('selected');
+
+          // hide tag list
+          $(".tagLists div").slideUp();
+
+          // repopulate description
+          var $dynamic = $(".mosaicContainer .dynamic");
+          $dynamic.html($(".entryInfo .entryDescription").html());
+
+          // add hairline
+          $dynamic.removeClass("person project organization event");
+          $dynamic.addClass($('.entryInfo .entryCategory').val());
+
+          // remove filters
+          $mosaic.isotope({filter: "*"});
+          $mosaic.isotope( 'reLayout' );
+        }
+
+        $('.entryMast .entryTitle').click(function() {
+          if($('.entryMast .catBar .category.selected').size() !== 0) {
+            close_tag_lists();
+          }
+        });
+
         // activate category filtering
         $(".entryMast .catBar .category a").click(function() {
             var $parent = $(this).parent("li");
 
             if($parent.hasClass("selected")) {
-                // remove selected
-                $parent.removeClass("selected");
-
-                // hide tag list
-                $(".tagLists div").slideUp();
-
-                // repopulate description
-                var $dynamic = $(".mosaicContainer .dynamic");
-                $dynamic.html($(".entryInfo .entryDescription").html());
-
-                // add hairline
-                $dynamic.removeClass("person project organization event");
-                $dynamic.addClass($('.entryInfo .entryCategory').val());
-
-                // remove filters
-                $mosaic.isotope({filter: "*"});
-                $mosaic.isotope( 'reLayout' );
+                close_tag_lists();
             }
             else {
                 // add selected class
@@ -77,6 +87,8 @@ $(function() {
 
                 // create list of filter
                 var $dynamic = $(".mosaicContainer .dynamic");
+                $('.entryInfo .entryDescription').html($dynamic.html());
+
                 $dynamic.html("<p>List of "+$(this).html().toLowerCase()+" in relation w/ "+$(".entryInfo .entryName").val()+"</p><ul class='filterList'></ul>");
                 $(".mosaicContainer "+selector+".connection a").each(function() {
                     $dynamic.children("ul").append("<li><a href='"+$(this).attr("href")+"'>"+$(this).children("span").html()+"</a></li>");
