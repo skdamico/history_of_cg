@@ -62,7 +62,8 @@ body {
   padding: 0; }
 
 div.cf {
-  clear: both; }
+  clear: both;
+  display: block; }
 
 ul {
   list-style-type: none;
