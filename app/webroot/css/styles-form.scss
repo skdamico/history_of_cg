@@ -172,7 +172,7 @@ div.form-container {
             background-image:url('../img/dark-bg.png');
             border-radius:5px;
             margin:10px 0;
-            padding: 0 0 10px 10px;
+            padding: 0 0 0 10px;
             &.new {
                 padding:0;
             }
@@ -195,7 +195,7 @@ div.form-container {
 				font-size:16px;
                 font-weight:600;
 				text-transform:uppercase;
-                margin:0 0 10px 0;
+                margin:0 0 10px -10px;
                 padding:10px;
                 position:relative;
                 width:505px;
@@ -282,6 +282,9 @@ div.form-container {
                 margin-bottom:10px;
                 position:relative;
                 top:-5px;
+            }
+            li.story-save {
+                margin-bottom:10px;
             }
         }
     }
