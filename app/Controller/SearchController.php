@@ -14,6 +14,7 @@ class SearchController extends AppController {
         if(empty($query)) {
             $this->set('query', null);
             $this->set('results', null);
+            $this->set('message', null);
             return;
         }
 
@@ -32,7 +33,20 @@ class SearchController extends AppController {
             'conditions' => $conditions
         ));
 
+        $message = '';
+        $num_results = sizeof($results);
+        if($num_results < 1) {
+            $message = "No results were found for '".str_replace('+', ' ', $query)."'";
+        }
+        else {
+            $message = $num_results . " results were found for '". str_replace('+', ' ', $query) . "'";
+        }
+
+
         $this->set(compact('query'));
         $this->set(compact('results'));
+        $this->set(compact('message'));
+
+        $this->set('title_for_layout', 'Search');
     }
 }
