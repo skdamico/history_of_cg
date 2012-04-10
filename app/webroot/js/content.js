@@ -87,6 +87,8 @@ $(function() {
 
                 // create list of filter
                 var $dynamic = $(".mosaicContainer .dynamic");
+                $('.entryInfo .entryDescription').html($dynamic.html());
+
                 $dynamic.html("<p>List of "+$(this).html().toLowerCase()+" in relation w/ "+$(".entryInfo .entryName").val()+"</p><ul class='filterList'></ul>");
                 $(".mosaicContainer "+selector+".connection a").each(function() {
                     $dynamic.children("ul").append("<li><a href='"+$(this).attr("href")+"'>"+$(this).children("span").html()+"</a></li>");
