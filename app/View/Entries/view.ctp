@@ -1,6 +1,7 @@
 <?php 
 
 function limit_words($str, $word_limit) {
+    $words = null;
     $words = explode(" ",$str);
 
     if(sizeof($words) >= $word_limit) {
@@ -47,7 +48,7 @@ function limit_words($str, $word_limit) {
                 <?php if($c['connection_display_type'] == 'image'): ?>
                 <img src='<?php echo $c['connection_display']; ?>' />
                 <?php else: ?>
-                <p><?php echo $c['connection_display']; ?></p>
+                <p><?php echo limit_words($c['connection_display'], 80); ?></p>
                 <?php endif; ?>
             </div>
             <div class='bottom-link'>
@@ -63,7 +64,7 @@ function limit_words($str, $word_limit) {
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
             <li class="tile story story-text">
                 <div class='container'>
-                    <p><?php echo limit_words($s['Story']['story'], 50); ?></p>
+                    <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text'><span></div>
             </li>
