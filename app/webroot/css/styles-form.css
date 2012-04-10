@@ -527,7 +527,7 @@ ul.token-input-list-hcg {
         line-height: 150%; }
   .tabs ul.tabs_nav {
     float: left;
-    width: 500px;
+    width: 100%;
     padding-top: 4px;
     border-bottom: 1px #4d565d solid; }
     .tabs ul.tabs_nav li.tabs_link {
