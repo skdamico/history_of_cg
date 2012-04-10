@@ -181,6 +181,10 @@ div.form-container {
                     margin-left:0;
                 }
             }
+            button {
+                font-size:11px;
+                padding:4px 10px;
+            }
             
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
@@ -204,6 +208,8 @@ div.form-container {
                 padding:10px;
                 position:relative;
                 width:505px;
+
+                
 
                 span.delete {
                     float:right;

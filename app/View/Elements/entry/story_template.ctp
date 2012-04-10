@@ -51,8 +51,8 @@
                     <label>URL (if applicable):</label><input type="text" name="data[Story][source_url]" />
                 </li>
                 <li class='story-save save'>
-                    <button>Save Draft</button>
-                    <button class='publish-button'>Publish</button>
+                    <button>Save Story</button>
+                    <button class='publish-button'>Publish Story</button>
                     <input type='hidden' class='publish' name='data[Story][published]' value='1' />
                 </li>
             </ul>
@@ -80,8 +80,8 @@
                     <li class='story-preview'>
                     </li>
                     <li class='story-save save'>
-                        <button>Save Draft</button>
-                        <button class='publish-button'>Publish</button>
+                        <button>Save Story</button>
+                        <button class='publish-button'>Publish Story</button>
                         <input type='hidden' class='publish' name='data[Story][published]' value='1' />
                     </li>
                 </ul>
@@ -110,8 +110,8 @@
                     <li class='story-preview'>
                     </li>
                     <li class='story-save save'>
-                        <button>Save Draft</button>
-                        <button class='publish-button'>Publish</button>
+                        <button>Save Story</button>
+                        <button class='publish-button'>Publish Story</button>
                         <input type='hidden' class='publish' name='data[Story][published]' value='1' />
                     </li>
                 </ul>
