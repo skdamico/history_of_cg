@@ -5,7 +5,7 @@
 	<div id="HOCGtitle"><h3 class="section-title">About the History of CG</h3></div>
 	<div class="aboutHOCG">
    		<div class="pLogo"></div>
-       	<div class="columns">
+      <div class="columns">
 			<div class="left column">
 	   			<p>This site aims to be the first comprehensive source of Computer 
 	   			Graphics history and information. Our goal is to catalog original stories about the 
@@ -19,16 +19,17 @@
 	   			the people that participate in it. The History of CG database allows users to freely 
 	   			explore and add to the content of our site, capturing the rich and diverse history of 
 	   			this exciting field. </p>
+          <p>Our content is regularly reviewed by SIGGRAPH Pioneers, to ensure accuracy and 
+        encourage relevant and complete entries.
+          <br></br>
+            The available online sources about compter graphics history are fragmented, incomplete 
+            and deal with basic facts. Our project focuses on the personal stories and connections 
+            between the people behind the pixels.</p>
 			</div>
    			<div class="right column">
-   				<p>Our content is regularly reviewed by SIGGRAPH Pioneers, to ensure accuracy and 
- 				encourage relevant and complete entries.
-  				<br></br>
-       			The available online sources about compter graphics history are fragmented, incomplete 
-       			and deal with basic facts. Our project focuses on the personal stories and connections 
-       			between the people behind the pixels.</p>
+          <iframe width="420" height="315" src="http://www.youtube.com/embed/07oRVVXNE_k?rel=0" frameborder="0" allowfullscreen></iframe>
    			</div>
-		</div>
+		  </div>
 		<div class="cf"></div>
 	</div>
 </section>
