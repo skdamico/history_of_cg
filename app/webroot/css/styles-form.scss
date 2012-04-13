@@ -83,8 +83,12 @@ div.form-container {
                 }
             }
             ul.basic-labels {
+                li.label-entry-homepage {
+                    position:relative;
+                    top:170px;
+                }
                 li.label-entry-date {
-                    margin-top:200px;
+                    position:relative;
                 }
             }
         }
