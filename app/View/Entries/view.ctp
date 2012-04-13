@@ -20,14 +20,16 @@ function limit_words($str, $word_limit) {
 <!-- start of page content -->
 <section class="entryMast">
     <h1 class="entryTitle <?php echo $entry['Category']['category'];?>"><?php echo $entry['Entry']['name']; ?></h1>
-    <ul class="catBar">
-        <li class="category project"><a href="#" data-filter=".project">Projects</a></li>
-        <li class="category person"><a href="#" data-filter=".person">People</a></li>
-        <li class="category organization"><a href="#" data-filter=".organization">Organizations</a></li>
-        <li class="category event"><a href="#" data-filter=".event">Events</a></li>
-        <li class="editEntry"><a href="/entries/edit/<?php echo $entry['Entry']['slug']; ?>">Edit Entry</a></li>
-        <div class="cf"></div>
-    </ul>
+    <div class="catBarContainer">
+        <ul class="catBar">
+            <li class="category project"><a href="#" data-filter=".project">Projects</a></li>
+            <li class="category person"><a href="#" data-filter=".person">People</a></li>
+            <li class="category organization"><a href="#" data-filter=".organization">Organizations</a></li>
+            <li class="category event"><a href="#" data-filter=".event">Events</a></li>
+            <li class="editEntry"><a href="/entries/edit/<?php echo $entry['Entry']['slug']; ?>">Edit Entry</a></li>
+            <div class="cf"></div>
+        </ul>
+    </div>
 </section>
 <section class="tagLists">
     <div class='' style='display:none;'>

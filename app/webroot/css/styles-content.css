@@ -69,6 +69,8 @@
   padding: 0; }
   .entryMast .entryTitle {
     cursor: pointer; }
+  .entryMast .catBarContainer {
+    background: black; }
 
 ul.catBar {
   background-color: #0f0f0f;
