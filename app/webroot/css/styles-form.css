@@ -153,7 +153,8 @@ div.form-container {
     position: relative;
     top: 170px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
-    position: relative; }
+    position: relative;
+    top: 30px; }
   div.form-container div.right-column {
     float: right;
     margin-top: 20px;
