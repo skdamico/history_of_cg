@@ -151,7 +151,7 @@ div.form-container {
     top: -5px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-homepage {
     position: relative;
-    top: 170px; }
+    margin-top: 85px; }
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     position: relative;
     top: 30px; }

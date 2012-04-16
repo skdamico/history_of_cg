@@ -240,13 +240,14 @@ $(function() {
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
-                $('li.label-entry-homepage').css("top","273px");
+                $('li.label-entry-homepage').css("margin-top","135px");
             }
             else {
                 $('.basics .label-entry-date').css('margin-top','175px');
+                $('li.label-entry-homepage').css("margin-top","85px");
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
-                $('li.label-entry-homepage').attr("style","top:170px!important"); 
+                //$('li.label-entry-homepage').attr("style","top:170px!important"); 
             }
         }
 
