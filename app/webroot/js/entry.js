@@ -231,15 +231,15 @@ $(function() {
         // ----------------- SOURCES - basic information -----------------
         show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
-            if(this.checked) {
+            //if(this.checked) {
                 show_source(this.checked);
                 $('li.label-entry-homepage').css("top","273px");
                 //alert('checked');
-            }
-            else {
-                //$('li.label-entry-homepage').css("top","170px");   
-                alert('not checked');
-            }
+            //}
+            //else {
+              //  $('li.label-entry-homepage').css("top","170px");   
+                //alert('not checked');
+            //}
         });
 
         function show_source(show) {
