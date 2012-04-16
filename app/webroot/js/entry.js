@@ -232,7 +232,6 @@ $(function() {
         show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
             show_source(this.checked);
-            $('li.label-entry-homepage').css("top","273px");
         });
 
         function show_source(show) {
