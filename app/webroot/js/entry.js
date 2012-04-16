@@ -232,9 +232,9 @@ $(function() {
         show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
             if(this.checked) {
-                //show_source(this.checked);
-                //$('li.label-entry-homepage').css("top","273px");
-                alert('checked');
+                show_source(this.checked);
+                $('li.label-entry-homepage').css("top","273px");
+                //alert('checked');
             }
             else {
                 //$('li.label-entry-homepage').css("top","170px");   
