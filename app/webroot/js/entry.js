@@ -231,8 +231,13 @@ $(function() {
         // ----------------- SOURCES - basic information -----------------
         show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
-            show_source(this.checked);
-            $('li.label-entry-homepage').css("top","273px");
+            if(this.checked) {
+                show_source(this.checked);
+                $('li.label-entry-homepage').css("top","273px");
+            }
+            else {
+                $('li.label-entry-homepage').css("top","170px");   
+            }
         });
 
         function show_source(show) {
