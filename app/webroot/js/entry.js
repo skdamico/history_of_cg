@@ -231,15 +231,8 @@ $(function() {
         // ----------------- SOURCES - basic information -----------------
         show_source($('.basics #entry-source').is(':checked'));
         $('.basics #entry-source').click(function(){
-            //if(this.checked) {
-                show_source(this.checked);
-                $('li.label-entry-homepage').css("top","273px");
-                //alert('checked');
-            //}
-            //else {
-              //  $('li.label-entry-homepage').css("top","170px");   
-                //alert('not checked');
-            //}
+            show_source(this.checked);
+            $('li.label-entry-homepage').css("top","273px");
         });
 
         function show_source(show) {
@@ -247,9 +240,11 @@ $(function() {
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
+                $('li.label-entry-homepage').css("top","273px");
             }
             else {
                 $('.basics .label-entry-date').css('margin-top','175px');
+                $('li.label-entry-homepage').css("top","170px"); 
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
             }
