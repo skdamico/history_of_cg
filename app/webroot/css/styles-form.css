@@ -155,6 +155,9 @@ div.form-container {
   div.form-container form div.basics ul.basic-labels li.label-entry-date {
     position: relative;
     top: 30px; }
+  div.form-container form div.basics ul.basic-labels li.label-entry-date-2 span.label {
+    position: relative;
+    top: 50px; }
   div.form-container div.right-column {
     float: right;
     margin-top: 20px;
