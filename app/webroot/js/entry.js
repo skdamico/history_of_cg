@@ -246,7 +246,7 @@ $(function() {
                 $('.basics .label-entry-date').css('margin-top','175px');
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
-                $('li.label-entry-homepage').css("top","170px"); 
+                $('li.label-entry-homepage').attr("style","top:170px!important"); 
             }
         }
 
