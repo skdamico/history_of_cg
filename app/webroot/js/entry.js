@@ -239,9 +239,11 @@ $(function() {
                 $('.basics .source-title').fadeIn();
                 $('.basics .source-url').fadeIn();
                 $('.basics .label-entry-date').css('margin-top','280px');
+                $('li.label-entry-homepage').css("top","273px");
             }
             else {
                 $('.basics .label-entry-date').css('margin-top','175px');
+                $('li.label-entry-homepage').css("top","170px"); 
                 $('.basics .source-title').hide();
                 $('.basics .source-url').hide();
             }
