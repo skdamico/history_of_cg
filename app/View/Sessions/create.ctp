@@ -8,5 +8,6 @@
     <div class='submit'>
         <input type='submit' value='Login' />
         <p>Don't have an account? <a href="signup">Get one here!</a></p>
+        <p>Forgot your password? <a href="signup">Find it here!</a></p>
     </div>
 </form>
