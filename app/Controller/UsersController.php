@@ -156,7 +156,7 @@ class UsersController extends AppController {
 		$this->Email->subject = 'Password Change Request';
 		$this->Email->from = 'noreply@historyofcg.com';
 		$this->Email->template = 'users_'.$this->action;
-		$this->Email->sendAs = 'test'; // you probably want to use both
+		$this->Email->sendAs = 'text'; // you probably want to use both
 		//$this->Cookie->write('Referer', $this->referer(), true, '+2 weeks');
 		$this->Session->setFlash('A new password has been sent to your supplied email address.');
 		return $this->Email->send($password);
