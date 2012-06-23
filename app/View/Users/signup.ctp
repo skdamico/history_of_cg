@@ -17,5 +17,6 @@
     <div class='submit'>
         <input type='submit' value='Sign up' />
         <p>Already have an account? <a href="login">Login!</a></p>
-    </div>
+		<p>Forgot your password? <a href="forgot">Recover it!</a></p>
+	</div>
 </form>
