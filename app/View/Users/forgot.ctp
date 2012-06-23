@@ -10,7 +10,7 @@
 	?>
 	
 	<div class='submit'>
-        <input type='submit' value='Sign up' />
+        <input type='submit' value='Reset Password' />
         <p>Already have an account? <a href="login">Login!</a></p>
 	</div>
 </form>

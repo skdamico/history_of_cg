@@ -6,7 +6,7 @@ class UsersController extends AppController {
 	
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('signup');
+        $this->Auth->allow('signup', 'forgot');
     }
 
 
