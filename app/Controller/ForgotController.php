@@ -1,13 +1,13 @@
 <?php
 class ForgotController extends AppController {
 	
-	public function index() {
-       
-    }
+	function beforeFilter() {
+		parent::beforeFilter();
 
-    public function view($id = null) {
-        
-    }
+		// Tell the Auth controller that the 'create' action is accessible 
+		// without being logged in.
+		$this->Auth->allow('forgot');
+	}
 	
 	public function forgot() {
 		if(!empty($this->data)) {
@@ -27,7 +27,7 @@ class ForgotController extends AppController {
 		}
 	}
 	
-	public function __sendPasswordEmail($user, $password) {
+	function __sendPasswordEmail($user, $password) {
 		if ($user === false) {
 			debug(__METHOD__." failed to retrieve User data for user.id: {$user['User']['id']}");
 			return false;
