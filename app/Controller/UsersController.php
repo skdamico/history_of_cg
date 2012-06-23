@@ -128,7 +128,7 @@ class UsersController extends AppController {
 	
 	public function forgot() {
 		if(!empty($this->data)) {
-			$this->User->find('first', array('conditions' => array('User.email' => $this->data)));
+			//$this->User->find('first', array('conditions' => array('User.email' => $this->data)));
 			$user = $this->User->findByEmail($this->data['User']['email']);
 			if($user) {
 				$user['User']['tmp_password'] = $this->User->createTempPassword(7);
