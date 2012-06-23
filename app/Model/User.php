@@ -75,4 +75,21 @@ class User extends AppModel {
     return true;
   }
 
+  public function forgot() {
+	if(!empty($this->data)) {
+		$this->User->contain();
+		$user = $this->User->findByEmail($this->data['User']['email']);
+		if($user) {
+			$user['User']['tmp_password'] = $this->User->createTempPassword(7);
+			$user['User']['password'] = $this->Auth->password($user['User']['tmp_password']);
+			if($this->User->save($user, false)) {
+				$this->__sendPasswordEmail($user, $user['User']['tmp_password']);
+				$this->Session->setFlash('An email has been sent with your new password.');
+				$this->redirect($this->referer());
+			}
+		} else {
+			$this->Session->setFlash('No user was found with the submitted email address.');
+		}
+	}
+  }
 }
