@@ -2,8 +2,7 @@
 class ForgotController extends AppController {
 	
 	public function index() {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+       
     }
 
     public function view($id = null) {
