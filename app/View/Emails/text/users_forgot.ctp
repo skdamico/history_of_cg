@@ -1,4 +1,4 @@
-Dear <?php echo $User['User']['first.name']?>,
+Dear User,
 	We have recieved a request to reset your password.
 	
 	Here is your new password :
