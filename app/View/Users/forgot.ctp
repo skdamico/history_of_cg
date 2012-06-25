@@ -1,4 +1,4 @@
-<form action='/users/forgot' method='post' accept-charset='utf-8' id="UserForgotForm">
+<form action='/users/forgot' method='post' accept-charset='utf-8' id="UserSignupForm">
 	<div class='input text required'>
 			<input type='text' name='data[User][email]' maxlength='200' id='UserEmail' placeholder="Email" />
 	</div>
