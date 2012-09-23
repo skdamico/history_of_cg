@@ -2,11 +2,11 @@
 
 class UsersController extends AppController {
 
-	var $components = array('Email');
+	var $components = array('Auth', 'Email');
 	
     function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('signup', 'forgot');
+        $this->Auth->allow('signup', 'forgot', 'recover', 'verify');
     }
 
 

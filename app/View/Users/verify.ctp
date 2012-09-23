@@ -1,3 +1,4 @@
+<form action='/users/verify' accept-charset='utf-8' id="VerifyForm">
 <h2>Recover Password</h2>
 
 <?php if (isset($success)): ?>
