@@ -23,16 +23,25 @@
       <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="5" selection-start="6152" selection-end="6152" vertical-scroll-proportion="-1.6923077">
+            <state line="165" column="5" selection-start="6152" selection-end="6152" vertical-scroll-proportion="-32.76923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.ctp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="forgot.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Users/forgot.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="86" selection-start="43" selection-end="86" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Users/account.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
+            <state line="12" column="7" selection-start="725" selection-end="725" vertical-scroll-proportion="0.23943663">
               <folding />
             </state>
           </provider>
@@ -56,10 +65,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ctp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Users/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="112" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.8403756">
+            <state line="56" column="112" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Users/view.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,10 +97,10 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
-        <option value="$PROJECT_DIR$/app/View/Users/account.ctp" />
         <option value="$PROJECT_DIR$/app/View/Users/recover.ctp" />
         <option value="$PROJECT_DIR$/app/View/Users/verify.ctp" />
         <option value="$PROJECT_DIR$/app/View/Users/index.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Users/account.ctp" />
       </list>
     </option>
   </component>
@@ -161,6 +179,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,9 +378,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Users/account.ctp">
+    <entry file="file://$PROJECT_DIR$/app/View/Users/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
+        <state line="56" column="112" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Users/view.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="5" selection-start="6152" selection-end="6152" vertical-scroll-proportion="-32.76923">
           <folding />
         </state>
       </provider>
@@ -334,16 +406,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
+    <entry file="file://$PROJECT_DIR$/app/View/Users/forgot.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="5" selection-start="6152" selection-end="6152" vertical-scroll-proportion="-1.6923077">
+        <state line="0" column="86" selection-start="43" selection-end="86" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Users/index.ctp">
+    <entry file="file://$PROJECT_DIR$/app/View/Users/account.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="112" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.8403756">
+        <state line="12" column="7" selection-start="725" selection-end="725" vertical-scroll-proportion="0.23943663">
           <folding />
         </state>
       </provider>
