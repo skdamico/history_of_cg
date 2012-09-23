@@ -161,4 +161,81 @@ class UsersController extends AppController {
 		$this->Session->setFlash('A new password has been sent to your supplied email address.');
 		return $this->Email->send($user['User']['password']);
 	}
+
+    function account()
+    {
+        $this->User->useValidationRules('ChangePassword');
+        $this->User->validate['password_confirm']['compare']['rule'] =
+            array('password_match', 'password', false);
+
+        $this->User->set($this->data);
+        if (!empty($this->data) && $this->User->validates()) {
+            $this->Session->setFlash('Your password has been updated');
+            $this->User->id = $this->Auth->user('id');
+            $this->User->saveField('password',
+                $this->Auth->password($this->data['User']['password']));
+            $this->redirect(array('action' => 'account'));
+        }
+
+        $current_user = $this->User->findById($this->Auth->user('id'));
+        $this->set('current_user', $current_user);
+    }
+
+    /**
+     * Allows the user to email themselves a password redemption token
+     */
+    function recover()
+    {
+        if ($this->Auth->user()) {
+            $this->redirect(array('controller' => 'users', 'action' => 'account'));
+        }
+
+        if (!empty($this->data['User']['email'])) {
+            $Token = ClassRegistry::init('Token');
+            $user = $this->User->findByEmail($this->data['User']['email']);
+
+            if ($user === false) {
+                $this->Session->setFlash('No matching user found');
+                return false;
+            }
+
+            $token = $Token->generate(array('User' => $user['User']));
+            $this->Session->setFlash('An email has been sent to your account, please follow the instructions in this email.');
+            $this->Email->to = $user['User']['email'];
+            $this->Email->subject = 'Password Recovery';
+            $this->Email->from = 'Support <support@example.com>';
+            $this->Email->template = 'recover';
+            $this->set('user', $user);
+            $this->set('token', $token);
+            $this->Email->send();
+        }
+    }
+
+    /**
+     * Accepts a valid token and resets the users password
+     */
+    function verify($token = null)
+    {
+        if ($this->Auth->user()) {
+            $this->redirect(array('controller' => 'users', 'action' => 'account'));
+        }
+
+        $Token = ClassRegistry::init('Token');
+        if ($data = $Token->get($token)) {
+            // Update the users password
+            $password = $this->User->generatePassword();
+            $this->User->id = $data['User']['id'];
+            $this->User->saveField('password', $this->Auth->password($password));
+            $this->set('success', true);
+
+            // Send email with new password
+            $this->Email->to = $data['User']['email'];
+            $this->Email->subject = 'Password Changed';
+            $this->Email->from = 'Support <support@example.com>';
+            $this->Email->template = 'verify';
+            $this->set('user', $data);
+            $this->set('password', $password);
+            $this->Email->send();
+        }
+    }
 }
