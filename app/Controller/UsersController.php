@@ -2,7 +2,8 @@
 
 class UsersController extends AppController {
 
-	var $components = array('Auth', 'Email');
+	var $components = array('Auth', 'Email', "Session");
+	var $helpers=array("Html","Form","Session");
 	
     function beforeFilter() {
         parent::beforeFilter();
@@ -126,42 +127,6 @@ class UsersController extends AppController {
         $this->redirect(array('action' => 'index'));
     }
 	
-	public function forgot() {
-		if(!empty($this->data)) {
-			//$this->User->find('first', array('conditions' => array('User.email' => $this->data)));
-			$user = $this->User->findByEmail($this->data['User']['email']);
-			if($user) {
-				$user['User']['tmp_password'] = $this->User->createTempPassword(7);
-				$user['User']['password'] = $this->Auth->password($user['User']['tmp_password']);
-				if($this->User->save($user, false)) {
-					$this->__sendPasswordEmail($user, $user['User']['tmp_password']);
-					$this->Session->setFlash('An email has been sent with your new password.');
-					$this->redirect($this->referer());
-				}
-			} else {
-				$this->Session->setFlash('No user was found with the submitted email address.');
-			}
-		}
-	}
-	
-	public function __sendPasswordEmail($user, $password) {
-		if ($user === false) {
-			debug(__METHOD__." failed to retrieve User data for user.id: {$user['User']['id']}");
-			return false;
-		}
-		$this->set('user', $user['User']);
-		$this->set('password', $password);
-		$this->Email->to = $user['User']['email'];
-		$this->Email->bcc = array('History of CG Accounts <accounts@historyofcg.com>');
-		$this->Email->subject = 'Password Change Request';
-		$this->Email->from = 'noreply@historyofcg.com';
-		$this->Email->template = 'users_'.$this->action;
-		$this->Email->sendAs = 'text'; // you probably want to use both
-		//$this->Cookie->write('Referer', $this->referer(), true, '+2 weeks');
-		$this->Session->setFlash('A new password has been sent to your supplied email address.');
-		return $this->Email->send($user['User']['password']);
-	}
-
     function account()
     {
         $this->User->useValidationRules('ChangePassword');
@@ -180,62 +145,110 @@ class UsersController extends AppController {
         $current_user = $this->User->findById($this->Auth->user('id'));
         $this->set('current_user', $current_user);
     }
-
-    /**
-     * Allows the user to email themselves a password redemption token
-     */
-    function recover()
-    {
-        if ($this->Auth->user()) {
-            $this->redirect(array('controller' => 'users', 'action' => 'account'));
-        }
-
-        if (!empty($this->data['User']['email'])) {
-            $Token = ClassRegistry::init('Token');
-            $user = $this->User->findByEmail($this->data['User']['email']);
-
-            if ($user === false) {
-                $this->Session->setFlash('No matching user found');
-                return false;
+	
+	function forgetpwd(){
+        //$this->layout="signup";
+        $this->User->recursive=-1;
+        if(!empty($this->data))
+        {
+            if(empty($this->data['User']['email']))
+            {
+                $this->Session->setFlash('Please Provide Your Email Adress that You used to Register with Us');
             }
-
-            $token = $Token->generate(array('User' => $user['User']));
-            $this->Session->setFlash('An email has been sent to your account, please follow the instructions in this email.');
-            $this->Email->to = $user['User']['email'];
-            $this->Email->subject = 'Password Recovery';
-            $this->Email->from = 'Support <support@example.com>';
-            $this->Email->template = 'recover';
-            $this->set('user', $user);
-            $this->set('token', $token);
-            $this->Email->send();
+            else
+            {
+                $email=$this->data['User']['email'];
+                $fu=$this->User->find('first',array('conditions'=>array('User.email'=>$email)));
+                if($fu)
+                {
+                    //debug($fu);
+                    if($fu['User']['active'])
+                    {
+                        $key = Security::hash(String::uuid(),'sha512',true);
+                        $hash=sha1($fu['User']['username'].rand(0,100));
+                        $url = Router::url( array('controller'=>'users','action'=>'reset'), true ).'/'.$key.'#'.$hash;
+                        $ms=$url;
+                        $ms=wordwrap($ms,1000);
+                        //debug($url);
+                        $fu['User']['tokenhash']=$key;
+                        $this->User->id=$fu['User']['id'];
+                        if($this->User->saveField('tokenhash',$fu['User']['tokenhash'])){                        
+                             
+                            //============Email================//
+                            /* SMTP Options */ 
+                            $this->Email->smtpOptions = array(
+                                'port'=>'25',
+                                'timeout'=>'30',
+                                'host' => 'mail.example.com',
+                                'username'=>'accounts+example.com',
+                                'password'=>'your password'
+                                  );
+                              $this->Email->template = 'resetpw';
+                            $this->Email->from    = 'Your Email <accounts@example.com>';
+                            $this->Email->to      = $fu['User']['name'].'<'.$fu['User']['email'].'>';
+                            $this->Email->subject = 'Reset Your Example.com Password';
+                            $this->Email->sendAs = 'both';
+               
+                                   
+                                $this->Email->delivery = 'smtp';
+                                $this->set('ms', $ms);
+                                $this->Email->send();
+                                $this->set('smtp_errors', $this->Email->smtpError);
+                            $this->Session->setFlash(__('Check Your Email To Reset your password', true));        
+                             
+                            //============EndEmail=============//    
+                        }
+                        else{
+                            $this->Session->setFlash("Error Generating Reset link");                            
+                        }                        
+                    }
+                    else
+                    {
+                        $this->Session->setFlash('This Account is not Active yet.Check Your mail to activate it');
+                    }
+                }
+                else
+                {
+                    $this->Session->setFlash('Email does Not Exist');
+                }
+            }
         }
     }
-
-    /**
-     * Accepts a valid token and resets the users password
-     */
-    function verify($token = null)
-    {
-        if ($this->Auth->user()) {
-            $this->redirect(array('controller' => 'users', 'action' => 'account'));
+	
+	function reset($token=null){
+        //$this->layout="Login";
+        $this->User->recursive=-1;
+        if(!empty($token)){
+            $u=$this->User->findBytokenhash($token);                        
+            if($u){                
+                $this->User->id=$u['User']['id'];                                                
+                if(!empty($this->data)){                    
+                    $this->User->data=$this->data;
+                    $this->User->data['User']['username']=$u['User']['username'];                    
+                    $new_hash=sha1($u['User']['username'].rand(0,100));//created token
+                    $this->User->data['User']['tokenhash']=$new_hash;                    
+                    if($this->User->validates(array('fieldList'=>array('password','password_confirm')))){                        
+                        if($this->User->save($this->User->data))
+                        {
+                            $this->Session->setFlash('Password Has been Updated');
+                            $this->redirect(array('controller'=>'users','action'=>'login'));
+                        }
+                         
+                    }
+                    else{
+                         
+                        $this->set('errors',$this->User->invalidFields());                        
+                    }
+                }
+            }
+            else
+            {
+                $this->Session->setFlash('Token Corrupted,,Please Retry.the reset link work only for once.');
+            }
         }
-
-        $Token = ClassRegistry::init('Token');
-        if ($data = $Token->get($token)) {
-            // Update the users password
-            $password = $this->User->generatePassword();
-            $this->User->id = $data['User']['id'];
-            $this->User->saveField('password', $this->Auth->password($password));
-            $this->set('success', true);
-
-            // Send email with new password
-            $this->Email->to = $data['User']['email'];
-            $this->Email->subject = 'Password Changed';
-            $this->Email->from = 'Support <support@example.com>';
-            $this->Email->template = 'verify';
-            $this->set('user', $data);
-            $this->set('password', $password);
-            $this->Email->send();
-        }
+         
+        else{
+            $this->redirect('/');    
+        }    
     }
 }
