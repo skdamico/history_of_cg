@@ -146,7 +146,7 @@ class UsersController extends AppController {
         $this->set('current_user', $current_user);
     }
 	
-	public function forgetpwd(){
+	function forgetpwd(){
 		//$this->layout="signup";
 		$this->User->recursive=-1;
 		if(!empty($this->data))
