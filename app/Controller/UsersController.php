@@ -147,73 +147,73 @@ class UsersController extends AppController {
     }
 	
 	public function forgetpwd(){
-        //$this->layout="signup";
-        $this->User->recursive=-1;
-        if(!empty($this->data))
-        {
-            if(empty($this->data['User']['email']))
-            {
-                $this->Session->setFlash('Please Provide Your Email Adress that You used to Register with Us');
-            }
-            else
-            {
-                $email=$this->data['User']['email'];
-                $fu=$this->User->find('first',array('conditions'=>array('User.email'=>$email)));
-                if($fu)
-                {
-                    //debug($fu);
-                    if($fu['User']['active'])
-                    {
-                        $key = Security::hash(String::uuid(),'sha512',true);
-                        $hash=sha1($fu['User']['username'].rand(0,100));
-                        $url = Router::url( array('controller'=>'users','action'=>'reset'), true ).'/'.$key.'#'.$hash;
-                        $ms=$url;
-                        $ms=wordwrap($ms,1000);
-                        //debug($url);
-                        $fu['User']['tokenhash']=$key;
-                        $this->User->id=$fu['User']['id'];
-                        if($this->User->saveField('tokenhash',$fu['User']['tokenhash'])){                        
-                             
-                            //============Email================//
-                            /* SMTP Options */ 
-                            $this->Email->smtpOptions = array(
-                                'port'=>'25',
-                                'timeout'=>'30',
-                                'host' => 'mail.example.com',
-                                'username'=>'accounts+example.com',
-                                'password'=>'your password'
-                                  );
-                              $this->Email->template = 'resetpw';
-                            $this->Email->from    = 'Your Email <accounts@example.com>';
-                            $this->Email->to      = $fu['User']['name'].'<'.$fu['User']['email'].'>';
-                            $this->Email->subject = 'Reset Your Example.com Password';
-                            $this->Email->sendAs = 'both';
-               
-                                   
-                                $this->Email->delivery = 'smtp';
-                                $this->set('ms', $ms);
-                                $this->Email->send();
-                                $this->set('smtp_errors', $this->Email->smtpError);
-                            $this->Session->setFlash(__('Check Your Email To Reset your password', true));        
-                             
-                            //============EndEmail=============//    
-                        }
-                        else{
-                            $this->Session->setFlash("Error Generating Reset link");                            
-                        }                        
-                    }
-                    else
-                    {
-                        $this->Session->setFlash('This Account is not Active yet.Check Your mail to activate it');
-                    }
-                }
-                else
-                {
-                    $this->Session->setFlash('Email does Not Exist');
-                }
-            }
-        }
-    }
+		//$this->layout="signup";
+		$this->User->recursive=-1;
+		if(!empty($this->data))
+		{
+			if(empty($this->data['User']['email']))
+			{
+				$this->Session->setFlash('Please Provide Your Email Adress that You used to Register with Us');
+			}
+			else
+			{
+				$email=$this->data['User']['email'];
+				$fu=$this->User->find('first',array('conditions'=>array('User.email'=>$email)));
+				if($fu)
+				{
+					//debug($fu);
+					if($fu['User']['active'])
+					{
+						$key = Security::hash(String::uuid(),'sha512',true);
+						$hash=sha1($fu['User']['username'].rand(0,100));
+						$url = Router::url( array('controller'=>'users','action'=>'reset'), true ).'/'.$key.'#'.$hash;
+						$ms=$url;
+						$ms=wordwrap($ms,1000);
+						//debug($url);
+						$fu['User']['tokenhash']=$key;
+						$this->User->id=$fu['User']['id'];
+						if($this->User->saveField('tokenhash',$fu['User']['tokenhash'])){                        
+							 
+							//============Email================//
+							/* SMTP Options */ 
+							$this->Email->smtpOptions = array(
+								'port'=>'25',
+								'timeout'=>'30',
+								'host' => 'mail.example.com',
+								'username'=>'accounts+example.com',
+								'password'=>'your password'
+								  );
+							  $this->Email->template = 'resetpw';
+							$this->Email->from    = 'Your Email <accounts@example.com>';
+							$this->Email->to      = $fu['User']['name'].'<'.$fu['User']['email'].'>';
+							$this->Email->subject = 'Reset Your Example.com Password';
+							$this->Email->sendAs = 'both';
+			   
+								   
+								$this->Email->delivery = 'smtp';
+								$this->set('ms', $ms);
+								$this->Email->send();
+								$this->set('smtp_errors', $this->Email->smtpError);
+							$this->Session->setFlash(__('Check Your Email To Reset your password', true));        
+							 
+							//============EndEmail=============//    
+						}
+						else{
+							$this->Session->setFlash("Error Generating Reset link");                            
+						}                        
+					}
+					else
+					{
+						$this->Session->setFlash('This Account is not Active yet.Check Your mail to activate it');
+					}
+				}
+				else
+				{
+					$this->Session->setFlash('Email does Not Exist');
+				}
+			}
+		}
+	}
 	
 	function reset($token=null){
         //$this->layout="Login";
