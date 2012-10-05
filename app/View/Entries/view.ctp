@@ -25,7 +25,7 @@
 					if (index <= stories.length-1 && index > 0) {
 						index--;
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
-							$dialog.html('<img src='+stories[index]['Story']['url']+'>');
+							$dialog.html('<img style="width:478px;" src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
