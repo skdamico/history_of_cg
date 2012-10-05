@@ -1,3 +1,20 @@
+<script>
+	$(document).ready(function() {
+	var $dialog = $('<div></div>')
+		.html('This dialog will show every time!')
+		.dialog({
+			autoOpen: false,
+			title: 'Basic Dialog'
+		});
+
+	$('#opener').click(function() {
+		$dialog.dialog('open');
+		// prevent the default action, e.g., following a link
+		return false;
+	});
+});
+</script>
+
 <?php 
 
 function limit_words($str, $word_limit) {
@@ -68,7 +85,13 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><a class='story-type story-type-icon-text' href='story-popup' target='story-frame'></a>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><a class='story-type story-type-icon-text'></a>
+					<div id="dialog-message" title='<?php echo $s['Story']['title']; ?>'>
+						<p>
+							<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+							<?php echo limit_words($s['Story']['story'], 80); ?>
+						</p>
+					</div>
 				</div>
             </li>
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
