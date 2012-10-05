@@ -25,10 +25,10 @@
 						if (stories[index]['Story']['StoryType']['Image']) {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>);
 						}
-						if (stories[index]['Story']['StoryType']['Video']) {
+						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
 						}
-						if (stories[index]['Story']['StoryType']['Text']) {
+						else if (stories[index]['Story']['StoryType']['Text']) {
 							$dialog.html(stories[index]['Story']['story']);
 						}
 						console.info(stories[index]['Story']);
@@ -39,10 +39,10 @@
 						if (stories[index]['Story']['StoryType']['Image']) {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>);
 						}
-						if (stories[index]['Story']['StoryType']['Video']) {
+						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
 						}
-						if (stories[index]['Story']['StoryType']['Text']) {
+						else if (stories[index]['Story']['StoryType']['Text']) {
 							$dialog.html(stories[index]['Story']['story']);
 						}
 						console.info(stories[index]['Story']);
@@ -55,10 +55,10 @@
 						if (stories[index]['Story']['StoryType']['Image']) {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>);
 						}
-						if (stories[index]['Story']['StoryType']['Video']) {
+						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
 						}
-						if (stories[index]['Story']['StoryType']['Text']) {
+						else if (stories[index]['Story']['StoryType']['Text']) {
 							$dialog.html(stories[index]['Story']['story']);
 						}
 						console.info(stories[index]['Story']);
@@ -69,10 +69,10 @@
 						if (stories[index]['Story']['StoryType']['Image']) {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>);
 						}
-						if (stories[index]['Story']['StoryType']['Video']) {
+						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
 						}
-						if (stories[index]['Story']['StoryType']['Text']) {
+						else if (stories[index]['Story']['StoryType']['Text']) {
 							$dialog.html(stories[index]['Story']['story']);
 						}
 						console.info(stories[index]['Story']);
