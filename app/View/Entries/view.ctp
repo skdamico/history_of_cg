@@ -29,7 +29,7 @@
 					}
 				},
 				"Next": function() {
-					if (index < stories.length-1 && index >= 0) {
+					if (index < stories.length && index >= 0) {
 						$dialog.dialog("option", "title", stories[index+1]);
 					}
 					else {
@@ -121,7 +121,7 @@ function limit_words($str, $word_limit) {
 					<span class='story-type story-type-icon-text' id='opener' 
 						data-title='<?php echo $s['Story']['title']; ?>' 
 						data-story='<?php echo $s['Story']['story']; ?>'
-						data-stories='<?php echo $stories; ?>'
+						data-stories='<?php echo array_values($stories); ?>'
 						data-index='<?php echo $i; ?>'>
 					</span>
 				</div>
