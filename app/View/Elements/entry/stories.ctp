@@ -1,7 +1,7 @@
 <?php foreach($stories as $story): ?>
   <div class='stories'>
     <p class="story-collapsed-heading">
-        <span class='title'><?php echo $story['Story']['title']; ?> 1234 </span>
+        <span class='title'><?php echo $story['Story']['title']; ?></span>
         <span class='delete ui-icon ui-icon-close'></span>
         <span class='story-type <?php 
             if( $story['Story']['StoryType']['name'] == 'Text' ) { 
