@@ -33,6 +33,7 @@
 										</div>');
 						}
 						else {
+							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
