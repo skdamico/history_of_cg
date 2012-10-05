@@ -13,9 +13,7 @@
 		//
 		var story = document.getElementById('opener');
 		var stories = story.getAttribute('data-stories');
-		for(j=0;j<stories.length;j++){
-			console.info(stories[j]);
-		}
+		console.info(stories);
 		var index = story.getAttribute('data-index');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
