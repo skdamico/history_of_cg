@@ -258,6 +258,11 @@ ul.mosaicContainer li.tile .bottom-link {
     margin-top: 5px;
     margin-right: 3px;
     height: 9px; }
+	ul.mosaicContainer li.tile .bottom-link a.story-type {
+		float: right;
+		margin-top: 5px;
+		margin-right: 3px;
+		height: 9px; }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-text {
       background: url("../img/richMedia_icons.png");
       background-position: 1px 0;
