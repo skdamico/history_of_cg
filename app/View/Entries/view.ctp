@@ -29,7 +29,7 @@
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-											<embed src="http://www.youtube.com/v/'+stories[index]['Story'].url+'?version=3&amp;autoplay=1" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">
+											<embed src="http://www.youtube.com/v/'+stories[index]['Story'].url+'?version=3&amp;autoplay=1" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">\
 										</div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
