@@ -13,23 +13,24 @@
 	$('#opener').click(function() {
 		//
 		var story = document.getElementById('opener');
+		var stories = story.getAttribute('data-stories');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					if ($i < $stories.length && $i > 0) {
-						$dialog.dialog("option", "title", $stories[$i-1]);
+					if ($i < stories.length && $i > 0) {
+						$dialog.dialog("option", "title", stories[$i-1]);
 					}
 					else {
-						$dialog.dialog("option", "title", $stories[$stories.length]);
-						$i = $stories.length;
+						$dialog.dialog("option", "title", stories[stories.length]);
+						$i = stories.length;
 					}
 				},
 				"Next": function() {
-					if ($i < $stories.length-1 && $i >= 0) {
-						$dialog.dialog("option", "title", $stories[$i+1]);
+					if ($i < stories.length-1 && $i >= 0) {
+						$dialog.dialog("option", "title", stories[$i+1]);
 					}
 					else {
-						$dialog.dialog("option", "title", $stories[0]);
+						$dialog.dialog("option", "title", stories[0]);
 						$i = 0;
 					}
 						
@@ -37,7 +38,6 @@
 			});
 		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
-		$(".ui-dialog-button-text-only button:first").style.float="left";
 		// prevent the default action, e.g., following a link
 		return false;
 	});
@@ -114,7 +114,12 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text' id='opener' data-title='<?php echo $s['Story']['title']; ?>' data-story='<?php echo $s['Story']['story']; ?>'></span>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
+					<span class='story-type story-type-icon-text' id='opener' 
+						data-title='<?php echo $s['Story']['title']; ?>' 
+						data-story='<?php echo $s['Story']['story']; ?>'
+						data-stories='<?php echo $stories; ?>'>
+					</span>
 				</div>
             </li>
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
