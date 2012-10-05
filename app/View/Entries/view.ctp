@@ -22,7 +22,7 @@
 					if (index <= stories.length-1 && index > 0) {
 						index--;
 						console.info(stories[index]['Story']['StoryType']);
-						if (stories[index]['Story']['StoryType']['Image']['name'] == 'Image') {
+						if (stories[index]['Story']['StoryType']['Image'].name == 'Image') {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
 						}
 						else if (stories[index]['Story']['StoryType']['Video']) {
