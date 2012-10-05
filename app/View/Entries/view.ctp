@@ -4,6 +4,7 @@
 		.html('This dialog will show every time!')
 		.dialog({
 			autoOpen: false,
+			modal: true,
 			title: 'Basic Dialog'
 		});
 
