@@ -19,25 +19,27 @@
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					console.info(stories[index]['Story']);
 					if (index <= stories.length && index > 0) {
 						$dialog.dialog("option", "title", stories[index-1]['Story']['title']);
 						index--;
+						console.info(stories[index]['Story']);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[stories.length]['Story']['title']);
 						index = stories.length;
+						console.info(stories[index]['Story']);
 					}
 				},
 				"Next": function() {
-				console.info(index);
 					if (index < stories.length && index >= 0) {
 						$dialog.dialog("option", "title", stories[index+1]['Story']['title']);
 						index++;
+						console.info(stories[index]['Story']);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[0]['Story']['title']);
 						index = 0;
+						console.info(stories[index]['Story']);
 					}
 						
 				}
