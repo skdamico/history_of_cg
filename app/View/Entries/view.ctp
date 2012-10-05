@@ -10,7 +10,7 @@
 
 	$('#opener').click(function() {
 		$dialog.dialog("option", "title", $('#opener').getAttribute('data-title'));
-		$dialog.html($('opener').getAttribute('data-story');
+		$dialog.html($('opener').getAttribute('data-story'));
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
