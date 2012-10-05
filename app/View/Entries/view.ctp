@@ -29,8 +29,8 @@
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-												<div class="lite" id='+stories[index]['Story']['url']+'<a><img style="width:590px;" class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a></div>\
-												</div>');
+											<embed src="http://www.youtube.com/v/'+stories[index]['Story'].url+'?version=3&amp;autoplay=1" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">
+										</div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html(stories[index]['Story'].story);
