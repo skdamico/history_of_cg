@@ -6,8 +6,8 @@
 			autoOpen: false,
 			modal: true,
 			title: '',
-			maxHeight = 1000,
-			maxWidth = 1000
+			maxHeight : 1000,
+			maxWidth : 1000
 		});
 		
 
