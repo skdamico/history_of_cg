@@ -253,6 +253,9 @@ ul.mosaicContainer li.tile .bottom-link {
   ul.mosaicContainer li.tile .bottom-link span {
     line-height: 19px;
     padding: 7px 0 2px 0; }
+	ul.mosaicContainer li.tile .bottom-link a {
+    line-height: 19px;
+    padding: 7px 0 2px 0; }
   ul.mosaicContainer li.tile .bottom-link span.story-type {
     float: right;
     margin-top: 5px;
