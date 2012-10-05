@@ -5,15 +5,7 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
-			title: '',
-			buttons: {
-				"Previous": function() {
-					console.info('previous story');
-				},
-				"Next": function() {
-					console.info('next story');
-				}
-			}
+			title: ''
 		});
 		
 
@@ -21,6 +13,14 @@
 		//
 		var story = document.getElementById('opener');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
+		$dialog.dialog("option", "buttons", {
+				"Previous": function() {
+					console.info('previous story');
+				},
+				"Next": function() {
+					console.info('next story');
+				}
+			});
 		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
 		$(".ui-dialog-button-text-only button:first").style.float="left";
@@ -92,7 +92,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php foreach($stories as $s): ?>
+    <?php $i = -1; foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
