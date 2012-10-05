@@ -18,6 +18,7 @@
 		
 
 	$('#opener').click(function() {
+		$(".ui-dialog-buttonpane button:first").style.float="left";
 		var story = document.getElementById('opener');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.html(story.getAttribute('data-story'));
