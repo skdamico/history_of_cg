@@ -21,7 +21,7 @@
 				"Previous": function() {
 					if (index <= stories.length-1 && index > 0) {
 						index--;
-						console.info(stories[index]['Story']['StoryType']);
+						console.info(stories[index]['Story']['StoryType']['name']);
 						if (stories[index]['Story']['StoryType']['Image'].name == 'Image') {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
 						}
