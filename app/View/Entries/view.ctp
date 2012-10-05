@@ -1,5 +1,6 @@
 <script>
 	$(document).ready(function() {
+	var $i = -1;
 	var $dialog = $('<div></div>')
 		.html('')
 		.dialog({
@@ -15,10 +16,23 @@
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					console.info('previous story');
+					if ($i < $stories.length && $i > 0) {
+						$dialog.dialog("option", "title", $stories[$i-1]);
+					}
+					else {
+						$dialog.dialog("option", "title", $stories[$stories.length]);
+						$i = $stories.length;
+					}
 				},
 				"Next": function() {
-					console.info('next story');
+					if ($i < $stories.length-1 && $i >= 0) {
+						$dialog.dialog("option", "title", $stories[$i+1]);
+					}
+					else {
+						$dialog.dialog("option", "title", $stories[0]);
+						$i = 0;
+					}
+						
 				}
 			});
 		$dialog.html(story.getAttribute('data-story'));
@@ -92,7 +106,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php $i = -1; foreach($stories as $s): ?>
+    <?php foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
@@ -131,6 +145,7 @@ function limit_words($str, $word_limit) {
             </li>
             <?php endif; ?>
         <?php endif; ?>
+		<script> $i++; </script>
     <?php endforeach; ?>
     </ul>
 </section>
