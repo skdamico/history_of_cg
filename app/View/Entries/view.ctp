@@ -5,7 +5,9 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
-			title: ''
+			title: '',
+			maxHeight = 1000,
+			maxWidth = 1000
 		});
 		
 
@@ -25,7 +27,7 @@
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
-							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a>');
+							$dialog.html('<div class="lite" id='+stories[index]['Story']['url']+'<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a></div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html(stories[index]['Story']['story']);
