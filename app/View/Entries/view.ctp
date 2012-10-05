@@ -20,7 +20,6 @@
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
 					if (index <= stories.length-1 && index > 0) {
-						$dialog.dialog("option", "title", stories[index-1]['Story']['title']);
 						index--;
 						if (stories[index]['Story']['StoryType']['Image']) {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
@@ -31,7 +30,7 @@
 						else if (stories[index]['Story']['StoryType']['Text']) {
 							$dialog.html(stories[index]['Story']['story']);
 						}
-						console.info(stories[index]['Story']);
+						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[stories.length-1]['Story']['title']);
@@ -80,7 +79,6 @@
 						
 				}
 			});
-		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
