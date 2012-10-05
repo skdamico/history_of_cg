@@ -5,7 +5,7 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
-			title: 'Basic Dialog'
+			title: ''
 		});
 
 	$('#opener').click(function() {
