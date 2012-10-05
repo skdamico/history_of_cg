@@ -29,7 +29,7 @@
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-											<iframe src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" frameborder="0" allowfullscreen></iframe>\
+											<embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">\
 										</div>');
 						}
 						else {
