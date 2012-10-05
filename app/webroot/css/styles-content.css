@@ -263,6 +263,11 @@ ul.mosaicContainer li.tile .bottom-link {
       background-position: 1px 0;
       background-repeat: no-repeat;
       width: 25px; }
+	ul.mosaicContainer li.tile .bottom-link a.story-type.story-type-icon-text {
+      background: url("../img/richMedia_icons.png");
+      background-position: 1px 0;
+      background-repeat: no-repeat;
+      width: 25px; }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image {
       background: url("../img/richMedia_icons.png");
       background-position: -23px 0;
