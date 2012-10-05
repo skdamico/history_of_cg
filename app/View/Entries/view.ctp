@@ -32,7 +32,7 @@
 											<iframe src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" frameborder="0" allowfullscreen></iframe>\
 										</div>');
 						}
-						else if (stories[index]['Story']['StoryType'].name == 'Text') {
+						else {
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
