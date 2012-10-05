@@ -86,12 +86,6 @@ function limit_words($str, $word_limit) {
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><a class='story-type story-type-icon-text' id='opener'></a>
-					<div id="dialog-message" title='<?php echo $s['Story']['title']; ?>'>
-						<p>
-							<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-							<?php echo limit_words($s['Story']['story'], 80); ?>
-						</p>
-					</div>
 				</div>
             </li>
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
