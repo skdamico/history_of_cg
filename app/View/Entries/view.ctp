@@ -27,12 +27,12 @@
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
 							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
-						else if (stories[index]['Story']['StoryType'].name == 'Video') {
+						if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-											<embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">\
+											<embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="auto" allowscriptaccess="always">\
 										</div>');
 						}
-						else {
+						if (stories[index]['Story']['StoryType'].name == 'Text') {
 							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
