@@ -20,7 +20,7 @@
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					if (index < stories.length && index > 0) {
+					if (index <= stories.length && index > 0) {
 						$dialog.dialog("option", "title", stories[index-1]);
 					}
 					else {
