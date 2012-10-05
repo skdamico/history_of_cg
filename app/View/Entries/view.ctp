@@ -9,8 +9,9 @@
 		});
 
 	$('#opener').click(function() {
-		$dialog.dialog("option", "title", $('#opener').getAttribute('data-title'));
-		$dialog.html($('opener').getAttribute('data-story'));
+		var story = document.getElementById('opener');
+		$dialog.dialog("option", "title", story.getAttribute('data-title'));
+		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
