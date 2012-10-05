@@ -10,8 +10,6 @@
 
 	$('#opener').click(function() {
 		var story = document.getElementById('opener');
-		console.info(story);
-		console.info(story.getAttribute('data-title'));
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
