@@ -23,7 +23,7 @@
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.html(story.getAttribute('data-story'));
 		$dialog.dialog('open');
-		$(".ui-dialog-buttonpane button:first").style.float="left";
+		$(".ui-dialog-button-text-only button:first").style.float="left";
 		// prevent the default action, e.g., following a link
 		return false;
 	});
