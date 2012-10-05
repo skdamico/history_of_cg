@@ -25,15 +25,15 @@
 					if (index <= stories.length-1 && index > 0) {
 						index--;
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
-							$dialog.html('<img style="width:600px;" src='+stories[index]['Story']['url']+'>');
+							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-												<div class="lite" id='+stories[index]['Story']['url']+'<a><img style="width:600px;" class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a></div>\
+												<div class="lite" id='+stories[index]['Story']['url']+'<a><img style="width:590px;" class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a></div>\
 												</div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
-							$dialog.html(stories[index]['Story']['story']);
+							$dialog.html(stories[index]['Story'].story);
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
