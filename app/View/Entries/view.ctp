@@ -5,8 +5,17 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
-			title: ''
+			title: '',
+			buttons: {
+				"Previous": function() {
+					console.info('previous story');
+				},
+				"Next": function() {
+					console.info('next story');
+				}
+			}
 		});
+		
 
 	$('#opener').click(function() {
 		var story = document.getElementById('opener');
