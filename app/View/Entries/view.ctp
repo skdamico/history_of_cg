@@ -21,14 +21,13 @@
 				"Previous": function() {
 					if (index <= stories.length-1 && index > 0) {
 						index--;
-						console.info(stories[index]['Story']['StoryType'].name);
-						if (stories[index]['Story']['StoryType']['Image'].name == 'Image') {
+						if (stories[index]['Story']['StoryType'].name == 'Image') {
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
 						}
-						else if (stories[index]['Story']['StoryType']['Video']) {
+						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
 						}
-						else if (stories[index]['Story']['StoryType']['Text']) {
+						else if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html(stories[index]['Story']['story']);
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
