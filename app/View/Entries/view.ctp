@@ -22,6 +22,7 @@
 					console.info(index);
 					if (index <= stories.length && index > 0) {
 						$dialog.dialog("option", "title", stories[index-1]['Story']['title']);
+						index--;
 					}
 					else {
 						$dialog.dialog("option", "title", stories[stories.length]['Story']['title']);
@@ -32,6 +33,7 @@
 				console.info(index);
 					if (index < stories.length && index >= 0) {
 						$dialog.dialog("option", "title", stories[index+1]['Story']['title']);
+						index++;
 					}
 					else {
 						$dialog.dialog("option", "title", stories[0]['Story']['title']);
