@@ -109,7 +109,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php print_r($stories); $i = 1; foreach($stories as $s): ?>
+    <?php $i = 1; foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
@@ -121,7 +121,7 @@ function limit_words($str, $word_limit) {
 					<span class='story-type story-type-icon-text' id='opener' 
 						data-title='<?php echo $s['Story']['title']; ?>' 
 						data-story='<?php echo $s['Story']['story']; ?>'
-						data-stories='<?php echo array_values($stories); ?>'
+						data-stories='<?php echo json_encode($stories); ?>'
 						data-index='<?php echo $i; ?>'>
 					</span>
 				</div>
