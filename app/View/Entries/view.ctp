@@ -14,24 +14,24 @@
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		console.info(stories);
-		var index = story.getAttribute('data-index');
+		var index = story.getAttribute('data-index') - 1;
 		console.info(index);
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					if (index <= stories.length && index > 0) {
+					if (index <= stories.length-1 && index > 0) {
 						$dialog.dialog("option", "title", stories[index-1]['Story']['title']);
 						index--;
 						console.info(stories[index]['Story']);
 					}
 					else {
-						$dialog.dialog("option", "title", stories[stories.length]['Story']['title']);
+						$dialog.dialog("option", "title", stories[stories.length-1]['Story']['title']);
 						index = stories.length;
 						console.info(stories[index]['Story']);
 					}
 				},
 				"Next": function() {
-					if (index < stories.length && index >= 0) {
+					if (index < stories.length-1 && index >= 0) {
 						$dialog.dialog("option", "title", stories[index+1]['Story']['title']);
 						index++;
 						console.info(stories[index]['Story']);
