@@ -1,6 +1,5 @@
 <script>
 	$(document).ready(function() {
-	var $i = -1;
 	var $dialog = $('<div></div>')
 		.html('')
 		.dialog({
@@ -14,24 +13,25 @@
 		//
 		var story = document.getElementById('opener');
 		var stories = story.getAttribute('data-stories');
+		var index = story.getAttribute('data-index');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
-					if ($i < stories.length && $i > 0) {
-						$dialog.dialog("option", "title", stories[$i-1]);
+					if (index < stories.length && index > 0) {
+						$dialog.dialog("option", "title", stories[index-1]);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[stories.length]);
-						$i = stories.length;
+						index = stories.length;
 					}
 				},
 				"Next": function() {
-					if ($i < stories.length-1 && $i >= 0) {
-						$dialog.dialog("option", "title", stories[$i+1]);
+					if (index < stories.length-1 && index >= 0) {
+						$dialog.dialog("option", "title", stories[index+1]);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[0]);
-						$i = 0;
+						index = 0;
 					}
 						
 				}
@@ -106,7 +106,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php foreach($stories as $s): ?>
+    <?php $i = 1; foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
@@ -118,7 +118,8 @@ function limit_words($str, $word_limit) {
 					<span class='story-type story-type-icon-text' id='opener' 
 						data-title='<?php echo $s['Story']['title']; ?>' 
 						data-story='<?php echo $s['Story']['story']; ?>'
-						data-stories='<?php echo $stories; ?>'>
+						data-stories='<?php echo $stories; ?>'
+						data-index='<?php echo $i; ?>'>
 					</span>
 				</div>
             </li>
@@ -150,8 +151,7 @@ function limit_words($str, $word_limit) {
             </li>
             <?php endif; ?>
         <?php endif; ?>
-		<script> $i++; </script>
-    <?php endforeach; ?>
+    <?php $i++; endforeach; ?>
     </ul>
 </section>
 
