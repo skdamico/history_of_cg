@@ -69,6 +69,7 @@
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
+						console.info(stories[index]['Story']);
 					}
 					else {
 						$dialog.dialog("option", "title", stories[0]['Story']['title']);
@@ -82,7 +83,9 @@
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
+						console.info(stories[index]['Story']);
 					}
+						
 				}
 			});
 		$dialog.dialog('open');
