@@ -1,7 +1,7 @@
 <script>
 	$(document).ready(function() {
 	var $dialog = $('<div></div>')
-		.html('This dialog will show every time!')
+		.html('')
 		.dialog({
 			autoOpen: false,
 			modal: true,
@@ -9,6 +9,8 @@
 		});
 
 	$('#opener').click(function() {
+		$dialog.dialog({"option", title, $('#opener').getAttribute('data-title')});
+		$dialog.html($('opener').getAttribute('data-story');
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
@@ -86,7 +88,7 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text' id='opener'></span>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text' id='opener' data-title='<?php echo $s['Story']['title']; ?>' data-story='<?php echo $s['Story']['story']; ?>'></span>
 				</div>
             </li>
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
