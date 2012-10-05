@@ -1,6 +1,6 @@
 <script>
 	$(document).ready(function() {
-	var $dialog = $('<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"></div>')
+	var $dialog = $('<div></div>')
 		.html('This dialog will show every time!')
 		.dialog({
 			autoOpen: false,
