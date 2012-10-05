@@ -15,6 +15,7 @@
 		var stories = story.getAttribute('data-stories');
 		console.info(eval('('+stories+')'));
 		var index = story.getAttribute('data-index');
+		console.info(index);
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
