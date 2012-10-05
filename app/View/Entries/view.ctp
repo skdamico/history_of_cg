@@ -7,7 +7,8 @@
 			modal: true,
 			title: '',
 			maxHeight : 1000,
-			maxWidth : 2000
+			maxWidth : 2000,
+			width: 600
 		});
 		
 
