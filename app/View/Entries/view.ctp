@@ -27,11 +27,9 @@
 							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
-							$dialog.html('<li class="tile story story-video isotope-item" style="position: absolute; left: 0px; top: 0px;">\
-											<div class="container">\
+							$dialog.html('<div class="container">\
 												<div class="lite" id='+stories[index]['Story']['url']+'<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg"></a></div>\
-												</div>\
-										</li>');
+												</div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
 							$dialog.html(stories[index]['Story']['story']);
