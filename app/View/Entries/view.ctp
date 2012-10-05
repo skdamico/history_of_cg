@@ -29,11 +29,11 @@
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
-											<embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" allowscriptaccess="always">\
+											<iframe src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" frameborder="0" allowfullscreen></iframe>\
 										</div>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Text') {
-							$dialog.html('<div class="container">'+stories[index]['Story'].story+'</div>');
+							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
