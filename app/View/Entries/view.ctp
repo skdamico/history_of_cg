@@ -12,8 +12,8 @@
 	$('#opener').click(function() {
 		//
 		var story = document.getElementById('opener');
-		var stories = story.getAttribute('data-stories');
-		console.info(eval('('+stories+')'));
+		var stories = eval('('+story.getAttribute('data-stories')+')');
+		console.info(stories);
 		var index = story.getAttribute('data-index');
 		console.info(index);
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
