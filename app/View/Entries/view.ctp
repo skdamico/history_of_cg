@@ -20,19 +20,19 @@
 		$dialog.dialog("option", "buttons", {
 				"Previous": function() {
 					if (index <= stories.length && index > 0) {
-						$dialog.dialog("option", "title", stories[index-1]);
+						$dialog.dialog("option", "title", stories[index-1]['Story']['title']);
 					}
 					else {
-						$dialog.dialog("option", "title", stories[stories.length]);
+						$dialog.dialog("option", "title", stories[stories.length]['Story']['title']);
 						index = stories.length;
 					}
 				},
 				"Next": function() {
 					if (index < stories.length && index >= 0) {
-						$dialog.dialog("option", "title", stories[index+1]);
+						$dialog.dialog("option", "title", stories[index+1]['Story']['title']);
 					}
 					else {
-						$dialog.dialog("option", "title", stories[0]);
+						$dialog.dialog("option", "title", stories[0]['Story']['title']);
 						index = 0;
 					}
 						
