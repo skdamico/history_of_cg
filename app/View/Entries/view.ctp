@@ -109,7 +109,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php $i = 1; foreach($stories as $s): ?>
+    <?php print_r($stories); $i = 1; foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
