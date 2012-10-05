@@ -24,7 +24,7 @@
 					if (index <= stories.length-1 && index > 0) {
 						index--;
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
-							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
+							$dialog.html('<img src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType'].name == 'Video') {
 							$dialog.html('<div class="container">\
@@ -40,7 +40,7 @@
 						$dialog.dialog("option", "title", stories[stories.length-1]['Story']['title']);
 						index = stories.length-1;
 						if (stories[index]['Story']['StoryType']['Image']) {
-							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
+							$dialog.html('<img src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
@@ -56,7 +56,7 @@
 						$dialog.dialog("option", "title", stories[index+1]['Story']['title']);
 						index++;
 						if (stories[index]['Story']['StoryType']['Image']) {
-							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
+							$dialog.html('<img src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
@@ -70,7 +70,7 @@
 						$dialog.dialog("option", "title", stories[0]['Story']['title']);
 						index = 0;
 						if (stories[index]['Story']['StoryType']['Image']) {
-							$dialog.html('<img src='+stories[index]['Story']['url']+'/>');
+							$dialog.html('<img src='+stories[index]['Story']['url']+'>');
 						}
 						else if (stories[index]['Story']['StoryType']['Video']) {
 							$dialog.html('<a><img class="lazy" data-original="http://img.youtube.com/vi/'+stories[index]['Story']['video']+'/0.jpg" width="478px" height="359px" style="position: relative; top: 0px; left: 0px; display: inline-block; " src="'+stories[index]['Story']['video']+'"></a>');
