@@ -6,6 +6,7 @@
         <span class='story-type <?php 
             if( $story['Story']['StoryType']['name'] == 'Text' ) { 
                 echo 'story-type-icon-text';
+				echo '1234';
             } 
             else if( $story['Story']['StoryType']['name'] == 'Image' ) { 
                 echo 'story-type-icon-image';
