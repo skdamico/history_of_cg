@@ -14,8 +14,7 @@
 		
 
 	$('[id=opener]').click(function() {
-		var story = $(this);
-		console.info(story);
+		var story = $(this)[0];
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
 		if (stories[index]['Story']['StoryType'].name == 'Image') {
