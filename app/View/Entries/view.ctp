@@ -45,8 +45,8 @@
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
 					else {
-						$dialog.dialog("option", "title", stories[stories.length-1]['Story']['title']);
 						index = stories.length-1;
+						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
 							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
@@ -75,8 +75,8 @@
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
 					else {
-						$dialog.dialog("option", "title", stories[0]['Story']['title']);
 						index = 0;
+						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
 							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
