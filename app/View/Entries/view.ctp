@@ -14,7 +14,6 @@
 		
 
 	$('#opener').click(function() {
-		console.info('clicked');
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
@@ -25,7 +24,6 @@
 			$dialog.html('<div class="container"><embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
 		}
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
-			console.info('fired niga');
 			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div></li>');
 		}
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
@@ -41,7 +39,7 @@
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
 							console.info('fired niga');
-							$dialog.html('<ul class="mosiacContainer"><li class="tile story story-text"><div class="container"><span>'+stories[index]['Story'].story+'</span></div></li></ul>');
+							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
@@ -55,7 +53,6 @@
 							$dialog.html('<div class="container"><embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
-							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 					}
@@ -88,7 +85,6 @@
 							$dialog.html('<div class="container"><embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
-							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 					}
@@ -189,7 +185,14 @@ function limit_words($str, $word_limit) {
                     -->
                     <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
+                    <span class='story-type story-type-icon-video' id='opener'
+                        data-title='<?php echo $s['Story']['title']; ?>'
+                        data-story='<?php echo $s['Story']['story']; ?>'
+                        data-stories='<?php echo json_encode($stories); ?>'
+                        data-index='<?php echo $i; ?>'>
+                    </span>
+                </div>
             </li>
             <?php else: ?>
 
@@ -205,7 +208,14 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <img src='<?php echo $s['Story']['url']; ?>' />
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-image'></span></div>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
+                    <span class='story-type story-type-icon-image' id='opener'
+                        data-title='<?php echo $s['Story']['title']; ?>'
+                        data-story='<?php echo $s['Story']['story']; ?>'
+                        data-stories='<?php echo json_encode($stories); ?>'
+                        data-index='<?php echo $i; ?>'>
+                    </span>
+                </div>
             </li>
             <?php endif; ?>
         <?php endif; ?>
