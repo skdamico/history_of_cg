@@ -13,7 +13,7 @@
 		
 
 	$('#opener').click(function() {
-		//
+		console.log('clicked');
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
@@ -25,7 +25,7 @@
 		}
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			console.info('fired niga');
-			$dialog.html('<li class="tile story story-text"><div class="container"><span>'+stories[index]['Story'].story+'</span></div></li>');
+			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div></li>');
 		}
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
