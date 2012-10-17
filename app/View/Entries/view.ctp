@@ -5,6 +5,7 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
+			show: 'slide',
 			title: '',
 			maxHeight : 1000,
 			maxWidth : 2000,
@@ -89,6 +90,10 @@
 						}
 					}
 						
+				}
+
+				"Close": function() {
+				    $dialog.dialog("close");
 				}
 			});
 		$dialog.dialog('open');
