@@ -13,7 +13,7 @@
 		
 
 	$('#opener').click(function() {
-		console.log('clicked');
+		console.info('clicked');
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
@@ -62,7 +62,7 @@
 				"Next": function() {
 					if (index < stories.length-1 && index >= 0) {
 						index++;
-						iif (stories[index]['Story']['StoryType'].name == 'Image') {
+						if (stories[index]['Story']['StoryType'].name == 'Image') {
 							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Video') {
