@@ -23,7 +23,7 @@
       <file leaf-file-name="view.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="25" selection-start="149" selection-end="149" vertical-scroll-proportion="0.13507378">
+            <state line="99" column="44" selection-start="4567" selection-end="4567" vertical-scroll-proportion="0.69466513">
               <folding />
             </state>
           </provider>
@@ -32,7 +32,7 @@
       <file leaf-file-name="jquery-ui.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="55" selection-start="14165" selection-end="14165" vertical-scroll-proportion="0.0">
+            <state line="177" column="10" selection-start="9198" selection-end="9204" vertical-scroll-proportion="-11.24">
               <folding />
             </state>
           </provider>
@@ -510,14 +510,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="55" selection-start="14165" selection-end="14165" vertical-scroll-proportion="0.0">
+        <state line="177" column="10" selection-start="9198" selection-end="9204" vertical-scroll-proportion="-11.24">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="25" selection-start="149" selection-end="149" vertical-scroll-proportion="0.13507378">
+        <state line="99" column="44" selection-start="4567" selection-end="4567" vertical-scroll-proportion="0.69466513">
           <folding />
         </state>
       </provider>
