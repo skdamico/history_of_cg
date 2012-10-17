@@ -22,7 +22,6 @@
 						<?php echo limit_words($s['Story']['story'], 80); ?>
 					</p>
 				</div>
-<!-- Sample page content to illustrate the layering of the dialog -->
 <div class="hiddenInViewSource" style="padding:20px;">
 	<p>Sed vel diam id libero <a href="http://example.com">rutrum convallis</a>. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.</p>
 	<form>
@@ -34,6 +33,6 @@
 		</select><br /><br />
 		<textarea>textarea</textarea><br />
 	</form>
-</div><!-- End sample page content -->
+</div>
 
-</div><!-- End demo -->
+</div>
