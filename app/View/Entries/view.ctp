@@ -96,8 +96,8 @@
 				    $dialog.dialog("close");
 				}
 			});
-		$(".ui-dialog-buttonpane button:first").css("float: left");
-		$(".ui-dialog-buttonpane button:last").css("float: center");
+		$(".ui-dialog-buttonpane button:first").css("float: 'left';");
+		$(".ui-dialog-buttonpane button:last").css("float: 'center';");
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
