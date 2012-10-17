@@ -9,7 +9,7 @@
 			title: '',
 			maxHeight : 1000,
 			maxWidth : 2000,
-			width: 620
+			width: 600
 		});
 		
 
