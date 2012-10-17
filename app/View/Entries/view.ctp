@@ -60,6 +60,9 @@
 						}
 					}
 				},
+				"Close": function() {
+                    $dialog.dialog("close");
+                },
 				"Next": function() {
 					if (index < stories.length-1 && index >= 0) {
 						index++;
@@ -90,14 +93,8 @@
 						}
 					}
 						
-				},
-
-				"Close": function() {
-				    $dialog.dialog("close");
 				}
 			});
-		$(".ui-dialog-buttonpane button:first").css("float: left;");
-		$(".ui-dialog-buttonpane button:last").css("float: center;");
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
