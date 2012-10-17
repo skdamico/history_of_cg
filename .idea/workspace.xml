@@ -20,19 +20,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="view.ctp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="view.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="216" column="27" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.74914867">
+            <state line="159" column="18" selection-start="7313" selection-end="7313" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery-ui.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="jquery-ui.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="10" selection-start="3208" selection-end="3217" vertical-scroll-proportion="-11.24">
+            <state line="186" column="56" selection-start="10151" selection-end="10151" vertical-scroll-proportion="0.51482797">
               <folding />
             </state>
           </provider>
@@ -59,8 +59,8 @@
         <option value="$PROJECT_DIR$/app/Model/token.php" />
         <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/libs/jquery-ui.js" />
-        <option value="$PROJECT_DIR$/app/webroot/css/jquery-ui.css" />
         <option value="$PROJECT_DIR$/app/View/Entries/view.ctp" />
+        <option value="$PROJECT_DIR$/app/webroot/css/jquery-ui.css" />
       </list>
     </option>
   </component>
@@ -418,16 +418,16 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
+    <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="10" selection-start="3208" selection-end="3217" vertical-scroll-proportion="-11.24">
+        <state line="159" column="18" selection-start="7313" selection-end="7313" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="27" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.74914867">
+        <state line="186" column="56" selection-start="10151" selection-end="10151" vertical-scroll-proportion="0.51482797">
           <folding />
         </state>
       </provider>
