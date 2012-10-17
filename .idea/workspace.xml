@@ -32,7 +32,7 @@
       <file leaf-file-name="jquery-ui.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="24" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.4543298">
+            <state line="98" column="75" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.49466193">
               <folding />
             </state>
           </provider>
@@ -517,7 +517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="24" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.4543298">
+        <state line="98" column="75" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.49466193">
           <folding />
         </state>
       </provider>
