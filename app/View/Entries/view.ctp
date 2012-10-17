@@ -30,7 +30,7 @@
 		}
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
-				"Previous": function() {
+				"<": function() {
 					if (index <= stories.length-1 && index > 0) {
 						index--;
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
@@ -60,10 +60,10 @@
 						}
 					}
 				},
-				"Close": function() {
+				"X": function() {
                     $dialog.dialog("close");
                 },
-				"Next": function() {
+				">": function() {
 					if (index < stories.length-1 && index >= 0) {
 						index++;
 						if (stories[index]['Story']['StoryType'].name == 'Image') {
@@ -96,9 +96,6 @@
 				}
 			});
 		$dialog.dialog('open');
-		$dialog.parent().find('button:contains("Close")').addClass('ui-button-text-icon-primary');
-        $dialog.parent().find('button:contains("Close")').removeClass('ui-button-text-only');
-        $dialog.parent().find('button:contains("Close")').prepend('<span class="ui-button-icon-primary ui-icon ui-icon-close"></span>');
 		// prevent the default action, e.g., following a link
 		return false;
 	});
