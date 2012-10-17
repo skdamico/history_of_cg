@@ -38,7 +38,6 @@
 							$dialog.html('<div class="container"><embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
-							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
@@ -67,10 +66,10 @@
 							$dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Video') {
+						    console.info(stories[index]['Story']);
 							$dialog.html('<div class="container"><embed src="'+stories[index]['Story'].url+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
-							console.info('fired niga');
 							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
