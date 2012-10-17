@@ -25,7 +25,7 @@
 		}
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			console.info('fired niga');
-			$dialog.html('<li class="tile story story-text"><div class="container"><span>'+stories[index]['Story'].story+'</span></div></li>');
+			$dialog.html('<ul class="mosaicContainer"><li class="tile story story-text"><div class="container"><span>'+stories[index]['Story'].story+'</span></div></li></ul>');
 		}
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
@@ -185,7 +185,8 @@ function limit_words($str, $word_limit) {
                     -->
                     <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
+                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
+					<span class='story-type story-type-icon-video' id='opener'></span></div>
             </li>
             <?php else: ?>
 
