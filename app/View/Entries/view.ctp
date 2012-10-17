@@ -98,7 +98,7 @@
 		$dialog.dialog('open');
 		$dialog.parent().find('button:contains("Close")').addClass('ui-button-text-icon-primary');
         $dialog.parent().find('button:contains("Close")').removeClass('ui-button-text-only');
-        $dialog.parent().find('button:contains("Close")').prepend('<span class="ui-button-icon-primary ui-icon ui-icon-close"></span>");
+        $dialog.parent().find('button:contains("Close")').prepend('<span class="ui-button-icon-primary ui-icon ui-icon-close"></span>');
 		// prevent the default action, e.g., following a link
 		return false;
 	});
