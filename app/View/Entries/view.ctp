@@ -13,7 +13,7 @@
 		});
 		
 
-	$('id=[opener]').click(function() {
+	$('[id=opener]').click(function() {
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
