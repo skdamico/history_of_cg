@@ -13,7 +13,7 @@
 		});
 		
 
-	$('#opener').click(function() {
+	$('.opener').click(function() {
 		var story = document.getElementById('opener');
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
@@ -169,7 +169,7 @@ function limit_words($str, $word_limit) {
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
-					<span class='story-type story-type-icon-text' id='opener' 
+					<span class='story-type story-type-icon-text opener'
 						data-title='<?php echo $s['Story']['title']; ?>' 
 						data-story='<?php echo $s['Story']['story']; ?>'
 						data-stories='<?php echo json_encode($stories); ?>'
@@ -186,7 +186,7 @@ function limit_words($str, $word_limit) {
                     <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
-                    <span class='story-type story-type-icon-video' id='opener'
+                    <span class='story-type story-type-icon-video opener'
                         data-title='<?php echo $s['Story']['title']; ?>'
                         data-story='<?php echo $s['Story']['story']; ?>'
                         data-stories='<?php echo json_encode($stories); ?>'
@@ -209,7 +209,7 @@ function limit_words($str, $word_limit) {
                     <img src='<?php echo $s['Story']['url']; ?>' />
                 </div>
                 <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span>
-                    <span class='story-type story-type-icon-image' id='opener'
+                    <span class='story-type story-type-icon-image opener'
                         data-title='<?php echo $s['Story']['title']; ?>'
                         data-story='<?php echo $s['Story']['story']; ?>'
                         data-stories='<?php echo json_encode($stories); ?>'
