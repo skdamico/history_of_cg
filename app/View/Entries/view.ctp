@@ -90,7 +90,7 @@
 						}
 					}
 						
-				}
+				},
 
 				"Close": function() {
 				    $dialog.dialog("close");
