@@ -40,7 +40,7 @@
 						}
 						if (stories[index]['Story']['StoryType'].name == 'Text') {
 							console.info('fired niga');
-							$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+							$dialog.html('<ul class="mosiacContainer"><li class="tile story story-text"><div class="container"><span>'+stories[index]['Story'].story+'</span></div></li></ul>');
 						}
 						$dialog.dialog("option", "title", stories[index]['Story']['title']);
 					}
