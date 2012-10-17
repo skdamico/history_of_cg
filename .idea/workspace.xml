@@ -23,7 +23,7 @@
       <file leaf-file-name="view.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="18" selection-start="4392" selection-end="4392" vertical-scroll-proportion="0.7911464">
+            <state line="7" column="25" selection-start="149" selection-end="149" vertical-scroll-proportion="0.13507378">
               <folding />
             </state>
           </provider>
@@ -501,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="55" selection-start="14165" selection-end="14165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Users/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.19636777">
@@ -515,9 +508,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="55" selection-start="14165" selection-end="14165" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="18" selection-start="4392" selection-end="4392" vertical-scroll-proportion="0.7911464">
+        <state line="7" column="25" selection-start="149" selection-end="149" vertical-scroll-proportion="0.13507378">
           <folding />
         </state>
       </provider>

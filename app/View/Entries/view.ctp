@@ -5,7 +5,7 @@
 		.dialog({
 			autoOpen: false,
 			modal: true,
-			show: 'slide',
+			show: 'fadeIn',
 			title: '',
 			maxHeight : 1000,
 			maxWidth : 2000,
