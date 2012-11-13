@@ -2,6 +2,8 @@
 
 class Entry extends AppModel {
   public $name = 'Entry';
+  public $thumbsUp = 0;
+  public $thumbsDown = 0;
   public $actsAs = array('Containable');
 
   public $belongsTo = array('User', 'Category', 'Location');
