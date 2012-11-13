@@ -11,6 +11,10 @@
     <?php if ($story['Story']['StoryType']['name'] == 'Text') :?>
         <?php echo $story['Story']['story']; ?>
     <?php endif; ?>
+    <br>
+    thumbs up: <?php echo $story['Story']['thumbsUp']; ?>
+    <br>
+    thumbs down: <?php echo $story['Story']['thumbsDown']; ?>
     </p>
     <br>
 <?php endforeach; ?>

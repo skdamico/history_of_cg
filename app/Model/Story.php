@@ -2,6 +2,8 @@
 
 class Story extends AppModel {
     public $name = 'Story';
+    public $thumbsUp = 0;
+    public $thumbsDown = 0;
     public $actsAs = array('Containable');
 
     public $belongsTo = array(
