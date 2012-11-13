@@ -2,7 +2,7 @@
 
 class HomeController extends AppController {
 
-    public $uses = array('Entry');
+    public $uses = array('Entry','Story');
 
     function beforeFilter() {
         parent::beforeFilter();
