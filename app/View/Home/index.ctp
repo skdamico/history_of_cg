@@ -10,6 +10,6 @@
 <?php foreach ($allEntries as $entry) : ?>
     <p>
     <?php echo $entry; ?> :
-    <?php echo $entry['created']; ?>
+    <?php echo $entry['text']; ?>
     </p>
 <?php endforeach; ?>
