@@ -10,6 +10,11 @@
 <?php foreach ($allEntries as $entry) : ?>
     <p>
     <?php echo $entry; ?> :
-    <?php echo $entry['text']; ?>
+    <?php echo $entry; ?>
+    </p>
+<?php endforeach; ?>
+<?php foreach ($allStories as $story) : ?>
+    <p>
+    <?php echo $story; ?>
     </p>
 <?php endforeach; ?>
