@@ -3,7 +3,7 @@
     <br>
     <?php echo $story['Story']['created']; ?>
     <br>
-    <?php echo $story['Story']['title']?>
+    <?php echo $story['Story']['title'];?>
     <br>
     <?php if ($story['Story']['StoryType']['name'] == 'Image') :?>
         <img src="<?php echo $story['Story']['url'] ?>" width="200">
