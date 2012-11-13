@@ -7,3 +7,4 @@
     </form>
   </div>
   <?php echo $this->element('timeline_static'); ?>
+  <?php echo $this->element('recent_updates'); ?>
