@@ -1,7 +1,5 @@
 <?php foreach ($stories as $story) : ?>
     <p class="recent_story">
-    <?php echo print_r($story); ?>
-    <br>
     <?php echo $story['Story']['created']; ?>
     <br>
     <?php echo $story['Story']['title'];?>
