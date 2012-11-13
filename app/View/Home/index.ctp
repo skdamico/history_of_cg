@@ -14,7 +14,7 @@
 <?php endforeach; ?>
 <?php foreach ($allStories as $story) : ?>
     <p>
-    <?php echo print_r($story['EntryStory']['created']); ?>
+    <?php echo print_r($story['created']); ?>
     0..0; ?>
     </p>
 <?php endforeach; ?>
