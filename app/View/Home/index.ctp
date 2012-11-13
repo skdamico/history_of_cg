@@ -9,12 +9,12 @@
 <?php echo $this->element('timeline_static'); ?>
 <?php foreach ($allEntries as $entry) : ?>
     <p>
-    <?php echo $entry; ?> :
-    <?php echo $entry; ?>
+    <?php echo $entry; ?> : <?php echo print_r($entry); ?>
     </p>
 <?php endforeach; ?>
 <?php foreach ($allStories as $story) : ?>
     <p>
-    <?php echo $story; ?> : <?php echo $story['Story']['text']; ?>
+    <?php echo $story; ?> : <?php echo print_r($story); ?>
+    0..0; ?>
     </p>
 <?php endforeach; ?>
