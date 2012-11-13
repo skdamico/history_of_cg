@@ -5,5 +5,4 @@
     <?php echo print_r($story['Story']['title'])?>
     </p>
     <br>
-    <br>
 <?php endforeach; ?>
