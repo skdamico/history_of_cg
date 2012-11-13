@@ -34,6 +34,6 @@ div.timeline {
     margin-top:75px;
 }
 
-#recentlyUpdated {
+#recentlyUpdated.span.p {
     text-align: center;
 }
