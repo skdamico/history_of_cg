@@ -12,8 +12,8 @@ class HomeController extends AppController {
 
     public function index() {
         $this->layout = 'home';
-        $this->set('allEntries', $this->Entry->find('list', array('order' => 'Entry.created')));
-        $this->set('allStories', $this->EntryStory->find('all', array(
+        $this->set('entries', $this->Entry->find('list', array('order' => 'Entry.created')));
+        $this->set('stories', $this->EntryStory->find('all', array(
                                              'contain' => array(
                                                  'Story' => array(
                                                      'conditions' => array('Story.published' => 1),

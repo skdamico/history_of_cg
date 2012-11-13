@@ -7,12 +7,13 @@
     </form>
 </div>
 <?php echo $this->element('timeline_static'); ?>
-<?php foreach ($allEntries as $entry) : ?>
+<?php echo $this->element('entry/stories'); ?>
+/*<?php foreach ($entries as $entry) : ?>
     <p>
     <?php echo $entry; ?> : <?php echo print_r($entry); ?>
     </p>
 <?php endforeach; ?>
-<?php foreach ($allStories as $story) : ?>
+<?php foreach ($stories as $story) : ?>
     <p>
     <?php echo print_r($story['Story']['created']); ?>
     <br>
@@ -20,4 +21,4 @@
     </p>
     <br>
     <br>
-<?php endforeach; ?>
+<?php endforeach; ?>*/
