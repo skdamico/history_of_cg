@@ -1,5 +1,5 @@
 <?php
-    $allEntries = $this->Entries->find('list');
+    $allEntries = $this->Entry->find('list');
 
     echo $allEntries;
 ?>
