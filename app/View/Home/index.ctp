@@ -15,6 +15,6 @@
 <?php endforeach; ?>
 <?php foreach ($allStories as $story) : ?>
     <p>
-    <?php echo $story; ?>
+    <?php echo $story; ?> : <?php echo $story['text']; ?>
     </p>
 <?php endforeach; ?>
