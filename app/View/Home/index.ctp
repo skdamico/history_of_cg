@@ -7,4 +7,8 @@
     </form>
 </div>
 <?php echo $this->element('timeline_static'); ?>
-<?php echo $this->element('recent_updates'); ?>
+<div id="recentlyUpdated">
+    <span id="stories">
+        <?php echo $this->element('recent_updates'); ?>
+    </span>
+</div>
