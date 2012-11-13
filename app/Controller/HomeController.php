@@ -12,6 +12,6 @@ class HomeController extends AppController {
 
     public function index() {
         $this->layout = 'home';
-        $this->set('allEntries', $this->Entry->find('all'));
+        $this->set('allEntries', $this->Entry->find('list'));
     }
 }
