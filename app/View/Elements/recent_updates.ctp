@@ -8,6 +8,7 @@
     <br>
     <?php if ($story['StoryType'] == 'Image') :?>
         <img src="<?php echo print_r($story['Story']['url']) ?>" width="200">
+    <?php endif; ?>
     </p>
     <br>
 <?php endforeach; ?>
