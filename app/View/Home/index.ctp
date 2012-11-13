@@ -8,5 +8,8 @@
 </div>
 <?php echo $this->element('timeline_static'); ?>
 <?php foreach ($allEntries as $entry) : ?>
-    <span><?php echo $entry; ?></span>
+    <p>
+    <?php echo $entry; ?> :
+    <?php echo $entry['created']; ?>
+    </p>
 <?php endforeach; ?>
