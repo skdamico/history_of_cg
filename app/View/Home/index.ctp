@@ -10,7 +10,8 @@
 <div id="recentlyUpdated">
     <span id="entries">
         <?php foreach ($entries as $entry):
-            echo $entry['Entry']['thumbsUp']; ?>
+            echo $entry['Entry']['thumbsUp'];
+        endforeach; ?>
     </span>
     <span id="stories">
         <?php echo $this->element('recent_updates'); ?>
