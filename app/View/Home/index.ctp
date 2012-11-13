@@ -7,6 +7,6 @@
     </form>
 </div>
 <?php echo $this->element('timeline_static'); ?>
-<?php foreach ($entry in $allEntries) : ?>
+<?php foreach ($allEntries as $entry) : ?>
     <span><?php echo $entry['created']; ?></span>
 <?php endforeach; ?>
