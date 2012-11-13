@@ -21,7 +21,8 @@ class HomeController extends AppController {
                                                          'fields' => array('StoryType.name')
                                                      )
                                                  )
-                                             )
+                                             ),
+                                             'order' => 'Story.created DESC'
                                          )));
     }
 }
