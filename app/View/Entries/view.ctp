@@ -56,9 +56,18 @@
 						}
 					}
 				},
+				"Up": function() {
+				    //story['Story']['thumbsUp']++
+				    //dim out the button for this user
+				}
 				"X": function() {
                     $dialog.dialog("close");
                 },
+                "Down": function() {
+                    //story['Story']['thumbsDown']++
+                    //dim out the button for this user
+                    // email terrence with this entry
+                }
 				">": function() {
 					if (index < stories.length-1 && index >= 0) {
 						index++;
