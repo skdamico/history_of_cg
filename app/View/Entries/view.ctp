@@ -59,6 +59,7 @@
 				"Up": function() {
 				    //story['Story']['thumbsUp']++
 				    //dim out the button for this user
+				    // pyahhh
 				},
 				"X": function() {
                     $dialog.dialog("close");
