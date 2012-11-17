@@ -2,8 +2,6 @@
 
 class Story extends AppModel {
     public $name = 'Story';
-    public $thumbsUp = 0;
-    public $thumbsDown = 0;
     public $actsAs = array('Containable');
 
     public $belongsTo = array(
@@ -18,6 +16,10 @@ class Story extends AppModel {
     public $hasMany = array(
       'EntryStory' => array(
         'className' => 'EntryStory',
+        'foreignKey' => 'story_id'
+      ),
+      'Vote' => array(
+        'className' => 'Vote',
         'foreignKey' => 'story_id'
       )
     );

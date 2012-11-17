@@ -18,6 +18,10 @@ class Entry extends AppModel {
       'Source' => array(
         'className' => 'Source',
         'foreignKey' => 'entry_id'
+      ),
+      'Vote' => array(
+        'className' => 'Vote',
+        'foreignKey' => 'entry_id'
       )
   );
 
