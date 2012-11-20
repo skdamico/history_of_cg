@@ -1,4 +1,4 @@
-<script>
+<!--<script>
 	$(document).ready(function() {
 	var $dialog = $('<div></div>')
 		.html('')
@@ -111,7 +111,7 @@
 		return false;
 	});
 });
-</script>
+</script>-->
 
 <?php 
 
