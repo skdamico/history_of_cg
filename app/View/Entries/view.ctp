@@ -26,7 +26,7 @@
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 		}
-		$dialog.html('<div>stories[index]["Story"]</div>');
+		$dialog.html('<div>'+stories[index]["Story"]+'</div>');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"<": function() {
@@ -58,7 +58,7 @@
 					}
 				},
 				"Up": function() {
-                    $dialog.html('up vote');
+                    $dialog.html('<div>up vote</div>');
 				    //story['Story']['thumbsUp']++
 				    //dim out the button for this user
 				    // pyahhh
