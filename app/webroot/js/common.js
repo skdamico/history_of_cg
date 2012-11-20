@@ -81,21 +81,21 @@ $(function() {
                     }
                 }
             },
-            "Up": function() {
+            /*"Up": function() {
                 //$dialog.html('<div>up vote</div>');
                 //story['Story']['thumbsUp']++
                 //dim out the button for this user
                 // pyahhh
-            },
+            },*/
             "X": function() {
                 $dialog.dialog("close");
             },
-            "Down": function() {
+            /*"Down": function() {
                // $dialog.html('<div>down vote<div>');
                 //story['Story']['thumbsDown']++
                 //dim out the button for this user
                 // email terrence with this entry
-            },
+            },*/
             ">": function() {
                 if (index < stories.length-1 && index >= 0) {
                     index++;
