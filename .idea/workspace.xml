@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b81f82b7-9fe1-4ae4-baba-c3a35d14c57b" name="Default" comment="" />
+    <list id="8363b87c-a016-4e4b-90e4-c96f2105d897" name="ignore" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="history_of_cg.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="b81f82b7-9fe1-4ae4-baba-c3a35d14c57b" time="1353427587781" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +16,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\Users\Kyle\Documents\GitHub\history_of_cg" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -23,8 +27,29 @@
       <file leaf-file-name="view.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="18" selection-start="3118" selection-end="3118" vertical-scroll-proportion="0.7246544">
-              <folding />
+            <state line="198" column="22" selection-start="9417" selection-end="9417" vertical-scroll-proportion="0.65625">
+              <folding>
+                <marker date="1353427359252" expanded="false" signature="558:570" placeholder="..." />
+                <marker date="1353427359252" expanded="false" signature="1460:1472" placeholder="..." />
+                <marker date="1353427359252" expanded="false" signature="2289:2301" placeholder="..." />
+                <marker date="1353427359252" expanded="false" signature="3105:3117" placeholder="..." />
+                <marker date="1353427359252" expanded="false" signature="3968:3980" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="16" selection-start="4485" selection-end="4485" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1353377498048" expanded="true" signature="1189:1201" placeholder="..." />
+                <marker date="1353377498048" expanded="true" signature="2221:2233" placeholder="..." />
+                <marker date="1353377498048" expanded="true" signature="3249:3261" placeholder="..." />
+                <marker date="1353377498048" expanded="true" signature="4737:4749" placeholder="..." />
+                <marker date="1353377498048" expanded="true" signature="5813:5825" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,6 +77,7 @@
         <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/libs/jquery-ui.js" />
         <option value="$PROJECT_DIR$/app/webroot/css/jquery-ui.css" />
+        <option value="$PROJECT_DIR$/app/webroot/js/common.js" />
         <option value="$PROJECT_DIR$/app/View/Entries/view.ctp" />
       </list>
     </option>
@@ -89,6 +115,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -157,22 +184,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="history_of_cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Entries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="267" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="296" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="289" />
+    <property name="options.lastSelected" value="preferences.fileTypes" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/GitHub, Inc/Git Shell.lnk" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="297" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="971" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="288" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -183,6 +247,9 @@
     </option>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -207,29 +274,81 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b81f82b7-9fe1-4ae4-baba-c3a35d14c57b" name="Default" comment="" />
+      <changelist id="8363b87c-a016-4e4b-90e4-c96f2105d897" name="ignore" comment="" />
       <created>1348424754739</created>
       <updated>1348424754739</updated>
     </task>
+    <task id="LOCAL-00001" summary="rating work">
+      <created>1353376133541</created>
+      <updated>1353376133541</updated>
+    </task>
+    <task id="LOCAL-00002" summary="rating work">
+      <created>1353376468252</created>
+      <updated>1353376468252</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rating work">
+      <created>1353376632235</created>
+      <updated>1353376632235</updated>
+    </task>
+    <task id="LOCAL-00004" summary="rating work">
+      <created>1353376708693</created>
+      <updated>1353376708693</updated>
+    </task>
+    <task id="LOCAL-00005" summary="rating work">
+      <created>1353376942823</created>
+      <updated>1353376942823</updated>
+    </task>
+    <task id="LOCAL-00006" summary="rating work moved opener for entries to common.js">
+      <created>1353377127424</created>
+      <updated>1353377127424</updated>
+    </task>
+    <task id="LOCAL-00007" summary="rating work moved opener for entries to common.js">
+      <created>1353377218572</created>
+      <updated>1353377218572</updated>
+    </task>
+    <task id="LOCAL-00008" summary="rating work moved opener for entries to common.js">
+      <created>1353377437734</created>
+      <updated>1353377437734</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rating work moved opener for entries to common.js">
+      <created>1353377518668</created>
+      <updated>1353377518668</updated>
+    </task>
+    <task id="LOCAL-00010" summary="rating work moved opener for entries to common.js">
+      <created>1353377618968</created>
+      <updated>1353377618968</updated>
+    </task>
+    <task id="LOCAL-00011" summary="rating work moved opener for entries to common.js">
+      <created>1353377701079</created>
+      <updated>1353377701079</updated>
+    </task>
+    <task id="LOCAL-00012" summary="rating work moved opener for entries to common.js">
+      <created>1353377929293</created>
+      <updated>1353377929293</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <option name="trackContextForNewChangelist" value="false" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14727855" sideWeight="0.67108166" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15048026" sideWeight="0.67108166" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -270,7 +389,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="rating work moved opener for entries to common.js" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -283,94 +402,82 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="rating work" />
+    <MESSAGE value="rating work moved opener for entries to common.js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/styles-content.css">
+    <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="14" selection-start="6432" selection-end="6432" vertical-scroll-proportion="0.0" />
+        <state line="184" column="47" selection-start="8659" selection-end="8659" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1353427359252" expanded="false" signature="558:570" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="1460:1472" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="2289:2301" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="3105:3117" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="3968:3980" placeholder="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lib/carousel.js">
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="33" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.27014756" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lib/prototype.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Users/view.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.19636777" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/js/libs/jquery-ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="4943" selection-start="116568" selection-end="116568" vertical-scroll-proportion="0.35253456" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/img/ui-icons_4b8e0b_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/img/ui-icons_222222_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/img/ui-icons_a83300_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/img/ui-icons_cccccc_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/img/ui-icons_ffffff_256x240.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/jquery-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="55" selection-start="12258" selection-end="12258" vertical-scroll-proportion="0.2546083">
-          <folding />
+        <state line="97" column="16" selection-start="4485" selection-end="4485" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1353377498048" expanded="true" signature="1189:1201" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="2221:2233" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="3249:3261" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="4737:4749" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="5813:5825" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/entry.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.346774" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/EntryStory.php">
+    <entry file="file://$PROJECT_DIR$/app/webroot/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Entry.php">
+    <entry file="file://$PROJECT_DIR$/app/webroot/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/recent_updates.ctp">
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="97" column="16" selection-start="4485" selection-end="4485" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1353377498048" expanded="true" signature="1189:1201" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="2221:2233" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="3249:3261" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="4737:4749" placeholder="..." />
+            <marker date="1353377498048" expanded="true" signature="5813:5825" placeholder="..." />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Home/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Entries/view.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="18" selection-start="3118" selection-end="3118" vertical-scroll-proportion="0.7246544">
-          <folding />
+        <state line="198" column="22" selection-start="9417" selection-end="9417" vertical-scroll-proportion="0.65625">
+          <folding>
+            <marker date="1353427359252" expanded="false" signature="558:570" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="1460:1472" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="2289:2301" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="3105:3117" placeholder="..." />
+            <marker date="1353427359252" expanded="false" signature="3968:3980" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
