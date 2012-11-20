@@ -14,6 +14,7 @@
 		
 
 	$('[id=opener]').click(function() {
+        console.log('clicked');
 		var story = $(this)[0];
 		var stories = eval('('+story.getAttribute('data-stories')+')');
 		var index = story.getAttribute('data-index') - 1;
@@ -26,6 +27,7 @@
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 		}
+        console.log('entry filled');
 		$dialog.html('<div>'+stories[index]["Story"]+'</div>');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
@@ -67,7 +69,7 @@
                     $dialog.dialog("close");
                 },
                 "Down": function() {
-                    $dialog.html('down vote');
+                    $dialog.html('<div>down vote<div>');
                     //story['Story']['thumbsDown']++
                     //dim out the button for this user
                     // email terrence with this entry
@@ -103,6 +105,7 @@
 						
 				}
 			});
+        console.log('buttons drawn');
 		$dialog.dialog('open');
 		// prevent the default action, e.g., following a link
 		return false;
