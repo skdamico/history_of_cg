@@ -3,7 +3,7 @@
 class User extends AppModel {
   public $name = 'User';
 
-  public $hasMany = array('Entry', 'Vote' => array('className' => 'Vote', 'foreignKey' => 'user_id');
+  public $hasMany = array('Entry', 'Vote' => array('className' => 'Vote', 'foreignKey' => 'user_id'));
 
   public $belongsTo = array('Group');
 

@@ -17,10 +17,6 @@ class Story extends AppModel {
       'EntryStory' => array(
         'className' => 'EntryStory',
         'foreignKey' => 'story_id'
-      ),
-      'Vote' => array(
-        'className' => 'Vote',
-        'foreignKey' => 'story_id'
       )
     );
 }

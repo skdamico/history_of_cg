@@ -26,6 +26,10 @@
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 		}
+		$dialog.html('<?php echo stories[index]['Story']; echo $this->element('rating', array('plugin' => 'rating',
+                                                                            'model' => 'Entry',
+                                                                            'id' => stories[index]['Story']));
+                            ?>');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"<": function() {

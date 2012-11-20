@@ -2,7 +2,7 @@
 
 class EntriesController extends AppController {
 
-    public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory', 'Connection', 'Vote');
+    public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory', 'Connection');
 
     function beforeFilter() {
         parent::beforeFilter();
