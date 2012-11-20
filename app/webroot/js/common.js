@@ -50,7 +50,7 @@ $(function() {
             $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
         }
         console.log('entry filled');
-        $dialog.html('<div>'+stories[index]["Story"]+'</div>');
+        //$dialog.html('<div>'+stories[index]["Story"]+'</div>');
         $dialog.dialog("option", "title", story.getAttribute('data-title'));
         $dialog.dialog("option", "buttons", {
             "<": function() {
@@ -82,7 +82,7 @@ $(function() {
                 }
             },
             "Up": function() {
-                $dialog.html('<div>up vote</div>');
+                //$dialog.html('<div>up vote</div>');
                 //story['Story']['thumbsUp']++
                 //dim out the button for this user
                 // pyahhh
@@ -91,7 +91,7 @@ $(function() {
                 $dialog.dialog("close");
             },
             "Down": function() {
-                $dialog.html('<div>down vote<div>');
+               // $dialog.html('<div>down vote<div>');
                 //story['Story']['thumbsDown']++
                 //dim out the button for this user
                 // email terrence with this entry
