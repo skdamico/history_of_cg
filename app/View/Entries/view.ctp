@@ -26,10 +26,7 @@
 		if (stories[index]['Story']['StoryType'].name == 'Text') {
 			$dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
 		}
-		$dialog.html('<?php  echo $this->element('rating', array('plugin' => 'rating',
-                                                                'model' => 'Entry',
-                                                                'id' => stories[index]['Story']));
-                            ?>');
+		$dialog.html('stories[index]["Story"]');
 		$dialog.dialog("option", "title", story.getAttribute('data-title'));
 		$dialog.dialog("option", "buttons", {
 				"<": function() {
@@ -61,6 +58,7 @@
 					}
 				},
 				"Up": function() {
+                    $dialog.html('up vote');
 				    //story['Story']['thumbsUp']++
 				    //dim out the button for this user
 				    // pyahhh
@@ -69,6 +67,7 @@
                     $dialog.dialog("close");
                 },
                 "Down": function() {
+                    $dialog.html('down vote');
                     //story['Story']['thumbsDown']++
                     //dim out the button for this user
                     // email terrence with this entry
