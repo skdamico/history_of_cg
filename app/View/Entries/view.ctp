@@ -1,4 +1,119 @@
-<?php 
+<script>
+    var $dialog = $('<div></div>')
+            .html('')
+            .dialog({
+                autoOpen: false,
+                modal: true,
+                show: 'fadeIn',
+                title: '',
+                maxHeight : 1000,
+                maxWidth : 2000,
+                width: 600
+            });
+
+
+    $('[id=opener]').click(function() {
+        console.log('clicked');
+        var story = $(this)[0];
+        var stories = eval('('+story.getAttribute('data-stories')+')');
+        var index = story.getAttribute('data-index') - 1;
+        if (stories[index]['Story']['StoryType'].name == 'Image') {
+            $dialog.html('<div class="container"><img style="width:590px;" src='+stories[index]['Story']['url']+'></div>');
+        }
+        if (stories[index]['Story']['StoryType'].name == 'Video') {
+            $dialog.html('<div class="container"><embed src="http://www.youtube.com/v/'+stories[index]['Story'].video+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
+        }
+        if (stories[index]['Story']['StoryType'].name == 'Text') {
+            $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+        }
+        console.log('entry filled');
+        //$dialog.html('<div>'+stories[index]["Story"]+'</div>');
+        $dialog.dialog("option", "title", story.getAttribute('data-title'));
+        $dialog.dialog("option", "buttons", {
+            "<": function() {
+                if (index <= stories.length-1 && index > 0) {
+                    index--;
+                    if (stories[index]['Story']['StoryType'].name == 'Image') {
+                        $dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Video') {
+                        $dialog.html('<div class="container"><embed src="http://www.youtube.com/v/'+stories[index]['Story'].video+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Text') {
+                        $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+                    }
+                    $dialog.dialog("option", "title", stories[index]['Story']['title']);
+                }
+                else {
+                    index = stories.length-1;
+                    $dialog.dialog("option", "title", stories[index]['Story']['title']);
+                    if (stories[index]['Story']['StoryType'].name == 'Image') {
+                        $dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Video') {
+                        $dialog.html('<div class="container"><embed src="http://www.youtube.com/v/'+stories[index]['Story'].video+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Text') {
+                        $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+                    }
+                }
+            },
+            "Up": function() {
+                //$dialog.html('<div>up vote</div>');
+                //story['Story']['thumbsUp']++
+                //dim out the button for this user
+                // pyahhh
+                print("up");
+            },
+            "X": function() {
+                $dialog.dialog("close");
+            },
+            "Down": function() {
+               // $dialog.html('<div>down vote<div>');
+                //story['Story']['thumbsDown']++
+                //dim out the button for this user
+                // email terrence with this entry
+                print("down");
+            },
+            ">": function() {
+                if (index < stories.length-1 && index >= 0) {
+                    index++;
+                    if (stories[index]['Story']['StoryType'].name == 'Image') {
+                        $dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Video') {
+                        console.info(stories[index]['Story']);
+                        $dialog.html('<div class="container"><embed src="http://www.youtube.com/v/'+stories[index]['Story'].video+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Text') {
+                        $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+                    }
+                    $dialog.dialog("option", "title", stories[index]['Story']['title']);
+                }
+                else {
+                    index = 0;
+                    $dialog.dialog("option", "title", stories[index]['Story']['title']);
+                    if (stories[index]['Story']['StoryType'].name == 'Image') {
+                        $dialog.html('<img style="width:590px;" src='+stories[index]['Story']['url']+'>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Video') {
+                        $dialog.html('<div class="container"><embed src="http://www.youtube.com/v/'+stories[index]['Story'].video+'" type="application/x-shockwave-flash" width="590px" height="443" allowscriptaccess="always"></div>');
+                    }
+                    if (stories[index]['Story']['StoryType'].name == 'Text') {
+                        $dialog.html('<div class="container"><span>'+stories[index]['Story'].story+'</span></div>');
+                    }
+                }
+
+            }
+        });
+        console.log('buttons drawn');
+        $dialog.dialog('open');
+        // prevent the default action, e.g., following a link
+        return false;
+    });
+</script>
+
+<?php
 
 function limit_words($str, $word_limit) {
     $words = null;
@@ -20,14 +135,16 @@ function limit_words($str, $word_limit) {
 <!-- start of page content -->
 <section class="entryMast">
     <h1 class="entryTitle <?php echo $entry['Category']['category'];?>"><?php echo $entry['Entry']['name']; ?></h1>
-    <ul class="catBar">
-        <li class="category project"><a href="#" data-filter=".project">Projects</a></li>
-        <li class="category person"><a href="#" data-filter=".person">People</a></li>
-        <li class="category organization"><a href="#" data-filter=".organization">Organizations</a></li>
-        <li class="category event"><a href="#" data-filter=".event">Events</a></li>
-        <li class="editEntry"><a href="/entries/edit/<?php echo $entry['Entry']['slug']; ?>">Edit Entry</a></li>
-        <div class="cf"></div>
-    </ul>
+    <div class="catBarContainer">
+        <ul class="catBar">
+            <li class="category project"><a href="#" data-filter=".project">Projects</a></li>
+            <li class="category person"><a href="#" data-filter=".person">People</a></li>
+            <li class="category organization"><a href="#" data-filter=".organization">Organizations</a></li>
+            <li class="category event"><a href="#" data-filter=".event">Events</a></li>
+            <li class="editEntry"><a href="/entries/edit/<?php echo $entry['Entry']['slug']; ?>">Edit Entry</a></li>
+            <div class="cf"></div>
+        </ul>
+    </div>
 </section>
 <section class="tagLists">
     <div class='' style='display:none;'>
@@ -58,7 +175,7 @@ function limit_words($str, $word_limit) {
             </div>
         </li>
     <?php endforeach; ?>
-    <?php foreach($stories as $s): ?>
+    <?php $i = 1; foreach($stories as $s): ?>
         <?php if(!empty($s['Story']['id'])): ?>
 
             <?php if($s['Story']['StoryType']['name'] == 'Text'): ?>
@@ -66,7 +183,15 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-text'><span></div>
+                <div class='bottom-link' id='opener'
+                     data-title='<?php echo $s['Story']['title']; ?>'
+                     data-story='<?php echo $s['Story']['story']; ?>'
+                     data-stories='<?php echo json_encode($stories); ?>'
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?></span>
+                    <span><?php echo $s['Story']['title']; ?></span>
+					<span class='story-type story-type-icon-text'></span>
+				</div>
             </li>
             <?php elseif($s['Story']['StoryType']['name'] == 'Video'): ?>
             <li class="tile story story-video">
@@ -76,7 +201,14 @@ function limit_words($str, $word_limit) {
                     -->
                     <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-video'></span></div>
+                <div class='bottom-link' id='opener'
+                     data-title='<?php echo $s['Story']['title']; ?>'
+                     data-story='<?php echo $s['Story']['story']; ?>'
+                     data-stories='<?php echo json_encode($stories); ?>'
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?></span>
+                    <span class='story-type story-type-icon-video'></span>
+                </div>
             </li>
             <?php else: ?>
 
@@ -92,11 +224,19 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <img src='<?php echo $s['Story']['url']; ?>' />
                 </div>
-                <div class='bottom-link'><span><?php echo $s['Story']['title']; ?></span><span class='story-type story-type-icon-image'></span></div>
+                <div class='bottom-link' id='opener'
+                     data-title='<?php echo $s['Story']['title']; ?>'
+                     data-story='<?php echo $s['Story']['story']; ?>'
+                     data-stories='<?php echo json_encode($stories); ?>'
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?></span>
+                    <span><?php echo $s['Story']['title']; ?></span>
+                    <span class='story-type story-type-icon-image'></span>
+                </div>
             </li>
             <?php endif; ?>
         <?php endif; ?>
-    <?php endforeach; ?>
+    <?php $i++; endforeach; ?>
     </ul>
 </section>
 

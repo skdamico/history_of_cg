@@ -83,8 +83,19 @@ div.form-container {
                 }
             }
             ul.basic-labels {
+                li.label-entry-homepage {
+                    position:relative;
+                    top:170px;
+                }
                 li.label-entry-date {
-                    margin-top:200px;
+                    position:relative;
+                    top:30px;
+                }
+                li.label-entry-date-2 {
+                    span.label {
+                        position:relative;
+                        top:50px;
+                    }
                 }
             }
         }
@@ -181,6 +192,10 @@ div.form-container {
                     margin-left:0;
                 }
             }
+            button {
+                font-size:11px;
+                padding:4px 10px;
+            }
             
             div.story-collapsed {display:none;}
             p.story-collapsed-heading {
@@ -204,6 +219,8 @@ div.form-container {
                 padding:10px;
                 position:relative;
                 width:505px;
+
+                
 
                 span.delete {
                     float:right;

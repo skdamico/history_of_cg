@@ -396,7 +396,7 @@ class EntriesController extends AppController {
             $this->redirect(array('action'=>'add'));
         }
 
-        if ($this->request->is('post')) {
+        if ($this->request->is('post') || $this->request->is('put')) {
 
             // update entry
 

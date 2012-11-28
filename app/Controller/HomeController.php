@@ -2,13 +2,26 @@
 
 class HomeController extends AppController {
 
-  function beforeFilter() {
-    parent::beforeFilter();
+    public $uses = array('Entry','Story', 'EntryStory');
 
-    $this->Auth->allow('index');
-  }
+    function beforeFilter() {
+        parent::beforeFilter();
 
-  public function index() {
-    $this->layout = 'home';
-  }
+        $this->Auth->allow('index');
+    }
+
+    public function index() {
+        $this->layout = 'home';
+        $this->set('stories', $this->EntryStory->find('all', array(
+                                             'contain' => array(
+                                                 'Story' => array(
+                                                     'conditions' => array('Story.published' => 1),
+                                                     'StoryType' => array(
+                                                         'fields' => array('StoryType.name')
+                                                     )
+                                                 )
+                                             ),
+                                             'order' => 'Story.created DESC'
+                                         )));
+    }
 }

@@ -7,6 +7,7 @@
     </div>
     <div class='submit'>
         <input type='submit' value='Login' />
-        <p>Don't have an account? <a href="signup">Get one here!</a></p>
+        <p>Don't have an account? <a href="signup">Get one here!</a>
+        <br>Forgot your password? <a href="users/forgetpwd">Find it here!</a></p>
     </div>
 </form>

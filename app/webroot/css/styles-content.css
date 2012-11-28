@@ -62,13 +62,14 @@
 
 /* --- categories bah --- */
 .entryMast {
-  background-image: url("../img/barBg.png");
   background-position: 0 48px;
   background-repeat: repeat-x;
   margin: 20px auto 0 auto;
   padding: 0; }
   .entryMast .entryTitle {
     cursor: pointer; }
+  .entryMast .catBarContainer {
+    background: black; }
 
 ul.catBar {
   background-color: #0f0f0f;
@@ -252,12 +253,25 @@ ul.mosaicContainer li.tile .bottom-link {
   ul.mosaicContainer li.tile .bottom-link span {
     line-height: 19px;
     padding: 7px 0 2px 0; }
+	ul.mosaicContainer li.tile .bottom-link a {
+    line-height: 19px;
+    padding: 7px 0 2px 0; }
   ul.mosaicContainer li.tile .bottom-link span.story-type {
     float: right;
     margin-top: 5px;
     margin-right: 3px;
     height: 9px; }
+	ul.mosaicContainer li.tile .bottom-link a.story-type {
+		float: right;
+		margin-top: 5px;
+		margin-right: 3px;
+		height: 9px; }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-text {
+      background: url("../img/richMedia_icons.png");
+      background-position: 1px 0;
+      background-repeat: no-repeat;
+      width: 25px; }
+	ul.mosaicContainer li.tile .bottom-link a.story-type.story-type-icon-text {
       background: url("../img/richMedia_icons.png");
       background-position: 1px 0;
       background-repeat: no-repeat;
