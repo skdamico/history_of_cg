@@ -1,4 +1,4 @@
-<script>
+<!--<script>
     var $dialog = $('<div></div>')
             .html('')
             .dialog({
@@ -111,7 +111,7 @@
         // prevent the default action, e.g., following a link
         return false;
     });
-</script>
+</script>-->
 
 <?php
 
