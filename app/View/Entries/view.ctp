@@ -106,7 +106,6 @@
 
             }
         });
-        $dialog.html(story.getAttribute('data-rating'));
         console.log('buttons drawn');
         $dialog.dialog('open');
         // prevent the default action, e.g., following a link
@@ -188,11 +187,11 @@ function limit_words($str, $word_limit) {
                      data-title='<?php echo $s['Story']['title']; ?>'
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
-                     data-index='<?php echo $i; ?>'
-                     data-rating='<?php echo $this->element('rating', array('plugin' => 'rating',
-                                                                             'model' => 'Story',
-                                                                             'id' => $s['Story']['id']));?>'>
-                    <span><?php echo $s['Story']['title']; ?></span>
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?>
+                        <?php echo $this->element('rating', array('plugin' => 'rating',
+                            'model' => 'Story',
+                            'id' => $s['Story']['id']));?></span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
@@ -208,11 +207,11 @@ function limit_words($str, $word_limit) {
                      data-title='<?php echo $s['Story']['title']; ?>'
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
-                     data-index='<?php echo $i; ?>'
-                     data-rating='<?php echo $this->element('rating', array('plugin' => 'rating',
-                                                                             'model' => 'Story',
-                                                                             'id' => $s['Story']['id']));?>'>
-                    <span><?php echo $s['Story']['title']; ?></span>
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?>
+                        <?php echo $this->element('rating', array('plugin' => 'rating',
+                            'model' => 'Story',
+                            'id' => $s['Story']['id']));?></span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
             </li>
@@ -234,11 +233,11 @@ function limit_words($str, $word_limit) {
                      data-title='<?php echo $s['Story']['title']; ?>'
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
-                     data-index='<?php echo $i; ?>'
-                     data-rating='<?php echo $this->element('rating', array('plugin' => 'rating',
-                                                                             'model' => 'Story',
-                                                                             'id' => $s['Story']['id']));?>'>
-                    <span><?php echo $s['Story']['title']; ?></span>
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?>
+                        <?php echo $this->element('rating', array('plugin' => 'rating',
+                        'model' => 'Story',
+                        'id' => $s['Story']['id']));?></span>
                     <span class='story-type story-type-icon-image'></span>
                 </div>
             </li>
