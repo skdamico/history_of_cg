@@ -107,8 +107,8 @@
             }
         });
         $dialog.html(<?php echo $this->element('rating', array('plugin' => 'rating',
-                                                                'model' => [name_of_your_model],
-                                                                'id' => [id_of_your_model]));?>);
+                                                                'model' => 'Story',
+                                                                'id' => stories[index]['Story'].id));?>);
         console.log('buttons drawn');
         $dialog.dialog('open');
         // prevent the default action, e.g., following a link
