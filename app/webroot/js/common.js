@@ -129,6 +129,10 @@ $(function() {
 
             }
         });
+        $dialog.html(<?php echo $this->element('rating', array('plugin' => 'rating',
+                                                                'model' => 'Story',
+                                                                'id' => stories[index]['Story'].id));
+                     ?>)
         console.log('buttons drawn');
         $dialog.dialog('open');
         // prevent the default action, e.g., following a link
