@@ -86,7 +86,7 @@ $(function() {
                 //story['Story']['thumbsUp']++
                 //dim out the button for this user
                 // pyahhh
-                print("up");
+                console.log('up');
             },
             "X": function() {
                 $dialog.dialog("close");
@@ -96,7 +96,7 @@ $(function() {
                 //story['Story']['thumbsDown']++
                 //dim out the button for this user
                 // email terrence with this entry
-                print("down");
+                console.log("down");
             },
             ">": function() {
                 if (index < stories.length-1 && index >= 0) {
