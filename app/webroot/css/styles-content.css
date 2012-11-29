@@ -284,9 +284,11 @@ ul.mosaicContainer li.tile .bottom-link {
     }
     ul.mosaicContainer li.tile .bottom-link span.hover-up-arrow {
         display: none;
+        background-image: url("../img/arrow-up.png");
     }
     ul.mosaicContainer li.tile .bottom-link span.hover-down-arrow {
         display: none;
+        background-image: url("../img/arrow-down.png");
     }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image:hover .hover-up-arrow {
         display: block;
