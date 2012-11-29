@@ -8,7 +8,7 @@
  * @link http://bakery.cakephp.org/articles/view/ajax-star-rating-plugin-1
  * @version 2.4
  */
-class RatingsController extends RatingAppController {
+class RatingController extends RatingAppController {
   /**
    * Renders the content for the rating element.
    *
