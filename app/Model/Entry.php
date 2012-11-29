@@ -2,7 +2,7 @@
 
 class Entry extends AppModel {
   public $name = 'Entry';
-  public $actsAs = array('Containable');
+  public $actsAs = array('Containable', 'Like.Likeable');
 
   public $belongsTo = array('User', 'Category', 'Location');
 
