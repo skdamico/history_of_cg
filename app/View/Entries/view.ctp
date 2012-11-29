@@ -169,13 +169,12 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link' >
-                    <span id='opener'
-                          data-title='<?php echo $s['Story']['title']; ?>'
-                          data-story='<?php echo $s['Story']['story']; ?>'
-                          data-stories='<?php echo json_encode($stories); ?>'
-                          data-index='<?php echo $i; ?>'>
-                        <?php echo $s['Story']['title']; ?></span>
+                <div class='bottom-link' id='opener'
+                     data-title='<?php echo $s['Story']['title']; ?>'
+                     data-story='<?php echo $s['Story']['story']; ?>'
+                     data-stories='<?php echo json_encode($stories); ?>'
+                     data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']; ?></span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
