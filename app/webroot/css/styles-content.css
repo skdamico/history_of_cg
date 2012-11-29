@@ -282,16 +282,8 @@ ul.mosaicContainer li.tile .bottom-link {
       background-repeat: no-repeat;
       width: 25px;
     }
-    ul.mosaicContainer li.tile .bottom-link span.hover-up-arrow {
-        display: none;
-        background-image: url("../img/arrow-up.png");
-    }
-    ul.mosaicContainer li.tile .bottom-link span.hover-down-arrow {
-        display: none;
-        background-image: url("../img/arrow-down.png");
-    }
-    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image:hover .hover-up-arrow {
-        display: block;
+    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image:hover {
+        background-image: url("../img/richMedia_icons.png");
     }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-video {
       background: url("../img/richMedia_icons.png");
