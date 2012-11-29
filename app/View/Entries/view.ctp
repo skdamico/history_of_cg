@@ -70,7 +70,7 @@ function limit_words($str, $word_limit) {
                 </div>
                 <div class='bottom-link'>
                     <span id='opener'
-                          data-title='<?php echo $s['Story']['title']; ?>'
+                          data-title='<?php echo $s['Story']['title']; echo $this->Like->like('Entry', $s['Story']['id']); ?>'
                           data-story='<?php echo $s['Story']['story']; ?>'
                           data-stories='<?php echo json_encode($stories); ?>'
                           data-index='<?php echo $i; ?>'>
