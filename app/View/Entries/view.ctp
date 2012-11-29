@@ -71,12 +71,14 @@ function limit_words($str, $word_limit) {
                 <div class='bottom-link'>
                     <span id='opener'
                           data-title='<?php echo $s['Story']['title']; ?>'
-                          data-story='<?php echo $s['Story']['story']; echo $this->Like->like('Entry', $s['Story']['id']); ?>'
+                          data-story='<?php echo $s['Story']['story']; ?>'
                           data-stories='<?php echo json_encode($stories); ?>'
                           data-index='<?php echo $i; ?>'>
                         <?php echo $s['Story']['title']?>
                     </span>
-                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?> &nbsp;
+                          <?php echo $this->Like->dislike('Entry', $s['Story']['id']); ?>
+                    </span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
@@ -96,7 +98,9 @@ function limit_words($str, $word_limit) {
                           data-index='<?php echo $i; ?>'>
                         <?php echo $s['Story']['title']?>
                     </span>
-                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?> &nbsp;
+                          <?php echo $this->Like->dislike('Entry', $s['Story']['id']); ?>
+                    </span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
             </li>
@@ -122,7 +126,9 @@ function limit_words($str, $word_limit) {
                           data-index='<?php echo $i; ?>'>
                         <?php echo $s['Story']['title']?>
                     </span>
-                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?> &nbsp;
+                          <?php echo $this->Like->dislike('Entry', $s['Story']['id']); ?>
+                    </span>
                     <span class='story-type story-type-icon-image'></span>
                 </div>
             </li>
