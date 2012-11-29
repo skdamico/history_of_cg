@@ -58,22 +58,8 @@
                     }
                 }
             },
-            "Up": function() {
-                //$dialog.html('<div>up vote</div>');
-                //story['Story']['thumbsUp']++
-                //dim out the button for this user
-                // pyahhh
-                console.log('up');
-            },
             "X": function() {
                 $dialog.dialog("close");
-            },
-            "Down": function() {
-                // $dialog.html('<div>down vote<div>');
-                //story['Story']['thumbsDown']++
-                //dim out the button for this user
-                // email terrence with this entry
-                console.log("down");
             },
             ">": function() {
                 if (index < stories.length-1 && index >= 0) {
@@ -188,10 +174,6 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
-                    <span><?php echo $s['Story']['title']; ?>
-                        <?php echo $this->element('rating', array('plugin' => 'rating',
-                            'model' => 'Story',
-                            'id' => $s['Story']['id']));?></span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
@@ -208,10 +190,6 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
-                    <span><?php echo $s['Story']['title']; ?>
-                        <?php echo $this->element('rating', array('plugin' => 'rating',
-                            'model' => 'Story',
-                            'id' => $s['Story']['id']));?></span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
             </li>
@@ -234,10 +212,6 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
-                    <span><?php echo $s['Story']['title']; ?>
-                        <?php echo $this->element('rating', array('plugin' => 'rating',
-                        'model' => 'Story',
-                        'id' => $s['Story']['id']));?></span>
                     <span class='story-type story-type-icon-image'></span>
                 </div>
             </li>

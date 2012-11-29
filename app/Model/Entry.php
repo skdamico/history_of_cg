@@ -18,13 +18,6 @@ class Entry extends AppModel {
       'Source' => array(
         'className' => 'Source',
         'foreignKey' => 'entry_id'
-      ),
-      'Rating' => array(
-          'className'   => 'Rating',
-          'foreignKey'  => 'model_id',
-          'conditions' => array('Rating.model' => 'Entry'),
-          'dependent'   => true,
-          'exclusive'   => true
       )
   );
 
