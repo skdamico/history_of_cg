@@ -92,7 +92,7 @@ function limit_words($str, $word_limit) {
                      data-index='<?php echo $i; ?>'>
                     <span>
                         <?php echo $s['Story']['title']?>
-                        <?php $this->Like->like('Entry', $s['Story']['id']); ?>
+                        <?php echo $this->Like->like('Entry', $s['Story']['id']); ?>
                     </span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
