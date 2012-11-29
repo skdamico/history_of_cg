@@ -117,7 +117,11 @@ function limit_words($str, $word_limit) {
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
                     <span><?php echo $s['Story']['title']?></span>
-                    <span class='story-type story-type-icon-image'></span>
+                    <div class="image">
+                        <span class='story-type story-type-icon-image'></span>
+                        <span class='hover-up-arrow'></span>
+                        <span class='hover-down-arrow'></span>
+                    </div>
                 </div>
             </li>
             <?php endif; ?>

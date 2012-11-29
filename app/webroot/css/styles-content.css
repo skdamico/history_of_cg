@@ -280,7 +280,17 @@ ul.mosaicContainer li.tile .bottom-link {
       background: url("../img/richMedia_icons.png");
       background-position: -23px 0;
       background-repeat: no-repeat;
-      width: 25px; }
+      width: 25px;
+    }
+    ul.mosaicContainer li.tile .bottom-link span.hover-up-arrow {
+        display: none;
+    }
+    ul.mosaicContainer li.tile .bottom-link span.hover-down-arrow {
+        display: none;
+    }
+    ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image:hover .hover-up-arrow {
+        display: block;
+    }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-video {
       background: url("../img/richMedia_icons.png");
       background-position: -46px 0;
