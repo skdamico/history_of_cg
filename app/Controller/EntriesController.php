@@ -3,7 +3,7 @@
 class EntriesController extends AppController {
 
     public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory', 'Connection');
-    public $helpers = array('Like.Like');
+    public $helpers = array('Like.Like', 'Html');
 
     function beforeFilter() {
         parent::beforeFilter();
