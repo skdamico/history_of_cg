@@ -68,12 +68,15 @@ function limit_words($str, $word_limit) {
                 <div class='container'>
                     <p><?php echo limit_words($s['Story']['story'], 80); ?></p>
                 </div>
-                <div class='bottom-link' id='opener'
-                     data-title='<?php echo $s['Story']['title']; ?>'
-                     data-story='<?php echo $s['Story']['story']; ?>'
-                     data-stories='<?php echo json_encode($stories); ?>'
-                     data-index='<?php echo $i; ?>'>
-                    <span><?php echo $s['Story']['title']; ?></span>
+                <div class='bottom-link'>
+                    <span id='opener'
+                          data-title='<?php echo $s['Story']['title']; ?>'
+                          data-story='<?php echo $s['Story']['story']; ?>'
+                          data-stories='<?php echo json_encode($stories); ?>'
+                          data-index='<?php echo $i; ?>'>
+                        <?php echo $s['Story']['title']?>
+                    </span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
@@ -85,15 +88,15 @@ function limit_words($str, $word_limit) {
                     -->
                     <div class='lite' style='width:478px; height:359px' id="<?php echo $s['Story']['video']; ?>"></div>
                 </div>
-                <div class='bottom-link' id='opener'
-                     data-title='<?php echo $s['Story']['title']; ?>'
-                     data-story='<?php echo $s['Story']['story']; ?>'
-                     data-stories='<?php echo json_encode($stories); ?>'
-                     data-index='<?php echo $i; ?>'>
-                    <span>
+                <div class='bottom-link'>
+                    <span id='opener'
+                          data-title='<?php echo $s['Story']['title']; ?>'
+                          data-story='<?php echo $s['Story']['story']; ?>'
+                          data-stories='<?php echo json_encode($stories); ?>'
+                          data-index='<?php echo $i; ?>'>
                         <?php echo $s['Story']['title']?>
-                        <?php echo $this->Like->like('Entry', $s['Story']['id']); ?>
                     </span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
             </li>
@@ -117,10 +120,10 @@ function limit_words($str, $word_limit) {
                           data-story='<?php echo $s['Story']['story']; ?>'
                           data-stories='<?php echo json_encode($stories); ?>'
                           data-index='<?php echo $i; ?>'>
-                        <?php echo $s['Story']['title']?></span>
-                    <?php
-                        echo $this->Html->tag('span', null, array('class' => 'story-type story-type-icon-image', 'onclick' => $this->Like->like('Entry', $s['Story']['id'])));
-                    ?>
+                        <?php echo $s['Story']['title']?>
+                    </span>
+                    <span><?php echo $this->Like->like('Entry', $s['Story']['id']); ?></span>
+                    <span class='story-type story-type-icon-image'></span>
                 </div>
             </li>
             <?php endif; ?>
