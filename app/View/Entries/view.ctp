@@ -174,6 +174,7 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']?></span>
 					<span class='story-type story-type-icon-text'></span>
 				</div>
             </li>
@@ -190,6 +191,7 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']?></span>
                     <span class='story-type story-type-icon-video'></span>
                 </div>
             </li>
@@ -212,6 +214,7 @@ function limit_words($str, $word_limit) {
                      data-story='<?php echo $s['Story']['story']; ?>'
                      data-stories='<?php echo json_encode($stories); ?>'
                      data-index='<?php echo $i; ?>'>
+                    <span><?php echo $s['Story']['title']?></span>
                     <span class='story-type story-type-icon-image'></span>
                 </div>
             </li>
