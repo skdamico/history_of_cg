@@ -283,7 +283,7 @@ ul.mosaicContainer li.tile .bottom-link {
       width: 25px;
     }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-image:hover {
-        background-image: url("../img/richMedia_icons.png");
+        background-image: url("../img/arrow-up.png");
     }
     ul.mosaicContainer li.tile .bottom-link span.story-type.story-type-icon-video {
       background: url("../img/richMedia_icons.png");
