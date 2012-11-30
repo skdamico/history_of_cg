@@ -24,7 +24,7 @@ class LikesController extends AppController{
 			$this->Session->setFlash(__d('like', 'This element does not exist.'));
 			return $this->redirect($referer);
 		}
-		
+
 		$Model->like($foreing_id, $user_id);
 		return $this->redirect($referer);
 	}
