@@ -146,6 +146,7 @@ class EntriesController extends AppController
         $this->set(compact('stories'));
         $this->set(compact('entry'));
         $this->set(compact('tags'));
+        $this->set(compact('can_like'));
 
         $this->set('title_for_layout', $entry['Entry']['name']);
     }
