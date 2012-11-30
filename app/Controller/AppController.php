@@ -4,7 +4,7 @@ class AppController extends Controller {
 
   // We need the Auth component for our authentication system
   // And the Session component is needed for displaying flash messages.
-  var $components = array('Acl', 'Auth','Session', 'RequestHandler', 'DebugKit.Toolbar');
+  var $components = array('Acl', 'Auth','Session', 'RequestHandler');
 
   // if a user is successfully logged in we store that user's record in this variable
   var $current_user = false;
