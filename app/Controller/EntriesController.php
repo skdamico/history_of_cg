@@ -46,7 +46,7 @@ class EntriesController extends AppController {
             )
         ));
 
-        $can_like = $this->Entry->isLikedBy($entry['Entry']['id'], $this->Auth->user('id'));
+        $can_like = $this->Entry->isLikedBy(intval($entry['Entry']['id']), intval($this->Auth->user('id')));
 
         // work around to get Tag to work with the aliased classes Entry1 and Entry2
         $this->Connection->Entry2->bindModel(
