@@ -1,17 +1,20 @@
 <?php
 
-class EntriesController extends AppController {
+class EntriesController extends AppController
+{
 
     public $uses = array('Entry', 'Tag', 'EntryTag', 'EntryStory', 'Connection');
     public $helpers = array('Like.Like', 'Html');
 
-    function beforeFilter() {
+    function beforeFilter()
+    {
         parent::beforeFilter();
 
         $this->Auth->allow('view', 'get_by_phrase', 'not_found', 'not_published');
     }
 
-    public function view( $slug = null ) {
+    public function view($slug = null)
+    {
         $entry = $this->Entry->find('first', array(
             'conditions' => array(
                 'Entry.slug' => $slug,
@@ -24,11 +27,10 @@ class EntriesController extends AppController {
         ));
 
         // if not found, redirect to not found page
-        if(empty($entry)) {
-            $this->redirect(array('action'=>'not_found', $slug));
-        }
-        else if($entry['Entry']['published'] == 0) {
-            $this->redirect(array('action'=>'not_published', $entry['Entry']['slug']));
+        if (empty($entry)) {
+            $this->redirect(array('action' => 'not_found', $slug));
+        } else if ($entry['Entry']['published'] == 0) {
+            $this->redirect(array('action' => 'not_published', $entry['Entry']['slug']));
         }
 
         // Get all published stories
@@ -46,7 +48,7 @@ class EntriesController extends AppController {
             )
         ));
 
-        //$can_like = $this->Entry->isLikedBy(intval($entry['Entry']['id']), intval($this->Auth->user('id')));
+        $can_like = $this->Entry->isLikedBy(intval($entry['Entry']['id']), intval($this->Auth->user('id')));
 
         // work around to get Tag to work with the aliased classes Entry1 and Entry2
         $this->Connection->Entry2->bindModel(
@@ -111,7 +113,7 @@ class EntriesController extends AppController {
         $connections = array();
 
         // Merge both sides of the circular connection into many 'Entry'
-        foreach( $connections_1 as $c_1) {
+        foreach ($connections_1 as $c_1) {
             $display = null;
             $display = $this->find_display_image($c_1['Entry2']['id']);
 
@@ -120,7 +122,7 @@ class EntriesController extends AppController {
 
             $connections[] = array('Entry' => $c_1['Entry2'], 'tags' => $t['simple'], 'connection_display' => $display['connection_display'], 'connection_display_type' => $display['connection_display_type'], 'Connection' => array('id' => $c_1['Connection']['id']));
         }
-        foreach( $connections_2 as $c_2) {
+        foreach ($connections_2 as $c_2) {
             $display = null;
             $display = $this->find_display_image($c_2['Entry1']['id']);
 
@@ -133,9 +135,11 @@ class EntriesController extends AppController {
         // Get only the unique tags and sort them alphabetical
         $tags = $this->array_unique_tags($tags);
 
-        function cmp($a, $b) {
+        function cmp($a, $b)
+        {
             return strnatcmp($a['name'], $b['name']);
         }
+
         usort($tags, 'cmp');
 
         $this->set(compact('connections'));
@@ -146,12 +150,13 @@ class EntriesController extends AppController {
         $this->set('title_for_layout', $entry['Entry']['name']);
     }
 
-    private function array_unique_tags($t_arr) {
+    private function array_unique_tags($t_arr)
+    {
         $seen = array();
         $tmp = array();
 
-        foreach($t_arr as $t) {
-            if(!in_array($t['name'], $seen)) {
+        foreach ($t_arr as $t) {
+            if (!in_array($t['name'], $seen)) {
                 $tmp[] = $t;
                 $seen[] = $t['name'];
             }
@@ -159,11 +164,12 @@ class EntriesController extends AppController {
         return $tmp;
     }
 
-    private function get_tag_names($t_arr, $cat) {
+    private function get_tag_names($t_arr, $cat)
+    {
         $t = array();
         $simple = array();
 
-        foreach($t_arr as $tmp) {
+        foreach ($t_arr as $tmp) {
             $t[] = array('name' => $tmp['name'], 'category' => $cat);
             $simple[] = $tmp['name'];
         }
@@ -175,8 +181,9 @@ class EntriesController extends AppController {
      * find a front display image from the list of stories that are images
      * if there are no images, use a default local image   
      */
-    private function find_display_image( $id=null ) {
-        if(empty($id)) {
+    private function find_display_image($id = null)
+    {
+        if (empty($id)) {
             return null;
         }
 
@@ -209,22 +216,23 @@ class EntriesController extends AppController {
             )
         ));
 
-        if(!empty($story) && !empty($story['Story'])) {
+        if (!empty($story) && !empty($story['Story'])) {
             return array('connection_display' => $story['Story'][0]['url'],
-                         'connection_display_type' => 'image');
-        }
-        else {
+                'connection_display_type' => 'image');
+        } else {
             return array('connection_display' => $story['Entry']['description'],
-                         'connection_display_type' => 'text');
+                'connection_display_type' => 'text');
         }
     }
 
-    public function not_found( $slug = null ) {
+    public function not_found($slug = null)
+    {
         $this->set(compact('slug'));
     }
 
-    public function not_published( $slug = null ) {
-        if( !empty($slug) ) {
+    public function not_published($slug = null)
+    {
+        if (!empty($slug)) {
             $entry = $this->Entry->find('first', array(
                 'conditions' => array(
                     'Entry.slug' => $slug,
@@ -238,21 +246,22 @@ class EntriesController extends AppController {
     }
 
 
-    public function get_by_phrase( $type = null, $s = null ) {
+    public function get_by_phrase($type = null, $s = null)
+    {
         // do not render any views for this action
         $this->autoRender = false;
 
         // check if a querystring was passed in
-        if(!isset($type) && isset($_GET['t'])) {
+        if (!isset($type) && isset($_GET['t'])) {
             $type = $_GET['t'];
         }
-        if(!isset($s) && isset($_GET['q'])) {
+        if (!isset($s) && isset($_GET['q'])) {
             $s = $_GET['q'];
         }
 
-        if(!empty($s)) {
-            $conditions = array('Entry.name LIKE' => '%'.$s.'%');
-            if($type != 'all') {
+        if (!empty($s)) {
+            $conditions = array('Entry.name LIKE' => '%' . $s . '%');
+            if ($type != 'all') {
                 $conditions['Category.category'] = $type;
             }
 
@@ -265,7 +274,7 @@ class EntriesController extends AppController {
             ));
 
             $tmp = array();
-            foreach( $results as $r) {
+            foreach ($results as $r) {
                 $tmp[] = array('id' => $r['Entry']['id'], 'name' => $r['Entry']['name'], 'slug' => $r['Entry']['slug'], 'category' => $r['Category']['category']);
             }
             echo json_encode($tmp);
@@ -273,7 +282,8 @@ class EntriesController extends AppController {
 
     }
 
-    public function get($id = null, $type = null) {
+    public function get($id = null, $type = null)
+    {
         $this->autoRender = false;
 
         if (!empty($id) && !empty($type)) {
@@ -296,22 +306,22 @@ class EntriesController extends AppController {
         }
     }
 
-    function saveTags($entry_id, $tags) {
+    function saveTags($entry_id, $tags)
+    {
         // delete all previous EntryTag for this entry
         $this->EntryTag->deleteAll(array('EntryTag.entry_id' => $entry_id), false);
 
         // Add the tags and relationships one by one
-        foreach($tags as $tag) {
+        foreach ($tags as $tag) {
             $this->EntryTag->create();
 
             $entryTag = array();
             $entryTag['EntryTag']['entry_id'] = $entry_id;
 
             // check if tag is a number, if so it most likely exists
-            if(is_numeric($tag)) {
+            if (is_numeric($tag)) {
                 $entryTag['EntryTag']['tag_id'] = $tag;
-            }
-            else {
+            } else {
                 // Get rid of single quotes and trim whitespace from tag
                 $tag = preg_replace("/(^\'|\'\z)/", "", $tag);
                 $tag = trim($tag);
@@ -324,11 +334,10 @@ class EntriesController extends AppController {
                     'recursive' => 0
                 ));
 
-                if(!empty($result)) {
+                if (!empty($result)) {
                     // tag exists!
                     $entryTag['EntryTag']['tag_id'] = $result['Tag']['id'];
-                }
-                else {
+                } else {
                     // tag does not exist, create it
                     $entryTag['Tag']['name'] = $tag;
                 }
@@ -339,15 +348,16 @@ class EntriesController extends AppController {
         }
     }
 
-    public function add($name = null) {
+    public function add($name = null)
+    {
         if ($this->request->is('post')) {
             // Save Entry first
             $this->Entry->create();
             $entry = array();
             $entry['Entry'] = $this->request->data['Entry'];
             $entry['Entry']['user_id'] = $this->Auth->User('id');
-            if(!empty( $entry['Entry']['date_1'] )) {
-              $entry['Entry']['date_1'] = date('Y-m-d', strtotime($this->request->data['Entry']['date_1']));
+            if (!empty($entry['Entry']['date_1'])) {
+                $entry['Entry']['date_1'] = date('Y-m-d', strtotime($this->request->data['Entry']['date_1']));
             }
             $entry['Entry']['slug'] = $this->create_slug($entry['Entry']['name']);
 
@@ -373,15 +383,13 @@ class EntriesController extends AppController {
 
                 // if we are publishing/unpublishing show a different message
                 if ($published == "1") {
-                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was saved and published"));
-                }
-                else {
-                    $this->Session->setFlash(__('\''.$this->request->data['Entry']['name'].'\' has been saved'));
+                    $this->Session->setFlash(__("'" . $this->request->data['Entry']['name'] . "' was saved and published"));
+                } else {
+                    $this->Session->setFlash(__('\'' . $this->request->data['Entry']['name'] . '\' has been saved'));
                 }
 
-                $this->redirect(array('action'=>'edit', $entry['Entry']['slug']));
-            }
-            else {
+                $this->redirect(array('action' => 'edit', $entry['Entry']['slug']));
+            } else {
                 $this->Session->setFlash(__('The entry could not be saved'));
             }
         }
@@ -393,9 +401,10 @@ class EntriesController extends AppController {
         $this->set('title_for_layout', 'Add an entry');
     }
 
-    public function edit($id = null) {
+    public function edit($id = null)
+    {
         if (!$id && empty($this->request->data)) {
-            $this->redirect(array('action'=>'add'));
+            $this->redirect(array('action' => 'add'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
@@ -405,8 +414,7 @@ class EntriesController extends AppController {
             // check id first
             if (is_numeric($id)) {
                 $this->Entry->id = $id;
-            }
-            else {
+            } else {
                 $id = $this->request->data['Entry']['id'];
                 $this->Entry->id = $id;
             }
@@ -447,16 +455,13 @@ class EntriesController extends AppController {
 
                 // if we are publishing/unpublishing show a different message
                 if ($published == "1") {
-                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was published"));
+                    $this->Session->setFlash(__("'" . $this->request->data['Entry']['name'] . "' was published"));
+                } else if ($published == "0") {
+                    $this->Session->setFlash(__("'" . $this->request->data['Entry']['name'] . "' was unpublished"));
+                } else {
+                    $this->Session->setFlash(__("'" . $this->request->data['Entry']['name'] . "' has been updated"));
                 }
-                else if ($published == "0") {
-                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' was unpublished"));
-                }
-                else {
-                    $this->Session->setFlash(__("'".$this->request->data['Entry']['name']."' has been updated"));
-                }
-            }
-            else {
+            } else {
                 $this->Session->setFlash(__("The entry could not be updated"));
             }
         }
@@ -472,11 +477,10 @@ class EntriesController extends AppController {
             ));
 
             // if not found, redirect to add page
-            if(empty($entry)) {
-                $this->redirect(array('action'=>'add'));
+            if (empty($entry)) {
+                $this->redirect(array('action' => 'add'));
             }
-        }
-        else {
+        } else {
             // its a slug!
             $entry = $this->Entry->find('first', array(
                 'conditions' => array(
@@ -486,8 +490,8 @@ class EntriesController extends AppController {
             ));
 
             // if not found, redirect to add page
-            if(empty($entry)) {
-                $this->redirect(array('action'=>'add'));
+            if (empty($entry)) {
+                $this->redirect(array('action' => 'add'));
             }
         }
 
@@ -545,10 +549,10 @@ class EntriesController extends AppController {
         $connections = array();
 
         // Merge both sides of the circular connection into many 'Entry'
-        foreach( $connections_1 as $c_1) {
+        foreach ($connections_1 as $c_1) {
             $connections[] = array('Entry' => $c_1['Entry2'], 'Connection' => array('id' => $c_1['Connection']['id']));
         }
-        foreach( $connections_2 as $c_2) {
+        foreach ($connections_2 as $c_2) {
             $connections[] = array('Entry' => $c_2['Entry1'], 'Connection' => array('id' => $c_2['Connection']['id']));
         }
 
