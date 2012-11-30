@@ -98,7 +98,7 @@ function limit_words($str, $word_limit) {
                           data-index='<?php echo $i; ?>'>
                         <?php echo $s['Story']['title']?>
                     </span>
-                    <span><?php if($can_like): echo $this->Like->like('Entry', $s['Story']['id']); endif;?> &nbsp; }
+                    <span><?php if($this->Entry->isLikedBy(intval($entry['Entry']['id']), intval($this->Auth->user('id')))): echo $this->Like->like('Entry', $s['Story']['id']); endif;?> &nbsp; }
                           <?php echo $this->Like->dislike('Entry', $s['Story']['id']); ?>
                     </span>
                     <span class='story-type story-type-icon-video'></span>
