@@ -2,7 +2,7 @@
 
 class LikesController extends AppController{
 
-    public $components = array('Session');
+    public $components = array('Auth', 'Session');
     public $helpers = array('Session');
 
 	public function like($model_name, $foreing_id){
