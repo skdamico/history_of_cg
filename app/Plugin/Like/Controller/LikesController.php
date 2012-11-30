@@ -1,7 +1,10 @@
 <?php
 
 class LikesController extends AppController{
-	
+
+    public $components = array('Session');
+    public $helpers = array('Session');
+
 	public function like($model_name, $foreing_id){
 		$Model = ClassRegistry::init(Inflector::classify($model_name));
 		$referer = $this->referer('/');
